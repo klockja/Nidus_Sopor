@@ -350,10 +350,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9a947b0539e42b6bf090c014a07cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamePaused: 0
   AttackableEnemy: {fileID: 0}
   canAttack: 0
+  canBeHurt: 0
   canMove: 0
-  timeToWait: 0
+  MaxHealth: 0
+  CurrentHealth: 0
+  walkSpeed: 0
+  runSpeed: 0
+  SetBehavior: 0
+  isPatrolling: 0
+  isSleeping: 0
+  isWandering: 0
+  isPursuing: 0
+  patrolPattern: []
+  lastPatrolPosition: {x: 0, y: 0}
+  lastPatrolPatternOrder: 0
+  hurtWaitTime: 0
   isWaiting: 0
 --- !u!114 &114956348670706414
 MonoBehaviour:
@@ -487,7 +501,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.24, y: 0.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
