@@ -11,6 +11,8 @@ public class ui : MonoBehaviour {
 	//public GameObject Panel4;
 	public GameManagement gameManagement;
 
+	//test
+
 	// Use this for initialization
 	void Start () {
 		//TitlePanel = GameObject.FindGameObjectWithTag("TitlePanel");
