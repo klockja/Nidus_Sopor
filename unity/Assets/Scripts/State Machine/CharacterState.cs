@@ -28,12 +28,12 @@ public class CharacterState {
 		
 	}
 
-	public virtual void DesireMovement(Vector2 movementDirection)
+	public virtual void DesireMove(Vector2 movementDirection)
 	{
 
 	}
 
-	public virtual void DesireSneakToggle()
+	public virtual void DesireSneak()
 	{
 
 	}

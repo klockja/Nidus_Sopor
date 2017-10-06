@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SneakState : MovementState {
+public class SneakState : MoveState {
 
 	public SneakState(CharacterStateMachine machine) : base(machine)
 	{
 	}
 
-	override public void DesireMovement(Vector2 movement)
+	override public void DesireMove(Vector2 movement)
 	{
 		float speed = m_machine.Controller.SneakSpeed * m_machine.Controller.SpeedDecay;
 
 		m_machine.Controller.Body.velocity = (movement * speed * Time.deltaTime);
 	}
 
-	override public void DesireSneakToggle()
+	override public void DesireSneak()
 	{
-		m_machine.CurrentState = new MovementState(m_machine);
+		m_machine.CurrentState = new MoveState(m_machine);
 	}
 }
