@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 		m_Body = gameObject.GetComponentInChildren <Rigidbody2D> (); //Gets the Rigidbody of the character.
 
 		m_stateMachine = new CharacterStateMachine(this);
-		m_stateMachine.CurrentState = new MovementState(m_stateMachine);
+		m_stateMachine.CurrentState = new MoveState(m_stateMachine);
 	}
 
 	void Start () 
@@ -74,6 +74,8 @@ public class PlayerController : MonoBehaviour
 
 	void Update ()
 	{
+		Debug.Log (m_stateMachine.CurrentState);
+
 		if (gamePaused == false)
 		{
 			m_stateMachine.Update();
@@ -82,15 +84,23 @@ public class PlayerController : MonoBehaviour
 			float vertical = Input.GetAxis ("Vertical");
 
 			Vector2 movementDirection = new Vector2(horizontal, vertical);
-			movementDirection.Normalize();
-			m_stateMachine.CurrentState.DesireMovement(movementDirection);
+//			movementDirection.Normalize();
+			m_stateMachine.CurrentState.DesireMove(movementDirection);
 
-			if(Input.GetKeyDown(KeyCode.LeftShift))
+
+			if (Input.GetKeyDown (KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.RightShift))
 			{
-				m_stateMachine.CurrentState.DesireSneakToggle();
-			}	
+				Debug.Log ("Player Entered Sneak Mode");
+				m_stateMachine.CurrentState.DesireSneak ();
+			}
 
-			if(Input.GetKeyDown(KeyCode.Space))
+			if ((Input.GetKeyUp (KeyCode.LeftShift) || Input.GetKeyUp (KeyCode.RightShift)))
+			{
+				Debug.Log ("Player Exited Sneak Mode");
+				m_stateMachine.CurrentState = new MoveState (m_stateMachine);
+			}
+
+			if(Input.GetKeyDown(KeyCode.Mouse0))
 			{
 				m_stateMachine.CurrentState.DesireShoot();
 			}

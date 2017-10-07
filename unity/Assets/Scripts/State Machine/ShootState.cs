@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackState : CharacterState {
+public class ShootState : CharacterState {
 
 	private float _shotTime = 0.25f;
 	GameObject player = GameObject.Find ("Player");
 
 	private CharacterState _previousState;
-	public AttackState(CharacterStateMachine machine, CharacterState previousState):base(machine)
+	public ShootState(CharacterStateMachine machine, CharacterState previousState):base(machine)
 	{
 		_previousState = previousState;
 
