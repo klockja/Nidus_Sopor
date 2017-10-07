@@ -1187,9 +1187,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePaused: 0
+  Rock: {fileID: 1164884993820866, guid: 3753ab21f009ba649bc77585bfb7a1c0, type: 2}
   canMove: 1
-  sneakSpeed: 1
-  runSpeed: 4
+  sneakSpeed: 50
+  runSpeed: 200
 --- !u!1 &1286657628
 GameObject:
   m_ObjectHideFlags: 0

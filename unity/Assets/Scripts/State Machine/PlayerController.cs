@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
 
 //	private Vector2 position; //The player's position in the world. Used for convienence.
 
+
+	public GameObject Rock; 
+
+
 	private Rigidbody2D m_Body; //The player's rigidbody
 	public Rigidbody2D Body
 	{
@@ -103,6 +107,12 @@ public class PlayerController : MonoBehaviour
 			if(Input.GetKeyDown(KeyCode.Mouse0))
 			{
 				m_stateMachine.CurrentState.DesireShoot();
+			}
+
+			if(Input.GetKeyDown(KeyCode.Mouse1))
+			{
+				
+				m_stateMachine.CurrentState.DesireThrowRock(Rock);
 			}
 		}
 	}

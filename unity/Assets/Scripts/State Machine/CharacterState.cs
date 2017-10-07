@@ -43,5 +43,9 @@ public class CharacterState {
 
 	}
 
+	public virtual void DesireThrowRock(GameObject Rock)
+	{
+
+	}
 
 }

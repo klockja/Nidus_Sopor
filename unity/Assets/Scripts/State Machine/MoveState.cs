@@ -24,4 +24,9 @@ public class MoveState : CharacterState {
 	{
 		m_machine.CurrentState = new ShootState(m_machine, this);
 	}
+
+	override public void DesireThrowRock(GameObject Rock)
+	{
+		m_machine.CurrentState = new DistractState(m_machine, this, Rock);
+	}
 }
