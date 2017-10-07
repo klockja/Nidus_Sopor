@@ -27,7 +27,11 @@
  <tile id="18" terrain="3,3,3,3"/>
  <tile id="19" terrain="3,0,3,0"/>
  <tile id="20" terrain="1,2,1,2"/>
- <tile id="21" terrain="2,2,2,2"/>
+ <tile id="21" terrain="2,2,2,2">
+  <objectgroup draworder="index">
+   <object id="2" x="-6.66134e-16" y="-0.210172" width="15.7629" height="15.9731"/>
+  </objectgroup>
+ </tile>
  <tile id="22" terrain="2,1,2,1"/>
  <tile id="23" terrain="0,2,0,2"/>
  <tile id="24" terrain="2,2,2,2"/>
