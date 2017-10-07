@@ -49,8 +49,25 @@ public class EnemyController : MonoBehaviour
 	[SerializeField]
 	private int lastPatrolPatternOrder;
 
+	public float patrolWaitTime;
 	public float hurtWaitTime;
 	public bool isWaiting;
+
+	public Transform pathHolder;
+
+	void OnDrawGizmos()
+	{
+		Vector2 startPosition = pathHolder.GetChild (0).position;
+		Vector2 previousPosition = startPosition;
+		foreach (Transform waypoint in pathHolder)
+		{
+			Gizmos.DrawIcon (waypoint.position, "check-x-gizmo.png", true);
+			Gizmos.DrawLine (previousPosition, waypoint.position);
+//			Gizmos.DrawCube (waypoint.position, new Vector2 (.5f,.5f));
+			previousPosition = waypoint.position;
+		}
+		Gizmos.DrawLine (previousPosition, startPosition);
+	}
 
 	void Awake ()
 	{
@@ -64,7 +81,13 @@ public class EnemyController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		patrolPattern.Add (Vector2.up);
+		Vector2[] waypoints = new Vector2[pathHolder.childCount];
+		for (int i = 0; i < waypoints.Length; i++)
+		{
+			waypoints [i] = pathHolder.GetChild (i).position;
+		}
+
+		StartCoroutine (FollowPath (waypoints));
 	}
 	
 	// Update is called once per frame
@@ -98,13 +121,26 @@ public class EnemyController : MonoBehaviour
 			transform.Translate (m_PushDirection * Time.deltaTime);
 			return;
 		}
-
-
 	}
 
-	public void addToPatrolPattern(Vector2 direction)
+	IEnumerator FollowPath(Vector2[] waypoints)
 	{
-		patrolPattern.Add (direction);
+		transform.position = waypoints [0];
+
+		int targetWaypointIndex = 1;
+		Vector3 targetWaypoint = waypoints [targetWaypointIndex];
+
+		while (true)
+		{
+			transform.position = Vector2.MoveTowards (transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
+			if (transform.position == targetWaypoint)
+			{
+				targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
+				targetWaypoint = waypoints [targetWaypointIndex];
+				yield return new WaitForSeconds (patrolWaitTime);
+			}
+			yield return null;
+		}
 	}
 
 	void UpdateHit()
