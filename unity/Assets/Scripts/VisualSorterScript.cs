@@ -8,21 +8,30 @@ public class VisualSorterScript : MonoBehaviour
 	{
 		if (col.tag == "Player" || col.tag == "Enemy")
 		{
-			col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = -1;
+			if (col.GetComponentInChildren <SpriteRenderer> ())
+			{
+				col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = -1;
+			}
 		}
 	}
 	void OnTriggerStay2D(Collider2D col)
 	{
 		if (col.tag == "Player" || col.tag == "Enemy")
 		{
-			col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = -1;
+			if (col.GetComponentInChildren <SpriteRenderer> ())
+			{
+				col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = -1;
+			}
 		}
 	}
 	void OnTriggerExit2D(Collider2D col)
 	{
 		if (col.tag == "Player" || col.tag == "Enemy")
 		{
-			col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = 0;
+			if (col.GetComponentInChildren <SpriteRenderer> ())
+			{
+				col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = 1;
+			}
 		}
 	}
 }
