@@ -2,15 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyState : MonoBehaviour {
+public class EnemyState {
 
-	// Use this for initialization
-	void Start () {
-		
+	protected EnemyStateMachine m_machine;
+
+	public EnemyState(EnemyStateMachine machine)
+	{
+		m_machine = machine;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public virtual void OnEnter()
+	{
 	}
+
+	public virtual void OnExit()
+	{
+	}
+
+	public virtual void Update()
+	{
+	}
+
+	public virtual void FixedUpdate()
+	{
+
+	}
+
+	public virtual void DesireMove(Vector2 movementDirection)
+	{
+
+	}
+
+	public virtual void Patrol()
+	{
+
+	}
+
 }
