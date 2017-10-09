@@ -11,8 +11,15 @@ public class MoveState : CharacterState {
 	override public void DesireMove(Vector2 movement)
 	{
 		float speed = m_machine.Controller.RunSpeed * m_machine.Controller.SpeedDecay;
-
 		m_machine.Controller.Body.velocity = (movement * speed * Time.deltaTime);
+
+		if (m_machine.Controller.Body.velocity != new Vector2 (0, 0)) {
+			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().AudioRadius = new Vector3 (10, 10, 1);
+			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().colliderRadius = 0.1f;
+		} else {
+			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 1);
+			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().colliderRadius = 0;
+		}
 	}
 
 	override public void DesireSneak()
@@ -29,4 +36,5 @@ public class MoveState : CharacterState {
 	{
 		m_machine.CurrentState = new DistractState(m_machine, this, Rock);
 	}
+		
 }

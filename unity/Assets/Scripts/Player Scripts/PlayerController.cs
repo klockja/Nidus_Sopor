@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour 
 {
 	public bool gamePaused = false;
+	public bool backward;
+	 
 
 //	private Vector2 position; //The player's position in the world. Used for convienence.
 
@@ -73,12 +75,18 @@ public class PlayerController : MonoBehaviour
 
 	void Start () 
 	{
-		
+		backward = GameObject.Find ("managementObject").GetComponent<GameManagement> ().isbackward;
+		if (backward == false) {
+			transform.localPosition = new Vector3 (0, -10, 0);
+		} else if (backward == true) {
+			transform.localPosition = new Vector3 (0, 10, 0);
+		}
 	}
 
 	void Update ()
 	{
-		Debug.Log (m_stateMachine.CurrentState);
+		//Debug.Log (m_stateMachine.CurrentState);
+		gamePaused = GameObject.Find ("managementObject").GetComponent<GameManagement> ().ispaused;
 
 		if (gamePaused == false)
 		{
@@ -133,6 +141,15 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		if (col.gameObject.tag == "Enemy") 
+		{
+			GameObject.Find ("managementObject").GetComponent<GameManagement> ().ispaused = true;
+			GameObject.Find ("Canvas").GetComponent<ui> ().menuID = 4;
+		}
+	}
+
 	void FixedUpdate () 
 	{
 		if (gamePaused == false)
@@ -140,4 +157,5 @@ public class PlayerController : MonoBehaviour
 			m_stateMachine.FixedUpdate();
 		}
 	}
+		
 }

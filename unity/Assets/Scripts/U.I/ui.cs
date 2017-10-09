@@ -8,7 +8,7 @@ public class ui : MonoBehaviour {
 	public GameObject Panel1;
 	public GameObject Panel2;
 	public GameObject Panel3;
-	//public GameObject Panel4;
+	public GameObject Panel4;
 	public GameManagement gameManagement;
 
 	// Use this for initialization
@@ -38,7 +38,7 @@ public class ui : MonoBehaviour {
 		Panel1.SetActive (false);
 		Panel2.SetActive (false);
 		Panel3.SetActive (false);
-		//Panel4.SetActive (false);
+		Panel4.SetActive (false);
 
 		switch (menuID) {
 		case 0:
@@ -50,9 +50,9 @@ public class ui : MonoBehaviour {
 		case 2:
 			Panel3.gameObject.SetActive(true);
 			break;
-	//	case 3:
-	//		Panel4.gameObject.SetActive(true);
-	//		break;
+		case 3:
+			Panel4.gameObject.SetActive(true);
+			break;
 		}
 	}
 
