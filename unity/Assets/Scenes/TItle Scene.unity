@@ -539,6 +539,7 @@ MonoBehaviour:
   Panel2: {fileID: 1789886383}
   Panel3: {fileID: 485412269}
   Panel4: {fileID: 485412269}
+  Panel5: {fileID: 485412269}
   gameManagement: {fileID: 0}
 --- !u!1 &793729959
 GameObject:
@@ -814,7 +815,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 'Beach '
+          m_StringArgument: Beach
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

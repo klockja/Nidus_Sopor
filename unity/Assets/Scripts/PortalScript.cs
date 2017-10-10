@@ -57,6 +57,10 @@ public class PortalScript : MonoBehaviour {
 		} else if ((currentScene == "Forest") && (backward == true)) {
 			nextScene = "Beach";
 			return nextScene;
+		} else if ((currentScene == "Beach") && (backward == true)) {
+			GameObject.Find ("Canvas").GetComponent<ui> ().Panel5.SetActive (true);
+			nextScene = null;
+			return nextScene;
 		} else 
 		{
 			//Debug.Log ("Error In PortalScript");

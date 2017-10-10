@@ -19,6 +19,6 @@ public class GameManagement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log (ispaused);
-		Debug.Log(isbackward);
+		//Debug.Log(isbackward);
 	}
 }

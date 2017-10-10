@@ -15,11 +15,11 @@ public class SneakState : MoveState {
 		m_machine.Controller.Body.velocity = (movement * speed * Time.deltaTime);
 
 		if (m_machine.Controller.Body.velocity != new Vector2 (0, 0)) {
-			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().AudioRadius = new Vector3 (5, 5, 1);
-			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().colliderRadius = 0.05f;
+			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (5, 5, 1);
+			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.05f;
 		}	else {
-			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 1);
-			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().colliderRadius = 0;
+			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 1);
+			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0;
 		}
 	}
 

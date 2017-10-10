@@ -14,11 +14,11 @@ public class MoveState : CharacterState {
 		m_machine.Controller.Body.velocity = (movement * speed * Time.deltaTime);
 
 		if (m_machine.Controller.Body.velocity != new Vector2 (0, 0)) {
-			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().AudioRadius = new Vector3 (10, 10, 1);
-			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().colliderRadius = 0.1f;
+			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (10, 10, 1);
+			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.1f;
 		} else {
-			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 1);
-			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().colliderRadius = 0;
+			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 1);
+			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0;
 		}
 	}
 
