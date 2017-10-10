@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
 
 	void Awake ()
 	{
+		GameObject.Find ("managementObject").GetComponent<GameManagement> ().ispaused = false;
 		m_Body = gameObject.GetComponentInChildren <Rigidbody2D> (); //Gets the Rigidbody of the character.
 
 		m_stateMachine = new CharacterStateMachine(this);
