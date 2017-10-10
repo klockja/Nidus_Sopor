@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
 		{
 			Debug.Log ("hit player");
 			GameObject.Find ("managementObject").GetComponent<GameManagement> ().ispaused = true;
-			GameObject.Find ("Canvas").GetComponent<ui> ().menuID = 3;
+			GameObject.Find ("Canvas").GetComponent<ui> ().Panel4.SetActive (true);
 		}
 	}
 

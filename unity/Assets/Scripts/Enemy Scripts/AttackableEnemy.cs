@@ -7,7 +7,7 @@ public class AttackableEnemy : MonoBehaviour
 	private bool canBeHurt = true;
 
 	private float MaxHealth;
-	private float Health;
+	public float Health;
 
 
 	void Awake()
