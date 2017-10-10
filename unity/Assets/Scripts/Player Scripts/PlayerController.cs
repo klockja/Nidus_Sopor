@@ -145,8 +145,9 @@ public class PlayerController : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Enemy") 
 		{
+			Debug.Log ("hit player");
 			GameObject.Find ("managementObject").GetComponent<GameManagement> ().ispaused = true;
-			GameObject.Find ("Canvas").GetComponent<ui> ().menuID = 4;
+			GameObject.Find ("Canvas").GetComponent<ui> ().menuID = 3;
 		}
 	}
 
