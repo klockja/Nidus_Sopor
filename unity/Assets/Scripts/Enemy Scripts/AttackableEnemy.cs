@@ -12,7 +12,6 @@ public class AttackableEnemy : MonoBehaviour
 
 	void Awake()
 	{
-//		Health = MaxHealth;
 	}
 
 	// Use this for initialization
@@ -26,12 +25,16 @@ public class AttackableEnemy : MonoBehaviour
 		
 	}
 
-	public void OnHit()
+	public void Damage(float damage)
 	{
-		
-		if (Health <= 0) 
+		Debug.Log ("Took Damage");
+		if (canBeHurt)
 		{
-			
+			Health = Health - damage;
+			if (Health <= 0)
+			{
+				Destroy (gameObject);
+			}
 		}
 	}
 

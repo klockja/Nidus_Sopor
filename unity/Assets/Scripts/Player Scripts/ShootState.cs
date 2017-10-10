@@ -14,10 +14,15 @@ public class ShootState : CharacterState {
 
 		Vector2 mousePosition = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
 		Vector2 firePosition = new Vector2 (player.transform.position.x, player.transform.position.y);
-		RaycastHit2D hit = Physics2D.Raycast (firePosition, (mousePosition - firePosition), 100, LayerMask.NameToLayer ("Objects&Creatures"));
+		RaycastHit2D hit = Physics2D.Raycast (firePosition, (mousePosition - firePosition), 100, machine.Controller.shootableMask);
+		Debug.Log (hit.collider.gameObject);
+		if (hit.collider.tag == "Player")
+		{
+			Debug.Log ("Shot myself");
+		}
 		if (hit.collider.tag == "Enemy") 
 		{
-			hit.collider.GetComponentInParent <AttackableEnemy> ();
+			hit.collider.GetComponentInParent <AttackableEnemy> ().Damage (50);
 			// Deal Damage to them
 			Debug.Log("hit Unke");
 		}
@@ -26,6 +31,7 @@ public class ShootState : CharacterState {
 		GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().colliderRadius = 1f;
 
 		Debug.DrawLine (firePosition, mousePosition);
+
 		Debug.Log ("shoot");
 	}
 
