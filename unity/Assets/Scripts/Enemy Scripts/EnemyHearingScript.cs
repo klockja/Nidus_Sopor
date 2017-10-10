@@ -15,4 +15,13 @@ public class EnemyHearingScript : MonoBehaviour
 	void Update () {
 		
 	}
+
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if (col.gameObject.name == "Audio Collider")
+		{
+			_enemyController.CharacterDetected = col.gameObject;
+			_enemyController.playerDetected = true;
+		}
+	}
 }

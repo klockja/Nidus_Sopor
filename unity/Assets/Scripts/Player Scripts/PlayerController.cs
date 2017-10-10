@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
 	public bool gamePaused = false;
 	public bool backward;
+
+	public LayerMask shootableMask;
 	 
 
 //	private Vector2 position; //The player's position in the world. Used for convienence.
