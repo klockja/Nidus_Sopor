@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStimuliScript : MonoBehaviour {
-
+public class EnemyHearingScript : MonoBehaviour 
+{
+	EnemyController _enemyController;
 	// Use this for initialization
-	void Start () {
-		
+	void Start () 
+	{
+		_enemyController = GetComponentInParent <EnemyController>();
 	}
 	
 	// Update is called once per frame

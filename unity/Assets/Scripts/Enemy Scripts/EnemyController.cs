@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour
 	}
 
 	[Header("Movement")]
-	private Vector3 previousHeadPosition;
+//	private Vector3 previousHeadPosition;
 	[SerializeField][Range (0f, 10f)]
 	private float walkSpeed;
 	public float WalkSpeed
@@ -104,7 +104,7 @@ public class EnemyController : MonoBehaviour
 	void Awake ()
 	{
 		m_stateMachine = new EnemyStateMachine(this);
-		previousHeadPosition = EnemyHead.transform.position;
+//		previousHeadPosition = EnemyHead.transform.position;
 //		anim = GetComponentInChildren <Animator> (); // Gets the animator of the enemy
 		m_Body = GetComponent <Rigidbody2D> ();
 		AttackableEnemy = GetComponentInChildren <AttackableEnemy> (); // Gets the AttackableEnemy script
@@ -130,7 +130,7 @@ public class EnemyController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		StartCoroutine ("FindTargetWithDelay", 0.2f);
+		StartCoroutine (FindTargetWithDelay(0.2f));
 
 		if (SetBehavior == Behavior.Patrols && PatrolPath != null)
 		{
@@ -152,6 +152,13 @@ public class EnemyController : MonoBehaviour
 				canMove = false;
 			}
 			UpdateDirection ();
+
+			if (playerDetected)
+			{
+				m_stateMachine.CurrentState.OnExit ();
+				PursuePlayer ();
+//				m_stateMachine.CurrentState = new EnemyPursueState(m_stateMachine, CharacterDetected.transform);
+			}
 		}
 	}
 
@@ -201,7 +208,7 @@ public class EnemyController : MonoBehaviour
 //		{
 //			transform.rotation = rotation;
 //		}
-		previousHeadPosition = EnemyHead.transform.position;
+//		previousHeadPosition = EnemyHead.transform.position;
 	}
 
 	IEnumerator FindTargetWithDelay(float delay) 
@@ -224,25 +231,31 @@ public class EnemyController : MonoBehaviour
 			Vector3 dirToTarget = (target.position - EnemyHead.transform.position).normalized;
 			if (Vector3.Angle(EnemyHead.transform.up, dirToTarget) < viewAngle / 2) {
 				float dstToTarget = Vector3.Distance(EnemyHead.transform.position, target.position);
-				//If line draw from object to target is not interrupted by wall, add target to list of visible 
-				//targets
-				if (!Physics2D.Raycast(EnemyHead.transform.position, dirToTarget, dstToTarget, obstacleMask)) 
+				//If line draw from object to target is not interrupted by wall, add target to list of visible targets
+				if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask)) 
 				{
 					visibleTargets.Add(target);
-//					if (m_stateMachine.CurrentState == EnemyPursueState)
-//					{
+					if (playerDetected == false)
+					{
+						CharacterDetected = target.gameObject;
+						playerDetected = true;
 //						m_stateMachine.CurrentState = new EnemyPursueState (m_stateMachine, target);
-//					}
+					}
 				}
 			}
 		}
+	}
+
+	public void PursuePlayer()
+	{
+		transform.position = Vector2.MoveTowards (transform.position, CharacterDetected.transform.position, RunSpeed * Time.deltaTime);
 	}
 
 	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
 	{
 		if (!angleIsGlobal) 
 		{
-			angleInDegrees -= EnemyHead.transform.eulerAngles.z;
+			angleInDegrees -= transform.eulerAngles.z;
 		}
 		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);
 	}
