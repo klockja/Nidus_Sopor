@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
 	public bool canMove;
 
 	[SerializeField]
-	static private bool playerDetected = false;
+	private bool playerDetected = false;
 	GameObject CharacterDetected;
 
 	private Vector2 m_PushDirection;
