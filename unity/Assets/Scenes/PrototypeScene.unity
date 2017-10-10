@@ -3086,20 +3086,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1244993341360234, guid: 10fd4185daae04b91a2bc841abec5206, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198912018626374288, guid: 10fd4185daae04b91a2bc841abec5206,
-        type: 2}
-      propertyPath: TriggerModule.collisionShape0
-      value: 
-      objectReference: {fileID: 2032342973}
-    - target: {fileID: 198912018626374288, guid: 10fd4185daae04b91a2bc841abec5206,
-        type: 2}
-      propertyPath: randomSeed
-      value: 180713744
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10fd4185daae04b91a2bc841abec5206, type: 2}
   m_IsPrefabParent: 0
@@ -3223,11 +3209,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2032342973 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4737931096155312, guid: 10fd4185daae04b91a2bc841abec5206,
-    type: 2}
-  m_PrefabInternal: {fileID: 1814069298}
 --- !u!1 &2077910033
 GameObject:
   m_ObjectHideFlags: 0

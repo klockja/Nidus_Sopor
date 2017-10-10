@@ -24,7 +24,7 @@ public class ShootState : CharacterState {
 		{
 			hit.collider.GetComponentInParent <AttackableEnemy> ().Damage (50);
 			// Deal Damage to them
-			Debug.Log("hit Unke");
+			Debug.Log("Hit Unke");
 		}
 
 		GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().AudioRadius = new Vector3 (100, 100, 1);
