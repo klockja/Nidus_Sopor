@@ -46,8 +46,7 @@ public class FieldOfView : MonoBehaviour {
 				float dstToTarget = Vector3.Distance(transform.position, target.position);
 				//If line draw from object to target is not interrupted by wall, add target to list of visible 
 				//targets
-				if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask)) 
-				{
+				if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask)) {
 					visibleTargets.Add(target);
 				}
 			}
