@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 	public bool canMove = true;
 
 	[SerializeField]
-	private float sneakSpeed = 1; //The default speed the player sneaks at.
+	private float sneakSpeed = 1.5f; //The default speed the player sneaks at.
 	public float SneakSpeed
 	{
 		get
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 	}
 
 	[SerializeField]
-	private float runSpeed = 4; //The default speed the player runs at.
+	private float runSpeed = 6; //The default speed the player runs at.
 	public float RunSpeed
 	{
 		get
