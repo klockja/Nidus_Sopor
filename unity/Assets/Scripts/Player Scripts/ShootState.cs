@@ -21,10 +21,16 @@ public class ShootState : CharacterState {
 		} else if (hit.collider.tag == "Enemy") {
 			hit.collider.GetComponentInParent <AttackableEnemy> ().Damage (50);
 			// Deal Damage to them
+<<<<<<< HEAD
 			Debug.Log ("hit Unke");
 		} else
 			Debug.Log ("hit nothing");
 		
+=======
+			Debug.Log("Hit Unke");
+		}
+
+>>>>>>> e1e901e0eb9db2c42662ab430f2f7406d9bea9c8
 		GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().AudioRadius = new Vector3 (100, 100, 1);
 		GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().colliderRadius = 0.1f;
 

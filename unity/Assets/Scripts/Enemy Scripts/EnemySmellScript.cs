@@ -14,6 +14,7 @@ public class EnemySmellScript : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
+		Debug.Log (col.gameObject);
 		if (col.gameObject.name == "Scent")
 		{
 			_enemyController.CharacterDetected = col.gameObject;

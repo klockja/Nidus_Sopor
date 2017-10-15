@@ -38,7 +38,9 @@ public class EnemyPatrolState : EnemyState
 
 		while (true)
 		{
-			m_machine.Controller.transform.position = Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
+			m_machine.Controller.M_Body.position = Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
+//			m_machine.Controller.M_Body.MovePosition (targetWaypoint * (walkSpeed * Time.deltaTime));
+//			= Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime)
 			if (m_machine.Controller.transform.position == targetWaypoint)
 			{
 				targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
