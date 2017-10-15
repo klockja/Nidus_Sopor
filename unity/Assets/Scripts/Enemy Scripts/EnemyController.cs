@@ -7,13 +7,6 @@ public class EnemyController : MonoBehaviour
 	public bool gamePaused;
 
 	private Rigidbody2D m_Body; //The enemy's rigidbody
-	public Rigidbody2D M_Body
-	{
-		get
-		{
-			return m_Body;
-		}
-	}
 
 //	public Animator anim; // The Animator of the enemy
 
@@ -27,7 +20,6 @@ public class EnemyController : MonoBehaviour
 	public bool playerDetected = false;
 	public GameObject CharacterDetected;
 
-	private Vector2 directionFacing;
 	private Vector2 m_PushDirection;
 	private float m_PushTime;
 
@@ -57,8 +49,7 @@ public class EnemyController : MonoBehaviour
 	}
 
 	[Header("Movement")]
-	private Vector2 lastPosition;
-	private Vector2 newPosition;
+//	private Vector3 previousHeadPosition;
 	[SerializeField][Range (0f, 10f)]
 	private float walkSpeed;
 	public float WalkSpeed
@@ -79,7 +70,7 @@ public class EnemyController : MonoBehaviour
 	}
 
 	[Header("Sight")]
-	public Transform EnemyHead;
+	public GameObject EnemyHead;
 	[Range(0, 100)]
 	public float viewRadius;
 	[Range(0, 360)]
@@ -113,6 +104,7 @@ public class EnemyController : MonoBehaviour
 	void Awake ()
 	{
 		m_stateMachine = new EnemyStateMachine(this);
+//		previousHeadPosition = EnemyHead.transform.position;
 //		anim = GetComponentInChildren <Animator> (); // Gets the animator of the enemy
 		m_Body = GetComponent <Rigidbody2D> ();
 		AttackableEnemy = GetComponentInChildren <AttackableEnemy> (); // Gets the AttackableEnemy script
@@ -138,6 +130,8 @@ public class EnemyController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		StartCoroutine (FindTargetWithDelay(0.2f));
+
 		if (SetBehavior == Behavior.Patrols && PatrolPath != null)
 		{
 			m_stateMachine.CurrentState = new EnemyPatrolState (m_stateMachine);
@@ -157,28 +151,24 @@ public class EnemyController : MonoBehaviour
 			{
 				canMove = false;
 			}
+			UpdateDirection ();
 
 			if (playerDetected)
 			{
 				m_stateMachine.CurrentState.OnExit ();
-				StartCoroutine (PursuePlayer ());
+				PursuePlayer ();
 //				m_stateMachine.CurrentState = new EnemyPursueState(m_stateMachine, CharacterDetected.transform);
 			}
 		}
 	}
 
-	void FixedUpdate ()
+	void FixedUpdate()
 	{
 		if (gamePaused == false)
 		{
 			
 		}
 
-	}
-
-	void LateUpdate ()
-	{
-		UpdateDirection ();
 	}
 
 	void EnemyMovement()
@@ -192,32 +182,73 @@ public class EnemyController : MonoBehaviour
 
 	void UpdateDirection()
 	{
-		Vector2 newPosition = transform.position;
-		directionFacing = (newPosition - lastPosition);
-		directionFacing.Normalize ();
-
-		if (directionFacing == Vector2.up)
-		{
-			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 0f); 
-		}
-		else if (directionFacing == Vector2.down)
-		{
-			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 180f); 
-		}
-		else if (directionFacing == Vector2.left)
-		{
-			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 90f); 
-		}
-		else if (directionFacing == Vector2.right)
-		{
-			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 270f); 
-		}
-		lastPosition = transform.position;
+//		Debug.Log (previousHeadPosition + " " + EnemyHead.transform.position);
+//
+//		Vector2 direction = Camera.main.ScreenToWorldPoint (Input.mousePosition) - EnemyHead.transform.position;
+//		float angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
+//		Quaternion rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+////		EnemyHead.transform.rotation = rotation;
+//		EnemyHead.transform.rotation = Quaternion.Slerp (rotation, EnemyHead.transform.rotation, 2 * Time.deltaTime);
+//		if (transform.position.x > previousPosition.x)
+//		{
+//			transform.rotation = rotation;
+//		}
+//
+//		if (transform.position.x < previousPosition.x)
+//		{
+//			transform.rotation = rotation;		
+//		}
+//
+//		if (transform.position.y > previousPosition.y)
+//		{
+//			transform.rotation = rotation;		
+//		}
+//
+//		if (transform.position.y < previousPosition.y)
+//		{
+//			transform.rotation = rotation;
+//		}
+//		previousHeadPosition = EnemyHead.transform.position;
 	}
 
-	public IEnumerator PursuePlayer()
+	IEnumerator FindTargetWithDelay(float delay) 
 	{
-		m_Body.position = Vector2.MoveTowards (transform.position, CharacterDetected.transform.position, RunSpeed * Time.deltaTime);
+		while (true) {
+			yield return new WaitForSeconds(delay);
+			FindVisibleTargets();
+		}
+	}
+
+	//Finds targets inside field of view not blocked by walls
+	void FindVisibleTargets() 
+	{
+		visibleTargets.Clear();
+		//Adds targets in view radius to an array
+		Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(EnemyHead.transform.position, viewRadius, targetMask);
+		//For every targetsInViewRadius it checks if they are inside the field of view
+		for (int i = 0; i < targetsInViewRadius.Length; i++) {
+			Transform target = targetsInViewRadius[i].transform;
+			Vector3 dirToTarget = (target.position - EnemyHead.transform.position).normalized;
+			if (Vector3.Angle(EnemyHead.transform.up, dirToTarget) < viewAngle / 2) {
+				float dstToTarget = Vector3.Distance(EnemyHead.transform.position, target.position);
+				//If line draw from object to target is not interrupted by wall, add target to list of visible targets
+				if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask)) 
+				{
+					visibleTargets.Add(target);
+					if (playerDetected == false)
+					{
+						CharacterDetected = target.gameObject;
+						playerDetected = true;
+//						m_stateMachine.CurrentState = new EnemyPursueState (m_stateMachine, target);
+					}
+				}
+			}
+		}
+	}
+
+	public void PursuePlayer()
+	{
+		transform.position = Vector2.MoveTowards (transform.position, CharacterDetected.transform.position, RunSpeed * Time.deltaTime);
 	}
 
 	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
