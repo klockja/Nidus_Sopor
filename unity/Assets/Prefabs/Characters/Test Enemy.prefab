@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4860213264857714}
   - component: {fileID: 58326675561474210}
   - component: {fileID: 114956348670706414}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Hearing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4711176967592810}
   - component: {fileID: 114703817111617136}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4080639922983628}
   - component: {fileID: 58225323369182346}
   - component: {fileID: 114580637944398232}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Smell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4788254182027870}
   - component: {fileID: 212328646384371568}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Sight Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4625591914137704}
   - component: {fileID: 212022185497183646}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Hearing Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4628908881877406}
   - component: {fileID: 212139733628120862}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Smell Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55262e88cba264b60b99d487098fb2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 0
 --- !u!114 &114450256540683430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -381,9 +382,11 @@ MonoBehaviour:
   gamePaused: 0
   AttackableEnemy: {fileID: 0}
   canAttack: 0
-  canBeHurt: 0
+  canBeHurt: 1
   canMove: 0
-  maxHealth: 0
+  playerDetected: 0
+  CharacterDetected: {fileID: 0}
+  maxHealth: 100
   currentHealth: 0
   walkSpeed: 1
   runSpeed: 4
@@ -423,7 +426,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1182547102130560}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92fbae9e2c9e441a2a9a89fed415ee6a, type: 3}
   m_Name: 
