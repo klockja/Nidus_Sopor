@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class FieldOfView : MonoBehaviour {
+public class EnemySightScript : MonoBehaviour {
 
 	public float viewRadius;
 	[Range(0, 360)]

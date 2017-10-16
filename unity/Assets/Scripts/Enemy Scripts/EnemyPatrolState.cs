@@ -38,7 +38,9 @@ public class EnemyPatrolState : EnemyState
 
 		while (true)
 		{
-			m_machine.Controller.transform.position = Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
+			m_machine.Controller.M_Body.position = Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
+			//			m_machine.Controller.M_Body.MovePosition (targetWaypoint * (walkSpeed * Time.deltaTime));
+			//			= Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime)
 			if (m_machine.Controller.transform.position == targetWaypoint)
 			{
 				targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
@@ -53,7 +55,7 @@ public class EnemyPatrolState : EnemyState
 	{
 		//COULD NOT FIGURE OUT HOW TO STOP ONE COROUTINE, SO I HAD TO STOP ALL OF THEM
 		m_machine.Controller.StopAllCoroutines ();
-//		m_machine.Controller.StopChildCoroutine (FollowPath());
-//		Debug.Log ("Exited Patrol State");
+		//		m_machine.Controller.StopChildCoroutine (FollowPath());
+		Debug.Log ("Exited Patrol State");
 	}
 }
