@@ -122,6 +122,8 @@ GameObject:
   - component: {fileID: 50963018501167798}
   - component: {fileID: 114078529566795848}
   - component: {fileID: 114925977810711632}
+  - component: {fileID: 114200043647268102}
+  - component: {fileID: 114288786443493912}
   m_Layer: 10
   m_Name: Test Enemy
   m_TagString: Enemy
@@ -383,12 +385,62 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775859045234650}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55262e88cba264b60b99d487098fb2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 0
+--- !u!114 &114200043647268102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775859045234650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847a14d4dc9cc43679ab34fc78e0182f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  repathRate: 0.75
+  target: {fileID: 0}
+  canSearch: 1
+  canMove: 1
+  speed: 4
+  enableRotation: 0
+  rotationIn2D: 0
+  rotationSpeed: 0
+  interpolatePathSwitches: 1
+  switchPathInterpolationSpeed: 10
+--- !u!114 &114288786443493912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775859045234650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 1
+    exactStartPoint: 1
+    exactEndPoint: 1
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  traversableTagsCompatibility:
+    tagsChange: -1
+    tagsSet: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &114580637944398232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -417,32 +469,32 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775859045234650}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b9a947b0539e42b6bf090c014a07cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gamePaused: 0
   AttackableEnemy: {fileID: 0}
+  AILerp: {fileID: 0}
   canAttack: 0
   canBeHurt: 0
   canMove: 0
-  playerDetected: 0
-  CharacterDetected: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
   walkSpeed: 1
   runSpeed: 4
   EnemyHead: {fileID: 4711176967592810}
-  viewRadius: 0
-  viewAngle: 0
   targetMask:
     serializedVersion: 2
     m_Bits: 512
   obstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  visibleTargets: []
+  playerDetected: 0
+  playerInSight: 0
+  playerTransform: {fileID: 0}
+  LastSightingSpot: {x: 0, y: 0}
   SetBehavior: 0
   PatrolPath: {fileID: 0}
   isPatrolling: 0

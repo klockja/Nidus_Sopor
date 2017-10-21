@@ -20,8 +20,7 @@ public class EnemyHearingScript : MonoBehaviour
 	{
 		if (col.gameObject.name == "Audio Collider")
 		{
-			_enemyController.CharacterDetected = col.gameObject;
-			_enemyController.playerDetected = true;
+			_enemyController.LastSightingSpot = col.gameObject.transform.position;
 		}
 	}
 }

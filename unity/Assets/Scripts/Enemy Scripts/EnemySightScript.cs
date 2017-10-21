@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemySightScript : MonoBehaviour {
+public class EnemySightScript : MonoBehaviour 
+{
+	private EnemyController _enemyController;
 
 	public float viewRadius;
 	[Range(0, 360)]
@@ -18,6 +20,7 @@ public class EnemySightScript : MonoBehaviour {
 
 	void Start() 
 	{
+		_enemyController = GetComponentInParent <EnemyController> ();
 		StartCoroutine("FindTargetWithDelay", 0.2f);
 	}
 
@@ -46,8 +49,16 @@ public class EnemySightScript : MonoBehaviour {
 				float dstToTarget = Vector3.Distance(transform.position, target.position);
 				//If line draw from object to target is not interrupted by wall, add target to list of visible 
 				//targets
-				if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask)) {
+				if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask)) 
+				{
 					visibleTargets.Add(target);
+					_enemyController.playerInSight = true;
+					_enemyController.playerTransform = target;
+				}
+
+				if (visibleTargets.Count == 0) 
+				{
+					_enemyController.playerInSight = false;
 				}
 			}
 		}
@@ -65,8 +76,10 @@ public class EnemySightScript : MonoBehaviour {
 		}
 	}
 
-	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal) {
-		if (!angleIsGlobal) {
+	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal) 
+	{
+		if (!angleIsGlobal) 
+		{
 			angleInDegrees -= transform.eulerAngles.z;
 		}
 		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);

@@ -10,7 +10,7 @@ public class EnemySightScriptEditor : Editor {
 		EnemySightScript ess = (EnemySightScript)target;
 
 		//Draws view reach
-		Handles.color = Color.black;
+		Handles.color = Color.white;
 		Handles.DrawWireArc(ess.transform.position, Vector3.forward, Vector3.up, 360, ess.viewRadius);
 
 		//Draws cone of view
@@ -19,7 +19,7 @@ public class EnemySightScriptEditor : Editor {
 		Handles.DrawLine(ess.transform.position, ess.transform.position + viewAngleA * ess.viewRadius);
 		Handles.DrawLine(ess.transform.position, ess.transform.position + viewAngleB * ess.viewRadius);
 
-//		Handles.color = Color.red;
+		Handles.color = Color.red;
 		foreach (Transform visibleTarget in ess.visibleTargets)
 		{
 			Handles.DrawLine (ess.transform.position, visibleTarget.position);

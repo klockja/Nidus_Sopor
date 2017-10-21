@@ -18,14 +18,11 @@ public class EnemyController : MonoBehaviour
 	//	public Animator anim; // The Animator of the enemy
 
 	public AttackableEnemy AttackableEnemy;
+	public AILerp AILerp;
 
 	public bool canAttack;
 	public bool canBeHurt;
 	public bool canMove;
-
-	[SerializeField]
-	public bool playerDetected = false;
-	public GameObject CharacterDetected;
 
 	private Vector2 directionFacing;
 	private Vector2 m_PushDirection;
@@ -80,13 +77,14 @@ public class EnemyController : MonoBehaviour
 
 	[Header("Sight")]
 	public Transform EnemyHead;
-	[Range(0, 100)]
-	public float viewRadius;
-	[Range(0, 360)]
-	public float viewAngle;
 	public LayerMask targetMask;
 	public LayerMask obstacleMask;
-	public List<Transform> visibleTargets = new List<Transform> ();
+
+	[SerializeField]
+	private bool playerDetected = false;
+	public bool playerInSight = false;
+	public Transform playerTransform;
+	public Vector2 LastSightingSpot;
 
 	[Header ("Enemy's Behavior")]
 	public Behavior SetBehavior;
@@ -115,9 +113,11 @@ public class EnemyController : MonoBehaviour
 		m_stateMachine = new EnemyStateMachine(this);
 		//		anim = GetComponentInChildren <Animator> (); // Gets the animator of the enemy
 		m_Body = GetComponent <Rigidbody2D> ();
-		AttackableEnemy = GetComponentInChildren <AttackableEnemy> (); // Gets the AttackableEnemy script
 
+		AttackableEnemy = GetComponentInChildren <AttackableEnemy> (); // Gets the AttackableEnemy script
 		AttackableEnemy.SetMaxHealth (MaxHealth);
+		AILerp = GetComponent <AILerp> ();
+		playerTransform = transform;
 	}
 
 	void OnDrawGizmos()
@@ -126,7 +126,7 @@ public class EnemyController : MonoBehaviour
 		Vector2 previousPosition = startPosition;
 		foreach (Transform waypoint in PatrolPath)
 		{
-			Gizmos.DrawIcon (waypoint.position, "check-x-gizmo.png", true);
+			Gizmos.DrawIcon (waypoint.position, "x-gizmo.png", true);
 			Gizmos.DrawLine (previousPosition, waypoint.position);
 			//			Gizmos.DrawCube (waypoint.position, new Vector2 (.5f,.5f));
 			//			Gizmos.DrawSphere (waypoint.position, .5f);
@@ -153,16 +153,37 @@ public class EnemyController : MonoBehaviour
 			UpdateHit ();
 
 			currentHealth = AttackableEnemy.GetHealth ();
-			if (AttackableEnemy.GetHealth () <= 0) 
+			if (AttackableEnemy.GetHealth () <= 0)
 			{
 				canMove = false;
 			}
 
-			if (playerDetected)
+			if (playerInSight == false)
 			{
+				playerTransform = transform;
+			}
+
+			if (playerInSight)
+			{
+				Debug.Log ("The player is in sight of the Unke");
+				playerDetected = true;
 				m_stateMachine.CurrentState.OnExit ();
-				StartCoroutine (PursuePlayer ());
-				//				m_stateMachine.CurrentState = new EnemyPursueState(m_stateMachine, CharacterDetected.transform);
+				LastSightingSpot = playerTransform.position;
+				StartCoroutine (Pursue (playerTransform.position));
+			} 
+
+			if (playerInSight == false)
+			{
+				Debug.Log ("Unke lost sight of the player");
+				StopCoroutine (Pursue (playerTransform.position));
+				StartCoroutine (Search (LastSightingSpot));
+				playerTransform = transform;
+			}
+
+			if (playerInSight == false && playerDetected == false)
+			{
+				Debug.Log ("Unke lost the player");
+				StopCoroutine (Search (LastSightingSpot));
 			}
 		}
 	}
@@ -195,12 +216,11 @@ public class EnemyController : MonoBehaviour
 		Vector2 newPosition = transform.position;
 		directionFacing = (newPosition - lastPosition);
 		directionFacing.Normalize ();
-		Debug.Log ("The direction the Unke is heading is " + directionFacing);
-		if (directionFacing.y >= 0.75f)
+		if (directionFacing.y >= 0.7f)
 		{
 			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 0f); 
 		}
-		else if (directionFacing.y <= -0.75f)
+		else if (directionFacing.y <= -0.7f)
 		{
 			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 180f); 
 		}
@@ -215,11 +235,40 @@ public class EnemyController : MonoBehaviour
 		lastPosition = transform.position;
 	}
 
-	public IEnumerator PursuePlayer()
+	public IEnumerator Pursue(Vector2 position)
 	{
-		m_Body.position = Vector2.MoveTowards (transform.position, CharacterDetected.transform.position, RunSpeed * Time.deltaTime);
+		Debug.Log ("Unke is pursuing the player");
+//		m_Body.position = Vector2.MoveTowards (transform.position, position, RunSpeed * Time.deltaTime);
+		AILerp.target = playerTransform;
+		AILerp.TrySearchPath ();
+//		AILerp.
+//		yield return new WaitForSeconds(.5f);
 		yield return null;
 	}
+
+	public IEnumerator Search(Vector2 position)
+	{
+		Debug.Log ("Unke is searching for player");
+		AILerp.target = null;
+//		m_Body.position = Vector2.MoveTowards (transform.position, position, RunSpeed * Time.deltaTime);
+		if (position.x - m_Body.position.x <= 3 || position.y - m_Body.position.y <= 3)
+		{
+			Debug.Log ("Unke got near the last sighting of the player");
+			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
+//			yield return new WaitForSeconds (Random.Range (0.2f, .5f));
+			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
+//			yield return new WaitForSeconds (Random.Range (0.2f, .5f));
+			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
+//			yield return new WaitForSeconds (Random.Range (0.2f, .5f));
+			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
+//			yield return new WaitForSeconds (Random.Range (0.2f, .5f));
+			playerDetected = false;
+		}
+
+		yield return null;
+	}
+
+
 
 	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
 	{
