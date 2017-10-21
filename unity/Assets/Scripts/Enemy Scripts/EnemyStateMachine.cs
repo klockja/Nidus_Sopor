@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStateMachine : MonoBehaviour 
+public class EnemyStateMachine
 {
 	private EnemyController _enemyController;
 	public EnemyController Controller

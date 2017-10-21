@@ -16,8 +16,7 @@ public class EnemySmellScript : MonoBehaviour
 	{
 		if (col.gameObject.name == "Scent")
 		{
-			_enemyController.CharacterDetected = col.gameObject;
-			_enemyController.playerDetected = true;
+			_enemyController.LastSightingSpot = col.gameObject.transform.position;
 		}
 	}
 }
