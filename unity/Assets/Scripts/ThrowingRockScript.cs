@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockScript : MonoBehaviour {
+public class ThrowingRockScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

@@ -21,6 +21,8 @@ public class SneakState : MoveState {
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 1);
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0;
 		}
+
+		m_machine.Controller.fireLine.enabled = false;
 	}
 
 	override public void DesireSneak()

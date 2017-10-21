@@ -7,6 +7,10 @@ public class PlayerController : MonoBehaviour
 	public bool gamePaused = false;
 	public bool backward;
 
+	public LineRenderer fireLine;
+	public float fireWidth = 0.1f;
+	public float fireMaxLenght = 5f;
+
 	public LayerMask shootableMask;
 	 
 
@@ -74,6 +78,11 @@ public class PlayerController : MonoBehaviour
 
 		m_stateMachine = new CharacterStateMachine(this);
 		m_stateMachine.CurrentState = new MoveState(m_stateMachine);
+
+		Vector3[] initFirePosition = new Vector3[2] { Vector3.zero, Vector3.zero };
+		fireLine.SetPositions (initFirePosition); 
+		fireLine.startWidth = fireWidth;
+		fireLine.endWidth = fireWidth;
 	}
 
 	void Start () 
