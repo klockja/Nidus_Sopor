@@ -6,6 +6,13 @@ public class EnemyController : MonoBehaviour
 {
 	public bool gamePaused;
 
+	public AudioSource audio;
+	public AudioClip takeDamage;
+	public AudioClip growl;
+	public AudioClip move;
+	public AudioClip attack;
+	public AudioClip sleep;
+
 	private Rigidbody2D m_Body; //The enemy's rigidbody
 	public Rigidbody2D M_Body
 	{

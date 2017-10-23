@@ -31,6 +31,7 @@ public class AttackableEnemy : MonoBehaviour
 		if (canBeHurt)
 		{
 			Health = Health - damage;
+			gameObject.GetComponent<EnemyController>().audio.PlayOneShot (gameObject.GetComponent<EnemyController>().takeDamage);
 			if (Health <= 0)
 			{
 				Destroy (gameObject);

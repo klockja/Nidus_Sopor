@@ -6,13 +6,23 @@ public class PlayerController : MonoBehaviour
 {
 	public bool gamePaused = false;
 	public bool backward;
+	public float bulletNum;
+	public float rockNum;
 
 	public LineRenderer fireLine;
 	public float fireWidth = 0.1f;
 	public float fireMaxLenght = 5f;
 
 	public LayerMask shootableMask;
-	 
+
+	// Audio Stuff
+	public AudioSource audio;
+	public AudioClip shootingSound;
+	public AudioClip throwingSound;
+	public AudioClip walkingSound;
+	public AudioClip runningSound;
+	public AudioClip dyingSound;
+
 
 //	private Vector2 position; //The player's position in the world. Used for convienence.
 
@@ -83,6 +93,10 @@ public class PlayerController : MonoBehaviour
 		fireLine.SetPositions (initFirePosition); 
 		fireLine.startWidth = fireWidth;
 		fireLine.endWidth = fireWidth;
+
+		bulletNum = GameObject.Find ("managementObject").GetComponent<GameManagement> ().bulletCount;
+		rockNum = GameObject.Find ("managementObject").GetComponent<GameManagement> ().rockCount;
+
 	}
 
 	void Start () 
@@ -170,5 +184,4 @@ public class PlayerController : MonoBehaviour
 			m_stateMachine.FixedUpdate();
 		}
 	}
-		
 }

@@ -97,5 +97,14 @@ public class ui : MonoBehaviour {
 	{
 		Application.Quit();
 	}
+
+	public void SoundControl()
+	{
+		if (AudioListener.volume != 0) {
+			AudioListener.volume = 0f;
+		} else {
+			AudioListener.volume = 1f;
+		}
+	}
 }
 	
