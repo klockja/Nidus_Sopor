@@ -83,10 +83,11 @@ public class EnemyController : MonoBehaviour
 	[SerializeField]
 	private bool playerDetected = false;
 	public bool playerInSight = false;
-	public Transform playerTransform;
+	public Transform detectedTransform;
 	public Vector2 LastSightingSpot;
 
 	[Header ("Enemy's Behavior")]
+	public Transform originalPosition;
 	public Behavior SetBehavior;
 	public enum Behavior {Patrols, Sleeps, Wanders}
 	public Transform PatrolPath;
@@ -117,7 +118,6 @@ public class EnemyController : MonoBehaviour
 		AttackableEnemy = GetComponentInChildren <AttackableEnemy> (); // Gets the AttackableEnemy script
 		AttackableEnemy.SetMaxHealth (MaxHealth);
 		AILerp = GetComponent <AILerp> ();
-		playerTransform = transform;
 	}
 
 	void OnDrawGizmos()
@@ -158,32 +158,26 @@ public class EnemyController : MonoBehaviour
 				canMove = false;
 			}
 
-			if (playerInSight == false)
-			{
-				playerTransform = transform;
-			}
-
-			if (playerInSight)
+			if (playerInSight && detectedTransform != null)
 			{
 				Debug.Log ("The player is in sight of the Unke");
-				playerDetected = true;
-				m_stateMachine.CurrentState.OnExit ();
-				LastSightingSpot = playerTransform.position;
-				StartCoroutine (Pursue (playerTransform.position));
+//				m_stateMachine.CurrentState.OnExit ();
+				if (playerDetected != true)
+				{
+					m_stateMachine.CurrentState = new EnemyPursueState (m_stateMachine);
+					StartCoroutine (Pursue ());
+					playerDetected = true;
+				}
+				LastSightingSpot = detectedTransform.position;
 			} 
 
-			if (playerInSight == false)
+			if (playerInSight == false && detectedTransform != null)
 			{
 				Debug.Log ("Unke lost sight of the player");
-				StopCoroutine (Pursue (playerTransform.position));
+				StartCoroutine (WaitForSeconds (30f));
+				StopCoroutine (Pursue ());
 				StartCoroutine (Search (LastSightingSpot));
-				playerTransform = transform;
-			}
-
-			if (playerInSight == false && playerDetected == false)
-			{
-				Debug.Log ("Unke lost the player");
-				StopCoroutine (Search (LastSightingSpot));
+				detectedTransform = null;
 			}
 		}
 	}
@@ -235,14 +229,17 @@ public class EnemyController : MonoBehaviour
 		lastPosition = transform.position;
 	}
 
-	public IEnumerator Pursue(Vector2 position)
+	public IEnumerator Pursue()
 	{
-		Debug.Log ("Unke is pursuing the player");
-//		m_Body.position = Vector2.MoveTowards (transform.position, position, RunSpeed * Time.deltaTime);
-		AILerp.target = playerTransform;
-		AILerp.TrySearchPath ();
-//		AILerp.
-//		yield return new WaitForSeconds(.5f);
+		if (detectedTransform != null)
+		{
+			Debug.Log ("Unke is pursuing the player");
+	//		m_Body.position = Vector2.MoveTowards (transform.position, position, RunSpeed * Time.deltaTime);
+			AILerp.target = detectedTransform;
+			AILerp.TrySearchPath ();
+	//		AILerp.
+	//		yield return new WaitForSeconds(.5f);
+		}
 		yield return null;
 	}
 
@@ -250,25 +247,48 @@ public class EnemyController : MonoBehaviour
 	{
 		Debug.Log ("Unke is searching for player");
 		AILerp.target = null;
-//		m_Body.position = Vector2.MoveTowards (transform.position, position, RunSpeed * Time.deltaTime);
 		if (position.x - m_Body.position.x <= 3 || position.y - m_Body.position.y <= 3)
 		{
-			Debug.Log ("Unke got near the last sighting of the player");
+			Debug.Log ("Unke got near the last sighting of the player.");
+			StartCoroutine (WaitForSeconds (Random.Range (0.2f, 0.5f)));
 			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
-//			yield return new WaitForSeconds (Random.Range (0.2f, .5f));
+			StartCoroutine (WaitForSeconds (Random.Range (0.2f, 0.5f)));
 			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
-//			yield return new WaitForSeconds (Random.Range (0.2f, .5f));
+			StartCoroutine (WaitForSeconds (Random.Range (0.2f, 0.5f)));
 			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
-//			yield return new WaitForSeconds (Random.Range (0.2f, .5f));
+			StartCoroutine (WaitForSeconds (Random.Range (0.2f, 0.5f)));
 			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
-//			yield return new WaitForSeconds (Random.Range (0.2f, .5f));
+			StartCoroutine (WaitForSeconds (Random.Range (0.2f, 0.5f)));
 			playerDetected = false;
 		}
-
+		StartCoroutine (WaitForSeconds (3f));
+		Debug.Log ("Unke lost the player");
+		StartCoroutine (Return ()); 
 		yield return null;
 	}
 
+	public IEnumerator Return()
+	{
+		Debug.Log ("Unke returning to original position");
+		AILerp.target = originalPosition;
+		AILerp.SearchPath ();
 
+		if (AILerp.targetReached == true)
+		{
+			AILerp.target = null;
+			Debug.Log ("Unke has returned to original position");
+			m_stateMachine.CurrentState = new EnemyPatrolState (m_stateMachine);
+			m_stateMachine.CurrentState.OnEnter ();
+			yield return null;
+		}
+	}
+
+	public IEnumerator WaitForSeconds (float seconds)
+	{
+		Debug.Log (gameObject.name + " is waiting for " + seconds + " seconds.");
+		yield return new WaitForSeconds (seconds);
+		Debug.Log (gameObject.name + " is done waiting.");
+	}
 
 	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
 	{

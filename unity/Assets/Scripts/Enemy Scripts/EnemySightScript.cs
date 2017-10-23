@@ -30,7 +30,8 @@ public class EnemySightScript : MonoBehaviour
 	}
 
 	IEnumerator FindTargetWithDelay(float delay) {
-		while (true) {
+		while (true) 
+		{
 			yield return new WaitForSeconds(delay);
 			FindVisibleTargets();
 		}
@@ -49,15 +50,15 @@ public class EnemySightScript : MonoBehaviour
 				float dstToTarget = Vector3.Distance(transform.position, target.position);
 				//If line draw from object to target is not interrupted by wall, add target to list of visible 
 				//targets
-				if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask)) 
+				if (!Physics2D.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask))
 				{
-					visibleTargets.Add(target);
+					visibleTargets.Add (target);
 					_enemyController.playerInSight = true;
-					_enemyController.playerTransform = target;
-				}
-
-				if (visibleTargets.Count == 0) 
+					_enemyController.detectedTransform = target;
+				} 
+				else
 				{
+					StartCoroutine (WaitForSeconds (2f));
 					_enemyController.playerInSight = false;
 				}
 			}
@@ -83,5 +84,10 @@ public class EnemySightScript : MonoBehaviour
 			angleInDegrees -= transform.eulerAngles.z;
 		}
 		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);
+	}
+	public IEnumerator WaitForSeconds (float seconds)
+	{
+		Debug.Log ("Waiting!");
+		yield return new WaitForSeconds (seconds);
 	}
 }

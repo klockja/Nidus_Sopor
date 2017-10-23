@@ -6,10 +6,8 @@ public class EnemyPursueState : EnemyState
 {
 	Transform player;
 
-	public EnemyPursueState(EnemyStateMachine machine, Transform target):base(machine)
+	public EnemyPursueState(EnemyStateMachine machine):base(machine)
 	{
-		player = target;
-		Debug.Log (player);
 	}
 
 	override public void OnEnter()
@@ -20,9 +18,9 @@ public class EnemyPursueState : EnemyState
 
 	override public void Update()
 	{
-		base.Update();
-		Debug.Log ("Update");
-		m_machine.Controller.transform.position = Vector2.MoveTowards (m_machine.Controller.transform.position, player.position, m_machine.Controller.RunSpeed * Time.deltaTime);
+//		base.Update();
+//		Debug.Log ("Update");
+//		m_machine.Controller.transform.position = Vector2.MoveTowards (m_machine.Controller.transform.position, player.position, m_machine.Controller.RunSpeed * Time.deltaTime);
 	}
 
 	override public void FixedUpdate()
