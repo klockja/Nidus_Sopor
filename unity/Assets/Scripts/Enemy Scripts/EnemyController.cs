@@ -6,7 +6,8 @@ public class EnemyController : MonoBehaviour
 {
 	public bool gamePaused;
 
-	public AudioSource audio;
+	[Header ("Enemy Sounds")]
+	public AudioSource audioSource;
 	public AudioClip takeDamage;
 	public AudioClip growl;
 	public AudioClip move;
@@ -121,6 +122,7 @@ public class EnemyController : MonoBehaviour
 		m_stateMachine = new EnemyStateMachine(this);
 		//		anim = GetComponentInChildren <Animator> (); // Gets the animator of the enemy
 		m_Body = GetComponent <Rigidbody2D> ();
+		audioSource = GetComponent <AudioSource> ();
 
 		AttackableEnemy = GetComponentInChildren <AttackableEnemy> (); // Gets the AttackableEnemy script
 		AttackableEnemy.SetMaxHealth (MaxHealth);
@@ -156,13 +158,13 @@ public class EnemyController : MonoBehaviour
 	{
 		if (gamePaused == false)
 		{
-			UpdatePushTime ();
-			UpdateHit ();
-
 			currentHealth = AttackableEnemy.GetHealth ();
 			if (AttackableEnemy.GetHealth () <= 0)
 			{
+				StopAllCoroutines ();
 				canMove = false;
+				audioSource.clip = takeDamage;
+				audioSource.Play ();
 			}
 
 			if (playerInSight && detectedTransform != null)
@@ -172,6 +174,7 @@ public class EnemyController : MonoBehaviour
 				if (playerDetected != true)
 				{
 					m_stateMachine.CurrentState = new EnemyPursueState (m_stateMachine);
+					audioSource.PlayOneShot (growl);
 					StartCoroutine (Pursue ());
 					playerDetected = true;
 				}
@@ -201,15 +204,6 @@ public class EnemyController : MonoBehaviour
 	void LateUpdate ()
 	{
 		UpdateDirection ();
-	}
-
-	void EnemyMovement()
-	{
-		if (isBeingPushed () == true) 
-		{
-			transform.Translate (m_PushDirection * Time.deltaTime);
-			return;
-		}
 	}
 
 	void UpdateDirection()
@@ -304,30 +298,6 @@ public class EnemyController : MonoBehaviour
 			angleInDegrees -= transform.eulerAngles.z;
 		}
 		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);
-	}
-
-	void UpdateHit()
-	{
-		//		anim.SetBool ("isHurt", isBeingPushed ());
-	}
-
-	void UpdatePushTime()
-	{
-		if (m_PushTime > 0) 
-		{
-			m_PushTime = m_PushTime - Time.deltaTime;
-		}
-	}
-
-	public void PushCharacter(Vector2 pushDirection, float pushTime)
-	{
-		m_PushDirection = pushDirection;
-		m_PushTime = pushTime;
-	}
-
-	public bool isBeingPushed()
-	{
-		return m_PushTime > 0;
 	}
 
 	public void StartChildCoroutine(IEnumerator coroutineMethod)

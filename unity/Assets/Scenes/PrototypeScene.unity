@@ -3389,6 +3389,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ispaused: 0
   isbackward: 0
+  bulletCount: 0
+  rockCount: 0
+  musicPlayer: {fileID: 0}
+  backgroundMusic: {fileID: 0}
 --- !u!4 &304872599
 Transform:
   m_ObjectHideFlags: 0

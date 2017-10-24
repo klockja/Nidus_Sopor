@@ -475,6 +475,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePaused: 0
+  audio: {fileID: 0}
+  takeDamage: {fileID: 0}
+  growl: {fileID: 0}
+  move: {fileID: 0}
+  attack: {fileID: 0}
+  sleep: {fileID: 0}
   AttackableEnemy: {fileID: 0}
   AILerp: {fileID: 0}
   canAttack: 0
