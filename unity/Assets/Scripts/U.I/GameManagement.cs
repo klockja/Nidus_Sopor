@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameManagement : MonoBehaviour {
 
 
-	public bool ispaused;
-	public bool isbackward;
+	public bool isPaused;
+	public bool goingBackwards;
 	public float bulletCount;
 	public float rockCount;
 	public AudioSource musicPlayer;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour 
 {
 	public bool gamePaused = false;
-	public bool backward;
+	public bool hasEgg;
 	public float bulletNum;
 	public float rockNum;
 
@@ -101,11 +101,11 @@ public class PlayerController : MonoBehaviour
 
 	void Start () 
 	{
-		backward = GameObject.Find ("managementObject").GetComponent<GameManagement> ().isbackward;
-		if (backward == false) {
-			transform.localPosition = new Vector3 (0, -10, 0);
-		} else if (backward == true) {
-			transform.localPosition = new Vector3 (0, 10, 0);
+		hasEgg = GameObject.Find ("managementObject").GetComponent<GameManagement> ().goingBackwards;
+		if (hasEgg == false) 
+		{
+		} else if (hasEgg == true) 
+		{
 		}
 	}
 
