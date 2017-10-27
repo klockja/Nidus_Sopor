@@ -20,7 +20,7 @@ public class PortalScript : MonoBehaviour {
 	void Update () 
 	{
 		//Debug.Log (nextScene);
-		backward = GameObject.Find ("managementObject").GetComponent<GameManagement> ().goingBackwards;
+		backward = GameObject.Find ("GameManager").GetComponent<GameManagement> ().goingBackwards;
 		DetermineDirection ();
 		DetermineNextScene ();
 	}

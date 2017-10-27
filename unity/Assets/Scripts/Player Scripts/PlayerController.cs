@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
 	void Awake ()
 	{
-		GameObject.Find ("managementObject").GetComponent<GameManagement> ().ispaused = false;
+		GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused = false;
 		m_Body = gameObject.GetComponentInChildren <Rigidbody2D> (); //Gets the Rigidbody of the character.
 
 		m_stateMachine = new CharacterStateMachine(this);
@@ -94,14 +94,14 @@ public class PlayerController : MonoBehaviour
 		fireLine.startWidth = fireWidth;
 		fireLine.endWidth = fireWidth;
 
-		bulletNum = GameObject.Find ("managementObject").GetComponent<GameManagement> ().bulletCount;
-		rockNum = GameObject.Find ("managementObject").GetComponent<GameManagement> ().rockCount;
+		bulletNum = GameObject.Find ("GameManager").GetComponent<GameManagement> ().bulletCount;
+		rockNum = GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount;
 
 	}
 
 	void Start () 
 	{
-		hasEgg = GameObject.Find ("managementObject").GetComponent<GameManagement> ().goingBackwards;
+		hasEgg = GameObject.Find ("GameManager").GetComponent<GameManagement> ().goingBackwards;
 		if (hasEgg == false) 
 		{
 		} else if (hasEgg == true) 
@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
 	void Update ()
 	{
 		//Debug.Log (m_stateMachine.CurrentState);
-		gamePaused = GameObject.Find ("managementObject").GetComponent<GameManagement> ().ispaused;
+		gamePaused = GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused;
 
 		if (gamePaused == false)
 		{
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
 		if (col.gameObject.tag == "Enemy") 
 		{
 			Debug.Log ("hit player");
-			GameObject.Find ("managementObject").GetComponent<GameManagement> ().ispaused = true;
+			GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused = true;
 			GameObject.Find ("Canvas").GetComponent<ui> ().Panel4.SetActive (true);
 		}
 	}

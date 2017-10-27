@@ -10,7 +10,7 @@ public class ui : MonoBehaviour {
 	public GameObject Panel3;
 	public GameObject Panel4;
 	public GameObject Panel5;
-	public GameManagement gameManagement;
+	public GameManagement GM;
 
 	// Use this for initialization
 	void Start () {
@@ -25,8 +25,8 @@ public class ui : MonoBehaviour {
 		//        Debug.Log (playerNum);
 		switchToMenu (menuID);
 
-		GameObject managementObject = GameObject.Find ("managementObject");
-		gameManagement = managementObject.GetComponent<GameManagement>();
+		GameObject GameManager = GameObject.Find ("GameManager");
+		GM = GameManager.GetComponent<GameManagement>();
 	}
 
 	// Update is called once per frame
@@ -64,12 +64,12 @@ public class ui : MonoBehaviour {
 
 	public void PauseScene ()
 	{
-		if (gameManagement.ispaused == false) {
-			gameManagement.ispaused = true;
+		if (GM.isPaused == false) {
+			GM.isPaused = true;
 			Panel2.gameObject.SetActive (true);
 			Panel1.gameObject.SetActive (false);
 		} else {
-			gameManagement.ispaused = false;
+			GM.isPaused = false;
 			Panel2.gameObject.SetActive (true);
 			Panel1.gameObject.SetActive (false);
 		}
@@ -77,12 +77,12 @@ public class ui : MonoBehaviour {
 
 	public void UnPauseScene ()
 	{
-		if (gameManagement.ispaused == false) {
-			gameManagement.ispaused = true;
+		if (GM.isPaused == false) {
+			GM.isPaused = true;
 			Panel1.gameObject.SetActive (true);
 			Panel2.gameObject.SetActive (false);
 		} else {
-			gameManagement.ispaused = false;
+			GM.isPaused = false;
 			Panel1.gameObject.SetActive (true);
 			Panel2.gameObject.SetActive (false);
 		}
