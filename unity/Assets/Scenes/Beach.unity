@@ -984,7 +984,7 @@ MonoBehaviour:
   Panel3: {fileID: 427650843}
   Panel4: {fileID: 810835852}
   Panel5: {fileID: 818747496}
-  gameManagement: {fileID: 0}
+  GM: {fileID: 0}
 --- !u!114 &327280646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32720,6 +32720,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1351607170728312, guid: 10fd4185daae04b91a2bc841abec5206, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10fd4185daae04b91a2bc841abec5206, type: 2}
   m_IsPrefabParent: 0
@@ -33293,10 +33297,6 @@ Prefab:
     - target: {fileID: 4425331881786042, guid: 96018e1a98c727840ac329513c1832bd, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891845567913908, guid: 96018e1a98c727840ac329513c1832bd, type: 2}
-      propertyPath: m_Name
-      value: GameManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96018e1a98c727840ac329513c1832bd, type: 2}
