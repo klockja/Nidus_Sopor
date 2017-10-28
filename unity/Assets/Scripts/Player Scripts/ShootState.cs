@@ -13,18 +13,19 @@ public class ShootState : CharacterState {
 	{
 		_previousState = previousState;
 
-		if (GameObject.Find ("managementObject").GetComponent<GameManagement> ().bulletCount > 0)
+		if (GameObject.Find ("GameManager").GetComponent<GameManagement> ().bulletCount > 0)
 		{
 			machine.Controller.audio.PlayOneShot (machine.Controller.shootingSound);
-			GameObject.Find("managementObject").GetComponent<GameManagement>().bulletCount -= 1;
+			GameObject.Find("GameManager").GetComponent<GameManagement>().bulletCount -= 1;
 			Vector2 mousePosition = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
 			Vector2 firePosition = new Vector2 (player.transform.position.x, player.transform.position.y);
-			RaycastHit2D hit = Physics2D.Raycast (firePosition, (mousePosition - firePosition), 10 , machine.Controller.shootableMask);
+			RaycastHit2D hit = Physics2D.Raycast (firePosition, (mousePosition - firePosition), 1000 , machine.Controller.shootableMask);
 
-			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().AudioRadius = new Vector3 (100, 100, 1);
-			GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().colliderRadius = 0.1f;
+			//GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().AudioRadius = new Vector3 (100, 100, 1);
+			GameObject.Find ("Player").GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (100, 100, 1);
+			GameObject.Find ("Player").GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.1f;
 
-			Debug.DrawLine (firePosition, mousePosition);
+			//Debug.DrawLine (firePosition, mousePosition);
 			machine.Controller.fireLine.SetPosition(0, firePosition);
 			machine.Controller.fireLine.SetPosition(1, hit.point);
 			machine.Controller.fireLine.enabled = true;
@@ -37,7 +38,7 @@ public class ShootState : CharacterState {
 				Debug.Log ("hit Unke");
 			} else {
 				
-				Debug.Log ("miss");
+				Debug.Log (hit.point);
 			}
 		}
 	}

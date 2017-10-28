@@ -18,7 +18,7 @@ public class rockObject : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "Player") 
 		{
-			GameObject.Find ("managementObject").GetComponent<GameManagement> ().rockCount += 1;
+			GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount += 1;
 			Destroy (gameObject);
 			Debug.Log ("playertouchrock");
 		}

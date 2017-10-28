@@ -7,7 +7,7 @@ public class DistractState : CharacterState {
 	private float _throwTime = 0.25f;
 	GameObject player = GameObject.Find ("Player");
 	GameObject _rock;
-	private float speed = 1;
+	private float speed = 5;
 
 
 

@@ -5,10 +5,12 @@ using UnityEngine;
 public class ThrowingRockScript : MonoBehaviour {
 
 	public float time;
+	public GameObject RockObject;
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine(Delay(5));
+		Physics2D.IgnoreCollision (gameObject.GetComponent<CircleCollider2D> (), GameObject.Find("Player").GetComponent<BoxCollider2D> ());
+		StartCoroutine(Delay(2));
 		gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 1);
 		gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0f;
 	}
@@ -21,6 +23,7 @@ public class ThrowingRockScript : MonoBehaviour {
 			gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (10, 10, 1);
 			gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.1f;
 			gameObject.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+			Invoke ("SwitchObject", 2);
 		}
 
 
@@ -30,7 +33,7 @@ public class ThrowingRockScript : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "Player") 
 		{
-			GameObject.Find ("managementObject").GetComponent<GameManagement> ().rockCount += 1;
+			GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount += 1;
 		}
 
 		if (col.gameObject.tag == "Object" || col.gameObject.tag == "Enemy") 
@@ -39,6 +42,12 @@ public class ThrowingRockScript : MonoBehaviour {
 			gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.1f;
 			gameObject.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		}
+	}
+
+	void SwitchObject()
+	{
+		Instantiate (RockObject, gameObject.transform.position, gameObject.transform.rotation);
+		Destroy (gameObject);
 	}
 
 	IEnumerator Delay(float maxtime)
