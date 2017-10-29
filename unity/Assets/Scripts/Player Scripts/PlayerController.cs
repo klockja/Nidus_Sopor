@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
 	public float bulletNum;
 	public float rockNum;
 
-	public float time;
-
 	public LineRenderer fireLine;
 	public float fireWidth = 0.1f;
 	public float fireMaxLenght = 5f;
@@ -147,12 +145,8 @@ public class PlayerController : MonoBehaviour
 
 			if(Input.GetKeyDown(KeyCode.Mouse1))
 			{
-				if (GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount > 0 && time == 0) 
-				{
-					m_stateMachine.CurrentState.DesireThrowRock (Rock);
-					GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount -= 1;
-					StartCoroutine(Delay(2));
-				}
+				
+				m_stateMachine.CurrentState.DesireThrowRock(Rock);
 			}
 		}
 	}
@@ -180,16 +174,6 @@ public class PlayerController : MonoBehaviour
 			Debug.Log ("hit player");
 			GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused = true;
 			GameObject.Find ("Canvas").GetComponent<ui> ().Panel4.SetActive (true);
-		}
-	}
-
-	public IEnumerator Delay(float maxtime)
-	{
-		time = maxtime;
-		while (time > 0) {
-			Debug.Log (time);
-			yield return new WaitForSeconds (1.0f);
-			time--;
 		}
 	}
 

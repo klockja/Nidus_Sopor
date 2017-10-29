@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SneakState : MoveState {
 
-	private float time;
-
 	public SneakState(CharacterStateMachine machine) : base(machine)
 	{
 	}
@@ -19,12 +17,7 @@ public class SneakState : MoveState {
 		if (m_machine.Controller.Body.velocity != new Vector2 (0, 0)) {
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (5, 5, 1);
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.05f;
-
-			if (time <= 0) 
-			{
-				m_machine.Controller.audio.PlayOneShot (m_machine.Controller.walkingSound);
-				m_machine.Controller.StartCoroutine (Wait(1f));
-			}
+			m_machine.Controller.audio.PlayOneShot (m_machine.Controller.walkingSound);
 		}	else {
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 1);
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0;
@@ -36,16 +29,5 @@ public class SneakState : MoveState {
 	override public void DesireSneak()
 	{
 		m_machine.CurrentState = new MoveState(m_machine);
-	}
-
-	IEnumerator Wait(float maxtime)
-	{
-		time = maxtime;
-		while (time > 0) 
-		{
-			Debug.Log (time);
-			yield return new WaitForSeconds (1.0f);
-			time--;
-		}
 	}
 }

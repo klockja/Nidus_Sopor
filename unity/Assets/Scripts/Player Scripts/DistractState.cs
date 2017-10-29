@@ -18,6 +18,7 @@ public class DistractState : CharacterState {
 
 		if (GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount > 0) 
 		{
+			GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount -= 1;
 
 			Vector2 mousePosition = new Vector2 (Camera.main.ScreenToWorldPoint (Input.mousePosition).x, Camera.main.ScreenToWorldPoint (Input.mousePosition).y);
 			Vector2 throwPosition = new Vector2 (player.transform.position.x, player.transform.position.y);

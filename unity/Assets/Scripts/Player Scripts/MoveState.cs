@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MoveState : CharacterState { 
 
-	private float time;
-
 	public MoveState(CharacterStateMachine machine):base(machine)
 	{
 	}
@@ -19,10 +17,7 @@ public class MoveState : CharacterState {
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (10, 10, 1);
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.1f;
 
-			if (time <= 0) {
-				m_machine.Controller.audio.PlayOneShot (m_machine.Controller.runningSound);
-				m_machine.Controller.StartCoroutine (Wait(1f));
-			}
+			m_machine.Controller.audio.PlayOneShot (m_machine.Controller.runningSound);
 
 		} else {
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 1);
@@ -45,17 +40,6 @@ public class MoveState : CharacterState {
 	override public void DesireThrowRock(GameObject Rock)
 	{
 		m_machine.CurrentState = new DistractState(m_machine, this, Rock);
-	}
-
-	IEnumerator Wait(float maxtime)
-	{
-		time = maxtime;
-		while (time > 0) 
-		{
-			Debug.Log (time);
-			yield return new WaitForSeconds (1.0f);
-			time--;
-		}
 	}
 		
 }
