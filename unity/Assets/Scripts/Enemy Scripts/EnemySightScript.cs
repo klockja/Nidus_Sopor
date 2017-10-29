@@ -58,8 +58,10 @@ public class EnemySightScript : MonoBehaviour
 				} 
 				else
 				{
-					StartCoroutine (WaitForSeconds (2f));
+					Debug.Log ("Player isn't in sight!");
+					StartCoroutine (WaitForSeconds (3f));
 					_enemyController.playerInSight = false;
+					Debug.Log ("Unke should start search now");
 				}
 			}
 		}
