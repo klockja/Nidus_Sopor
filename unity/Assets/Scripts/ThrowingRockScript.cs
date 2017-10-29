@@ -54,7 +54,7 @@ public class ThrowingRockScript : MonoBehaviour {
 	{
 		time = maxtime;
 		while (time > 0) {
-			Debug.Log (time);
+			//Debug.Log (time);
 			yield return new WaitForSeconds (1.0f);
 			time--;
 		}

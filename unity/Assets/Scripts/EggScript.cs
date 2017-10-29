@@ -19,8 +19,8 @@ public class EggScript : MonoBehaviour {
 		if (col.gameObject.tag == "Player") 
 		{
 			Destroy (gameObject);
-			GameObject.Find ("managementObject").GetComponent<GameManagement> ().goingBackwards = true;
-			Debug.Log (GameObject.Find ("managementObject").GetComponent<GameManagement> ().goingBackwards);
+			//GameObject.Find ("managementObject").GetComponent<GameManagement> ().goingBackwards = true;
+			//Debug.Log (GameObject.Find ("managementObject").GetComponent<GameManagement> ().goingBackwards);
 		}
 	}
 }

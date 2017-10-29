@@ -25,44 +25,38 @@ public class PortalScript : MonoBehaviour {
 	void Update () 
 	{
 		//Debug.Log (nextScene);
-		backward = GameObject.Find ("GameManager").GetComponent<GameManagement> ().goingBackwards;
-		DetermineDirection ();
+		//backward = GameObject.Find ("GameManager").GetComponent<GameManagement> ().goingBackwards;
+		//DetermineDirection ();
 		DetermineNextScene ();
 	}
 
 	void DetermineDirection()
 	{
-		if (backward == false && currentScene != "Cave")
-		{
-			transform.localPosition = new Vector3 (0, 10, 0);
-		} else if (backward == true || currentScene == "Cave") 
-		{
-			transform.localPosition = new Vector3 (0, -12, 0);
-		}
+		//if (backward == false && currentScene != "Cave")
+		//{
+			//transform.localPosition = new Vector3 (0, 10, 0);
+		//} else if (backward == true || currentScene == "Cave") 
+		//{
+			//transform.localPosition = new Vector3 (0, -12, 0);
+		//}
 	}
 
 	protected string DetermineNextScene()
 	{
 		//Debug.Log (currentScene);
-		if ((currentScene == "Beach") && (backward == false)) {
+		if (currentScene == "Beach") {
 			nextScene = "Forest";
 			return nextScene;
-		} else if ((currentScene == "Forest") && (backward == false)) {
-			nextScene = "City";
-			return nextScene;
-		} else if ((currentScene == "City") && (backward == false)) {
+		} else if (currentScene == "Forest") {
 			nextScene = "Cave";
 			return nextScene;
-		} else if ((currentScene == "Cave") && (backward == true)) {
-			nextScene = "City";
+		}  else if (currentScene == "Cave") {
+			nextScene = "Forest2";
 			return nextScene;
-		} else if ((currentScene == "City") && (backward == true)) {
-			nextScene = "Forest";
+		}  else if (currentScene == "Forest2") {
+			nextScene = "Beach2";
 			return nextScene;
-		} else if ((currentScene == "Forest") && (backward == true)) {
-			nextScene = "Beach";
-			return nextScene;
-		} else if ((currentScene == "Beach") && (backward == true)) {
+		} else if ((currentScene == "Beach2")) {
 			GameObject.Find ("Canvas").GetComponent<ui> ().Panel5.SetActive (true);
 			nextScene = null;
 			return nextScene;
@@ -77,6 +71,7 @@ public class PortalScript : MonoBehaviour {
 	{
 		if (collider.tag == "Player") 
 		{
+			GameObject.Find ("GameManager").GetComponent<GameManagement> ().nextScene = true;
 			SceneManager.LoadScene(nextScene);
 		}
 	} 
