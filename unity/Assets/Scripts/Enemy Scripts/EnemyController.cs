@@ -183,11 +183,11 @@ public class EnemyController : MonoBehaviour
 
 			if (playerInSight == false && detectedTransform != null)
 			{
-//				Debug.Log ("Unke lost sight of the player");
-//				StartCoroutine (WaitForSeconds (30f));
-//				StopCoroutine (Pursue ());
+				Debug.Log ("Unke lost sight of the player");
+				StartCoroutine (WaitForSeconds (30f));
+				StopCoroutine (Pursue ());
 //				StartCoroutine (Search (LastSightingSpot));
-//				detectedTransform = null;
+				detectedTransform = null;
 			}
 		}
 	}
