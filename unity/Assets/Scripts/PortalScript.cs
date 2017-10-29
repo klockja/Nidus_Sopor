@@ -8,15 +8,20 @@ public class PortalScript : MonoBehaviour {
 	private string nextScene;
 	private string currentScene;
 	private bool backward;
-	// Use this for initialization
-	void Start () {
 
+	void OnDrawGizmos()
+	{
+		Gizmos.color = Color.green;
+		Gizmos.DrawCube (transform.position, new Vector2 (0.75f, 0.75f));
+	}
+
+	void Start () 
+	{
 		currentScene = SceneManager.GetActiveScene ().name;
 
 
 	}
-	
-	// Update is called once per frame
+
 	void Update () 
 	{
 		//Debug.Log (nextScene);
