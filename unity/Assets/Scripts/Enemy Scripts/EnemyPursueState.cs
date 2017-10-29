@@ -13,7 +13,7 @@ public class EnemyPursueState : EnemyState
 	override public void OnEnter()
 	{
 		Debug.Log ("Entered Pursue State");
-		Update ();
+//		Update ();
 	}
 
 	override public void Update()

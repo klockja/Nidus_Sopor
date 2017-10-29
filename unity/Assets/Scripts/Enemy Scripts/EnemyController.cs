@@ -179,14 +179,13 @@ public class EnemyController : MonoBehaviour
 					playerDetected = true;
 				}
 				LastSightingSpot = detectedTransform.position;
-			} 
+			}
 
 			if (playerInSight == false && detectedTransform != null)
 			{
 				Debug.Log ("Unke lost sight of the player");
-				StartCoroutine (WaitForSeconds (30f));
 				StopCoroutine (Pursue ());
-//				StartCoroutine (Search (LastSightingSpot));
+				StartCoroutine (Search (LastSightingSpot));
 				detectedTransform = null;
 			}
 		}
@@ -236,6 +235,7 @@ public class EnemyController : MonoBehaviour
 		{
 			Debug.Log ("Unke is pursuing the player");
 	//		m_Body.position = Vector2.MoveTowards (transform.position, position, RunSpeed * Time.deltaTime);
+			AILerp.speed = runSpeed;
 			AILerp.target = detectedTransform;
 			AILerp.TrySearchPath ();
 	//		AILerp.
@@ -251,15 +251,15 @@ public class EnemyController : MonoBehaviour
 		if (position.x - m_Body.position.x <= 3 || position.y - m_Body.position.y <= 3)
 		{
 			Debug.Log ("Unke got near the last sighting of the player.");
-			StartCoroutine (WaitForSeconds (Random.Range (0.2f, 0.5f)));
+			StartCoroutine (WaitForSeconds (Random.Range (1f, 2f)));
 			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
-			StartCoroutine (WaitForSeconds (Random.Range (0.2f, 0.5f)));
+			StartCoroutine (WaitForSeconds (Random.Range (1f, 2f)));
 			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
-			StartCoroutine (WaitForSeconds (Random.Range (0.2f, 0.5f)));
+			StartCoroutine (WaitForSeconds (Random.Range (1f, 2f)));
 			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
-			StartCoroutine (WaitForSeconds (Random.Range (0.2f, 0.5f)));
+			StartCoroutine (WaitForSeconds (Random.Range (1f, 2f)));
 			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
-			StartCoroutine (WaitForSeconds (Random.Range (0.2f, 0.5f)));
+			StartCoroutine (WaitForSeconds (Random.Range (1f, 2f)));
 			playerDetected = false;
 		}
 		StartCoroutine (WaitForSeconds (3f));

@@ -128,7 +128,8 @@ public class AILerp : VersionedMonoBehaviour {
 	 * \see #Init
 	 * \see #RepeatTrySearchPath
 	 */
-	protected virtual void Start () {
+	protected virtual void Start () 
+	{
 		startHasRun = true;
 		Init();
 	}
