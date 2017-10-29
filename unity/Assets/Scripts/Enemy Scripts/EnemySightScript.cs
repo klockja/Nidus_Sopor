@@ -55,13 +55,15 @@ public class EnemySightScript : MonoBehaviour
 					visibleTargets.Add (target);
 					_enemyController.playerInSight = true;
 					_enemyController.detectedTransform = target;
-				} 
+				}
 				else
 				{
-					Debug.Log ("Player isn't in sight!");
-					StartCoroutine (WaitForSeconds (3f));
-					_enemyController.playerInSight = false;
-					Debug.Log ("Unke should start search now");
+					if (_enemyController.playerInSight == true)
+					{
+						Debug.Log ("Player isn't in sight!");
+						StartCoroutine (WaitForSeconds (5f));
+						_enemyController.playerInSight = false;
+					}
 				}
 			}
 		}
@@ -89,7 +91,6 @@ public class EnemySightScript : MonoBehaviour
 	}
 	public IEnumerator WaitForSeconds (float seconds)
 	{
-		Debug.Log ("Waiting!");
 		yield return new WaitForSeconds (seconds);
 	}
 }
