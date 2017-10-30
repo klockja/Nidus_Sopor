@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
 	void Start () 
 	{
-		hasEgg = GameObject.Find ("GameManager").GetComponent<GameManagement> ().goingBackwards;
+		//hasEgg = GameObject.Find ("GameManager").GetComponent<GameManagement> ().goingBackwards;
 		if (hasEgg == false) 
 		{
 		} else if (hasEgg == true) 

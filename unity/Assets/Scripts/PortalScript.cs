@@ -7,7 +7,7 @@ public class PortalScript : MonoBehaviour {
 
 	private string nextScene;
 	private string currentScene;
-	//private bool backward;
+	private bool backward;
 
 	void OnDrawGizmos()
 	{
@@ -26,9 +26,20 @@ public class PortalScript : MonoBehaviour {
 	{
 		//Debug.Log (nextScene);
 		//backward = GameObject.Find ("GameManager").GetComponent<GameManagement> ().goingBackwards;
+		//DetermineDirection ();
 		DetermineNextScene ();
 	}
-		
+
+	void DetermineDirection()
+	{
+		//if (backward == false && currentScene != "Cave")
+		//{
+			//transform.localPosition = new Vector3 (0, 10, 0);
+		//} else if (backward == true || currentScene == "Cave") 
+		//{
+			//transform.localPosition = new Vector3 (0, -12, 0);
+		//}
+	}
 
 	protected string DetermineNextScene()
 	{
@@ -39,7 +50,7 @@ public class PortalScript : MonoBehaviour {
 		} else if (currentScene == "Forest") {
 			nextScene = "Cave";
 			return nextScene;
-		}  else if (currentScene == "Cave" && GameObject.Find ("GameManager").GetComponent<GameManagement> ().goingBackwards == true) {
+		}  else if (currentScene == "Cave") {
 			nextScene = "Forest2";
 			return nextScene;
 		}  else if (currentScene == "Forest2") {
