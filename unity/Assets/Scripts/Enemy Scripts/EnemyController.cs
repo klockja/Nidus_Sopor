@@ -160,7 +160,7 @@ public class EnemyController : MonoBehaviour
 		if (gamePaused == false)
 		{
 			currentHealth = AttackableEnemy.GetHealth ();
-			if (AttackableEnemy.GetHealth () <= 0)
+			if (currentHealth <= 0)
 			{
 				StopAllCoroutines ();
 				canMove = false;
