@@ -7,13 +7,13 @@ public class GameManagement : MonoBehaviour {
 
 
 	public bool isPaused;
-	//public bool goingBackwards;
+	public bool goingBackwards;
 	public bool gameover;
 	public bool nextScene;
 	public float bulletCount;
 	public float rockCount;
-	public float defaultBulletCount;
-	public float defaultRockCount;
+	private float defaultBulletCount;
+	private float defaultRockCount;
 	public AudioSource musicPlayer;
 	public AudioClip backgroundMusic;
 
@@ -47,6 +47,12 @@ public class GameManagement : MonoBehaviour {
 			bulletCount = defaultBulletCount;
 			rockCount = defaultRockCount;
 
+		}
+
+		if (goingBackwards == true && SceneManager.GetActiveScene ().name == "Cave") 
+		{
+			GameObject.Find ("ForwardPortal").SetActive (false);
+			GameObject.Find ("BackwardPortal").SetActive (true);
 		}
 	}
 }
