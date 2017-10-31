@@ -46,6 +46,7 @@ public class GameManagement : MonoBehaviour {
 		{
 			bulletCount = defaultBulletCount;
 			rockCount = defaultRockCount;
+			gameover = false;
 
 		}
 
