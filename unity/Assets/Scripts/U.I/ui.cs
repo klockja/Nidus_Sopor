@@ -10,6 +10,10 @@ public class ui : MonoBehaviour {
 	public GameObject Panel3;
 	public GameObject Panel4;
 	public GameObject Panel5;
+	public GameObject Panel6;
+	public GameObject Panel7;
+	public GameObject Panel8;
+	public GameObject Panel9;
 	public GameManagement GM;
 
 	// Use this for initialization
@@ -41,6 +45,10 @@ public class ui : MonoBehaviour {
 		Panel3.SetActive (false);
 		Panel4.SetActive (false);
 		Panel5.SetActive (false);
+		Panel6.SetActive (false);
+		Panel7.SetActive (false);
+		Panel8.SetActive (false);
+		Panel9.SetActive (false);
 
 		switch (menuID) {
 		case 0:
@@ -57,6 +65,18 @@ public class ui : MonoBehaviour {
 			break;
 		case 4:
 			Panel5.gameObject.SetActive(true);
+			break;
+		case 5:
+			Panel6.gameObject.SetActive(true);
+			break;
+		case 6:
+			Panel7.gameObject.SetActive (true);
+			break;
+		case 7:
+			Panel8.gameObject.SetActive(true);
+			break;
+		case 8:
+			Panel9.gameObject.SetActive(true);
 			break;
 		}
 	}
@@ -96,6 +116,11 @@ public class ui : MonoBehaviour {
 	public void Quit() 
 	{
 		Application.Quit();
+	}
+
+	public void Destroy()
+	{
+		Destroy (GameObject.Find("GameManager"));
 	}
 
 	public void SoundControl()

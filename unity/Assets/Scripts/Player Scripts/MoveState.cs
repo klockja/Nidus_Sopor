@@ -12,6 +12,7 @@ public class MoveState : CharacterState {
 
 	override public void DesireMove(Vector2 movement)
 	{
+		
 		float speed = m_machine.Controller.RunSpeed * m_machine.Controller.SpeedDecay;
 		m_machine.Controller.Body.velocity = (movement * speed * Time.deltaTime);
 
@@ -30,6 +31,7 @@ public class MoveState : CharacterState {
 		}
 
 		m_machine.Controller.fireLine.enabled = false;
+
 	}
 
 	override public void DesireSneak()
