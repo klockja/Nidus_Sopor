@@ -116,6 +116,9 @@ public class PlayerController : MonoBehaviour
 		//Debug.Log (m_stateMachine.CurrentState);
 		gamePaused = GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused;
 
+		if (gamePaused == true)
+			Body.velocity = Vector2.zero;
+
 		if (gamePaused == false)
 		{
 			m_stateMachine.Update();
