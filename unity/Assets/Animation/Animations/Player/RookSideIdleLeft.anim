@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: RookSideIdle 1
+  m_Name: RookSideIdleLeft
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -46,8 +46,24 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
-    pptrCurveMapping: []
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: ba4580e86157d4f3b844dd5c39ab1685, type: 3}
+    - {fileID: 21300002, guid: ba4580e86157d4f3b844dd5c39ab1685, type: 3}
+    - {fileID: 21300004, guid: ba4580e86157d4f3b844dd5c39ab1685, type: 3}
+    - {fileID: 21300006, guid: ba4580e86157d4f3b844dd5c39ab1685, type: 3}
+    - {fileID: 21300008, guid: ba4580e86157d4f3b844dd5c39ab1685, type: 3}
+    - {fileID: 21300010, guid: ba4580e86157d4f3b844dd5c39ab1685, type: 3}
+    - {fileID: 21300012, guid: ba4580e86157d4f3b844dd5c39ab1685, type: 3}
+    - {fileID: 21300014, guid: ba4580e86157d4f3b844dd5c39ab1685, type: 3}
+    - {fileID: 21300016, guid: ba4580e86157d4f3b844dd5c39ab1685, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
