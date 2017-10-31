@@ -118,6 +118,11 @@ public class ui : MonoBehaviour {
 		Application.Quit();
 	}
 
+	public void Destroy()
+	{
+		Destroy (GameObject.Find("GameManager"));
+	}
+
 	public void SoundControl()
 	{
 		if (AudioListener.volume != 0) {
