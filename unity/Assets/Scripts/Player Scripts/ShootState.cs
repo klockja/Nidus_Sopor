@@ -15,7 +15,11 @@ public class ShootState : CharacterState {
 
 		if (GameObject.Find ("GameManager").GetComponent<GameManagement> ().bulletCount > 0)
 		{
-			machine.Controller.audio.PlayOneShot (machine.Controller.shootingSound);
+			if (machine.Controller.anim.GetBool ("isShooting") == false)
+			{
+				machine.Controller.anim.SetBool ("isShooting", true);
+			}
+			machine.Controller.audioSource.PlayOneShot (machine.Controller.shootingSound);
 			GameObject.Find("GameManager").GetComponent<GameManagement>().bulletCount -= 1;
 			Vector2 mousePosition = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
 			Vector2 firePosition = new Vector2 (player.transform.position.x, player.transform.position.y);
@@ -41,6 +45,11 @@ public class ShootState : CharacterState {
 				Debug.Log (hit.point);
 			}
 		}
+
+		if (m_machine.Controller.anim.GetBool ("isShooting") == true)
+		{
+			m_machine.Controller.anim.SetBool ("isShooting", false);
+		}
 	}
 	override public void Update()
 	{
@@ -50,6 +59,11 @@ public class ShootState : CharacterState {
 		{
 			m_machine.CurrentState = _previousState;
 		}
+	}
+
+	override public void OnExit()
+	{
+		m_machine.Controller.anim.SetBool ("isShooting", false);
 	}
 
 }

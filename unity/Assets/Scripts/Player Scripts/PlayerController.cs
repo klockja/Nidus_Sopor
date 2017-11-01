@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
 {
+	public Animator anim;
+
 	public bool gamePaused = false;
 	public bool hasEgg;
 	public float bulletNum;
@@ -18,7 +20,7 @@ public class PlayerController : MonoBehaviour
 	public LayerMask shootableMask;
 
 	// Audio Stuff
-	public AudioSource audio;
+	public AudioSource audioSource;
 	public AudioClip shootingSound;
 	public AudioClip throwingSound;
 	public AudioClip walkingSound;
@@ -85,8 +87,10 @@ public class PlayerController : MonoBehaviour
 
 	void Awake ()
 	{
-		GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused = false;
-		m_Body = gameObject.GetComponentInChildren <Rigidbody2D> (); //Gets the Rigidbody of the character.
+		GameObject.Find ("GameManager").GetComponent <GameManagement> ().isPaused = false;
+		anim = GetComponentInChildren <Animator> ();
+		m_Body = gameObject.GetComponent <Rigidbody2D> (); //Gets the Rigidbody of the character.
+		audioSource = GetComponent <AudioSource>();
 
 		m_stateMachine = new CharacterStateMachine(this);
 		m_stateMachine.CurrentState = new MoveState(m_stateMachine);
@@ -103,6 +107,9 @@ public class PlayerController : MonoBehaviour
 
 	void Start () 
 	{
+		anim.SetFloat ("input_y", -1);
+		anim.SetFloat ("input_x", 0);
+
 		hasEgg = GameObject.Find ("GameManager").GetComponent<GameManagement> ().goingBackwards;
 		if (hasEgg == false) 
 		{
@@ -127,9 +134,32 @@ public class PlayerController : MonoBehaviour
 			float vertical = Input.GetAxis ("Vertical");
 
 			Vector2 movementDirection = new Vector2(horizontal, vertical);
+
+			if (vertical > 0.7f)
+			{
+				anim.SetFloat ("input_y", 1);
+				anim.SetFloat ("input_x", 0);
+			}
+
+			if (vertical < -0.7f)
+			{
+				anim.SetFloat ("input_y", -1);
+				anim.SetFloat ("input_x", 0);
+			}
+
+			if (horizontal > 0.7f)
+			{
+				anim.SetFloat ("input_y", 0);
+				anim.SetFloat ("input_x", 1);
+			}
+
+			if (horizontal < -0.7f)
+			{
+				anim.SetFloat ("input_y", 0);
+				anim.SetFloat ("input_x", -1);
+			}
 //			movementDirection.Normalize();
 			m_stateMachine.CurrentState.DesireMove(movementDirection);
-
 
 			if (Input.GetKeyDown (KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.RightShift))
 			{
@@ -195,6 +225,13 @@ public class PlayerController : MonoBehaviour
 			yield return new WaitForSeconds (1.0f);
 			time--;
 		}
+	}
+
+	public IEnumerator PlaySound(AudioClip clip, float delay)
+	{
+		yield return new WaitForSeconds (delay);
+		audioSource.PlayOneShot (clip);
+		yield return null;
 	}
 
 	void FixedUpdate () 

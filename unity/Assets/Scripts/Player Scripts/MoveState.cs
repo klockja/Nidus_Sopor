@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveState : CharacterState { 
 
-	private float time;
+	private float timer;
 
 	public MoveState(CharacterStateMachine machine):base(machine)
 	{
@@ -12,17 +12,25 @@ public class MoveState : CharacterState {
 
 	override public void DesireMove(Vector2 movement)
 	{
-		
 		float speed = m_machine.Controller.RunSpeed * m_machine.Controller.SpeedDecay;
 		m_machine.Controller.Body.velocity = (movement * speed * Time.deltaTime);
+
+		if (m_machine.Controller.Body.velocity.magnitude > 1)
+		{
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		} else
+		{
+			m_machine.Controller.anim.SetBool ("isMoving", false);
+		}
 
 		if (m_machine.Controller.Body.velocity != new Vector2 (0, 0)) {
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (10, 10, 1);
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.1f;
 
-			if (time <= 0) {
-				m_machine.Controller.audio.PlayOneShot (m_machine.Controller.runningSound);
-				m_machine.Controller.StartCoroutine (Wait(1f));
+			if (timer <= 0) {
+				m_machine.Controller.audioSource.PlayOneShot (m_machine.Controller.runningSound);
+				timer = .25f;
+				m_machine.Controller.PlaySound (m_machine.Controller.runningSound, 2f);
 			}
 
 		} else {
@@ -31,6 +39,7 @@ public class MoveState : CharacterState {
 		}
 
 		m_machine.Controller.fireLine.enabled = false;
+		timer = timer - Time.deltaTime;
 
 	}
 
@@ -47,17 +56,6 @@ public class MoveState : CharacterState {
 	override public void DesireThrowRock(GameObject Rock)
 	{
 		m_machine.CurrentState = new DistractState(m_machine, this, Rock);
-	}
-
-	IEnumerator Wait(float maxtime)
-	{
-		time = maxtime;
-		while (time > 0) 
-		{
-			Debug.Log (time);
-			yield return new WaitForSeconds (1.0f);
-			time--;
-		}
 	}
 		
 }
