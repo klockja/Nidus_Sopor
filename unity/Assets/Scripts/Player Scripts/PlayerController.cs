@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour 
 {
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
 	public float rockNum;
 
 	public float time;
+	public Text bulletText;
 
 	public LineRenderer fireLine;
 	public float fireWidth = 0.1f;
@@ -125,6 +127,7 @@ public class PlayerController : MonoBehaviour
 	{
 		//Debug.Log (m_stateMachine.CurrentState);
 		gamePaused = GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused;
+		bulletText.text = unusedBulletNum.ToString ();
 
 		if (gamePaused == true)
 			Body.velocity = Vector2.zero;
