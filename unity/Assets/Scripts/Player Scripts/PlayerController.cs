@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
 		anim = GetComponentInChildren <Animator> ();
 		m_Body = gameObject.GetComponent <Rigidbody2D> (); //Gets the Rigidbody of the character.
 		audioSource = GetComponent <AudioSource>();
+		bulletText = GameObject.Find ("Bullet Number Text").GetComponent<Text>();
 
 		m_stateMachine = new CharacterStateMachine(this);
 		m_stateMachine.CurrentState = new MoveState(m_stateMachine);
