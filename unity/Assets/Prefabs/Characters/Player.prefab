@@ -436,7 +436,7 @@ MonoBehaviour:
   rockNum: 0
   time: 0
   fireLine: {fileID: 120969838353241080}
-  fireWidth: 0.1
+  fireWidth: 0.05
   fireMaxLenght: 5
   shootableMask:
     serializedVersion: 2
@@ -465,7 +465,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3996,7 +3996,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.66176474, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.66176474, g: 0, b: 0, a: 0.491}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
