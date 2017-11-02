@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
 	public bool gamePaused = false;
 	public bool hasEgg;
+	public bool reloading;
+	public float unusedBulletNum;
 	public float bulletNum;
 	public float rockNum;
 
@@ -102,6 +104,7 @@ public class PlayerController : MonoBehaviour
 
 		bulletNum = GameObject.Find ("GameManager").GetComponent<GameManagement> ().bulletCount;
 		rockNum = GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount;
+		unusedBulletNum = GameObject.Find ("GameManager").GetComponent<GameManagement> ().unusedBullet;
 
 	}
 
@@ -175,7 +178,14 @@ public class PlayerController : MonoBehaviour
 
 			if(Input.GetKeyDown(KeyCode.Mouse0))
 			{
-				m_stateMachine.CurrentState.DesireShoot();
+				if (reloading == false) {
+					m_stateMachine.CurrentState.DesireShoot ();
+				}
+			}
+
+			if (Input.GetKeyDown (KeyCode.R)) 
+			{
+				Reload ();
 			}
 
 			if(Input.GetKeyDown(KeyCode.Mouse1))
@@ -232,6 +242,17 @@ public class PlayerController : MonoBehaviour
 		yield return new WaitForSeconds (delay);
 		audioSource.PlayOneShot (clip);
 		yield return null;
+	}
+
+	void Reload ()
+	{
+		if (unusedBulletNum != 0 && bulletNum != 6) {
+			while (bulletNum < 6 && unusedBulletNum != 0) {
+				bulletNum += 1;
+				unusedBulletNum -= 1;
+			}
+		} else
+			Debug.Log ("Error with reoloading");
 	}
 
 	void FixedUpdate () 

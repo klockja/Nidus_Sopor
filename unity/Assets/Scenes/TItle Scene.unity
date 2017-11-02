@@ -1568,7 +1568,6 @@ MonoBehaviour:
   Panel8: {fileID: 485412269}
   Panel9: {fileID: 485412269}
   GM: {fileID: 0}
-  destroyThisObject: {fileID: 0}
 --- !u!82 &611388837
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3352,6 +3351,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 8300000, guid: be52970ae95dc48da8fd2d373dd2965f,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 611388836}
+        m_MethodName: Destroyself
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

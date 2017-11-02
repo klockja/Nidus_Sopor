@@ -17,6 +17,11 @@ public class ui : MonoBehaviour {
 	public GameManagement GM;
 
 	// Use this for initialization
+	void Awake() {
+
+		DontDestroyOnLoad (gameObject);
+	}
+
 	void Start () {
 		//TitlePanel = GameObject.FindGameObjectWithTag("TitlePanel");
 
@@ -35,6 +40,15 @@ public class ui : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (SceneManager.GetActiveScene ().name != "Title Scene") 
+		{
+			if (Input.GetKeyDown (KeyCode.Escape)) 
+			{
+				PauseScene ();
+			}
+
+
+		}
 
 	}
 
@@ -121,6 +135,11 @@ public class ui : MonoBehaviour {
 	public void Destroy()
 	{
 		Destroy (GameObject.Find("GameManager"));
+	}
+
+	public void Destroyself()
+	{
+		Destroy (gameObject);
 	}
 
 	public void SoundControl()

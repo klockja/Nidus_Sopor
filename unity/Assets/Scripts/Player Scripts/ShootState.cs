@@ -13,14 +13,14 @@ public class ShootState : CharacterState {
 	{
 		_previousState = previousState;
 
-		if (GameObject.Find ("GameManager").GetComponent<GameManagement> ().bulletCount > 0)
+		if (machine.Controller.bulletNum > 0)
 		{
 			if (machine.Controller.anim.GetBool ("isShooting") == false)
 			{
 				machine.Controller.anim.SetBool ("isShooting", true);
 			}
 			machine.Controller.audioSource.PlayOneShot (machine.Controller.shootingSound);
-			GameObject.Find("GameManager").GetComponent<GameManagement>().bulletCount -= 1;
+			machine.Controller.bulletNum -= 1;
 			Vector2 mousePosition = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
 			Vector2 firePosition = new Vector2 (player.transform.position.x, player.transform.position.y);
 			RaycastHit2D hit = Physics2D.Raycast (firePosition, (mousePosition - firePosition), 1000 , machine.Controller.shootableMask);
