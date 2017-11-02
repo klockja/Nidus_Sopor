@@ -1,28 +1,22 @@
 fileFormatVersion: 2
-guid: 293c99ef1006e4e91ab32a1a0a3feb6a
-timeCreated: 1509614603
+guid: dcd33574d09e944cfb804666c78775e2
+timeCreated: 1509614640
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sightUnkeIdle_0
-    21300002: sightUnkeIdle_1
-    21300004: sightUnkeIdle_2
-    21300006: sightUnkeIdle_3
-    21300008: sightUnkeIdle_4
-    21300010: sightUnkeIdle_5
-    21300012: sightUnkeIdle_6
-    21300014: sightUnkeIdle_7
-    21300016: sightUnkeIdle_8
-    21300018: sightUnkeIdle_9
-    21300020: sightUnkeIdle_10
-    21300022: sightUnkeIdle_11
-    21300024: sightUnkeIdle_12
-    21300026: sightUnkeIdle_13
-    21300028: sightUnkeIdle_14
-    21300030: sightUnkeIdle_15
-    21300032: sightUnkeIdle_16
-    21300034: sightUnkeIdle_17
-    21300036: sightUnkeIdle_18
+    21300000: normalUnkeWalk_0
+    21300002: normalUnkeWalk_1
+    21300004: normalUnkeWalk_2
+    21300006: normalUnkeWalk_3
+    21300008: normalUnkeWalk_4
+    21300010: normalUnkeWalk_5
+    21300012: normalUnkeWalk_6
+    21300014: normalUnkeWalk_7
+    21300016: normalUnkeWalk_8
+    21300018: normalUnkeWalk_9
+    21300020: normalUnkeWalk_10
+    21300022: normalUnkeWalk_11
+    21300024: normalUnkeWalk_12
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -115,12 +109,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sightUnkeIdle_0
+      name: normalUnkeWalk_0
       rect:
         serializedVersion: 2
-        x: 34
+        x: 13
         y: 32
-        width: 30
+        width: 51
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -129,12 +123,82 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sightUnkeIdle_1
+      name: normalUnkeWalk_1
       rect:
         serializedVersion: 2
-        x: 98
+        x: 74
         y: 32
-        width: 30
+        width: 54
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: normalUnkeWalk_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 32
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: normalUnkeWalk_3
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 32
+        width: 57
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: normalUnkeWalk_4
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 32
+        width: 58
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: normalUnkeWalk_5
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 32
+        width: 58
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: normalUnkeWalk_6
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 32
+        width: 55
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -143,12 +207,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sightUnkeIdle_2
+      name: normalUnkeWalk_7
       rect:
         serializedVersion: 2
-        x: 162
+        x: 461
         y: 32
-        width: 30
+        width: 51
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -157,12 +221,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sightUnkeIdle_3
+      name: normalUnkeWalk_8
       rect:
         serializedVersion: 2
-        x: 226
+        x: 525
         y: 32
-        width: 30
+        width: 51
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -171,12 +235,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sightUnkeIdle_4
+      name: normalUnkeWalk_9
       rect:
         serializedVersion: 2
-        x: 290
+        x: 589
         y: 32
-        width: 30
+        width: 51
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -185,12 +249,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sightUnkeIdle_5
+      name: normalUnkeWalk_10
       rect:
         serializedVersion: 2
-        x: 354
+        x: 650
         y: 32
-        width: 30
+        width: 54
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -199,12 +263,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sightUnkeIdle_6
+      name: normalUnkeWalk_11
       rect:
         serializedVersion: 2
-        x: 418
+        x: 717
         y: 32
-        width: 30
+        width: 51
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -213,166 +277,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sightUnkeIdle_7
+      name: normalUnkeWalk_12
       rect:
         serializedVersion: 2
-        x: 482
+        x: 781
         y: 32
-        width: 30
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sightUnkeIdle_8
-      rect:
-        serializedVersion: 2
-        x: 546
-        y: 32
-        width: 30
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sightUnkeIdle_9
-      rect:
-        serializedVersion: 2
-        x: 610
-        y: 32
-        width: 30
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sightUnkeIdle_10
-      rect:
-        serializedVersion: 2
-        x: 674
-        y: 32
-        width: 30
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sightUnkeIdle_11
-      rect:
-        serializedVersion: 2
-        x: 738
-        y: 32
-        width: 30
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sightUnkeIdle_12
-      rect:
-        serializedVersion: 2
-        x: 802
-        y: 32
-        width: 30
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sightUnkeIdle_13
-      rect:
-        serializedVersion: 2
-        x: 866
-        y: 32
-        width: 30
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sightUnkeIdle_14
-      rect:
-        serializedVersion: 2
-        x: 930
-        y: 32
-        width: 30
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sightUnkeIdle_15
-      rect:
-        serializedVersion: 2
-        x: 994
-        y: 32
-        width: 30
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sightUnkeIdle_16
-      rect:
-        serializedVersion: 2
-        x: 1058
-        y: 32
-        width: 30
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sightUnkeIdle_17
-      rect:
-        serializedVersion: 2
-        x: 1122
-        y: 32
-        width: 30
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sightUnkeIdle_18
-      rect:
-        serializedVersion: 2
-        x: 1186
-        y: 32
-        width: 30
+        width: 51
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}

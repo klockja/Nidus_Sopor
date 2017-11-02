@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
 		}
 	}
 
-	//	public Animator anim; // The Animator of the enemy
+	public Animator anim; // The Animator of the enemy
 
 	public AttackableEnemy AttackableEnemy;
 	public AILerp AILerp;
@@ -65,23 +65,9 @@ public class EnemyController : MonoBehaviour
 	private Vector2 lastPosition;
 	private Vector2 newPosition;
 	[SerializeField][Range (0f, 10f)]
-	private float walkSpeed;
-	public float WalkSpeed
-	{
-		get
-		{
-			return walkSpeed;
-		}
-	}
+	public float walkSpeed;
 	[SerializeField][Range (0f, 10f)]
-	private float runSpeed;
-	public float RunSpeed
-	{
-		get
-		{
-			return runSpeed;
-		}
-	}
+	public float runSpeed;
 
 	[Header("Sight")]
 	public Transform EnemyHead;
@@ -124,6 +110,7 @@ public class EnemyController : MonoBehaviour
 		//		anim = GetComponentInChildren <Animator> (); // Gets the animator of the enemy
 		m_Body = GetComponent <Rigidbody2D> ();
 		audioSource = GetComponent <AudioSource> ();
+		anim = GetComponentInChildren <Animator> ();
 
 		AttackableEnemy = GetComponentInChildren <AttackableEnemy> (); // Gets the AttackableEnemy script
 		AttackableEnemy.SetMaxHealth (MaxHealth);
@@ -157,15 +144,26 @@ public class EnemyController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (gamePaused == false)
+		currentHealth = AttackableEnemy.GetHealth ();
+		if (currentHealth <= 0)
+		{
+			StopAllCoroutines ();
+			canMove = false;
+			audioSource.PlayOneShot (takeDamage);
+			StartCoroutine (WaitForSeconds (5f));
+			Die ();
+		}
+
+		if (gamePaused == false || currentHealth > 0)
 		{
 			currentHealth = AttackableEnemy.GetHealth ();
-			if (AttackableEnemy.GetHealth () <= 0)
+			if (currentHealth <= 0)
 			{
 				StopAllCoroutines ();
 				canMove = false;
-				audioSource.clip = takeDamage;
-				audioSource.Play ();
+				audioSource.PlayOneShot (takeDamage);
+				anim.SetBool ("isDead", true);
+				return;
 			}
 
 			if (playerInSight && detectedTransform != null)
@@ -184,10 +182,10 @@ public class EnemyController : MonoBehaviour
 
 			if (playerInSight == false && detectedTransform != null && playerDetected == true)
 			{
-				Debug.Log ("Unke lost sight of the player");
-				StopCoroutine (Pursue ());
-				StartCoroutine (Search (LastSightingSpot));
-				detectedTransform = null;
+//				Debug.Log ("Unke lost sight of the player");
+//				StopCoroutine (Pursue ());
+//				StartCoroutine (Search (LastSightingSpot));
+//				detectedTransform = null;
 			}
 		}
 	}
@@ -209,23 +207,36 @@ public class EnemyController : MonoBehaviour
 	void UpdateDirection()
 	{
 		Vector2 newPosition = transform.position;
+		if (newPosition.normalized != lastPosition.normalized)
+		{
+			anim.SetBool ("isMoving", true);
+		}
+
 		directionFacing = (newPosition - lastPosition);
 		directionFacing.Normalize ();
 		if (directionFacing.y >= 0.7f)
 		{
 			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 0f); 
+			anim.SetFloat ("input_x", 0);
+			anim.SetFloat ("input_y", 1);
 		}
 		else if (directionFacing.y <= -0.7f)
 		{
-			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 180f); 
+			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 180f);
+			anim.SetFloat ("input_x", 0);
+			anim.SetFloat ("input_y", -1);
 		}
 		else if (directionFacing.x < 0f)
 		{
-			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 90f); 
+			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 90f);
+			anim.SetFloat ("input_x", -1);
+			anim.SetFloat ("input_y", 0);
 		}
 		else if (directionFacing.x > 0f)
 		{
 			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 270f); 
+			anim.SetFloat ("input_x", 1);
+			anim.SetFloat ("input_y", 0);
 		}
 		lastPosition = transform.position;
 	}
@@ -235,6 +246,7 @@ public class EnemyController : MonoBehaviour
 		if (detectedTransform != null)
 		{
 			Debug.Log ("Unke is pursuing the player");
+			anim.SetBool ("playerDetected", true);
 	//		m_Body.position = Vector2.MoveTowards (transform.position, position, RunSpeed * Time.deltaTime);
 			AILerp.speed = runSpeed;
 			AILerp.target = detectedTransform;
@@ -253,13 +265,13 @@ public class EnemyController : MonoBehaviour
 			AILerp.target = null;
 			Debug.Log ("Unke got near the last sighting of the player.");
 			yield return new WaitForSeconds (Random.Range (1f, 2f));
-			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + 1, m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
+			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + 1, m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
 			yield return new WaitForSeconds (Random.Range (1f, 2f));
-			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
+			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
 			yield return new WaitForSeconds (Random.Range (1f, 2f));
-			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
+			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
 			yield return new WaitForSeconds (Random.Range (1f, 2f));
-			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), RunSpeed * Time.deltaTime);
+			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
 			yield return new WaitForSeconds (Random.Range (1f, 2f));
 			playerDetected = false;
 		}
@@ -273,6 +285,7 @@ public class EnemyController : MonoBehaviour
 	{
 		Debug.Log ("Unke returning to original position");
 		AILerp.target = originalPosition;
+		AILerp.speed = walkSpeed;
 		AILerp.SearchPath ();
 
 		if (originalPosition.position.x - transform.position.x < 1)
@@ -311,7 +324,7 @@ public class EnemyController : MonoBehaviour
 		StopCoroutine (coroutineMethod);
 	}
 
-	void Die()
+	public void Die()
 	{
 		Destroy (gameObject);
 	}

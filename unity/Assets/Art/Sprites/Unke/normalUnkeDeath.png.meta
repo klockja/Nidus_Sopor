@@ -1,9 +1,15 @@
 fileFormatVersion: 2
-guid: 1787f62bc72f5473a83035397435acae
-timeCreated: 1509582601
+guid: 871cc650d9d6846318d2bde5681791f3
+timeCreated: 1509614658
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: normalUnkeDeath_0
+    21300002: normalUnkeDeath_1
+    21300004: normalUnkeDeath_2
+    21300006: normalUnkeDeath_3
+    21300008: normalUnkeDeath_4
+    21300010: normalUnkeDeath_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -94,7 +100,91 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: normalUnkeDeath_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 32
+        width: 51
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: normalUnkeDeath_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 32
+        width: 51
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: normalUnkeDeath_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 32
+        width: 51
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: normalUnkeDeath_3
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 32
+        width: 51
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: normalUnkeDeath_4
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 32
+        width: 51
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: normalUnkeDeath_5
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 32
+        width: 51
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

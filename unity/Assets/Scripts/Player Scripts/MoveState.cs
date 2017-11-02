@@ -24,8 +24,8 @@ public class MoveState : CharacterState {
 		}
 
 		if (m_machine.Controller.Body.velocity != new Vector2 (0, 0)) {
-			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (10, 10, 1);
-			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.1f;
+			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (1, 1, 1);
+			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 1f;
 
 			if (timer <= 0) {
 				m_machine.Controller.audioSource.PlayOneShot (m_machine.Controller.runningSound);
@@ -34,7 +34,7 @@ public class MoveState : CharacterState {
 			}
 
 		} else {
-			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 1);
+			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 0);
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0;
 		}
 

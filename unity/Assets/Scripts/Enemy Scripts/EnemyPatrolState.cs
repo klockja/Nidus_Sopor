@@ -14,7 +14,7 @@ public class EnemyPatrolState : EnemyState
 
 	override public void OnEnter()
 	{
-		walkSpeed = m_machine.Controller.WalkSpeed;
+		walkSpeed = m_machine.Controller.walkSpeed;
 		Patrol ();
 	}
 
