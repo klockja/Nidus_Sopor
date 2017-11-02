@@ -127,6 +127,12 @@ public class ui : MonoBehaviour {
 		SceneManager.LoadScene(C);	
 	}
 
+	public void ReloadScene()
+	{
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+		Panel8.gameObject.SetActive(false);
+	}
+
 	public void Quit() 
 	{
 		Application.Quit();
@@ -138,6 +144,11 @@ public class ui : MonoBehaviour {
 	}
 
 	public void Destroyself()
+	{
+		Invoke ("_Destroyself", 0.1f);
+	}
+
+	void _Destroyself()
 	{
 		Destroy (gameObject);
 	}
