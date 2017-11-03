@@ -27,7 +27,7 @@ public class ShootState : CharacterState {
 
 			//GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().AudioRadius = new Vector3 (100, 100, 1);
 			GameObject.Find ("Player").GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (10, 10, 1);
-			GameObject.Find ("Player").GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 10f;
+			GameObject.Find ("Player").GetComponentInChildren<AudioDetectionScript> ().colliderRadius = .5f;
 
 			//Debug.DrawLine (firePosition, mousePosition);
 			machine.Controller.fireLine.SetPosition(0, firePosition);
