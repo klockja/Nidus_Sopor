@@ -210,6 +210,9 @@ public class EnemyController : MonoBehaviour
 		if (newPosition.normalized != lastPosition.normalized)
 		{
 			anim.SetBool ("isMoving", true);
+		} else
+		{
+			anim.SetBool ("isMoving", false);
 		}
 
 		directionFacing = (newPosition - lastPosition);
