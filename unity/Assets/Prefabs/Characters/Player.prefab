@@ -452,8 +452,8 @@ MonoBehaviour:
   dyingSound: {fileID: 8300000, guid: 919a8672443424fdebbd0885ed6aca98, type: 3}
   Rock: {fileID: 1164884993820866, guid: 3753ab21f009ba649bc77585bfb7a1c0, type: 2}
   canMove: 1
-  sneakSpeed: 25
-  runSpeed: 100
+  sneakSpeed: 50
+  runSpeed: 150
 --- !u!120 &120969838353241080
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -1511,8 +1511,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.022565898, g: 0.6544118, b: 0, a: 1}
-        key1: {r: 0.5661765, g: 1, b: 0.5691683, a: 0.5176471}
+        key0: {r: 0.6453855, g: 0.6544118, b: 0, a: 1}
+        key1: {r: 0.9940163, g: 1, b: 0.5661765, a: 0.5176471}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -3926,7 +3926,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1990533823
+  randomSeed: -744621820
   InitialModule:
     serializedVersion: 3
     enabled: 1
