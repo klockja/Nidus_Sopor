@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1540,7 +1540,7 @@ RectTransform:
   m_GameObject: {fileID: 611388831}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 90}
-  m_LocalScale: {x: 0.14372984, y: 0.14372984, z: 0.14372984}
+  m_LocalScale: {x: 0.15992479, y: 0.15992479, z: 0.15992479}
   m_Children:
   - {fileID: 478323168}
   - {fileID: 485412270}
@@ -2846,6 +2846,26 @@ Prefab:
     - target: {fileID: 4425331881786042, guid: 96018e1a98c727840ac329513c1832bd, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 82710700469469454, guid: 96018e1a98c727840ac329513c1832bd,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e0ed71c65f6b4727946a24d1d9d9efc, type: 3}
+    - target: {fileID: 82710700469469454, guid: 96018e1a98c727840ac329513c1832bd,
+        type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82710700469469454, guid: 96018e1a98c727840ac329513c1832bd,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82710700469469454, guid: 96018e1a98c727840ac329513c1832bd,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96018e1a98c727840ac329513c1832bd, type: 2}
