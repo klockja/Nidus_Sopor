@@ -437,6 +437,7 @@ MonoBehaviour:
   bulletNum: 0
   rockNum: 0
   time: 0
+  bulletText: {fileID: 0}
   fireLine: {fileID: 120969838353241080}
   fireWidth: 0.05
   fireMaxLenght: 5
@@ -608,7 +609,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1439902847
+  randomSeed: 1893716464
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3925,7 +3926,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1034385172
+  randomSeed: -1990533823
   InitialModule:
     serializedVersion: 3
     enabled: 1
