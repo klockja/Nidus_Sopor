@@ -4,34 +4,32 @@ using UnityEngine;
 
 public class VisualSorterScript : MonoBehaviour 
 {
+	private SpriteRenderer spriteRenderer;
+
+	public void Start()
+	{
+		spriteRenderer = GetComponent <SpriteRenderer> ();
+	}
+
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		if (col.tag == "Player" || col.tag == "Enemy")
 		{
-			if (col.GetComponentInChildren <SpriteRenderer> ())
-			{
-				col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = -1;
-			}
+			spriteRenderer.sortingOrder = 3;
 		}
 	}
 	void OnTriggerStay2D(Collider2D col)
 	{
 		if (col.tag == "Player" || col.tag == "Enemy")
 		{
-			if (col.GetComponentInChildren <SpriteRenderer> ())
-			{
-				col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = -1;
-			}
+			spriteRenderer.sortingOrder = 3;
 		}
 	}
 	void OnTriggerExit2D(Collider2D col)
 	{
 		if (col.tag == "Player" || col.tag == "Enemy")
 		{
-			if (col.GetComponentInChildren <SpriteRenderer> ())
-			{
-				col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = 1;
-			}
+			spriteRenderer.sortingOrder = 0;
 		}
 	}
 }

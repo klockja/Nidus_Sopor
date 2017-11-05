@@ -257,7 +257,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1936223975317226}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -312,7 +312,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1962726553193224}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3220172, y: 0.18819809, z: -1.2077305}
+  m_LocalPosition: {x: 6.8600006, y: 1.71, z: 1.2775731}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4184430341598670}
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55262e88cba264b60b99d487098fb2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 100
 --- !u!114 &114340132772870766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -673,14 +673,14 @@ MonoBehaviour:
   move: {fileID: 0}
   attack: {fileID: 0}
   sleep: {fileID: 0}
-  anim: {fileID: 0}
-  AttackableEnemy: {fileID: 0}
-  AILerp: {fileID: 0}
+  anim: {fileID: 95823113037037802}
+  AttackableEnemy: {fileID: 114333604446942140}
+  AILerp: {fileID: 114340132772870766}
   canAttack: 0
   canBeHurt: 0
-  canMove: 0
+  canMove: 1
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   walkSpeed: 1
   runSpeed: 4
   EnemyHead: {fileID: 4151963186676914}
@@ -737,7 +737,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1071240779
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 1, b: 0.13103437, a: 0.25}
   m_FlipX: 0
@@ -781,7 +781,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1071240779
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.25}
   m_FlipX: 0
@@ -826,9 +826,9 @@ SpriteRenderer:
   m_SortingLayerID: -1071240779
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 293c99ef1006e4e91ab32a1a0a3feb6a, type: 3}
+  m_Sprite: {fileID: 21300014, guid: 929d52ab2800f4d34b36478bfe30b235, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 3.1875, y: 2}

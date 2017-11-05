@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
 
 	public bool canAttack;
 	public bool canBeHurt;
-	public bool canMove;
+	public bool canMove = true;
 
 	private Vector2 directionFacing;
 	private Vector2 m_PushDirection;
@@ -115,6 +115,8 @@ public class EnemyController : MonoBehaviour
 		AttackableEnemy = GetComponentInChildren <AttackableEnemy> (); // Gets the AttackableEnemy script
 		AttackableEnemy.SetMaxHealth (MaxHealth);
 		AILerp = GetComponent <AILerp> ();
+
+		canMove = true;
 	}
 
 	void OnDrawGizmos()
@@ -145,27 +147,18 @@ public class EnemyController : MonoBehaviour
 	void Update () 
 	{
 		currentHealth = AttackableEnemy.GetHealth ();
-		if (currentHealth <= 0)
+		if (currentHealth <= 0 && canMove)
 		{
 			StopAllCoroutines ();
+			AILerp.canMove = false;
 			canMove = false;
 			audioSource.PlayOneShot (takeDamage);
-			StartCoroutine (WaitForSeconds (5f));
-			Die ();
+			anim.SetBool ("isDead", true);
+			StartCoroutine (Die ());
 		}
 
-		if (gamePaused == false || currentHealth > 0)
+		if ((gamePaused == false && canMove) || (currentHealth > 0 && canMove))
 		{
-			currentHealth = AttackableEnemy.GetHealth ();
-			if (currentHealth <= 0)
-			{
-				StopAllCoroutines ();
-				canMove = false;
-				audioSource.PlayOneShot (takeDamage);
-				anim.SetBool ("isDead", true);
-				return;
-			}
-
 			if (playerInSight && detectedTransform != null)
 			{
 				Debug.Log ("The player is in sight of the Unke");
@@ -327,8 +320,10 @@ public class EnemyController : MonoBehaviour
 		StopCoroutine (coroutineMethod);
 	}
 
-	public void Die()
+	public IEnumerator Die()
 	{
+		yield return new WaitForSeconds (1f);
 		Destroy (gameObject);
+		yield return null;
 	}
 }
