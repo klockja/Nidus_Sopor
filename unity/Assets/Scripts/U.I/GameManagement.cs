@@ -58,7 +58,7 @@ public class GameManagement : MonoBehaviour {
 
 		if (goingBackwards == true && SceneManager.GetActiveScene ().name == "Cave") 
 		{
-			GameObject.Find ("ForwardPortal").SetActive (false);
+			//GameObject.Find ("ForwardPortal").SetActive (false);
 			GameObject.Find ("BackwardPortal").SetActive (true);
 		}
 	}
