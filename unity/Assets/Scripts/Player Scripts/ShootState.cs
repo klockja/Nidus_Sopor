@@ -22,7 +22,7 @@ public class ShootState : CharacterState {
 			machine.Controller.audioSource.PlayOneShot (machine.Controller.shootingSound);
 			machine.Controller.bulletNum -= 1;
 			Vector2 mousePosition = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-			Vector2 firePosition = new Vector2 (player.transform.position.x, player.transform.position.y);
+			Vector2 firePosition = new Vector2 (player.transform.position.x, (player.transform.position.y + 0.8f));
 			RaycastHit2D hit = Physics2D.Raycast (firePosition, (mousePosition - firePosition), 1000 , machine.Controller.shootableMask);
 
 			//GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().AudioRadius = new Vector3 (100, 100, 1);
