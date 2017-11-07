@@ -108,7 +108,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -134,7 +134,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   goingBackwards: 0
+  gameover: 0
+  nextScene: 0
   bulletCount: 0
+  unusedBullet: 0
   rockCount: 0
   musicPlayer: {fileID: 0}
-  backgroundMusic: {fileID: 0}
+  titleMusic: {fileID: 0}
+  beachMusic: {fileID: 0}
+  forestMusic: {fileID: 0}
+  caveMusic: {fileID: 0}
