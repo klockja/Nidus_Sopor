@@ -53,7 +53,7 @@ public class EnemySightScript : MonoBehaviour
 				if (!Physics2D.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask))
 				{
 					visibleTargets.Add (target);
-					_enemyController.playerInSight = true;
+					_enemyController.playerSensed = true;
 					_enemyController.detectedTransform = target;
 				}
 				else
@@ -61,8 +61,7 @@ public class EnemySightScript : MonoBehaviour
 					if (_enemyController.playerInSight == true)
 					{
 						Debug.Log ("Player isn't in sight!");
-						StartCoroutine (WaitForSeconds (5f));
-						_enemyController.playerInSight = false;
+						StartCoroutine (LosePlayer (2f));
 					}
 				}
 			}
@@ -89,8 +88,9 @@ public class EnemySightScript : MonoBehaviour
 		}
 		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);
 	}
-	public IEnumerator WaitForSeconds (float seconds)
+	public IEnumerator LosePlayer (float seconds)
 	{
 		yield return new WaitForSeconds (seconds);
+		_enemyController.playerSensed = false;
 	}
 }

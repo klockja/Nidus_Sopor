@@ -72,7 +72,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1473361720038272
 GameObject:
   m_ObjectHideFlags: 1
@@ -578,7 +578,7 @@ MonoBehaviour:
   startEndModifier:
     addPoints: 1
     exactStartPoint: 1
-    exactEndPoint: 1
+    exactEndPoint: 3
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -690,6 +690,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 256
+  playerSensed: 0
   playerDetected: 0
   playerInSight: 0
   detectedTransform: {fileID: 0}
