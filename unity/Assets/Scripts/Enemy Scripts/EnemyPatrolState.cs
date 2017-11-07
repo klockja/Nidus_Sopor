@@ -54,7 +54,8 @@ public class EnemyPatrolState : EnemyState
 	override public void OnExit()
 	{
 		//COULD NOT FIGURE OUT HOW TO STOP ONE COROUTINE, SO I HAD TO STOP ALL OF THEM
-		m_machine.Controller.StopAllCoroutines ();
+//		m_machine.Controller.StopAllCoroutines ();
+		m_machine.Controller.StopChildCoroutine (FollowPath ());
 		//		m_machine.Controller.StopChildCoroutine (FollowPath());
 		Debug.Log ("Exited Patrol State");
 	}

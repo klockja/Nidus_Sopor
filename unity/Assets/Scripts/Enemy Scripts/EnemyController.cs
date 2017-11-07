@@ -147,6 +147,12 @@ public class EnemyController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		if (Input.GetKeyDown (KeyCode.O))
+		{
+			StopAllCoroutines ();
+			m_stateMachine.CurrentState = new EnemyPatrolState (m_stateMachine);
+		}
+
 		currentHealth = AttackableEnemy.GetHealth ();
 		if (currentHealth <= 0 && canMove)
 		{
@@ -166,37 +172,15 @@ public class EnemyController : MonoBehaviour
 			{
 				playerDetected = true;
 				m_stateMachine.CurrentState.OnExit ();
+				audioSource.PlayOneShot (growl);
 				StartCoroutine (Pursue ());
 				LastSightingSpot = detectedTransform.position;
 			} //if the player can't be sensed anymore, but the player is detected, look around for a few seconds
-			else if (playerSensed != true && playerDetected)
+			else if (playerSensed == false && playerDetected == true)
 			{
 				StopCoroutine (Pursue ());
 				StartCoroutine (Search (LastSightingSpot)); //while player isn't sensed, search for a few seconds, then give up and return
 			}
-
-			//if the player cannot be found by looking around, return to original task
-
-//			if (playerInSight && detectedTransform != null)
-//			{
-//				Debug.Log ("The player is in sight of the Unke");
-////				m_stateMachine.CurrentState.OnExit ();
-//				if (playerDetected != true)
-//				{
-////					m_stateMachine.CurrentState = new EnemyPursueState (m_stateMachine);
-//					audioSource.PlayOneShot (growl);
-//					StartCoroutine (Pursue ());
-//					playerDetected = true;
-//				}
-//			}
-
-//			if (playerInSight == false && detectedTransform != null && playerDetected == true)
-//			{
-//				Debug.Log ("Unke lost sight of the player");
-//				StopCoroutine (Pursue ());
-//				StartCoroutine (Search (LastSightingSpot));
-//				detectedTransform = null;
-//			}
 		}
 	}
 
@@ -204,14 +188,16 @@ public class EnemyController : MonoBehaviour
 	{
 		if (gamePaused == false)
 		{
-			UpdateDirection ();
+			
 		}
-
 	}
 
 	void LateUpdate ()
 	{
-		
+		if (gamePaused == false)
+		{
+			UpdateDirection ();
+		}
 	}
 
 	void UpdateDirection()
@@ -274,21 +260,21 @@ public class EnemyController : MonoBehaviour
 	{
 		Debug.Log ("Unke is searching for player");
 		AILerp.target = null;
-//		if (position.x - m_Body.position.x <= 1 || position.y - m_Body.position.y <= 1)
-//		{
-//			AILerp.target = null;
-//			Debug.Log ("Unke got near the last sighting of the player.");
-//			yield return new WaitForSeconds (Random.Range (1f, 2f));
-//			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + 1, m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
-//			yield return new WaitForSeconds (Random.Range (1f, 2f));
-//			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
-//			yield return new WaitForSeconds (Random.Range (1f, 2f));
-//			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
-//			yield return new WaitForSeconds (Random.Range (1f, 2f));
-//			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
-//			yield return new WaitForSeconds (Random.Range (1f, 2f));
-//			playerDetected = false;
-//		}
+		if (position.x - m_Body.position.x <= 1 || position.y - m_Body.position.y <= 1)
+		{
+			AILerp.target = null;
+			Debug.Log ("Unke got near the last sighting of the player.");
+			yield return new WaitForSeconds (Random.Range (1f, 2f));
+			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + 1, m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
+			yield return new WaitForSeconds (Random.Range (1f, 2f));
+			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
+			yield return new WaitForSeconds (Random.Range (1f, 2f));
+			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
+			yield return new WaitForSeconds (Random.Range (1f, 2f));
+			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
+			yield return new WaitForSeconds (Random.Range (1f, 2f));
+			playerDetected = false;
+		}
 		yield return new WaitForSeconds (3f);
 		Debug.Log ("Unke lost the player");
 		playerDetected = false;
