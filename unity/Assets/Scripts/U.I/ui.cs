@@ -190,26 +190,28 @@ public class ui : MonoBehaviour {
 
 	private void AmmoSpriteChange()
 	{
-		if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 0)
-			GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo0;
+		if (SceneManager.GetActiveScene ().name != "Title Scene") {
+			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 0)
+				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo0;
 
-		if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 1)
-			GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo1;
+			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 1)
+				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo1;
 
-		if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 2)
-			GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo2;
+			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 2)
+				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo2;
 
-		if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 3)
-			GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo3;
+			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 3)
+				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo3;
 
-		if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 4)
-			GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo4;
+			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 4)
+				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo4;
 
-		if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 5)
-			GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo5;
+			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 5)
+				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo5;
 
-		if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 6)
-			GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo6;
+			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 6)
+				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo6;
+		} 
 	}
 }
 	

@@ -17,18 +17,21 @@ public class GameManagement : MonoBehaviour {
 	private float defaultUnusedBullet;
 	private float defaultRockCount;
 	public AudioSource musicPlayer;
-	public AudioClip backgroundMusic;
+	public AudioClip titleMusic;
+	public AudioClip beachMusic;
+	public AudioClip forestMusic;
+	public AudioClip caveMusic;
 
 	void Awake() {
 		bulletCount = 6;
-		unusedBullet = 24;
+		unusedBullet = 12;
 		defaultRockCount = 1;
 		DontDestroyOnLoad (gameObject);
 	}
 	// Use this for initialization
 	void Start () {
 		//ispaused = false;
-		musicPlayer.PlayOneShot(backgroundMusic);
+		musicPlayer.PlayOneShot(titleMusic);
 		rockCount = defaultRockCount;
 	
 
@@ -60,6 +63,17 @@ public class GameManagement : MonoBehaviour {
 		{
 			//GameObject.Find ("ForwardPortal").SetActive (false);
 			GameObject.Find ("BackwardPortal").SetActive (true);
+		}
+
+		if (SceneManager.GetActiveScene ().name == "Beach" || SceneManager.GetActiveScene ().name == "Beach2") 
+		{
+			musicPlayer.PlayOneShot(beachMusic);
+		}	else if (SceneManager.GetActiveScene ().name == "Forest" || SceneManager.GetActiveScene ().name == "Forest2") 
+		{
+			musicPlayer.PlayOneShot(forestMusic);
+		}	else if (SceneManager.GetActiveScene ().name == "Cave" || SceneManager.GetActiveScene ().name == "Cave2") 
+		{
+			musicPlayer.PlayOneShot(caveMusic);
 		}
 	}
 }

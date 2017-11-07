@@ -37,7 +37,7 @@ public class ShootState : CharacterState {
 			//if (hit.collider.tag == "Player") {
 			//	Debug.Log ("Shot myself");
 			if (hit.collider.tag == "Enemy") {
-				hit.collider.GetComponentInParent <AttackableEnemy> ().Damage (50);
+				hit.collider.GetComponentInParent <AttackableEnemy> ().Damage (100);
 				// Deal Damage to them
 				Debug.Log ("hit Unke");
 			} else {
