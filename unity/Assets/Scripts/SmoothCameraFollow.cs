@@ -43,8 +43,6 @@ public class SmoothCameraFollow : MonoBehaviour {
 
 	private void OnDrawGizmos()
 	{
-		if (m_target == null) return;
-		
 		Gizmos.color = Color.red;
 		Vector3 position = new Vector3 ((m_minBounds.x + m_maxBounds.x) / 2.0f, (m_minBounds.y + m_maxBounds.y) / 2.0f, 0.0f);
 		Vector3 size = new Vector3 (m_maxBounds.x - m_minBounds.x, m_maxBounds.y - m_minBounds.y, 1);
