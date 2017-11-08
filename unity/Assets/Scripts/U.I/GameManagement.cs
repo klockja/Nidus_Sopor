@@ -13,9 +13,9 @@ public class GameManagement : MonoBehaviour {
 	public float bulletCount;
 	public float unusedBullet;
 	public float rockCount;
-	private float defaultBulletCount;
-	private float defaultUnusedBullet;
-	private float defaultRockCount;
+	//private float defaultBulletCount;
+	//private float defaultUnusedBullet;
+	//private float defaultRockCount;
 	public AudioSource musicPlayer;
 	public AudioClip titleMusic;
 	public AudioClip beachMusic;
@@ -25,14 +25,14 @@ public class GameManagement : MonoBehaviour {
 	void Awake() {
 		bulletCount = 6;
 		unusedBullet = 12;
-		defaultRockCount = 1;
+		rockCount = 1;
 		DontDestroyOnLoad (gameObject);
 	}
 	// Use this for initialization
 	void Start () {
 		//ispaused = false;
 		musicPlayer.PlayOneShot(titleMusic);
-		rockCount = defaultRockCount;
+
 	
 
 	}
@@ -45,7 +45,7 @@ public class GameManagement : MonoBehaviour {
 		if (nextScene == true) {
 			unusedBullet = GameObject.Find("Player").GetComponent<PlayerController>().unusedBulletNum;
 			bulletCount = GameObject.Find("Player").GetComponent<PlayerController>().bulletNum;
-			defaultRockCount = rockCount;
+			rockCount = GameObject.Find("Player").GetComponent<PlayerController>().rockNum;
 			nextScene = false;
 		}
 
@@ -53,7 +53,7 @@ public class GameManagement : MonoBehaviour {
 		{
 			GameObject.Find("Player").GetComponent<PlayerController>().unusedBulletNum = unusedBullet;
 			GameObject.Find("Player").GetComponent<PlayerController>().bulletNum = bulletCount;
-			rockCount = defaultRockCount;
+			GameObject.Find("Player").GetComponent<PlayerController>().rockNum = rockCount;
 
 			gameover = false;
 

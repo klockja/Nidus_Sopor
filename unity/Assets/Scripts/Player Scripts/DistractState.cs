@@ -16,9 +16,8 @@ public class DistractState : CharacterState {
 	{
 		_previousState = previousState;
 
-		if (GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount > 0) 
+		if (machine.Controller.rockNum > 0) 
 		{
-
 			Vector2 mousePosition = new Vector2 (Camera.main.ScreenToWorldPoint (Input.mousePosition).x, Camera.main.ScreenToWorldPoint (Input.mousePosition).y);
 			Vector2 throwPosition = new Vector2 (player.transform.position.x, player.transform.position.y);
 			Vector2 direction = mousePosition - throwPosition;
@@ -27,7 +26,7 @@ public class DistractState : CharacterState {
 			_rock.GetComponent<Rigidbody2D> ().velocity = direction * speed;
 
 			//_rock.GetComponent<Rigidbody2D> ().AddForce (direction*speed, ForceMode2D.Impulse);
-			machine.Controller.rockNum -= 1;
+			//machine.Controller.rockNum -= 1;
 		}
 	}
 

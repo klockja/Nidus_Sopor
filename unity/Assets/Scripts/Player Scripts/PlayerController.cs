@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
 	public float time;
 	public Text bulletText;
+	public Text rockText;
 
 	public LineRenderer fireLine;
 	public float fireWidth = 0.1f;
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour
 		m_Body = gameObject.GetComponent <Rigidbody2D> (); //Gets the Rigidbody of the character.
 		audioSource = GetComponent <AudioSource>();
 		bulletText = GameObject.Find ("Bullet Number Text").GetComponent<Text>();
+		//rockText = GameObject.Find ("Rock Number Text").GetComponent<Text> ();
 
 		m_stateMachine = new CharacterStateMachine(this);
 		m_stateMachine.CurrentState = new MoveState(m_stateMachine);
@@ -128,7 +130,8 @@ public class PlayerController : MonoBehaviour
 	{
 		//Debug.Log (m_stateMachine.CurrentState);
 		gamePaused = GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused;
-		bulletText.text = unusedBulletNum.ToString ();
+		bulletText.text = "x" + unusedBulletNum.ToString ();
+		rockText.text = "x" + rockNum.ToString();
 
 		if (gamePaused == true)
 			Body.velocity = Vector2.zero;
@@ -194,10 +197,10 @@ public class PlayerController : MonoBehaviour
 
 			if(Input.GetKeyDown(KeyCode.Mouse1))
 			{
-				if (GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount > 0 && time == 0) 
+				if (rockNum > 0 && time == 0) 
 				{
 					m_stateMachine.CurrentState.DesireThrowRock (Rock);
-					GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount -= 1;
+					rockNum -= 1;
 					StartCoroutine(Delay(2));
 				}
 			}
