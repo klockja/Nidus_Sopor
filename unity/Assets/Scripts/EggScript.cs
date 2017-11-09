@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EggScript : MonoBehaviour {
 
+	public GameObject egg;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,6 +19,7 @@ public class EggScript : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "Player") 
 		{
+			egg.SetActive (true);
 			Destroy (gameObject);
 			GameObject.Find ("managementObject").GetComponent<GameManagement> ().goingBackwards = true;
 			//Debug.Log (GameObject.Find ("managementObject").GetComponent<GameManagement> ().goingBackwards);
