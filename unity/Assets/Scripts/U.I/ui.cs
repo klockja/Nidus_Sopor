@@ -14,7 +14,10 @@ public class ui : MonoBehaviour {
 	public GameObject Panel6;
 	public GameObject Panel7;
 	public GameObject Panel8;
-	public GameObject Panel9;
+
+
+	public GameObject DefeatPanel;
+	public GameObject VictoryPanel;
 	public GameManagement GM;
 
 	public Sprite sprite1;
@@ -75,7 +78,8 @@ public class ui : MonoBehaviour {
 		Panel6.SetActive (false);
 		Panel7.SetActive (false);
 		Panel8.SetActive (false);
-		Panel9.SetActive (false);
+		DefeatPanel.SetActive (false);
+		VictoryPanel.SetActive (false);
 
 		switch (menuID) {
 		case 0:
@@ -102,9 +106,12 @@ public class ui : MonoBehaviour {
 		case 7:
 			Panel8.gameObject.SetActive(true);
 			break;
-		case 8:
-			Panel9.gameObject.SetActive(true);
-			break;
+	//	case 8:
+	//		Panel9.gameObject.SetActive(true);
+	//		break;
+	//	case 9:
+	//		Panel10.gameObject.SetActive(true);
+	//		break;
 		}
 	}
 
@@ -143,7 +150,7 @@ public class ui : MonoBehaviour {
 	public void ReloadScene()
 	{
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
-		Panel8.gameObject.SetActive(false);
+		DefeatPanel.gameObject.SetActive(false);
 	}
 
 	public void Quit() 
