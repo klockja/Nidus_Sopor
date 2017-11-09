@@ -46,7 +46,7 @@ public class PortalScript : MonoBehaviour {
 			nextScene = "Beach2";
 			return nextScene;
 		} else if ((currentScene == "Beach2")) {
-			GameObject.Find ("Canvas").GetComponent<ui> ().Panel9.SetActive (true);
+			GameObject.Find ("Canvas").GetComponent<ui> ().VictoryPanel.SetActive (true);
 			nextScene = null;
 			return nextScene;
 		} else 
