@@ -15,7 +15,7 @@ public class ui : MonoBehaviour {
 	public GameObject Panel7;
 	public GameObject Panel8;
 
-
+	public GameObject BlackPanel;
 	public GameObject DefeatPanel;
 	public GameObject VictoryPanel;
 	public GameManagement GM;
@@ -35,6 +35,7 @@ public class ui : MonoBehaviour {
 	void Awake() {
 
 		DontDestroyOnLoad (gameObject);
+		BlackPanel.SetActive (false);
 	}
 
 	void Start () {
@@ -66,10 +67,11 @@ public class ui : MonoBehaviour {
 
 		}
 
+
 	}
 
 	public void switchToMenu(int menuID) {
-		
+
 		Panel1.SetActive (false);
 		Panel2.SetActive (false);
 		Panel3.SetActive (false);
@@ -193,6 +195,16 @@ public class ui : MonoBehaviour {
 			GameObject.Find("Sound Button").GetComponent<Image>().sprite = sprite1;
 		}
 
+	}
+
+	public void TurnOnBlackScreen()
+	{
+		if (BlackPanel.activeSelf == false) {
+			BlackPanel.SetActive (true);
+	
+		} else if (BlackPanel.activeSelf == true) {
+			BlackPanel.SetActive (false);
+		}
 	}
 
 	private void AmmoSpriteChange()
