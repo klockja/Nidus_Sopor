@@ -21,7 +21,8 @@ public class AudioDetectionScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		transform.localScale = AudioRadius;
 		myCollider.radius = colliderRadius;
 	}

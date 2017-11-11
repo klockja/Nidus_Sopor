@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 4737931096155312}
   - component: {fileID: 198912018626374288}
   - component: {fileID: 199349152017167576}
+  - component: {fileID: 114052429355960416}
   m_Layer: 9
   m_Name: Scent
   m_TagString: Untagged
@@ -323,6 +324,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114052429355960416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1835469914202304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a4c6e29111e4e30bfdca405e2472af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  part: {fileID: 0}
 --- !u!114 &114407935331436068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2830,8 +2843,8 @@ ParticleSystem:
   CollisionModule:
     enabled: 0
     serializedVersion: 3
-    type: 0
-    collisionMode: 0
+    type: 1
+    collisionMode: 1
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
@@ -2970,7 +2983,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 4294965758
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
