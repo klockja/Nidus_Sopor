@@ -77,7 +77,6 @@ public class EnemyController : MonoBehaviour
 	[SerializeField]
 	public bool playerSensed = false;
 	public bool playerDetected = false;
-	public bool playerInSight = false;
 //	public bool isSearching = false;
 	public Transform detectedTransform;
 	public Vector2 LastSightingSpot;
@@ -85,8 +84,9 @@ public class EnemyController : MonoBehaviour
 	[Header ("Enemy's Behavior")]
 	public Transform originalPosition;
 	public Behavior SetBehavior;
-	public enum Behavior {Patrols, Sleeps, Wanders}
+	public enum Behavior {Patrols, Sleeps}
 	public Transform PatrolPath;
+	Vector2[] waypoints;
 	public bool isPatrolling;
 	public bool isSleeping;
 	public bool isWandering;
@@ -96,18 +96,18 @@ public class EnemyController : MonoBehaviour
 	public float hurtWaitTime;
 	public bool isWaiting;
 
-	private EnemyStateMachine m_stateMachine;
-	public EnemyStateMachine StateMachine
-	{
-		get
-		{
-			return m_stateMachine;
-		}
-	}
+//	private EnemyStateMachine m_stateMachine;
+//	public EnemyStateMachine StateMachine
+//	{
+//		get
+//		{
+//			return m_stateMachine;
+//		}
+//	}
 
 	void Awake ()
 	{
-		m_stateMachine = new EnemyStateMachine(this);
+//		m_stateMachine = new EnemyStateMachine(this);
 		//		anim = GetComponentInChildren <Animator> (); // Gets the animator of the enemy
 		m_Body = GetComponent <Rigidbody2D> ();
 		audioSource = GetComponent <AudioSource> ();
@@ -122,17 +122,20 @@ public class EnemyController : MonoBehaviour
 
 	void OnDrawGizmos()
 	{
-		Vector2 startPosition = PatrolPath.GetChild (0).position;
-		Vector2 previousPosition = startPosition;
-		foreach (Transform waypoint in PatrolPath)
+		if (PatrolPath != null)
 		{
-			Gizmos.DrawIcon (waypoint.position, "x-gizmo.png", true);
-			Gizmos.DrawLine (previousPosition, waypoint.position);
-			//			Gizmos.DrawCube (waypoint.position, new Vector2 (.5f,.5f));
-			//			Gizmos.DrawSphere (waypoint.position, .5f);
-			previousPosition = waypoint.position;
+			Vector2 startPosition = PatrolPath.GetChild (0).position;
+			Vector2 previousPosition = startPosition;
+			foreach (Transform waypoint in PatrolPath)
+			{
+				Gizmos.DrawIcon (waypoint.position, "x-gizmo.png", true);
+				Gizmos.DrawLine (previousPosition, waypoint.position);
+				//			Gizmos.DrawCube (waypoint.position, new Vector2 (.5f,.5f));
+				//			Gizmos.DrawSphere (waypoint.position, .5f);
+				previousPosition = waypoint.position;
+			}
+			Gizmos.DrawLine (previousPosition, startPosition);
 		}
-		Gizmos.DrawLine (previousPosition, startPosition);
 	}
 
 	// Use this for initialization
@@ -140,19 +143,24 @@ public class EnemyController : MonoBehaviour
 	{
 		if (SetBehavior == Behavior.Patrols && PatrolPath != null)
 		{
-			m_stateMachine.CurrentState = new EnemyPatrolState (m_stateMachine);
+			waypoints = new Vector2[PatrolPath.childCount];
+			for (int i = 0; i < waypoints.Length; i++)
+			{
+				waypoints [i] = PatrolPath.GetChild (i).position;
+			}
+			StartCoroutine (Patrol ());
+//			m_stateMachine.CurrentState = new EnemyPatrolState (m_stateMachine);
+		}
+
+		if (SetBehavior == Behavior.Sleeps)
+		{
+
 		}
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown (KeyCode.O))
-		{
-			StopAllCoroutines ();
-			m_stateMachine.CurrentState = new EnemyPatrolState (m_stateMachine);
-		}
-
 		currentHealth = AttackableEnemy.GetHealth ();
 		if (currentHealth <= 0 && canMove)
 		{
@@ -171,7 +179,8 @@ public class EnemyController : MonoBehaviour
 			if (playerSensed)
 			{
 				playerDetected = true;
-				m_stateMachine.CurrentState.OnExit ();
+//				m_stateMachine.CurrentState.OnExit ();
+				StopAllCoroutines ();
 				audioSource.PlayOneShot (growl);
 				StartCoroutine (Pursue ());
 				LastSightingSpot = detectedTransform.position;
@@ -203,14 +212,13 @@ public class EnemyController : MonoBehaviour
 	void UpdateDirection()
 	{
 		Vector2 newPosition = transform.position;
-		if (newPosition.normalized != lastPosition.normalized)
+		if (Vector2.Distance (newPosition, lastPosition) > 0)
 		{
 			anim.SetBool ("isMoving", true);
 		} else
 		{
 			anim.SetBool ("isMoving", false);
 		}
-
 		directionFacing = (newPosition - lastPosition);
 		directionFacing.Normalize ();
 		if (directionFacing.y >= 0.7f)
@@ -238,6 +246,30 @@ public class EnemyController : MonoBehaviour
 			anim.SetFloat ("input_y", 0);
 		}
 		lastPosition = transform.position;
+	}
+
+	public IEnumerator Patrol()
+	{
+		transform.position = waypoints [0];
+
+		int targetWaypointIndex = 1;
+		Vector3 targetWaypoint = waypoints [targetWaypointIndex];
+
+		while (true)
+		{
+			anim.SetBool ("isMoving", true);
+			m_Body.position = Vector2.MoveTowards (transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
+			//			m_machine.Controller.M_Body.MovePosition (targetWaypoint * (walkSpeed * Time.deltaTime));
+			//			= Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime)
+			if (transform.position == targetWaypoint)
+			{
+				targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
+				targetWaypoint = waypoints [targetWaypointIndex];
+				anim.SetBool ("isMoving", false);
+				yield return new WaitForSeconds (patrolWaitTime);
+			}
+			yield return null;
+		}
 	}
 
 	public IEnumerator Pursue()
@@ -293,17 +325,14 @@ public class EnemyController : MonoBehaviour
 		{
 			AILerp.target = null;
 			Debug.Log ("Unke has returned to original position");
-			m_stateMachine.CurrentState = new EnemyPatrolState (m_stateMachine);
-			m_stateMachine.CurrentState.OnEnter ();
+//			m_stateMachine.CurrentState = new EnemyPatrolState (m_stateMachine);
+//			m_stateMachine.CurrentState.OnEnter ();
+			if (SetBehavior == Behavior.Patrols)
+			{
+				StartCoroutine (Patrol ());
+			}
 			yield return null;
 		}
-	}
-
-	public IEnumerator WaitForSeconds (float seconds)
-	{
-		yield return new WaitForSeconds (seconds);
-		Debug.Log (gameObject.name + " is done waiting.");
-		yield return null;
 	}
 
 	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)

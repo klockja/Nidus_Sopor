@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemySmellScript : MonoBehaviour 
 {
-
 	EnemyController _enemyController;
 	// Use this for initialization
 	void Start () 
@@ -14,9 +13,10 @@ public class EnemySmellScript : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.gameObject.name == "Scent")
+		if (col.gameObject.tag == "Player")
 		{
-			_enemyController.LastSightingSpot = col.gameObject.transform.position;
+			_enemyController.playerSensed = true;
+			_enemyController.detectedTransform = col.transform.parent.transform;
 		}
 	}
 }

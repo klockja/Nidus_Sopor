@@ -12,7 +12,8 @@ public class EnemyHearingScript : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		
 	}
 
@@ -20,8 +21,8 @@ public class EnemyHearingScript : MonoBehaviour
 	{
 		if (col.gameObject.name == "Audio Collider")
 		{
-			_enemyController.detectedTransform = col.transform;
-			_enemyController.playerInSight = true;
+			_enemyController.detectedTransform = col.transform.parent.transform;
+			_enemyController.playerDetected = true;
 		}
 	}
 }

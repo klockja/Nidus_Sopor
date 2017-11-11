@@ -258,7 +258,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1094651559143318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11, y: 3.5, z: 0}
+  m_LocalPosition: {x: 12.611265, y: 0.35884047, z: -1.2775731}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4623292828318474}
@@ -273,7 +273,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1714815088191092}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4857034107998822}
@@ -300,7 +300,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1648519497289312}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4857034107998822}
@@ -327,7 +327,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278836455914736}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4857034107998822}
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  repathRate: 0.75
+  repathRate: 0.25
   target: {fileID: 0}
   canSearch: 1
   canMove: 1
@@ -621,7 +621,7 @@ MonoBehaviour:
   rotationIn2D: 0
   rotationSpeed: 0
   interpolatePathSwitches: 1
-  switchPathInterpolationSpeed: 10
+  switchPathInterpolationSpeed: 20
 --- !u!114 &114314334421760312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -641,6 +641,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 2304
+  viewMeshFilter: {fileID: 0}
   meshResolution: 0
   visibleTargets: []
 --- !u!114 &114809405869688642
@@ -682,7 +683,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   walkSpeed: 1
-  runSpeed: 4
+  runSpeed: 5
   EnemyHead: {fileID: 4639587323347364}
   targetMask:
     serializedVersion: 2
@@ -692,7 +693,6 @@ MonoBehaviour:
     m_Bits: 256
   playerSensed: 0
   playerDetected: 0
-  playerInSight: 0
   detectedTransform: {fileID: 0}
   LastSightingSpot: {x: 0, y: 0}
   originalPosition: {fileID: 4546031082838106}
@@ -791,7 +791,7 @@ SpriteRenderer:
   m_Size: {x: 0.24, y: 0.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212726241462428892
 SpriteRenderer:
