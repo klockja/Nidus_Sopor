@@ -24,7 +24,7 @@ public class EnemySightScript : MonoBehaviour
 	{
 		viewMesh = new Mesh ();
 		viewMesh.name = "View Mesh";
-		viewMeshFilter.mesh = viewMesh;
+//		viewMeshFilter.mesh = viewMesh;
 		_enemyController = GetComponentInParent <EnemyController> ();
 		StartCoroutine("FindTargetWithDelay", 0.2f);
 	}
