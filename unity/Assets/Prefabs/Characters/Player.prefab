@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1733569317698274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27, y: -7.3, z: 0}
+  m_LocalPosition: {x: 2, y: -9.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4187098226704836}
@@ -356,6 +356,7 @@ MonoBehaviour:
   rockNum: 0
   time: 0
   bulletText: {fileID: 0}
+  rockText: {fileID: 0}
   fireLine: {fileID: 120969838353241080}
   fireWidth: 0.05
   fireMaxLenght: 5
@@ -520,7 +521,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1893716464
+  randomSeed: -256183012
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -568,7 +569,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -916,13 +917,13 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 150
+    maxNumParticles: 300
     size3D: 0
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -0.05
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -963,15 +964,15 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 5
     enabled: 1
-    type: 5
+    type: 10
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0.28, z: 0}
-    m_Rotation: {x: 270, y: 90, z: 0}
-    m_Scale: {x: 1, y: 0.74, z: 0.8}
+    m_Rotation: {x: 0, y: 0, z: 0}
+    m_Scale: {x: 2, y: 2, z: 0}
     placementMode: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
@@ -1080,7 +1081,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1422,8 +1423,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.6453855, g: 0.6544118, b: 0, a: 1}
-        key1: {r: 0.986207, g: 1, b: 0, a: 0.5176471}
+        key0: {r: 0.7614098, g: 0.77205884, b: 0, a: 1}
+        key1: {r: 0.986207, g: 1, b: 0, a: 0.22745098}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
