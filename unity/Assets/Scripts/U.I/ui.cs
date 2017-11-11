@@ -18,6 +18,7 @@ public class ui : MonoBehaviour {
 	public GameObject BlackPanel;
 	public GameObject DefeatPanel;
 	public GameObject VictoryPanel;
+	public GameObject AreYouSurePanel;
 	public GameManagement GM;
 
 	public Sprite sprite1;
@@ -36,6 +37,7 @@ public class ui : MonoBehaviour {
 
 		DontDestroyOnLoad (gameObject);
 		BlackPanel.SetActive (false);
+		AreYouSurePanel.SetActive (false);
 	}
 
 	void Start () {
@@ -195,6 +197,11 @@ public class ui : MonoBehaviour {
 			GameObject.Find("Sound Button").GetComponent<Image>().sprite = sprite1;
 		}
 
+	}
+
+	public void AreYouSure()
+	{
+		AreYouSurePanel.SetActive (true);
 	}
 
 	public void TurnOnBlackScreen()
