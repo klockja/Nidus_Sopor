@@ -172,6 +172,13 @@ public class EnemyController : MonoBehaviour
 			StartCoroutine (Die ());
 		}
 
+//		gamePaused
+			if (gamePaused == true)
+			{
+				canMove = false;
+				AILerp.canMove = false;
+			}
+
 		if ((gamePaused == false && canMove) || (currentHealth > 0 && canMove))
 		{
 			//if the player can be sensed, the player is detected, then pursue

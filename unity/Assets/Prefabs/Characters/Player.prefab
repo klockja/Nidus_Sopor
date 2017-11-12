@@ -93,7 +93,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1486567209622658}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.000008726646, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -119,7 +119,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1733569317698274}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.000008726646, w: 1}
   m_LocalPosition: {x: 2, y: -9.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -332,10 +332,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1835469914202304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28a4c6e29111e4e30bfdca405e2472af, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ffb2ed2198fd4e189a6e2a652cedaf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  part: {fileID: 0}
+  SmellTrigger: {fileID: 1917786820984872, guid: d9a1f662662744f8788afe05bf269c24,
+    type: 2}
+  spawnDelay: 0
 --- !u!114 &114407935331436068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -384,8 +386,8 @@ MonoBehaviour:
   dyingSound: {fileID: 8300000, guid: 919a8672443424fdebbd0885ed6aca98, type: 3}
   Rock: {fileID: 1164884993820866, guid: 3753ab21f009ba649bc77585bfb7a1c0, type: 2}
   canMove: 1
-  sneakSpeed: 50
-  runSpeed: 150
+  sneakSpeed: 100
+  runSpeed: 250
 --- !u!120 &120969838353241080
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -534,7 +536,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -256183012
+  randomSeed: 356900063
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1436,8 +1438,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.7614098, g: 0.77205884, b: 0, a: 1}
-        key1: {r: 0.986207, g: 1, b: 0, a: 0.22745098}
+        key0: {r: 0.6, g: 0.8980392, b: 0.3137255, a: 1}
+        key1: {r: 0.6, g: 0.8980392, b: 0.3137255, a: 0.22745098}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1452,7 +1454,7 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
+        atime0: 32768
         atime1: 65535
         atime2: 0
         atime3: 0
@@ -2992,7 +2994,7 @@ ParticleSystem:
     interiorCollisions: 0
   TriggerModule:
     enabled: 1
-    collisionShape0: {fileID: 4737931096155312}
+    collisionShape0: {fileID: 0}
     collisionShape1: {fileID: 0}
     collisionShape2: {fileID: 0}
     collisionShape3: {fileID: 0}
@@ -3000,8 +3002,8 @@ ParticleSystem:
     collisionShape5: {fileID: 0}
     inside: 1
     outside: 0
-    enter: 0
-    exit: 0
+    enter: 2
+    exit: 1
     radiusScale: 1
   SubModule:
     serializedVersion: 2
@@ -7251,7 +7253,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: edc9c3722db7143fe9ad561167403db0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
