@@ -1660,7 +1660,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bfcb1d8dd4a3140d6afc1679278dd665, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 887803fbd8c22764d80af3113df63776, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1903,10 +1903,10 @@ MonoBehaviour:
   Panel6: {fileID: 537265526}
   Panel7: {fileID: 926944029}
   Panel8: {fileID: 478323167}
-  UIPause: 0
   BlackPanel: {fileID: 1494872044}
   DefeatPanel: {fileID: 478323167}
   VictoryPanel: {fileID: 478323167}
+  AreYouSurePanel: {fileID: 0}
   GM: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 83075a375952e4262b7a69f39869368f, type: 3}
   sprite2: {fileID: 21300000, guid: 83075a375952e4262b7a69f39869368f, type: 3}
@@ -2484,7 +2484,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 885b3bab769ca4defa69d7f107c660d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e42e0c0646c07994e8782b31c740d874, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3429,6 +3429,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1146992237}
+--- !u!82 &1200001895 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82710700469469454, guid: 96018e1a98c727840ac329513c1832bd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1482113763}
 --- !u!1 &1225383163
 GameObject:
   m_ObjectHideFlags: 0
@@ -4331,7 +4336,7 @@ Prefab:
         type: 2}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 5e0ed71c65f6b4727946a24d1d9d9efc, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 82710700469469454, guid: 96018e1a98c727840ac329513c1832bd,
         type: 2}
       propertyPath: Loop
@@ -4352,6 +4357,36 @@ Prefab:
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114501593463607182, guid: 96018e1a98c727840ac329513c1832bd,
+        type: 2}
+      propertyPath: titleMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e0ed71c65f6b4727946a24d1d9d9efc, type: 3}
+    - target: {fileID: 114501593463607182, guid: 96018e1a98c727840ac329513c1832bd,
+        type: 2}
+      propertyPath: beachMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 9460a6fac30404b0580b83ef107f79a3, type: 3}
+    - target: {fileID: 114501593463607182, guid: 96018e1a98c727840ac329513c1832bd,
+        type: 2}
+      propertyPath: caveMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: f8fde2b3983d2428bbf965ce1682c380, type: 3}
+    - target: {fileID: 114501593463607182, guid: 96018e1a98c727840ac329513c1832bd,
+        type: 2}
+      propertyPath: escapeMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 821a11b37990b491d83e8e041a3db3c0, type: 3}
+    - target: {fileID: 114501593463607182, guid: 96018e1a98c727840ac329513c1832bd,
+        type: 2}
+      propertyPath: forestMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 648e86402bf6e4c69abf280d1400610c, type: 3}
+    - target: {fileID: 114501593463607182, guid: 96018e1a98c727840ac329513c1832bd,
+        type: 2}
+      propertyPath: musicPlayer
+      value: 
+      objectReference: {fileID: 1200001895}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96018e1a98c727840ac329513c1832bd, type: 2}
   m_IsPrefabParent: 0
@@ -6302,7 +6337,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6172ae00018d945ecb32e4ffbdf44ed0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc58a8bd8dee16047a976c8ec9b4d5c9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

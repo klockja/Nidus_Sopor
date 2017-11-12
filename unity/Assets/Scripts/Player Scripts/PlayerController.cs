@@ -230,7 +230,8 @@ public class PlayerController : MonoBehaviour
 			Debug.Log ("hit player");
 			GameObject.Find ("GameManager").GetComponent<GameManagement> ().gameover = true;
 			GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused = true;
-			GameObject.Find ("Canvas").GetComponent<ui> ().Panel8.SetActive (true);
+			GameObject.Find ("Gameplay Canvas").GetComponent<ui> ().BlackPanel.SetActive (true);
+			GameObject.Find ("Gameplay Canvas").GetComponent<ui> ().DefeatPanel.SetActive(true);
 		}
 	}
 

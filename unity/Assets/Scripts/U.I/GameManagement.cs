@@ -21,6 +21,7 @@ public class GameManagement : MonoBehaviour {
 	public AudioClip beachMusic;
 	public AudioClip forestMusic;
 	public AudioClip caveMusic;
+	public AudioClip escapeMusic;
 
 	void Awake() {
 		bulletCount = 6;
@@ -65,15 +66,14 @@ public class GameManagement : MonoBehaviour {
 			GameObject.Find ("BackwardPortal").SetActive (true);
 		}
 
-		if (SceneManager.GetActiveScene ().name == "Beach" || SceneManager.GetActiveScene ().name == "Beach2") 
-		{
-			musicPlayer.PlayOneShot(beachMusic);
-		}	else if (SceneManager.GetActiveScene ().name == "Forest" || SceneManager.GetActiveScene ().name == "Forest2") 
-		{
-			musicPlayer.PlayOneShot(forestMusic);
-		}	else if (SceneManager.GetActiveScene ().name == "Cave" || SceneManager.GetActiveScene ().name == "Cave2") 
-		{
-			musicPlayer.PlayOneShot(caveMusic);
+		if (SceneManager.GetActiveScene ().name == "Beach") {
+			musicPlayer.PlayOneShot (titleMusic);
+		} else if (SceneManager.GetActiveScene ().name == "Forest") {
+			musicPlayer.PlayOneShot (forestMusic);
+		} else if (SceneManager.GetActiveScene ().name == "Cave") {
+			musicPlayer.PlayOneShot (caveMusic);
+		} else if (GameObject.Find ("Player").GetComponent<PlayerController> ().hasEgg == true) {
+			musicPlayer.PlayOneShot (escapeMusic);
 		}
 	}
 }
