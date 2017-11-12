@@ -24,13 +24,7 @@ public class ui : MonoBehaviour {
 	public Sprite sprite1;
 	public Sprite sprite2;
 
-	public Sprite Ammo0;
-	public Sprite Ammo1;
-	public Sprite Ammo2;
-	public Sprite Ammo3;
-	public Sprite Ammo4;
-	public Sprite Ammo5;
-	public Sprite Ammo6;
+
 
 	// Use this for initialization
 	void Awake() {
@@ -64,8 +58,6 @@ public class ui : MonoBehaviour {
 			{
 				PauseScene ();
 			}
-
-			AmmoSpriteChange ();
 
 		}
 
@@ -148,7 +140,11 @@ public class ui : MonoBehaviour {
 		
 	public void LoadSceneNow(string C) 
 	{
-		SceneManager.LoadScene(C);	
+		if (C == "Title Scene") {
+			SceneManagerScript.Instance.LoadScene (C, "titleMusic");
+		} else if (C == "Beach") {
+			SceneManagerScript.Instance.LoadScene (C, "beachMusic");
+		}
 	}
 
 	public void ReloadScene()
@@ -214,30 +210,6 @@ public class ui : MonoBehaviour {
 		}
 	}
 
-	private void AmmoSpriteChange()
-	{
-		if (SceneManager.GetActiveScene ().name != "Title Scene") {
-			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 0)
-				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo0;
 
-			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 1)
-				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo1;
-
-			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 2)
-				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo2;
-
-			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 3)
-				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo3;
-
-			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 4)
-				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo4;
-
-			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 5)
-				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo5;
-
-			if (GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum == 6)
-				GameObject.Find ("Ammo Image").GetComponent<Image> ().sprite = Ammo6;
-		} 
-	}
 }
 	

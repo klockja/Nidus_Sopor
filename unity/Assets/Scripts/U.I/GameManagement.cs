@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManagement : MonoBehaviour {
+public class GameManagement : GenericSingletonClass<GameManagement> {
 
 
 	public bool isPaused;
@@ -13,26 +13,19 @@ public class GameManagement : MonoBehaviour {
 	public float bulletCount;
 	public float unusedBullet;
 	public float rockCount;
+	public GameObject player;
 	//private float defaultBulletCount;
 	//private float defaultUnusedBullet;
 	//private float defaultRockCount;
-	public AudioSource musicPlayer;
-	public AudioClip titleMusic;
-	public AudioClip beachMusic;
-	public AudioClip forestMusic;
-	public AudioClip caveMusic;
-	public AudioClip escapeMusic;
 
-	void Awake() {
-		bulletCount = 6;
-		unusedBullet = 12;
-		rockCount = 1;
-		DontDestroyOnLoad (gameObject);
-	}
+
 	// Use this for initialization
 	void Start () {
 		//ispaused = false;
-		musicPlayer.PlayOneShot(titleMusic);
+		player = GameObject.Find("Player");
+		bulletCount = 6;
+		unusedBullet = 12;
+		rockCount = 1;
 
 	
 
@@ -65,15 +58,6 @@ public class GameManagement : MonoBehaviour {
 			//GameObject.Find ("ForwardPortal").SetActive (false);
 			GameObject.Find ("BackwardPortal").SetActive (true);
 		}
-
-		if (SceneManager.GetActiveScene ().name == "Beach") {
-			musicPlayer.PlayOneShot (titleMusic);
-		} else if (SceneManager.GetActiveScene ().name == "Forest") {
-			musicPlayer.PlayOneShot (forestMusic);
-		} else if (SceneManager.GetActiveScene ().name == "Cave") {
-			musicPlayer.PlayOneShot (caveMusic);
-		} else if (GameObject.Find ("Player").GetComponent<PlayerController> ().hasEgg == true) {
-			musicPlayer.PlayOneShot (escapeMusic);
-		}
+			
 	}
 }
