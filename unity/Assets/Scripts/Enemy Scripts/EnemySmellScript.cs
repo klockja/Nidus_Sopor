@@ -13,10 +13,10 @@ public class EnemySmellScript : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.gameObject.tag == "Player")
+		if (col.gameObject.tag == "PlayerSmell")
 		{
 			_enemyController.playerSensed = true;
-			_enemyController.detectedTransform = col.transform.parent.transform;
+			_enemyController.detectedTransform = GameManagement.Instance.player.transform;
 		}
 	}
 }

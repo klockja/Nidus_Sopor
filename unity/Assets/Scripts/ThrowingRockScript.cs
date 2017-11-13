@@ -6,13 +6,16 @@ public class ThrowingRockScript : MonoBehaviour {
 
 	public float time;
 	public GameObject RockObject;
+	private GameObject AudioCollider;
 
 	// Use this for initialization
 	void Start () {
 		Physics2D.IgnoreCollision (gameObject.GetComponent<CircleCollider2D> (), GameObject.Find("Player").GetComponent<BoxCollider2D> ());
+		AudioCollider = transform.GetChild (0).gameObject;
+		AudioCollider.SetActive (false);
 		StartCoroutine(Delay(2));
-		gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 1);
-		gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0f;
+//		gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 1);
+//		gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0f;
 	}
 	
 	// Update is called once per frame
@@ -20,9 +23,10 @@ public class ThrowingRockScript : MonoBehaviour {
 		
 		if (time == 0) 
 		{
-			gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (10, 10, 1);
-			gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.1f;
+//			gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (10, 10, 1);
+//			gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.1f;
 			gameObject.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+			AudioCollider.SetActive (true);
 			Invoke ("SwitchObject", 2);
 		}
 
@@ -38,9 +42,10 @@ public class ThrowingRockScript : MonoBehaviour {
 
 		if (col.gameObject.tag == "Object" || col.gameObject.tag == "Enemy") 
 		{
-			gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (10, 10, 1);
-			gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.1f;
+//			gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (10, 10, 1);
+//			gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.1f;
 			gameObject.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+			AudioCollider.SetActive (true);
 		}
 	}
 

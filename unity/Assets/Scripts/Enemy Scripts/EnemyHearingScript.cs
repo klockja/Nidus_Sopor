@@ -19,7 +19,7 @@ public class EnemyHearingScript : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.gameObject.name == "Audio Collider")
+		if (col.gameObject.tag == "Sound")
 		{
 			Debug.Log ("Detected Audio Collider from: " + col.transform.parent.transform);
 			_enemyController.detectedTransform = col.transform.parent.transform;
