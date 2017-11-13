@@ -96,8 +96,8 @@ public class PlayerController : MonoBehaviour
 		anim = GetComponentInChildren <Animator> ();
 		m_Body = gameObject.GetComponent <Rigidbody2D> (); //Gets the Rigidbody of the character.
 		audioSource = GetComponent <AudioSource>();
-		bulletText = GameObject.Find ("Bullet Number Text").GetComponent<Text>();
-		//rockText = GameObject.Find ("Rock Number Text").GetComponent<Text> ();
+		//bulletText = GameObject.Find ("Bullet Number Text").GetComponent<Text>();
+		//rockText = GameObject.Find ("Rocknumbertext").GetComponent<Text> ();
 
 		m_stateMachine = new CharacterStateMachine(this);
 		m_stateMachine.CurrentState = new MoveState(m_stateMachine);
@@ -130,6 +130,8 @@ public class PlayerController : MonoBehaviour
 	{
 		//Debug.Log (m_stateMachine.CurrentState);
 		gamePaused = GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused;
+		bulletText = GameObject.Find ("Bullet Number Text").GetComponent<Text>();
+		rockText = GameObject.Find ("Rocknumbertext").GetComponent<Text> ();
 		bulletText.text = "x" + unusedBulletNum.ToString ();
 		rockText.text = "x" + rockNum.ToString();
 

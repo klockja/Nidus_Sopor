@@ -2,20 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoadingScreenScript : GenericSingletonClass<LoadingScreenScript> {
+public class LoadingScreenScript : Singleton<LoadingScreenScript> {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	public void UnloadLoadingScene()
+	public static void UnloadLoadingScene()
 	{
-		Destroy (gameObject);
+		GameObject.Destroy(instance.gameObject);
 	}
 }

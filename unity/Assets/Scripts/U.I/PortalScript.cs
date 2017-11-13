@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class PortalScript : MonoBehaviour {
 
 	private string nextScene;
-	private string music;
 	private string currentScene;
 	//private bool backward;
 
@@ -19,6 +18,7 @@ public class PortalScript : MonoBehaviour {
 	void Start () 
 	{
 		currentScene = SceneManager.GetActiveScene().name;
+		DetermineNextScene ();
 
 
 	}
@@ -27,7 +27,6 @@ public class PortalScript : MonoBehaviour {
 	{
 		//Debug.Log (nextScene);
 		//backward = GameObject.Find ("GameManager").GetComponent<GameManagement> ().goingBackwards;
-		//DetermineNextScene ();
 	}
 		
 
@@ -56,36 +55,15 @@ public class PortalScript : MonoBehaviour {
 			return nextScene;
 		}
 	}
-
-	protected string DeteremineMusic()
-	{
-		if (nextScene == "Beach") {
-			music = "beachtMusic";
-			return music;
-		} else if (nextScene == "Forest") {
-			music = "forestMusic";
-			return music;
-		} else if (nextScene == "Cave") {
-			music = "caveMusic";
-			return music;
-		} else if (GameObject.Find ("Player").GetComponent<PlayerController> ().hasEgg == true) {
-			music = "escapeMusic";
-			return music;
-		} else {
-			return music;
-		}
-
-
-	}
+		
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.tag == "Player") 
 		{
 			DetermineNextScene ();
-			DeteremineMusic ();
 			GameObject.Find ("GameManager").GetComponent<GameManagement> ().nextScene = true;
-			SceneManagerScript.Instance.LoadScene(nextScene, music);
+			StartCoroutine(GameObject.Find("SceneManager").GetComponent<ScreenManagerScript>().LoadScene(nextScene));
 		}
 	} 
 

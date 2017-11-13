@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ui : MonoBehaviour {
+public class ui : GenericSingletonClass<ui> {
 
 	public int menuID=0;
 	public GameObject Panel1;
@@ -14,6 +14,11 @@ public class ui : MonoBehaviour {
 	public GameObject Panel6;
 	public GameObject Panel7;
 	public GameObject Panel8;
+
+	private GameObject title;
+	private GameObject gameplay;
+	private GameObject pause;
+	private GameObject background;
 
 	public GameObject BlackPanel;
 	public GameObject DefeatPanel;
@@ -26,19 +31,13 @@ public class ui : MonoBehaviour {
 
 
 
-	// Use this for initialization
-	void Awake() {
-
-		DontDestroyOnLoad (gameObject);
+	void Start () {
 		BlackPanel.SetActive (false);
 		AreYouSurePanel.SetActive (false);
-	}
-
-	void Start () {
-		//TitlePanel = GameObject.FindGameObjectWithTag("TitlePanel");
-
-		//TitlePanel = GameObject.Find("TitlePanel");
-		//GameSelectionPanel = GameObject.Find("GameSelectionPanel");
+		title = GameObject.Find ("Title Panel");
+		gameplay = GameObject.Find ("Gameplay Panel");
+		pause = GameObject.Find ("Pause Panel");
+		background = GameObject.Find ("Background");
 
 
 
@@ -54,13 +53,20 @@ public class ui : MonoBehaviour {
 	void Update () {
 		if (SceneManager.GetActiveScene ().name != "Title Scene") 
 		{
-			if (Input.GetKeyDown (KeyCode.Escape)) 
-			{
-				PauseScene ();
-			}
-
+			Panel2 = pause;
+			gameplay.SetActive (true);
+			title.SetActive (false);
+			background.SetActive (false);
 		}
-
+		if (SceneManager.GetActiveScene ().name == "Title Scene" ) 
+		{
+			Panel2 = title;
+			background.SetActive (true);
+			title.SetActive (true);
+			gameplay.SetActive (false);
+			pause.SetActive (false);
+			
+		}
 
 	}
 
@@ -140,11 +146,9 @@ public class ui : MonoBehaviour {
 		
 	public void LoadSceneNow(string C) 
 	{
-		if (C == "Title Scene") {
-			SceneManagerScript.Instance.LoadScene (C, "titleMusic");
-		} else if (C == "Beach") {
-			SceneManagerScript.Instance.LoadScene (C, "beachMusic");
-		}
+		
+		StartCoroutine(GameObject.Find("SceneManager").GetComponent<ScreenManagerScript>().LoadScene(C));
+		
 	}
 
 	public void ReloadScene()

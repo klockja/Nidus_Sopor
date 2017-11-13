@@ -14,6 +14,9 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 	public float unusedBullet;
 	public float rockCount;
 	public GameObject player;
+
+	private string currentScene;
+	private string newScene;
 	//private float defaultBulletCount;
 	//private float defaultUnusedBullet;
 	//private float defaultRockCount;
@@ -26,15 +29,24 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 		bulletCount = 6;
 		unusedBullet = 12;
 		rockCount = 1;
-
+		currentScene = SceneManager.GetActiveScene().name;
 	
 
 	}
-	
+
+
+
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log (ispaused);
 		//Debug.Log(isbackward);
+		newScene = SceneManager.GetActiveScene().name;
+
+		if (currentScene != newScene) 
+		{
+			player = GameObject.Find ("Player");
+			currentScene = newScene;
+		}
 
 		if (nextScene == true) {
 			unusedBullet = GameObject.Find("Player").GetComponent<PlayerController>().unusedBulletNum;
