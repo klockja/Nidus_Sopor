@@ -55,6 +55,12 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 			nextScene = false;
 		}
 
+		if (isPaused == true)
+			ui.Instance.BlackPanel.SetActive (true);
+
+		else if (isPaused == false)
+			ui.Instance.BlackPanel.SetActive (false);
+
 		if (gameover == true) 
 		{
 			GameObject.Find("Player").GetComponent<PlayerController>().unusedBulletNum = unusedBullet;

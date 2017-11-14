@@ -57,7 +57,7 @@ public class ui : GenericSingletonClass<ui> {
 			gameplay.SetActive (true);
 			title.SetActive (false);
 			background.SetActive (false);
-			Debug.Log ("Not title scene");
+
 		}
 		if (SceneManager.GetActiveScene ().name == "Title Scene" ) 
 		{
@@ -66,7 +66,10 @@ public class ui : GenericSingletonClass<ui> {
 			title.SetActive (true);
 			gameplay.SetActive (false);
 			pause.SetActive (false);
-			Debug.Log ("title scene");
+			DefeatPanel.SetActive (false);
+			AreYouSurePanel.SetActive (false);
+			VictoryPanel.SetActive (false);
+
 			
 		}
 
@@ -157,26 +160,12 @@ public class ui : GenericSingletonClass<ui> {
 	{
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		DefeatPanel.gameObject.SetActive(false);
+		AreYouSurePanel.SetActive (false);
 	}
 
 	public void Quit() 
 	{
 		Application.Quit();
-	}
-
-	public void Destroy()
-	{
-		Destroy (GameObject.Find("GameManager"));
-	}
-
-	public void Destroyself()
-	{
-		Invoke ("_Destroyself", 0.1f);
-	}
-
-	void _Destroyself()
-	{
-		Destroy (gameObject);
 	}
 
 	public void SoundControl()
@@ -191,16 +180,16 @@ public class ui : GenericSingletonClass<ui> {
 	public void SpriteChange()
 	{
 		
-		if (GameObject.Find("Sound Button").GetComponent<Image>().sprite == sprite1) 
+		if (GameObject.Find("Sound Button Image").GetComponent<Image>().sprite == sprite1) 
 		{
-			GameObject.Find("Sound Button").GetComponent<Image>().sprite = sprite2;
-		} else if (GameObject.Find("Sound Button").GetComponent<Image>().sprite == sprite2) 
+			GameObject.Find("Sound Button Image").GetComponent<Image>().sprite = sprite2;
+		} else if (GameObject.Find("Sound Button Image").GetComponent<Image>().sprite == sprite2) 
 		{
-			GameObject.Find("Sound Button").GetComponent<Image>().sprite = sprite1;
+			GameObject.Find("Sound Button Image").GetComponent<Image>().sprite = sprite1;
 		}
 
 	}
-
+		
 	public void AreYouSure()
 	{
 		AreYouSurePanel.SetActive (true);
@@ -214,6 +203,16 @@ public class ui : GenericSingletonClass<ui> {
 		} else if (BlackPanel.activeSelf == true) {
 			BlackPanel.SetActive (false);
 		}
+	}
+
+	public void TurnOnBlackScreen2()
+	{
+		if (BlackPanel.activeSelf == false && SceneManager.GetActiveScene().name == "Title Scene")
+			BlackPanel.SetActive (true);
+		
+		else if (BlackPanel.activeSelf == true && SceneManager.GetActiveScene().name == "Title Scene") 
+			BlackPanel.SetActive (false);
+
 	}
 
 
