@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour 
 {
@@ -129,11 +130,13 @@ public class PlayerController : MonoBehaviour
 	void Update ()
 	{
 		//Debug.Log (m_stateMachine.CurrentState);
-		gamePaused = GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused;
-		bulletText = GameObject.Find ("Bullet Number Text").GetComponent<Text>();
-		rockText = GameObject.Find ("Rocknumbertext").GetComponent<Text> ();
-		bulletText.text = "x" + unusedBulletNum.ToString ();
-		rockText.text = "x" + rockNum.ToString();
+		if (SceneManager.GetActiveScene ().name != "LoadingScreen") {
+			gamePaused = GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused;
+			bulletText = GameObject.Find ("Bullet Number Text").GetComponent<Text> ();
+			rockText = GameObject.Find ("Rocknumbertext").GetComponent<Text> ();
+			bulletText.text = "x" + unusedBulletNum.ToString ();
+			rockText.text = "x" + rockNum.ToString ();
+		}
 
 		if (gamePaused == true)
 			Body.velocity = Vector2.zero;

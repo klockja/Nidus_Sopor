@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScreenManagerScript :MonoBehaviour  {
+public class ScreenManagerScript :MonoBehaviour {
 
 	[SerializeField]
 	private Fading m_blackScreen;
@@ -19,8 +19,10 @@ public class ScreenManagerScript :MonoBehaviour  {
 		
 	public IEnumerator LoadScene(string sceneName)
 	{
-		// Fade to black
+		// Disable Canvas
 		all.SetActive (false);
+
+		// Fade to black
 		yield return StartCoroutine(m_blackScreen.FadeIn());
 
 		// Load loading screen
@@ -29,6 +31,7 @@ public class ScreenManagerScript :MonoBehaviour  {
 		// !!! unload old screen (automatic)
 
 		// Fade to loading screen
+		Debug.Log ("Fade out");
 		yield return StartCoroutine(m_blackScreen.FadeOut());
 
 
@@ -51,11 +54,11 @@ public class ScreenManagerScript :MonoBehaviour  {
 		// !!! unload loading screen
 		SceneManager.UnloadSceneAsync("LoadingScreen");
 
-		// Fade to new screen
-
-
-		yield return StartCoroutine(m_blackScreen.FadeOut());
+		// Reactive Canvas
 		all.SetActive (true);
+
+		// Fade to new screen
+		yield return StartCoroutine(m_blackScreen.FadeOut());
 
 
 	}
