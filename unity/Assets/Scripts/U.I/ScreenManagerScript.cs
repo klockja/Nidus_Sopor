@@ -19,11 +19,11 @@ public class ScreenManagerScript :MonoBehaviour {
 		
 	public IEnumerator LoadScene(string sceneName)
 	{
-		// Disable Canvas
-		all.SetActive (false);
-
 		// Fade to black
 		yield return StartCoroutine(m_blackScreen.FadeIn());
+
+		// Disable Canvas
+		all.SetActive (false);
 
 		// Load loading screen
 		yield return SceneManager.LoadSceneAsync("LoadingScreen");
