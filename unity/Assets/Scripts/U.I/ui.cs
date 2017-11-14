@@ -57,6 +57,7 @@ public class ui : GenericSingletonClass<ui> {
 			gameplay.SetActive (true);
 			title.SetActive (false);
 			background.SetActive (false);
+			Debug.Log ("Not title scene");
 		}
 		if (SceneManager.GetActiveScene ().name == "Title Scene" ) 
 		{
@@ -65,6 +66,7 @@ public class ui : GenericSingletonClass<ui> {
 			title.SetActive (true);
 			gameplay.SetActive (false);
 			pause.SetActive (false);
+			Debug.Log ("title scene");
 			
 		}
 
