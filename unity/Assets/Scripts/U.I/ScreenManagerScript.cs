@@ -9,8 +9,8 @@ public class ScreenManagerScript :MonoBehaviour {
 	private Fading m_blackScreen;
 	[SerializeField]
 	private float m_minDuration = 1.5f;
-	[SerializeField]
-	private GameObject all;
+
+	public GameObject all;
 
 	void start ()
 	{

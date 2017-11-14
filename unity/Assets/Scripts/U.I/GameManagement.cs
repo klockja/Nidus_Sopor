@@ -10,10 +10,12 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 	public bool goingBackwards;
 	public bool gameover;
 	public bool nextScene;
+	public bool hasegg;
 	public float bulletCount;
 	public float unusedBullet;
 	public float rockCount;
 	public GameObject player;
+
 
 	private string currentScene;
 	private string newScene;

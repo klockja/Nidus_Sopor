@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EggScript : MonoBehaviour {
 
-	public GameObject egg;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,16 +12,20 @@ public class EggScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+
 	}
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		if (col.gameObject.tag == "Player") 
 		{
-			egg.SetActive (true);
+			GameManagement.Instance.hasegg = true;
+			GameManagement.Instance.goingBackwards = true;
+			MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.escape;
+			MusicManagerScript.Instance.musicPlayer.Play();
 			Destroy (gameObject);
-			GameObject.Find ("managementObject").GetComponent<GameManagement> ().goingBackwards = true;
+			//GameManagement.Instance.goingBackwards = true;
 			//Debug.Log (GameObject.Find ("managementObject").GetComponent<GameManagement> ().goingBackwards);
 		}
 	}

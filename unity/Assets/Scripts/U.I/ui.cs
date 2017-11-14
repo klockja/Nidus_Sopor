@@ -59,7 +59,7 @@ public class ui : GenericSingletonClass<ui> {
 			background.SetActive (false);
 
 		}
-		if (SceneManager.GetActiveScene ().name == "Title Scene" ) 
+		if (SceneManager.GetActiveScene ().name == "Title Scene" || SceneManager.GetActiveScene ().name == "TItle Scene") 
 		{
 			Panel2 = title;
 			background.SetActive (true);
@@ -69,8 +69,6 @@ public class ui : GenericSingletonClass<ui> {
 			DefeatPanel.SetActive (false);
 			AreYouSurePanel.SetActive (false);
 			VictoryPanel.SetActive (false);
-
-			
 		}
 
 	}

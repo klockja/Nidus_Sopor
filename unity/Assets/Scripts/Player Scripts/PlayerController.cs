@@ -233,10 +233,12 @@ public class PlayerController : MonoBehaviour
 		if (col.gameObject.tag == "Enemy") 
 		{
 			Debug.Log ("hit player");
-			GameObject.Find ("GameManager").GetComponent<GameManagement> ().gameover = true;
-			GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused = true;
-			GameObject.Find ("Gameplay Canvas").GetComponent<ui> ().BlackPanel.SetActive (true);
-			GameObject.Find ("Gameplay Canvas").GetComponent<ui> ().DefeatPanel.SetActive(true);
+			MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.gameover;
+			MusicManagerScript.Instance.musicPlayer.Play();
+			GameManagement.Instance.gameover = true;
+			GameManagement.Instance.isPaused = true;
+			ui.Instance.BlackPanel.SetActive (true);
+			ui.Instance.DefeatPanel.SetActive(true);
 		}
 	}
 

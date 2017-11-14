@@ -48,7 +48,9 @@ public class PortalScript : MonoBehaviour {
 			nextScene = "Beach2";
 			return nextScene;
 		} else if ((currentScene == "Beach2")) {
-			GameObject.Find ("Canvas").GetComponent<ui> ().VictoryPanel.SetActive (true);
+			MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.epilogue;
+			MusicManagerScript.Instance.musicPlayer.Play();
+			ui.Instance.VictoryPanel.SetActive (true);
 			nextScene = null;
 			return nextScene;
 		} else 

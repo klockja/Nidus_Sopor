@@ -37,7 +37,7 @@ public class AmmoSpriteScript : MonoBehaviour {
 		//if(currentScene == "Beach" || currentScene == "Forest" || currentScene == "Cave" || currentScene == "Forest2" || currentScene == "Beach2")
 		//	AmmoSpriteChange ();
 
-		if (SceneManager.GetActiveScene ().name != "LoadingScreen") {
+		if (SceneManager.GetActiveScene ().name != "LaodingScreen" || SceneManager.GetActiveScene ().name != "Title Scene" || SceneManager.GetActiveScene ().name != "TItle Scene") {
 			player = GameObject.Find ("Player");
 			AmmoSpriteChange ();
 		}

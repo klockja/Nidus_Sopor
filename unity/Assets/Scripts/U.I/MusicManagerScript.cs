@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class MusicManagerScript: GenericSingletonClass<MusicManagerScript> {
 
 	public AudioSource musicPlayer;
-
 	public AudioClip title;
 	public AudioClip beach;
 	public AudioClip forest;
@@ -30,36 +29,30 @@ public class MusicManagerScript: GenericSingletonClass<MusicManagerScript> {
 		newScene = SceneManager.GetActiveScene ().name;
 
 		if (currentScene != newScene) {
-			if (SceneManager.GetActiveScene ().name != "LoadingScreen") {
-
-				if (SceneManager.GetActiveScene ().name == "Title Scene") {
-					musicPlayer.clip = title;
-					musicPlayer.Play ();
-					Debug.Log ("play title music");
-				} else if (SceneManager.GetActiveScene ().name == "Beach") {
-					musicPlayer.clip = beach;
-					musicPlayer.Play ();
-				} else if (SceneManager.GetActiveScene ().name == "Forest") {
-					musicPlayer.clip = forest;
-					musicPlayer.Play ();
-				} else if (SceneManager.GetActiveScene ().name == "Cave") {
-					musicPlayer.clip = cave;
-					musicPlayer.Play ();
-				} else if (GameObject.Find ("Player").GetComponent<PlayerController> ().hasEgg == true) {
-					musicPlayer.clip = escape;
-					musicPlayer.Play ();
-				} else if (ui.Instance.DefeatPanel.activeSelf == true || ui.Instance.AreYouSurePanel.activeSelf == true) {
-					musicPlayer.clip = gameover;
-					musicPlayer.Play ();
-				} else if (ui.Instance.VictoryPanel.activeSelf == true) {
-					musicPlayer.clip = epilogue;
-					musicPlayer.Play ();
-				}
-			}
+			MusicSelector ();
 			currentScene = newScene;
 		}
-	
+	}
 
+	private void MusicSelector()
+	{
+
+		if (SceneManager.GetActiveScene ().name != "LoadingScreen") {
+			
+			if (SceneManager.GetActiveScene ().name == "Title Scene" || SceneManager.GetActiveScene ().name == "TItle Scene") {
+				musicPlayer.clip = title;
+				musicPlayer.Play ();
+			} else if (SceneManager.GetActiveScene ().name == "Beach" && GameManagement.Instance.hasegg == false) {
+				musicPlayer.clip = beach;
+				musicPlayer.Play ();
+			} else if (SceneManager.GetActiveScene ().name == "Forest" && GameManagement.Instance.hasegg == false) {
+				musicPlayer.clip = forest;
+				musicPlayer.Play ();
+			} else if (SceneManager.GetActiveScene ().name == "Cave" && GameManagement.Instance.hasegg == false) {
+				musicPlayer.clip = cave;
+				musicPlayer.Play ();
+			}
+		}
 
 	}
 }
