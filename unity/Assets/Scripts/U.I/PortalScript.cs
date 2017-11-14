@@ -17,16 +17,18 @@ public class PortalScript : MonoBehaviour {
 
 	void Start () 
 	{
-		currentScene = SceneManager.GetActiveScene().name;
-		DetermineNextScene ();
+
 
 
 	}
 
 	void Update () 
 	{
+			
+		//Debug.Log (currentScene);
 		//Debug.Log (nextScene);
 		//backward = GameObject.Find ("GameManager").GetComponent<GameManagement> ().goingBackwards;
+
 	}
 		
 
@@ -51,19 +53,21 @@ public class PortalScript : MonoBehaviour {
 			return nextScene;
 		} else 
 		{
-			//Debug.Log ("Error In PortalScript");
+			Debug.Log ("Error In PortalScript");
 			return nextScene;
 		}
 	}
 		
 
-	void OnTriggerEnter2D(Collider2D collider)
+	void OnCollisionEnter2D(Collision2D col)
 	{
-		if (collider.tag == "Player") 
+		if (col.gameObject.tag == "Player")  
 		{
+			currentScene = SceneManager.GetActiveScene().name;
 			DetermineNextScene ();
 			GameObject.Find ("GameManager").GetComponent<GameManagement> ().nextScene = true;
-			StartCoroutine(GameObject.Find("SceneManager").GetComponent<ScreenManagerScript>().LoadScene(nextScene));
+			//Debug.Log ("TIME TO LOAD NEW SCENE");
+			ui.Instance.LoadSceneNow (nextScene);
 		}
 	} 
 

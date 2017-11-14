@@ -97065,7 +97065,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1407041545596734, guid: c1481aea80e594feebb6d0b882127c6b, type: 2}
       propertyPath: m_Name
-      value: FowardPortal (1)
+      value: BackwardPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 61139486669690394, guid: c1481aea80e594feebb6d0b882127c6b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1481aea80e594feebb6d0b882127c6b, type: 2}
@@ -98019,6 +98024,11 @@ Prefab:
     - target: {fileID: 4649488361293092, guid: c1481aea80e594feebb6d0b882127c6b, type: 2}
       propertyPath: m_RootOrder
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 61139486669690394, guid: c1481aea80e594feebb6d0b882127c6b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114396195355754328, guid: c1481aea80e594feebb6d0b882127c6b, type: 2}
