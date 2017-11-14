@@ -26,15 +26,21 @@ public class AmmoSpriteScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		newScene = SceneManager.GetActiveScene().name;
+		//newScene = SceneManager.GetActiveScene().name;
 
-		if (currentScene != newScene) 
-		{
+		//if (currentScene != newScene) 
+		//{
+		//	player = GameObject.Find ("Player");
+		//	currentScene = newScene;
+		//}
+
+		//if(currentScene == "Beach" || currentScene == "Forest" || currentScene == "Cave" || currentScene == "Forest2" || currentScene == "Beach2")
+		//	AmmoSpriteChange ();
+
+		if (SceneManager.GetActiveScene ().name != "LoadingScreen") {
 			player = GameObject.Find ("Player");
-			currentScene = newScene;
-		}
-		if(currentScene == "Beach" || currentScene == "Forest" || currentScene == "Cave" || currentScene == "Forest2" || currentScene == "Beach2")
 			AmmoSpriteChange ();
+		}
 	}
 
 	private void AmmoSpriteChange()
