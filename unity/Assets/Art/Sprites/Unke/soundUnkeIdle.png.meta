@@ -1,11 +1,13 @@
 fileFormatVersion: 2
 guid: 372fcbafbb4c24ee78cee60c55df0c9d
-timeCreated: 1510626672
+timeCreated: 1510631320
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: scentUnkeIdle_0
     21300002: scentUnkeIdle_1
+    21300004: soundUnkeIdle_0
+    21300006: soundUnkeIdle_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -98,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: scentUnkeIdle_0
+      name: soundUnkeIdle_0
       rect:
         serializedVersion: 2
         x: 32
         y: 32
         width: 32
-        height: 32
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,13 +114,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: scentUnkeIdle_1
+      name: soundUnkeIdle_1
       rect:
         serializedVersion: 2
         x: 96
         y: 32
         width: 31
-        height: 32
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
