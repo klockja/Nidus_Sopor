@@ -172,7 +172,21 @@ Prefab:
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
-    m_RemovedComponents: []
+    - target: {fileID: 198253020670002644, guid: 34cb27650c88d45d49f40b31449bced1,
+        type: 2}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198253020670002644, guid: 34cb27650c88d45d49f40b31449bced1,
+        type: 2}
+      propertyPath: randomSeed
+      value: -761291373
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 23857266571896614, guid: 34cb27650c88d45d49f40b31449bced1, type: 2}
+    - {fileID: 33404118644293384, guid: 34cb27650c88d45d49f40b31449bced1, type: 2}
+    - {fileID: 199778470687589752, guid: 34cb27650c88d45d49f40b31449bced1, type: 2}
+    - {fileID: 198253020670002644, guid: 34cb27650c88d45d49f40b31449bced1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 34cb27650c88d45d49f40b31449bced1, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &11635038
@@ -2477,6 +2491,26 @@ Prefab:
       propertyPath: m_Name
       value: Smell Unke (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 212485711817473526, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 212485711817473526, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212485711817473526, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 3.3125
+      objectReference: {fileID: 0}
+    - target: {fileID: 212485711817473526, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 2.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
   m_IsPrefabParent: 0
@@ -4262,13 +4296,9 @@ Prefab:
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
-    - target: {fileID: 4779922274041750, guid: 3753ab21f009ba649bc77585bfb7a1c0, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779922274041750, guid: 3753ab21f009ba649bc77585bfb7a1c0, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 10
+    - target: {fileID: 1164884993820866, guid: 3753ab21f009ba649bc77585bfb7a1c0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3753ab21f009ba649bc77585bfb7a1c0, type: 2}
@@ -8757,6 +8787,55 @@ Transform:
   m_PrefabParentObject: {fileID: 4378642923992832, guid: 0e9f89c0ff1fa4bacbbf4b9ece94dcf6,
     type: 2}
   m_PrefabInternal: {fileID: 1398737324}
+--- !u!1 &685497938 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1093477392998140, guid: 34cb27650c88d45d49f40b31449bced1,
+    type: 2}
+  m_PrefabInternal: {fileID: 8367842}
+--- !u!212 &685497940
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 685497938}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: bed9436accd964c5ba125466b599502b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 14, y: 14}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &686329105 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4378642923992832, guid: 0e9f89c0ff1fa4bacbbf4b9ece94dcf6,
@@ -11566,7 +11645,7 @@ SpriteRenderer:
   m_Size: {x: 150.5625, y: 150.375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &904353129
 Transform:

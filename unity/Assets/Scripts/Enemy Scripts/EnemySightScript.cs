@@ -22,9 +22,6 @@ public class EnemySightScript : MonoBehaviour
 
 	void Start() 
 	{
-		viewMesh = new Mesh ();
-		viewMesh.name = "View Mesh";
-//		viewMeshFilter.mesh = viewMesh;
 		_enemyController = GetComponentInParent <EnemyController> ();
 		StartCoroutine("FindTargetWithDelay", 0.2f);
 	}
@@ -102,10 +99,10 @@ public class EnemySightScript : MonoBehaviour
 			}
 		}
 
-		viewMesh.Clear ();
-		viewMesh.vertices = vertices;
-		viewMesh.triangles = triangles;
-		viewMesh.RecalculateNormals ();
+//		viewMesh.Clear ();
+//		viewMesh.vertices = vertices;
+//		viewMesh.triangles = triangles;
+//		viewMesh.RecalculateNormals ();
 	}
 
 	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal) 

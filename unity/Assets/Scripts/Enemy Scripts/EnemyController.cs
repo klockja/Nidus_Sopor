@@ -64,6 +64,8 @@ public class EnemyController : MonoBehaviour
 	[Header("Movement")]
 	private Vector2 lastPosition;
 	private Vector2 newPosition;
+	[SerializeField]
+	private Vector2 upHeadPosition, downHeadPosition, leftHeadPosition, rightHeadPosition;
 	[SerializeField][Range (0f, 10f)]
 	public float walkSpeed;
 	[SerializeField][Range (0f, 10f)]
@@ -230,25 +232,29 @@ public class EnemyController : MonoBehaviour
 		directionFacing.Normalize ();
 		if (directionFacing.y >= 0.7f)
 		{
-			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 0f); 
+			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 0f);
+			EnemyHead.localPosition = upHeadPosition;
 			anim.SetFloat ("input_x", 0);
 			anim.SetFloat ("input_y", 1);
 		}
 		else if (directionFacing.y <= -0.7f)
 		{
 			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 180f);
+			EnemyHead.localPosition = downHeadPosition;
 			anim.SetFloat ("input_x", 0);
 			anim.SetFloat ("input_y", -1);
 		}
 		else if (directionFacing.x < 0f)
 		{
 			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 90f);
+			EnemyHead.localPosition = leftHeadPosition;
 			anim.SetFloat ("input_x", -1);
 			anim.SetFloat ("input_y", 0);
 		}
 		else if (directionFacing.x > 0f)
 		{
 			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 270f); 
+			EnemyHead.localPosition = rightHeadPosition;
 			anim.SetFloat ("input_x", 1);
 			anim.SetFloat ("input_y", 0);
 		}
