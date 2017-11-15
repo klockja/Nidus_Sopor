@@ -205,10 +205,10 @@ public class ui : GenericSingletonClass<ui> {
 
 	public void TurnOnBlackScreen2()
 	{
-		if (BlackPanel.activeSelf == false && SceneManager.GetActiveScene().name == "Title Scene")
+		if (BlackPanel.activeSelf == false && (SceneManager.GetActiveScene().name == "Title Scene" || SceneManager.GetActiveScene().name == "TItle Scene" ))
 			BlackPanel.SetActive (true);
 		
-		else if (BlackPanel.activeSelf == true && SceneManager.GetActiveScene().name == "Title Scene") 
+		else if (BlackPanel.activeSelf == true && (SceneManager.GetActiveScene().name == "Title Scene" || SceneManager.GetActiveScene().name == "TItle Scene" )) 
 			BlackPanel.SetActive (false);
 
 	}
