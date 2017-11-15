@@ -928,6 +928,11 @@ Prefab:
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
+    - target: {fileID: 95418931424989648, guid: d369105b49f1442529b05f62dbd94028,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d546bf27a640842bd9f1a0cc00e64704, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d369105b49f1442529b05f62dbd94028, type: 2}
   m_IsPrefabParent: 0
@@ -1013,21 +1018,6 @@ Prefab:
       propertyPath: TriggerModule.collisionShape1
       value: 
       objectReference: {fileID: 1504429066}
-    - target: {fileID: 114481967052685340, guid: 10fd4185daae04b91a2bc841abec5206,
-        type: 2}
-      propertyPath: bulletText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114481967052685340, guid: 10fd4185daae04b91a2bc841abec5206,
-        type: 2}
-      propertyPath: rockText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114052429355960416, guid: 10fd4185daae04b91a2bc841abec5206,
-        type: 2}
-      propertyPath: spawnDelay
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10fd4185daae04b91a2bc841abec5206, type: 2}
   m_IsPrefabParent: 0

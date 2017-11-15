@@ -15,4 +15,12 @@ public class SmellTriggerScript : MonoBehaviour
 			Destroy (gameObject);
 		}
 	}
+
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if (col.tag == "Flowers")
+		{
+			Destroy (gameObject);
+		}
+	}
 }
