@@ -15,21 +15,21 @@ public class VisualSorterScript : MonoBehaviour
 	{
 		if (col.tag == "Player" || col.tag == "Enemy")
 		{
-			spriteRenderer.sortingOrder = 3;
+			spriteRenderer.sortingOrder = -1;
 		}
 	}
 	void OnTriggerStay2D(Collider2D col)
 	{
 		if (col.tag == "Player" || col.tag == "Enemy")
 		{
-			spriteRenderer.sortingOrder = 3;
+			col.GetComponent <SpriteRenderer> ().sortingOrder = -1;
 		}
 	}
 	void OnTriggerExit2D(Collider2D col)
 	{
 		if (col.tag == "Player" || col.tag == "Enemy")
 		{
-			spriteRenderer.sortingOrder = 0;
+			col.GetComponent <SpriteRenderer> ().sortingOrder = 2;
 		}
 	}
 }
