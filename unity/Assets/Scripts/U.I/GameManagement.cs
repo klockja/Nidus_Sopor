@@ -46,7 +46,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 
 		if (currentScene != newScene) 
 		{
-			player = GameObject.Find ("Player");
+			GrabPlayer ();
 			currentScene = newScene;
 		}
 
@@ -73,5 +73,10 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 			GameObject.Find ("BackwardPortal").SetActive (true);
 		}
 			
+	}
+
+	public void GrabPlayer ()
+	{
+		player = GameObject.Find ("Player");
 	}
 }

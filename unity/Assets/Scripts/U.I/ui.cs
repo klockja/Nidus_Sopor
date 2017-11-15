@@ -157,6 +157,7 @@ public class ui : GenericSingletonClass<ui> {
 	public void ReloadScene()
 	{
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+		GameManagement.Instance.GrabPlayer ();
 		DefeatPanel.gameObject.SetActive(false);
 		AreYouSurePanel.SetActive (false);
 	}
