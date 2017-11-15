@@ -2020,6 +2020,11 @@ Prefab:
       propertyPath: m_Name
       value: Oak Tree Wall (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 212690919621142532, guid: dff655d31db744889b27cd4c287a2b51,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
   m_IsPrefabParent: 0
@@ -2280,6 +2285,11 @@ Prefab:
     - target: {fileID: 1559502855924176, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
       propertyPath: m_Name
       value: Oak Tree Wall (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212690919621142532, guid: dff655d31db744889b27cd4c287a2b51,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
@@ -5728,6 +5738,11 @@ Prefab:
       propertyPath: m_Name
       value: Oak Tree Wall (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 212690919621142532, guid: dff655d31db744889b27cd4c287a2b51,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
   m_IsPrefabParent: 0
@@ -8708,62 +8723,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4953673614991454, guid: de6a14b02ba6c4e829c9dfe57db340b2,
     type: 2}
   m_PrefabInternal: {fileID: 387902360}
---- !u!1001 &390241217
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1126309312}
-    m_Modifications:
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -7.8879223
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.9623432
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.099609375
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_RootOrder
-      value: 94
-      objectReference: {fileID: 0}
-    - target: {fileID: 1724557714814980, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_Name
-      value: Oak Tree (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 212205690249864644, guid: a4373891fbe014196b43e81746b1c5f6,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &390241218 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6,
-    type: 2}
-  m_PrefabInternal: {fileID: 390241217}
 --- !u!1001 &390661558
 Prefab:
   m_ObjectHideFlags: 0
@@ -10374,6 +10333,11 @@ Prefab:
     - target: {fileID: 1559502855924176, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
       propertyPath: m_Name
       value: Oak Tree Wall (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212690919621142532, guid: dff655d31db744889b27cd4c287a2b51,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
@@ -12777,6 +12741,62 @@ Transform:
   m_PrefabParentObject: {fileID: 4378642923992832, guid: b13b1740220fb49dbb5469b48e41c7ed,
     type: 2}
   m_PrefabInternal: {fileID: 624069074}
+--- !u!1001 &626153145
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1126309312}
+    m_Modifications:
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -11.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.9599991
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.099609375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_RootOrder
+      value: 694
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559502855924176, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_Name
+      value: Oak Tree Wall (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212690919621142532, guid: dff655d31db744889b27cd4c287a2b51,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &626153146 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51,
+    type: 2}
+  m_PrefabInternal: {fileID: 626153145}
 --- !u!1001 &628699747
 Prefab:
   m_ObjectHideFlags: 0
@@ -14889,62 +14909,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51,
     type: 2}
   m_PrefabInternal: {fileID: 737861686}
---- !u!1001 &738872599
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1126309312}
-    m_Modifications:
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -6.8879223
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.0376568
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.099609375
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_RootOrder
-      value: 85
-      objectReference: {fileID: 0}
-    - target: {fileID: 1724557714814980, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_Name
-      value: Oak Tree (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 212205690249864644, guid: a4373891fbe014196b43e81746b1c5f6,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: -2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &738872600 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6,
-    type: 2}
-  m_PrefabInternal: {fileID: 738872599}
 --- !u!1001 &742338936
 Prefab:
   m_ObjectHideFlags: 0
@@ -17295,6 +17259,62 @@ Transform:
   m_PrefabParentObject: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6,
     type: 2}
   m_PrefabInternal: {fileID: 827165120}
+--- !u!1001 &827725217
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1126309312}
+    m_Modifications:
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -8.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.099609375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_RootOrder
+      value: 693
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559502855924176, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_Name
+      value: Oak Tree Wall (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212690919621142532, guid: dff655d31db744889b27cd4c287a2b51,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &827725218 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51,
+    type: 2}
+  m_PrefabInternal: {fileID: 827725217}
 --- !u!1 &828039983
 GameObject:
   m_ObjectHideFlags: 0
@@ -26044,8 +26064,6 @@ Transform:
   - {fileID: 755252139}
   - {fileID: 1214043692}
   - {fileID: 111169442}
-  - {fileID: 1551456115}
-  - {fileID: 738872600}
   - {fileID: 1591591116}
   - {fileID: 1579540720}
   - {fileID: 1456182111}
@@ -26054,7 +26072,6 @@ Transform:
   - {fileID: 1030265494}
   - {fileID: 1246121731}
   - {fileID: 36436364}
-  - {fileID: 390241218}
   - {fileID: 1922084399}
   - {fileID: 237099812}
   - {fileID: 1163507688}
@@ -26133,7 +26150,6 @@ Transform:
   - {fileID: 970747754}
   - {fileID: 1848894492}
   - {fileID: 1148152752}
-  - {fileID: 1767771852}
   - {fileID: 30650304}
   - {fileID: 1341276407}
   - {fileID: 1500863404}
@@ -26655,6 +26671,10 @@ Transform:
   - {fileID: 571983238}
   - {fileID: 1251086105}
   - {fileID: 1778696205}
+  - {fileID: 1468492778}
+  - {fileID: 626153146}
+  - {fileID: 827725218}
+  - {fileID: 1880853640}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30358,6 +30378,11 @@ Prefab:
     - target: {fileID: 1559502855924176, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
       propertyPath: m_Name
       value: Oak Tree Wall (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212690919621142532, guid: dff655d31db744889b27cd4c287a2b51,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
@@ -34136,6 +34161,57 @@ Transform:
   m_PrefabParentObject: {fileID: 4378642923992832, guid: b13b1740220fb49dbb5469b48e41c7ed,
     type: 2}
   m_PrefabInternal: {fileID: 1466834775}
+--- !u!1001 &1468492777
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1126309312}
+    m_Modifications:
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.099609375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_RootOrder
+      value: 694
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559502855924176, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_Name
+      value: Oak Tree Wall (16)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1468492778 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51,
+    type: 2}
+  m_PrefabInternal: {fileID: 1468492777}
 --- !u!1001 &1474870887
 Prefab:
   m_ObjectHideFlags: 0
@@ -36068,62 +36144,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4378642923992832, guid: b13b1740220fb49dbb5469b48e41c7ed,
     type: 2}
   m_PrefabInternal: {fileID: 1550819307}
---- !u!1001 &1551456114
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1126309312}
-    m_Modifications:
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -8.887922
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.0376568
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.099609375
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_RootOrder
-      value: 84
-      objectReference: {fileID: 0}
-    - target: {fileID: 1724557714814980, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_Name
-      value: Oak Tree (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 212205690249864644, guid: a4373891fbe014196b43e81746b1c5f6,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: -2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1551456115 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1551456114}
 --- !u!1001 &1556355187
 Prefab:
   m_ObjectHideFlags: 0
@@ -39899,62 +39919,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4378642923992832, guid: edc299edfa204457b81fa5a043ffcd07,
     type: 2}
   m_PrefabInternal: {fileID: 1767417888}
---- !u!1001 &1767771851
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1126309312}
-    m_Modifications:
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -11.887922
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.9623432
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.099609375
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_RootOrder
-      value: 173
-      objectReference: {fileID: 0}
-    - target: {fileID: 1724557714814980, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-      propertyPath: m_Name
-      value: Oak Tree (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 212205690249864644, guid: a4373891fbe014196b43e81746b1c5f6,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a4373891fbe014196b43e81746b1c5f6, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1767771852 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4487761959472278, guid: a4373891fbe014196b43e81746b1c5f6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1767771851}
 --- !u!1001 &1768279859
 Prefab:
   m_ObjectHideFlags: 0
@@ -41889,6 +41853,62 @@ Transform:
   m_PrefabParentObject: {fileID: 4378642923992832, guid: b13b1740220fb49dbb5469b48e41c7ed,
     type: 2}
   m_PrefabInternal: {fileID: 1880252665}
+--- !u!1001 &1880853639
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1126309312}
+    m_Modifications:
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -6.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.039999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.099609375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_RootOrder
+      value: 694
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559502855924176, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+      propertyPath: m_Name
+      value: Oak Tree Wall (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212690919621142532, guid: dff655d31db744889b27cd4c287a2b51,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: dff655d31db744889b27cd4c287a2b51, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1880853640 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4373350230737600, guid: dff655d31db744889b27cd4c287a2b51,
+    type: 2}
+  m_PrefabInternal: {fileID: 1880853639}
 --- !u!1001 &1880975686
 Prefab:
   m_ObjectHideFlags: 0
