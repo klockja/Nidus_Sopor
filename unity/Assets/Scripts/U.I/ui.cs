@@ -15,9 +15,13 @@ public class ui : GenericSingletonClass<ui> {
 	public GameObject Panel7;
 	public GameObject Panel8;
 
+	[SerializeField]
 	private GameObject title;
+	[SerializeField]
 	private GameObject gameplay;
+	[SerializeField]
 	private GameObject pause;
+	[SerializeField]
 	private GameObject background;
 
 	public GameObject BlackPanel;
@@ -34,15 +38,11 @@ public class ui : GenericSingletonClass<ui> {
 	void Start () {
 		BlackPanel.SetActive (false);
 		AreYouSurePanel.SetActive (false);
-		title = GameObject.Find ("Title Panel");
-		gameplay = GameObject.Find ("Gameplay Panel");
-		pause = GameObject.Find ("Pause Panel");
-		background = GameObject.Find ("Background");
+		//title = GameObject.Find ("Title Panel");
+		//gameplay = GameObject.Find ("Gameplay Panel");
+		//pause = GameObject.Find ("Pause Panel");
+		//background = GameObject.Find ("Background");
 
-
-
-		//        int playerNum = PlayerInfo.playerID;
-		//        Debug.Log (playerNum);
 		switchToMenu (menuID);
 
 		GameObject GameManager = GameObject.Find ("GameManager");
@@ -53,6 +53,7 @@ public class ui : GenericSingletonClass<ui> {
 	void Update () {
 		if (SceneManager.GetActiveScene ().name != "Title Scene") 
 		{
+			//Panel1 = gameplay;
 			Panel2 = pause;
 			gameplay.SetActive (true);
 			title.SetActive (false);
@@ -61,6 +62,7 @@ public class ui : GenericSingletonClass<ui> {
 		}
 		if (SceneManager.GetActiveScene ().name == "Title Scene" || SceneManager.GetActiveScene ().name == "TItle Scene") 
 		{
+			//Panel1 = gameplay;
 			Panel2 = title;
 			background.SetActive (true);
 			title.SetActive (true);

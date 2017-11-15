@@ -108,14 +108,14 @@ public class PlayerController : MonoBehaviour
 		fireLine.startWidth = fireWidth;
 		fireLine.endWidth = fireWidth;
 
-		bulletNum = GameObject.Find ("GameManager").GetComponent<GameManagement> ().bulletCount;
-		rockNum = GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount;
-		unusedBulletNum = GameObject.Find ("GameManager").GetComponent<GameManagement> ().unusedBullet;
-
 	}
 
 	void Start () 
 	{
+		bulletNum = GameManagement.Instance.bulletCount;
+		rockNum = GameManagement.Instance.rockCount;
+		unusedBulletNum = GameManagement.Instance.unusedBullet;
+
 		anim.SetFloat ("input_y", -1);
 		anim.SetFloat ("input_x", 0);
 
