@@ -1219,6 +1219,7 @@ GameObject:
   - component: {fileID: 224953129138262070}
   - component: {fileID: 222671885390876450}
   - component: {fileID: 114870340343030658}
+  - component: {fileID: 114089215471094796}
   m_Layer: 5
   m_Name: 'Egg Image '
   m_TagString: Untagged
@@ -1944,6 +1945,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114089215471094796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1732210967435354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03f09e9cd6d5c249926161e6ca30006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  egg: {fileID: 21300000, guid: 47e461a38ff59454f933e08949dab822, type: 3}
+  noEgg: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &114110473623055748
 MonoBehaviour:
   m_ObjectHideFlags: 1
