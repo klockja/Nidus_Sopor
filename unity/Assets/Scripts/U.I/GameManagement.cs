@@ -15,7 +15,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 	public float unusedBullet;
 	public float rockCount;
 	public GameObject player;
-
+	public float playerDeathNumber;
 
 	private string currentScene;
 	private string newScene;
@@ -31,6 +31,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 		bulletCount = 6;
 		unusedBullet = 12;
 		rockCount = 1;
+		playerDeathNumber = 0;
 		currentScene = SceneManager.GetActiveScene().name;
 	
 
@@ -44,10 +45,14 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 		//Debug.Log(isbackward);
 		newScene = SceneManager.GetActiveScene().name;
 
-		if (currentScene != newScene) 
+		if (currentScene != newScene || playerDeathNumber > 0) 
 		{
-			player = GameObject.Find ("Player");
+			GrabPlayer ();
 			currentScene = newScene;
+		}
+
+		if (currentScene == "Title Scene" || currentScene == "TItle Scene") {
+			playerDeathNumber = 0;
 		}
 
 		if (nextScene == true) {
@@ -73,5 +78,10 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 			GameObject.Find ("BackwardPortal").SetActive (true);
 		}
 			
+	}
+
+	public void GrabPlayer ()
+	{
+		player = GameObject.Find ("Player");
 	}
 }
