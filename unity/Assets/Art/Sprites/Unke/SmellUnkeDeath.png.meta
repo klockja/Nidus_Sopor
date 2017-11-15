@@ -1,9 +1,15 @@
 fileFormatVersion: 2
 guid: a9fe5d045fdd84ca9b4d95eb82c3db50
-timeCreated: 1510632409
+timeCreated: 1510724390
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: SmellUnkeDeath_0
+    21300002: SmellUnkeDeath_1
+    21300004: SmellUnkeDeath_2
+    21300006: SmellUnkeDeath_3
+    21300008: SmellUnkeDeath_4
+    21300010: SmellUnkeDeath_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -94,7 +100,91 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SmellUnkeDeath_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 53
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SmellUnkeDeath_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 48
+        width: 53
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SmellUnkeDeath_2
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 48
+        width: 53
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SmellUnkeDeath_3
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 48
+        width: 53
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SmellUnkeDeath_4
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 48
+        width: 53
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SmellUnkeDeath_5
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 48
+        width: 53
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
