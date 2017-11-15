@@ -152,11 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114312470142690536, guid: 34cb27650c88d45d49f40b31449bced1,
-        type: 2}
-      propertyPath: viewMeshFilter
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 198558991975768052, guid: 34cb27650c88d45d49f40b31449bced1,
         type: 2}
       propertyPath: TriggerModule.collisionShape0
@@ -881,16 +876,6 @@ Prefab:
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
-    - target: {fileID: 198353769449471928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: randomSeed
-      value: -1323688207
-      objectReference: {fileID: 0}
-    - target: {fileID: 198353769449471928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: ShapeModule.radius.value
-      value: 3.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
   m_IsPrefabParent: 0
