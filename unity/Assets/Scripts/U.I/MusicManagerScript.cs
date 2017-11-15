@@ -17,20 +17,26 @@ public class MusicManagerScript: GenericSingletonClass<MusicManagerScript> {
 	private string currentScene;
 	private string newScene;
 
+	private float currentDeathNumber;
+	private float newDeathNumber;
+
 	// Use this for initialization
 	void Start () {
 		musicPlayer.clip = title;
 		musicPlayer.Play();
 		currentScene = SceneManager.GetActiveScene ().name;
+		currentDeathNumber = GameManagement.Instance.playerDeathNumber;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		newScene = SceneManager.GetActiveScene ().name;
+		newDeathNumber = GameManagement.Instance.playerDeathNumber;
 
-		if (currentScene != newScene) {
+		if (currentScene != newScene || currentDeathNumber != newDeathNumber) {
 			MusicSelector ();
 			currentScene = newScene;
+			currentDeathNumber = newDeathNumber;
 		}
 	}
 
