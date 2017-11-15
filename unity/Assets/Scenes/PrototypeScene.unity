@@ -279,6 +279,27 @@ Prefab:
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
+    - target: {fileID: 212141443572252874, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117164275633292, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117164275633292, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117164275633292, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117164275633292, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
   m_IsPrefabParent: 0
@@ -928,11 +949,6 @@ Prefab:
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
-    - target: {fileID: 95418931424989648, guid: d369105b49f1442529b05f62dbd94028,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d546bf27a640842bd9f1a0cc00e64704, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d369105b49f1442529b05f62dbd94028, type: 2}
   m_IsPrefabParent: 0
