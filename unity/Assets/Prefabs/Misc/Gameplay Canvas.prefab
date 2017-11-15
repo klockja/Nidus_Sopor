@@ -166,7 +166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1123360575659658
 GameObject:
   m_ObjectHideFlags: 1
@@ -251,7 +251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1163746573780588
 GameObject:
   m_ObjectHideFlags: 1
@@ -1033,7 +1033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1618644614099104
 GameObject:
   m_ObjectHideFlags: 1
@@ -1155,7 +1155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1655070981224960
 GameObject:
   m_ObjectHideFlags: 1
@@ -1296,7 +1296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1746770878431200
 GameObject:
   m_ObjectHideFlags: 1
@@ -1433,7 +1433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1861036493669510
 GameObject:
   m_ObjectHideFlags: 1
@@ -1467,7 +1467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1903401165434760
 GameObject:
   m_ObjectHideFlags: 1
@@ -1502,7 +1502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1918186753957464
 GameObject:
   m_ObjectHideFlags: 1
@@ -4057,6 +4057,10 @@ MonoBehaviour:
   Panel6: {fileID: 1140300805535328}
   Panel7: {fileID: 1823239743578284}
   Panel8: {fileID: 1123360575659658}
+  title: {fileID: 1146333076810286}
+  gameplay: {fileID: 1606805734657076}
+  pause: {fileID: 1905583663517512}
+  background: {fileID: 1888476001173710}
   BlackPanel: {fileID: 1109645449386430}
   DefeatPanel: {fileID: 1746741141094656}
   VictoryPanel: {fileID: 1859529764354170}
