@@ -24,6 +24,7 @@ public class DistractState : CharacterState {
 			direction.Normalize ();
 			_rock = GameObject.Instantiate (Rock, throwPosition, player.transform.rotation) as GameObject;
 			_rock.GetComponent<Rigidbody2D> ().velocity = direction * speed;
+			machine.Controller.audioSource.PlayOneShot (machine.Controller.throwingSound);
 
 			//_rock.GetComponent<Rigidbody2D> ().AddForce (direction*speed, ForceMode2D.Impulse);
 			//machine.Controller.rockNum -= 1;
