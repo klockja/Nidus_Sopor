@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 	// Audio Stuff
 	public AudioSource audioSource;
 	public AudioClip shootingSound;
+	public AudioClip reloadSound;
 	public AudioClip throwingSound;
 	public AudioClip walkingSound;
 	public AudioClip runningSound;
@@ -198,6 +199,7 @@ public class PlayerController : MonoBehaviour
 			if (Input.GetKeyDown (KeyCode.R)) 
 			{
 				Invoke("Reload", 2);
+				audioSource.PlayOneShot (reloadSound);
 			}
 
 			if(Input.GetKeyDown(KeyCode.Mouse1))
