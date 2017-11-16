@@ -174,12 +174,17 @@ public class EnemyController : MonoBehaviour
 			StartCoroutine (Die ());
 		}
 
-//		gamePaused
-			if (gamePaused == true)
-			{
-				canMove = false;
-				AILerp.canMove = false;
-			}
+		gamePaused = GameManagement.Instance.isPaused;
+
+		if (gamePaused == true)
+		{
+			canMove = false;
+			AILerp.canMove = false;
+		} else
+		{
+			canMove = true;
+			AILerp.canMove = true;
+		}
 
 		if ((gamePaused == false && canMove) || (currentHealth > 0 && canMove))
 		{
