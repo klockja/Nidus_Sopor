@@ -77,6 +77,12 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 			//GameObject.Find ("ForwardPortal").SetActive (false);
 			GameObject.Find ("BackwardPortal").SetActive (true);
 		}
+
+		if (newScene == "Beach2") {
+			MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.epilogue;
+			MusicManagerScript.Instance.musicPlayer.Play();
+			GameplayCanvasScript.Instance.VictoryPanel.SetActive (true);
+		}
 			
 	}
 
