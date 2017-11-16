@@ -175,7 +175,6 @@ public class EnemyController : MonoBehaviour
 		}
 
 		gamePaused = GameManagement.Instance.isPaused;
-		GameManagement.Instance.gameover;
 		if (GameManagement.Instance.gameover == true || gamePaused == true)
 		{
 			canMove = false;
