@@ -13,16 +13,26 @@ public class VisualSorterScript : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.tag == "Player" || col.tag == "Enemy")
+		if (col.tag == "Player")
 		{
-			spriteRenderer.sortingOrder = -1;
+			col.GetComponent <SpriteRenderer> ().sortingOrder = -1;
+		}
+
+		if (col.tag == "Enemy")
+		{
+			col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = -1;
 		}
 	}
 	void OnTriggerStay2D(Collider2D col)
 	{
-		if (col.tag == "Player" || col.tag == "Enemy")
+		if (col.tag == "Player")
 		{
 			col.GetComponent <SpriteRenderer> ().sortingOrder = -1;
+		}
+
+		if (col.tag == "Enemy")
+		{
+			col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = -1;
 		}
 	}
 	void OnTriggerExit2D(Collider2D col)
