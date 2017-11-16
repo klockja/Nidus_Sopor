@@ -50,7 +50,7 @@ public class PortalScript : MonoBehaviour {
 		} else if ((currentScene == "Beach2")) {
 			MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.epilogue;
 			MusicManagerScript.Instance.musicPlayer.Play();
-			ui.Instance.VictoryPanel.SetActive (true);
+			GameplayCanvasScript.Instance.VictoryPanel.SetActive (true);
 			nextScene = null;
 			return nextScene;
 		} else 
@@ -69,7 +69,7 @@ public class PortalScript : MonoBehaviour {
 			DetermineNextScene ();
 			GameObject.Find ("GameManager").GetComponent<GameManagement> ().nextScene = true;
 			//Debug.Log ("TIME TO LOAD NEW SCENE");
-			ui.Instance.LoadSceneNow (nextScene);
+			GameplayCanvasScript.Instance.LoadSceneNow (nextScene);
 		}
 	} 
 

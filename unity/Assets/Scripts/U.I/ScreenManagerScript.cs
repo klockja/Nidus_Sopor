@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScreenManagerScript :MonoBehaviour {
+public class ScreenManagerScript : GenericSingletonClass <ScreenManagerScript> {
 
 	[SerializeField]
 	private Fading m_blackScreen;

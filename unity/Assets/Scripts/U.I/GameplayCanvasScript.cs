@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ui : GenericSingletonClass<ui> {
+public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> {
 
 	public int menuID=0;
 	public GameObject Panel1;
@@ -25,6 +25,7 @@ public class ui : GenericSingletonClass<ui> {
 	private GameObject background;
 
 	public GameObject BlackPanel;
+	public GameObject IntroCutscenePanel;
 	public GameObject DefeatPanel;
 	public GameObject VictoryPanel;
 	public GameObject AreYouSurePanel;
@@ -51,12 +52,13 @@ public class ui : GenericSingletonClass<ui> {
 
 	// Update is called once per frame
 	void Update () {
-		if (SceneManager.GetActiveScene ().name != "Title Scene") 
+		if (SceneManager.GetActiveScene ().name != "Title Scene" && SceneManager.GetActiveScene ().name != "TItle Scene" &&SceneManager.GetActiveScene ().name != "Intro Cutscene")
 		{
 			//Panel1 = gameplay;
 			Panel2 = pause;
 			gameplay.SetActive (true);
 			title.SetActive (false);
+			IntroCutscenePanel.SetActive (false);
 			background.SetActive (false);
 
 		}
@@ -66,6 +68,18 @@ public class ui : GenericSingletonClass<ui> {
 			Panel2 = title;
 			background.SetActive (true);
 			title.SetActive (true);
+			gameplay.SetActive (false);
+			pause.SetActive (false);
+			DefeatPanel.SetActive (false);
+			AreYouSurePanel.SetActive (false);
+			VictoryPanel.SetActive (false);
+		}
+		if (SceneManager.GetActiveScene ().name == "Intro Cutscene") 
+		{
+			Panel2 = IntroCutscenePanel;
+			IntroCutscenePanel.SetActive (true);
+			title.SetActive (false);
+			background.SetActive (false);
 			gameplay.SetActive (false);
 			pause.SetActive (false);
 			DefeatPanel.SetActive (false);

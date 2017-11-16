@@ -239,8 +239,8 @@ public class PlayerController : MonoBehaviour
 			MusicManagerScript.Instance.musicPlayer.Play();
 			GameManagement.Instance.gameover = true;
 			GameManagement.Instance.isPaused = true;
-			ui.Instance.BlackPanel.SetActive (true);
-			ui.Instance.DefeatPanel.SetActive(true);
+			GameplayCanvasScript.Instance.BlackPanel.SetActive (true);
+			GameplayCanvasScript.Instance.DefeatPanel.SetActive(true);
 		}
 	}
 
