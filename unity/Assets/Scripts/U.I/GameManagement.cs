@@ -16,6 +16,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 	public float rockCount;
 	public GameObject player;
 	public float playerDeathNumber;
+	public bool isPlayerDead;
 
 	private string currentScene;
 	private string newScene;
@@ -48,6 +49,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 		if (currentScene != newScene || playerDeathNumber > 0) 
 		{
 			GrabPlayer ();
+			isPlayerDead = false;
 			currentScene = newScene;
 		}
 

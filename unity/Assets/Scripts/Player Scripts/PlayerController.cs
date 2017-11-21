@@ -235,6 +235,7 @@ public class PlayerController : MonoBehaviour
 		if (col.gameObject.tag == "Enemy") 
 		{
 			Debug.Log ("hit player");
+			GameManagement.Instance.isPlayerDead = true;
 			MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.gameover;
 			MusicManagerScript.Instance.musicPlayer.Play();
 			GameManagement.Instance.gameover = true;
