@@ -6,6 +6,8 @@ public class EnemySightScript : MonoBehaviour
 {
 	private EnemyController _enemyController;
 
+	public bool isOnScreen;
+
 	public int viewRadius;
 	[Range(0, 360)]
 	public float viewAngle;
@@ -28,11 +30,21 @@ public class EnemySightScript : MonoBehaviour
 
 	void Update()
 	{
-		DrawFieldOfView ();
+//		DrawFieldOfView ();
+	}
+
+	private void OnBecameVisible()
+	{
+		isOnScreen = true;
+	}
+
+	private void OnBecameInvisible()
+	{
+		isOnScreen = false;
 	}
 
 	IEnumerator FindTargetWithDelay(float delay) {
-		while (true) 
+		while (isOnScreen == true) 
 		{
 			yield return new WaitForSeconds(delay);
 			FindVisibleTargets();

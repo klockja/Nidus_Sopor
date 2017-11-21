@@ -15,6 +15,7 @@ public class Dialogue : MonoBehaviour
 	public string[] DialogueStrings;
 
 	public float SecondsBetweenCharacters = 0.075f;
+	private float OriginalSecondsBetweenCharacters;
 	public float CharacterRateMultiplier = 0.5f;
 
 	public KeyCode DialogueInput = KeyCode.Return;
@@ -22,6 +23,8 @@ public class Dialogue : MonoBehaviour
 	private bool _isStringBeingRevealed = false;
 	private bool _isDialoguePlaying = false;
 	private bool _isEndOfDialogue = false;
+
+	private bool _canEndDialogueEarly = true;
 
 	public string NextScene;
 
@@ -41,6 +44,8 @@ public class Dialogue : MonoBehaviour
 		StartCoroutine (StartDialogue ());
 
 		HideIcons ();
+
+		OriginalSecondsBetweenCharacters = SecondsBetweenCharacters;
 	}
 	
 	// Update is called once per frame
@@ -131,15 +136,28 @@ public class Dialogue : MonoBehaviour
 
 			if (currentCharacterIndex < stringLength) 
 			{
-				if (Input.GetKey (DialogueInput)) 
+				if (_canEndDialogueEarly && Input.GetKeyDown (DialogueInput))
 				{
-					yield return new WaitForSeconds (SecondsBetweenCharacters * CharacterRateMultiplier);
-				} 
-				else 
+					Debug.Log ("Input was pressed during dialogue");
+					_textComponent.text = stringToDisplay;
+					currentCharacterIndex = stringLength;
+					yield return new WaitForSeconds (SecondsBetweenCharacters);
+				}
+
+				if (Input.GetKeyDown (DialogueInput) == false)
 				{
 					yield return new WaitForSeconds (SecondsBetweenCharacters);
-
 				}
+
+//				if (Input.GetKey (DialogueInput)) 
+//				{
+//					yield return new WaitForSeconds (SecondsBetweenCharacters * CharacterRateMultiplier);
+//				} 
+//				else 
+//				{
+//					yield return new WaitForSeconds (SecondsBetweenCharacters);
+//				}
+
 			} 
 			else 
 			{
@@ -162,7 +180,7 @@ public class Dialogue : MonoBehaviour
 				if (DialogueContinueWasCalled > 1 || MultipleDialogueContinues == true) 
 				{
 					Debug.Log("Dialogue Continued, even after the user pressed multiple times.");
-					yield return new WaitForSeconds(2);
+					yield return new WaitForSeconds(2f);
 					DialogueContinueWasCalled -= 1;
 					MultipleDialogueContinues = true;
 					if (DialogueContinueWasCalled == 0)

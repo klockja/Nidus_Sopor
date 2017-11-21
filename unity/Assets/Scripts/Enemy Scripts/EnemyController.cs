@@ -163,28 +163,28 @@ public class EnemyController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		gamePaused = GameManagement.Instance.isPaused;
 		currentHealth = AttackableEnemy.GetHealth ();
 		if (currentHealth <= 0 && canMove)
 		{
-			StopAllCoroutines ();
-			AILerp.canMove = false;
-			canMove = false;
-			audioSource.PlayOneShot (takeDamage);
-			anim.SetBool ("isDead", true);
+//			StopAllCoroutines ();
+//			audioSource.PlayOneShot (takeDamage);
 			StartCoroutine (Die ());
 		}
 
-		gamePaused = GameManagement.Instance.isPaused;
-		if (GameManagement.Instance.gameover == true || gamePaused == true)
-		{
-			canMove = false;
-			AILerp.canMove = false;
-		}
-		if (GameManagement.Instance.gameover == false || gamePaused == false)
-		{
-			canMove = true;
-			AILerp.canMove = true;
-		}
+//		if (GameManagement.Instance.player.
+
+//		gamePaused = GameManagement.Instance.isPaused;
+//		if (gamePaused == true || gamePaused == true)
+//		{
+//			canMove = false;
+//			AILerp.canMove = false;
+//		}
+//		if (gamePaused == false || gamePaused == false)
+//		{
+//			canMove = true;
+//			AILerp.canMove = true;
+//		}
 
 		if ((gamePaused == false && canMove) || (currentHealth > 0 && canMove))
 		{
@@ -292,7 +292,7 @@ public class EnemyController : MonoBehaviour
 
 	public IEnumerator Pursue()
 	{
-		if (detectedTransform != null)
+		if (detectedTransform != null && canMove)
 		{
 			Debug.Log ("Unke is pursuing the player");
 			anim.SetBool ("playerDetected", true);
@@ -374,7 +374,10 @@ public class EnemyController : MonoBehaviour
 
 	public IEnumerator Die()
 	{
-		yield return new WaitForSeconds (1f);
+		AILerp.canMove = false;
+		canMove = false;
+		anim.SetBool ("isDead", true);
+		yield return new WaitForSeconds (0.5f);
 		Destroy (gameObject);
 		yield return null;
 	}
