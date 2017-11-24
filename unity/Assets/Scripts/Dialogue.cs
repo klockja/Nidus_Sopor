@@ -14,6 +14,14 @@ public class Dialogue : MonoBehaviour
 
 	public string[] DialogueStrings;
 
+	[Header ("Sound")]
+
+	public AudioClip TypingSound;
+	public AudioClip EndSound;
+	private AudioSource AudioSource;
+
+	[Header ("Timing")]
+
 	public float SecondsBetweenCharacters = 0.075f;
 	private float OriginalSecondsBetweenCharacters;
 	public float CharacterRateMultiplier = 0.5f;
@@ -39,6 +47,8 @@ public class Dialogue : MonoBehaviour
 	{
 		_textComponent = GetComponent<Text> ();
 		_textComponent.text = "";
+
+		AudioSource = GetComponent <AudioSource> ();
 
 		_isDialoguePlaying = true;
 		StartCoroutine (StartDialogue ());
@@ -137,6 +147,11 @@ public class Dialogue : MonoBehaviour
 
 			if (currentCharacterIndex < stringLength) 
 			{
+				if (TypingSound != null)
+				{
+					AudioSource.PlayOneShot (TypingSound);
+				}
+
 				if (_canEndDialogueEarly && Input.GetKeyDown (DialogueInput))
 				{
 					Debug.Log ("Input was pressed during dialogue");
@@ -149,7 +164,6 @@ public class Dialogue : MonoBehaviour
 				{
 					yield return new WaitForSeconds (SecondsBetweenCharacters);
 				}
-
 //				if (Input.GetKey (DialogueInput)) 
 //				{
 //					yield return new WaitForSeconds (SecondsBetweenCharacters * CharacterRateMultiplier);
@@ -158,7 +172,6 @@ public class Dialogue : MonoBehaviour
 //				{
 //					yield return new WaitForSeconds (SecondsBetweenCharacters);
 //				}
-
 			} 
 			else 
 			{
@@ -225,10 +238,22 @@ public class Dialogue : MonoBehaviour
 		if (_isEndOfDialogue) 
 		{
 			StopIcon.SetActive (true);
+			if (EndSound != null)
+			{
+				AudioSource.PlayOneShot (EndSound);
+			}
 			return;
 		}
 
-		ContinueIcon.SetActive (true);
+		if (ContinueIcon.activeSelf == false)
+		{
+			ContinueIcon.SetActive (true);
+			if (EndSound != null)
+			{
+				AudioSource.PlayOneShot (EndSound);
+			}
+		}
+
 	}
 
 	public void DialogueStart()
