@@ -172,6 +172,12 @@ public class EnemyController : MonoBehaviour
 			StartCoroutine (Die ());
 		}
 
+		if (GameManagement.Instance.isPlayerDead)
+		{
+			canMove = false;
+			AILerp.canMove = false;
+		}
+
 //		if (GameManagement.Instance.player.
 
 //		gamePaused = GameManagement.Instance.isPaused;

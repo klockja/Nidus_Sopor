@@ -64,6 +64,7 @@ public class Dialogue : MonoBehaviour
 		{
 			Debug.Log ("Go to next scene from end of dialogue");
 			_isEndOfDialogue = false;
+			_isDialoguePlaying = false;
 			GameplayCanvasScript.Instance.IntroCutscenePanel.SetActive (false);
 			GameplayCanvasScript.Instance.LoadSceneNow (NextScene);
 		}
