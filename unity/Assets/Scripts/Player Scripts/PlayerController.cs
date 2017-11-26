@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
 
 		//Debug.Log (m_stateMachine.CurrentState);
 		if (SceneManager.GetActiveScene ().name != "LoadingScreen") {
-			gamePaused = GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused;
+			gamePaused = GameManagement.Instance.isPaused;
 			bulletText = GameObject.Find ("Bullet Number Text").GetComponent<Text> ();
 			rockText = GameObject.Find ("Rocknumbertext").GetComponent<Text> ();
 			bulletText.text = "x" + unusedBulletNum.ToString ();

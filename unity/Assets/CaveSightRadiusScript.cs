@@ -15,6 +15,6 @@ public class CaveSightRadiusScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		transform.Translate ((Player.transform.position - transform.position) * Time.deltaTime);
+		transform.Translate ((Player.transform.position - transform.position) * Time.deltaTime * 3);
 	}
 }
