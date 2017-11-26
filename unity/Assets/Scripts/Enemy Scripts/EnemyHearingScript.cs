@@ -21,7 +21,7 @@ public class EnemyHearingScript : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Sound")
 		{
-			Debug.Log ("Detected Audio Collider from: " + col.transform.parent.transform);
+			//Debug.Log ("Detected Audio Collider from: " + col.transform.parent.transform);
 			_enemyController.detectedTransform = col.transform.parent.transform;
 			_enemyController.playerSensed = true;
 		}

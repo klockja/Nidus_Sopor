@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 	public float fireWidth = 0.1f;
 	public float fireMaxLenght = 5f;
 
+	private Vector3 mousePos;
+
 	public LayerMask shootableMask;
 
 	// Audio Stuff
@@ -131,6 +133,9 @@ public class PlayerController : MonoBehaviour
 
 	void Update ()
 	{
+		mousePos = Input.mousePosition;
+		mousePos.z = 10;
+
 		//Debug.Log (m_stateMachine.CurrentState);
 		if (SceneManager.GetActiveScene ().name != "LoadingScreen") {
 			gamePaused = GameObject.Find ("GameManager").GetComponent<GameManagement> ().isPaused;
@@ -145,6 +150,9 @@ public class PlayerController : MonoBehaviour
 
 		if (gamePaused == false)
 		{
+			//Debug.Log (Camera.main.ScreenToWorldPoint(mousePos));
+
+
 			m_stateMachine.Update();
 
 			float horizontal = Input.GetAxis ("Horizontal");
@@ -152,25 +160,25 @@ public class PlayerController : MonoBehaviour
 
 			Vector2 movementDirection = new Vector2(horizontal, vertical);
 
-			if (vertical > 0.7f)
+			if (Camera.main.ScreenToWorldPoint(mousePos).y > transform.localPosition.y) 
 			{
 				anim.SetFloat ("input_y", 1);
 				anim.SetFloat ("input_x", 0);
 			}
 
-			if (vertical < -0.7f)
+			if (Camera.main.ScreenToWorldPoint(mousePos).y < transform.localPosition.y) 
 			{
 				anim.SetFloat ("input_y", -1);
 				anim.SetFloat ("input_x", 0);
 			}
 
-			if (horizontal > 0.7f)
+			if (Camera.main.ScreenToWorldPoint(mousePos).x > transform.localPosition.x && Camera.main.ScreenToWorldPoint(mousePos).y <= transform.localPosition.y+2 && Camera.main.ScreenToWorldPoint(mousePos).y >= transform.localPosition.y-2)
 			{
 				anim.SetFloat ("input_y", 0);
 				anim.SetFloat ("input_x", 1);
 			}
 
-			if (horizontal < -0.7f)
+			if (Camera.main.ScreenToWorldPoint(mousePos).x < transform.localPosition.x && Camera.main.ScreenToWorldPoint(mousePos).y <= transform.localPosition.y+2 && Camera.main.ScreenToWorldPoint(mousePos).y >= transform.localPosition.y-2)
 			{
 				anim.SetFloat ("input_y", 0);
 				anim.SetFloat ("input_x", -1);
@@ -194,7 +202,7 @@ public class PlayerController : MonoBehaviour
 			{
 				if (!EventSystem.current.IsPointerOverGameObject ()) 
 				{
-					Debug.Log("clicking on u.i");
+					//Debug.Log("clicking on u.i");
 					if (reloading == false) {
 						m_stateMachine.CurrentState.DesireShoot ();
 					}
