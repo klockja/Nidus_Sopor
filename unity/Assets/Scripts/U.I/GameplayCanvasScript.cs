@@ -29,6 +29,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 	public GameObject DefeatPanel;
 	public GameObject VictoryPanel;
 	public GameObject AreYouSurePanel;
+	public GameObject LoadingPanel;
 	public GameManagement GM;
 
 	public Sprite sprite1;
@@ -39,6 +40,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 	void Start () {
 		BlackPanel.SetActive (false);
 		AreYouSurePanel.SetActive (false);
+		LoadingPanel.SetActive (false);
 		//title = GameObject.Find ("Title Panel");
 		//gameplay = GameObject.Find ("Gameplay Panel");
 		//pause = GameObject.Find ("Pause Panel");

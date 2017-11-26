@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour 
 {
@@ -191,8 +192,12 @@ public class PlayerController : MonoBehaviour
 
 			if(Input.GetKeyDown(KeyCode.Mouse0))
 			{
-				if (reloading == false) {
-					m_stateMachine.CurrentState.DesireShoot ();
+				if (!EventSystem.current.IsPointerOverGameObject ()) 
+				{
+					Debug.Log("clicking on u.i");
+					if (reloading == false) {
+						m_stateMachine.CurrentState.DesireShoot ();
+					}
 				}
 			}
 

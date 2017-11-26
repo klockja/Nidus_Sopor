@@ -24,6 +24,7 @@ public class ScreenManagerScript : GenericSingletonClass <ScreenManagerScript> {
 
 		// Disable Canvas
 		all.SetActive (false);
+		GameplayCanvasScript.Instance.LoadingPanel.SetActive(true);
 
 		// Load loading screen
 		yield return SceneManager.LoadSceneAsync("LoadingScreen");
@@ -56,6 +57,7 @@ public class ScreenManagerScript : GenericSingletonClass <ScreenManagerScript> {
 
 		// Reactive Canvas
 		all.SetActive (true);
+		GameplayCanvasScript.Instance.LoadingPanel.SetActive(false);
 
 		// Fade to new screen
 		yield return StartCoroutine(m_blackScreen.FadeOut());
