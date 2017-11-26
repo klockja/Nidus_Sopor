@@ -5,6 +5,7 @@ using UnityEngine;
 public class SneakState : MoveState {
 
 	private float time;
+	private Vector2 oldPosition;
 
 	public SneakState(CharacterStateMachine machine) : base(machine)
 	{
@@ -12,11 +13,10 @@ public class SneakState : MoveState {
 
 	override public void DesireMove(Vector2 movement)
 	{
+		oldPosition = m_machine.Controller.Body.position;
 		float speed = m_machine.Controller.SneakSpeed * m_machine.Controller.SpeedDecay;
 
-		m_machine.Controller.Body.velocity = (movement * speed * Time.deltaTime);
-
-		if (m_machine.Controller.Body.velocity != new Vector2 (0, 0)) {
+		if (m_machine.Controller.Body.position != oldPosition) {
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (.5f, .5f, 1);
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.5f;
 
@@ -30,6 +30,50 @@ public class SneakState : MoveState {
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0;
 		}
 
+		if (Input.GetAxisRaw ("Horizontal") > 0 && Input.GetAxisRaw ("Vertical") > 0)
+		{
+			m_machine.Controller.Body.position += (new Vector2 (1, 1) * (speed - (speed / 4)) * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		} 
+		else if (Input.GetAxisRaw ("Horizontal") < 0 && Input.GetAxisRaw ("Vertical") > 0)
+		{
+			m_machine.Controller.Body.position += (new Vector2 (-1, 1) * (speed - (speed / 4)) * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		} 
+		else if (Input.GetAxisRaw ("Horizontal") > 0 && Input.GetAxisRaw ("Vertical") < 0)
+		{
+			m_machine.Controller.Body.position += (new Vector2 (1, -1) * (speed - (speed/4)) * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		}
+		else if (Input.GetAxisRaw ("Horizontal") < 0 && Input.GetAxisRaw ("Vertical") < 0)
+		{
+			m_machine.Controller.Body.position += (new Vector2 (-1, -1) * (speed - (speed/4)) * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		}
+		//up
+		else if (Input.GetAxisRaw ("Vertical") > 0) 
+		{
+			m_machine.Controller.Body.position += (Vector2.up * speed * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		}
+		//down
+		else if (Input.GetAxisRaw ("Vertical") < 0) {
+			m_machine.Controller.Body.position += (Vector2.down * speed * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		}
+		//left
+		else if (Input.GetAxisRaw ("Horizontal") < 0) {
+			m_machine.Controller.Body.position += (Vector2.left * speed * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		}
+		//right
+		else if (Input.GetAxisRaw ("Horizontal") > 0) {
+			m_machine.Controller.Body.position += (Vector2.right * speed * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		} else {
+			m_machine.Controller.anim.SetBool ("isMoving", false);
+		}
+		oldPosition = m_machine.Controller.Body.position;
 		m_machine.Controller.fireLine.enabled = false;
 	}
 

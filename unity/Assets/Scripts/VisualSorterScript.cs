@@ -39,7 +39,7 @@ public class VisualSorterScript : MonoBehaviour
 	{
 		if (col.tag == "Player" || col.tag == "Enemy")
 		{
-			col.GetComponent <SpriteRenderer> ().sortingOrder = 2;
+			col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = 2;
 		}
 	}
 }

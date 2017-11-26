@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveState : CharacterState { 
 
 	private float timer;
+	private Vector2 oldPosition;
 
 	public MoveState(CharacterStateMachine machine):base(machine)
 	{
@@ -12,20 +13,66 @@ public class MoveState : CharacterState {
 
 	override public void DesireMove(Vector2 movement)
 	{
+		oldPosition = m_machine.Controller.Body.position;
 		float speed = m_machine.Controller.RunSpeed * m_machine.Controller.SpeedDecay;
-		m_machine.Controller.Body.velocity = (movement * speed * Time.deltaTime);
+//		m_machine.Controller.Body.velocity = (movement * speed * Time.deltaTime);
 
-		if (m_machine.Controller.Body.velocity.magnitude > 1)
+		if (Input.GetAxisRaw ("Horizontal") > 0 && Input.GetAxisRaw ("Vertical") > 0)
 		{
+			m_machine.Controller.Body.position += (new Vector2 (1, 1) * (speed - (speed / 4)) * Time.deltaTime);
 			m_machine.Controller.anim.SetBool ("isMoving", true);
-		} else
+		} 
+		else if (Input.GetAxisRaw ("Horizontal") < 0 && Input.GetAxisRaw ("Vertical") > 0)
 		{
+			m_machine.Controller.Body.position += (new Vector2 (-1, 1) * (speed - (speed / 4)) * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		} 
+		else if (Input.GetAxisRaw ("Horizontal") > 0 && Input.GetAxisRaw ("Vertical") < 0)
+		{
+			m_machine.Controller.Body.position += (new Vector2 (1, -1) * (speed - (speed/4)) * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		}
+		else if (Input.GetAxisRaw ("Horizontal") < 0 && Input.GetAxisRaw ("Vertical") < 0)
+		{
+			m_machine.Controller.Body.position += (new Vector2 (-1, -1) * (speed - (speed/4)) * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		}
+		//up
+		else if (Input.GetAxisRaw ("Vertical") > 0) 
+		{
+			m_machine.Controller.Body.position += (Vector2.up * speed * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		}
+		//down
+		else if (Input.GetAxisRaw ("Vertical") < 0) {
+			m_machine.Controller.Body.position += (Vector2.down * speed * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		}
+		//left
+		else if (Input.GetAxisRaw ("Horizontal") < 0) {
+			m_machine.Controller.Body.position += (Vector2.left * speed * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		}
+		//right
+		else if (Input.GetAxisRaw ("Horizontal") > 0) {
+			m_machine.Controller.Body.position += (Vector2.right * speed * Time.deltaTime);
+			m_machine.Controller.anim.SetBool ("isMoving", true);
+		} else {
 			m_machine.Controller.anim.SetBool ("isMoving", false);
 		}
 
-		if (m_machine.Controller.Body.velocity != new Vector2 (0, 0)) {
+
+//		if (m_machine.Controller.Body.velocity.magnitude > 1)
+//		{
+//			m_machine.Controller.anim.SetBool ("isMoving", true);
+//		} else
+//		{
+//			m_machine.Controller.anim.SetBool ("isMoving", false);
+//		}
+
+		if (m_machine.Controller.Body.position != oldPosition) {
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (1, 1, 1);
-			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 1f;
+			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 2f;
 
 			if (timer <= 0) {
 				m_machine.Controller.audioSource.PlayOneShot (m_machine.Controller.runningSound);
@@ -40,7 +87,7 @@ public class MoveState : CharacterState {
 
 		m_machine.Controller.fireLine.enabled = false;
 		timer = timer - Time.deltaTime;
-
+		oldPosition = m_machine.Controller.Body.position;
 	}
 
 	override public void DesireSneak()
