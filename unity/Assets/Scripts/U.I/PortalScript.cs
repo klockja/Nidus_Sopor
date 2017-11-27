@@ -41,7 +41,7 @@ public class PortalScript : MonoBehaviour {
 		} else if (currentScene == "Forest") {
 			nextScene = "Cave";
 			return nextScene;
-		}  else if (currentScene == "Cave" && GameObject.Find ("GameManager").GetComponent<GameManagement> ().goingBackwards == true) {
+		}  else if (currentScene == "Cave" && GameManagement.Instance.hasegg == true) {
 			nextScene = "Forest2";
 			return nextScene;
 		}  else if (currentScene == "Forest2") {

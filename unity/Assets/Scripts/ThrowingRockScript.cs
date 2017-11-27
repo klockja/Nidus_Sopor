@@ -35,10 +35,10 @@ public class ThrowingRockScript : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col)
 	{
-		if (col.gameObject.tag == "Player") 
-		{
-			GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount += 1;
-		}
+		//if (col.gameObject.tag == "Player") 
+		//{
+		//	GameObject.Find ("GameManager").GetComponent<GameManagement> ().rockCount += 1;
+		//}
 
 		if (col.gameObject.tag == "Object" || col.gameObject.tag == "Enemy") 
 		{
@@ -46,6 +46,7 @@ public class ThrowingRockScript : MonoBehaviour {
 //			gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0.1f;
 			gameObject.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 			AudioCollider.SetActive (true);
+			Invoke ("SwitchObject", 2);
 		}
 	}
 
