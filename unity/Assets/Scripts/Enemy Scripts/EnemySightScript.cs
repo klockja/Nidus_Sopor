@@ -15,14 +15,14 @@ public class EnemySightScript : MonoBehaviour
 	public LayerMask targetMask;
 	public LayerMask obstacleMask;
 
-	public MeshFilter viewMeshFilter;
-	Mesh viewMesh;
-	public float meshResolution;
+//	public MeshFilter viewMeshFilter;
+//	Mesh viewMesh;
+//	public float meshResolution;
 
 //	[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
-	void Start() 
+	void Start()
 	{
 		_enemyController = GetComponentInParent <EnemyController> ();
 		StartCoroutine("FindTargetWithDelay", 0.2f);
@@ -43,16 +43,16 @@ public class EnemySightScript : MonoBehaviour
 		isOnScreen = false;
 	}
 
-	IEnumerator FindTargetWithDelay(float delay) {
-		while (isOnScreen == true) 
-		{
-			yield return new WaitForSeconds(delay);
-			FindVisibleTargets();
-		}
+	IEnumerator FindTargetWithDelay(float delay) 
+	{
+		yield return new WaitForSeconds(delay);
+		FindVisibleTargets();
 	}
 
 	//Finds targets inside field of view not blocked by walls
-	void FindVisibleTargets() {
+	void FindVisibleTargets() 
+	{
+		Debug.Log ("FINDING VISIBLE TARGETS");
 		visibleTargets.Clear();
 		//Adds targets in view radius to an array
 		Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
@@ -66,50 +66,51 @@ public class EnemySightScript : MonoBehaviour
 				//targets
 				if (!Physics2D.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask))
 				{
+					Debug.Log ("FOUND VISIBLE TARGET");
 					visibleTargets.Add (target);
 					_enemyController.playerSensed = true;
 					_enemyController.detectedTransform = target;
-					StopCoroutine (LosePlayer (3f));
 				}
 				else
 				{
 					if (_enemyController.playerSensed == true)
 					{
 						Debug.Log ("Player isn't in sight!");
-						StartCoroutine (LosePlayer (3f));
+						StartCoroutine (LosePlayer (1f));
 					}
 				}
 			}
 		}
+		StartCoroutine("FindTargetWithDelay", 0.2f);
 	}
 
 	void DrawFieldOfView()
 	{
-		int stepCount = Mathf.RoundToInt (viewAngle * meshResolution);
-		float stepAngleSize = viewAngle / stepCount;
-		List<Vector3> viewPoints = new List<Vector3> ();
-		for (int i = 0; i <= stepCount; i++)
-		{
-			float angle = transform.eulerAngles.y - viewAngle / 2 + stepAngleSize * i;
-			ViewCastInfo newViewCast = ViewCast (angle); 
-			viewPoints.Add (newViewCast.point);
-		}
-
-		int vertexCount = viewPoints.Count + 1;
-		Vector3[] vertices = new Vector3[vertexCount];
-		int[] triangles = new int[(vertexCount-2) * 3];
-
-		vertices [0] = Vector3.zero;
-		for (int i = 0; i < vertexCount - 1; i++)
-		{
-			vertices [i + 1] = transform.InverseTransformPoint (viewPoints [i]);
-			if (i < vertexCount - 2)
-			{
-				triangles [i * 3] = 0;
-				triangles [i * 3 + 1] = i + 1;
-				triangles [i * 3 + 2] = i + 2;
-			}
-		}
+//		int stepCount = Mathf.RoundToInt (viewAngle * meshResolution);
+//		float stepAngleSize = viewAngle / stepCount;
+//		List<Vector3> viewPoints = new List<Vector3> ();
+//		for (int i = 0; i <= stepCount; i++)
+//		{
+//			float angle = transform.eulerAngles.y - viewAngle / 2 + stepAngleSize * i;
+//			ViewCastInfo newViewCast = ViewCast (angle); 
+//			viewPoints.Add (newViewCast.point);
+//		}
+//
+//		int vertexCount = viewPoints.Count + 1;
+//		Vector3[] vertices = new Vector3[vertexCount];
+//		int[] triangles = new int[(vertexCount-2) * 3];
+//
+//		vertices [0] = Vector3.zero;
+//		for (int i = 0; i < vertexCount - 1; i++)
+//		{
+//			vertices [i + 1] = transform.InverseTransformPoint (viewPoints [i]);
+//			if (i < vertexCount - 2)
+//			{
+//				triangles [i * 3] = 0;
+//				triangles [i * 3 + 1] = i + 1;
+//				triangles [i * 3 + 2] = i + 2;
+//			}
+//		}
 
 //		viewMesh.Clear ();
 //		viewMesh.vertices = vertices;
@@ -158,7 +159,9 @@ public class EnemySightScript : MonoBehaviour
 
 	public IEnumerator LosePlayer (float seconds)
 	{
-		yield return new WaitForSeconds (seconds);
+//		yield return new WaitForSeconds (seconds);
+		visibleTargets.Clear ();
 		_enemyController.playerSensed = false;
+		yield return null;
 	}
 }

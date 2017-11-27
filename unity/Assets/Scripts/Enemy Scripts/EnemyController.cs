@@ -331,7 +331,7 @@ public class EnemyController : MonoBehaviour
 			yield return new WaitForSeconds (Random.Range (1f, 2f));
 			playerDetected = false;
 		}
-		yield return new WaitForSeconds (3f);
+		yield return new WaitForSeconds (1f);
 		Debug.Log ("Unke lost the player");
 		playerDetected = false;
 		StartCoroutine (Return ());
