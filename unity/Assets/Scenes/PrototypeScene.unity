@@ -895,41 +895,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 114481967052685340, guid: 10fd4185daae04b91a2bc841abec5206,
-        type: 2}
-      propertyPath: runSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114481967052685340, guid: 10fd4185daae04b91a2bc841abec5206,
-        type: 2}
-      propertyPath: sneakSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 58549360971249484, guid: 10fd4185daae04b91a2bc841abec5206,
-        type: 2}
-      propertyPath: m_Radius
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198977619726493218, guid: 10fd4185daae04b91a2bc841abec5206,
-        type: 2}
-      propertyPath: randomSeed
-      value: -2541770
-      objectReference: {fileID: 0}
-    - target: {fileID: 198977619726493218, guid: 10fd4185daae04b91a2bc841abec5206,
-        type: 2}
-      propertyPath: ShapeModule.radius.value
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198977619726493218, guid: 10fd4185daae04b91a2bc841abec5206,
-        type: 2}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 198977619726493218, guid: 10fd4185daae04b91a2bc841abec5206,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.25
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10fd4185daae04b91a2bc841abec5206, type: 2}
   m_IsPrefabParent: 0

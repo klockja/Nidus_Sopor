@@ -15,7 +15,7 @@ public class VisualSorterScript : MonoBehaviour
 	{
 		if (col.tag == "Player")
 		{
-			col.GetComponent <SpriteRenderer> ().sortingOrder = -1;
+			col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = -1;
 		}
 
 		if (col.tag == "Enemy")
@@ -27,7 +27,7 @@ public class VisualSorterScript : MonoBehaviour
 	{
 		if (col.tag == "Player")
 		{
-			col.GetComponent <SpriteRenderer> ().sortingOrder = -1;
+			col.GetComponentInChildren <SpriteRenderer> ().sortingOrder = -1;
 		}
 
 		if (col.tag == "Enemy")
