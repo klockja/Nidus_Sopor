@@ -25,7 +25,6 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 	private GameObject background;
 
 	public GameObject BlackPanel;
-	public GameObject IntroCutscenePanel;
 	public GameObject DefeatPanel;
 	public GameObject VictoryPanel;
 	public GameObject AreYouSurePanel;
@@ -60,7 +59,6 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 			Panel2 = pause;
 			gameplay.SetActive (true);
 			title.SetActive (false);
-			IntroCutscenePanel.SetActive (false);
 			background.SetActive (false);
 
 		}
@@ -78,8 +76,6 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 		}
 		if (SceneManager.GetActiveScene ().name == "Intro Cutscene") 
 		{
-			Panel2 = IntroCutscenePanel;
-			IntroCutscenePanel.SetActive (true);
 			title.SetActive (false);
 			background.SetActive (false);
 			gameplay.SetActive (false);

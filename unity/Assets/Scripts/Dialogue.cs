@@ -22,6 +22,7 @@ public class Dialogue : MonoBehaviour
 
 	[Header ("Timing")]
 
+	public float StartDialogueDelay;
 	public float SecondsBetweenCharacters = 0.075f;
 	private float OriginalSecondsBetweenCharacters;
 	public float CharacterRateMultiplier = 0.5f;
@@ -35,6 +36,7 @@ public class Dialogue : MonoBehaviour
 	private bool _canEndDialogueEarly = true;
 
 	public string NextScene;
+	public float NextSceneDelay;
 
 	private int DialogueContinueWasCalled = 0;
 	private bool MultipleDialogueContinues = false;
@@ -45,6 +47,7 @@ public class Dialogue : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		DialogBox.Hide ();
 		_textComponent = GetComponent<Text> ();
 		_textComponent.text = "";
 
@@ -73,15 +76,17 @@ public class Dialogue : MonoBehaviour
 		if (_isEndOfDialogue && (Input.GetKeyDown(DialogueInput)))
 		{
 			Debug.Log ("Go to next scene from end of dialogue");
-			_isEndOfDialogue = false;
-			_isDialoguePlaying = false;
-			GameplayCanvasScript.Instance.IntroCutscenePanel.SetActive (false);
-			GameplayCanvasScript.Instance.LoadSceneNow (NextScene);
+//			_isEndOfDialogue = false;
+//			_isDialoguePlaying = false;
+			DialogBox.Hide ();
+			StartCoroutine (LoadNextScene (NextScene, NextSceneDelay));
 		}
 	}
 
 	private IEnumerator StartDialogue()
 	{
+		yield return new WaitForSeconds (StartDialogueDelay);
+		DialogBox.Show ();
 		int dialogueLength = DialogueStrings.Length;
 		int currentDialogueIndex = 0;
 
@@ -225,6 +230,12 @@ public class Dialogue : MonoBehaviour
 
 		_isStringBeingRevealed = false;
 		_textComponent.text = "";
+	}
+
+	private IEnumerator LoadNextScene(string scene, float delay)
+	{
+		yield return new WaitForSeconds (delay);
+		GameplayCanvasScript.Instance.LoadSceneNow (NextScene);
 	}
 
 	private void HideIcons()
