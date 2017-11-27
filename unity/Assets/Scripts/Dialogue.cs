@@ -47,9 +47,10 @@ public class Dialogue : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		DialogBox.Hide ();
 		_textComponent = GetComponent<Text> ();
 		_textComponent.text = "";
+
+		CurrentCharacterPortrait.enabled = false;
 
 		AudioSource = GetComponent <AudioSource> ();
 
@@ -86,7 +87,7 @@ public class Dialogue : MonoBehaviour
 	private IEnumerator StartDialogue()
 	{
 		yield return new WaitForSeconds (StartDialogueDelay);
-		DialogBox.Show ();
+		CurrentCharacterPortrait.enabled = true;
 		int dialogueLength = DialogueStrings.Length;
 		int currentDialogueIndex = 0;
 
