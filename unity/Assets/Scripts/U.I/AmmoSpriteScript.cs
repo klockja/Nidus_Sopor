@@ -16,12 +16,25 @@ public class AmmoSpriteScript : MonoBehaviour {
 	private string currentScene;
 	private string newScene;
 	private GameObject player;
+	private Image image;
+
+	private PlayerController m_playerController;
 
 	// Use this for initialization
 	void Start () {
 
 		player = GameObject.Find ("Player");
 		currentScene = SceneManager.GetActiveScene().name;
+		image = this.gameObject.GetComponent<Image>();
+	}
+
+	private void SearchForPlayer()
+	{
+		GameObject gameObject = GameObject.Find ("Player");
+		if(gameObject != null)
+		{
+			m_playerController = gameObject.GetComponent<PlayerController>();
+		}
 	}
 	
 	// Update is called once per frame
@@ -38,39 +51,45 @@ public class AmmoSpriteScript : MonoBehaviour {
 		//	AmmoSpriteChange ();
 
 		if (SceneManager.GetActiveScene ().name != "LaodingScreen" || SceneManager.GetActiveScene ().name != "Title Scene" || SceneManager.GetActiveScene ().name != "TItle Scene") {
-			player = GameObject.Find ("Player");
+			
+			if(m_playerController == null)
+			{
+				SearchForPlayer();
+				return;
+			}
 			AmmoSpriteChange ();
 		}
 	}
 
 	private void AmmoSpriteChange()
 	{
-		if (player.GetComponent<PlayerController> ().bulletNum == 0) {
-			gameObject.GetComponent<Image> ().sprite = Ammo0;
+
+		if (m_playerController.bulletNum == 0) {
+			image.sprite = Ammo0;
 		}
 
-		else if (player.GetComponent<PlayerController> ().bulletNum == 1) {
-			gameObject.GetComponent<Image> ().sprite = Ammo1;
+		else if (m_playerController.bulletNum == 1) {
+			image.sprite = Ammo1;
 		}
 			
-		else if (player.GetComponent<PlayerController> ().bulletNum == 2) {
-			gameObject.GetComponent<Image> ().sprite = Ammo2;
+		else if (m_playerController.bulletNum == 2) {
+			image.sprite = Ammo2;
 		}
 
-		else if (player.GetComponent<PlayerController> ().bulletNum == 3) {
-			gameObject.GetComponent<Image> ().sprite = Ammo3;
+		else if (m_playerController.bulletNum == 3) {
+			image.sprite = Ammo3;
 		}
 
-		else if (player.GetComponent<PlayerController> ().bulletNum == 4) {
-			gameObject.GetComponent<Image> ().sprite = Ammo4;
+		else if (m_playerController.bulletNum == 4) {
+			image.sprite = Ammo4;
 		}
 
-		else if (player.GetComponent<PlayerController> ().bulletNum == 5) {
-			gameObject.GetComponent<Image> ().sprite = Ammo5;
+		else if (m_playerController.bulletNum == 5) {
+			image.sprite = Ammo5;
 		}
 
-		else if (player.GetComponent<PlayerController> ().bulletNum == 6) {
-			gameObject.GetComponent<Image> ().sprite = Ammo6;
+		else if (m_playerController.bulletNum == 6) {
+			image.sprite = Ammo6;
 		}
 		
 	}
