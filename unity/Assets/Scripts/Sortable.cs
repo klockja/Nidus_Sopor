@@ -14,6 +14,7 @@ public class Sortable : MonoBehaviour {
 	private void Awake()
 	{
 		m_spriteRenderer = this.GetComponent<SpriteRenderer>();
+		m_sortOffset += Random.Range(0.0001f, 0.001f);
 	}
 
 	protected virtual void OnEnable()
