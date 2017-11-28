@@ -16,7 +16,6 @@ public class AudioDetectionScript : MonoBehaviour {
 		AudioRadius = new Vector3 (0, 0, 1);
 		//myCollider.radius = colliderRadius;
 		//transform.localScale = AudioRadius;
-
 		
 	}
 	
