@@ -337,7 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmellTrigger: {fileID: 1917786820984872, guid: d9a1f662662744f8788afe05bf269c24,
     type: 2}
-  spawnDelay: 0.1
+  spawnDelay: 0.05
 --- !u!114 &114407935331436068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -537,7 +537,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 356900063
+  randomSeed: 758262228
   InitialModule:
     serializedVersion: 3
     enabled: 1

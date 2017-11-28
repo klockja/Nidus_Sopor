@@ -18,8 +18,9 @@ public class SmellTriggerScript : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.tag == "Flowers")
+		if (col.tag != "Untagged" && col.tag != "Sound" && col.tag != "Player")
 		{
+			Debug.Log ("Collided with " + col.name);
 			Destroy (gameObject);
 		}
 	}
