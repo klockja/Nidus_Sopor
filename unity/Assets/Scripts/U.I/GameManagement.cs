@@ -16,6 +16,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 	public float rockCount;
 	public GameObject player;
 	public float playerDeathNumber;
+	public float originalDeathNumber;
 	public bool isPlayerDead;
 
 	private string currentScene;
@@ -34,7 +35,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 		rockCount = 1;
 		playerDeathNumber = 0;
 		currentScene = SceneManager.GetActiveScene().name;
-	
+		originalDeathNumber = playerDeathNumber;
 
 	}
 
@@ -44,13 +45,15 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 	void Update () {
 		//Debug.Log (ispaused);
 		//Debug.Log(isbackward);
+		Debug.Log(isPlayerDead);
 		newScene = SceneManager.GetActiveScene().name;
 
-		if (currentScene != newScene || playerDeathNumber > 0) 
+		if (currentScene != newScene || originalDeathNumber != playerDeathNumber) 
 		{
 			GrabPlayer ();
 			isPlayerDead = false;
 			currentScene = newScene;
+			originalDeathNumber = playerDeathNumber;
 		}
 
 		if (currentScene == "Title Scene" || currentScene == "TItle Scene") {
