@@ -24,7 +24,6 @@ public class Dialogue : MonoBehaviour
 
 	public float StartDialogueDelay;
 	public float SecondsBetweenCharacters = 0.075f;
-	private float OriginalSecondsBetweenCharacters;
 	public float CharacterRateMultiplier = 0.5f;
 
 	public KeyCode DialogueInput = KeyCode.Return;
@@ -58,8 +57,6 @@ public class Dialogue : MonoBehaviour
 		StartCoroutine (StartDialogue ());
 
 		HideIcons ();
-
-		OriginalSecondsBetweenCharacters = SecondsBetweenCharacters;
 	}
 	
 	// Update is called once per frame
