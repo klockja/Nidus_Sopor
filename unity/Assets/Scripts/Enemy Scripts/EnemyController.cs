@@ -89,10 +89,6 @@ public class EnemyController : MonoBehaviour
 	public enum Behavior {Patrols, Sleeps}
 	public Transform PatrolPath;
 	Vector2[] waypoints;
-	public bool isPatrolling;
-	public bool isSleeping;
-	public bool isWandering;
-	public bool isPursuing;
 
 	public float patrolWaitTime;
 	public float hurtWaitTime;
