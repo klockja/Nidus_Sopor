@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4558156304310844}
   - component: {fileID: 212935286052915932}
   - component: {fileID: 61106151097510092}
-  - component: {fileID: 114992908961002442}
+  - component: {fileID: 114811382799660688}
   m_Layer: 8
   m_Name: Visuals
   m_TagString: Untagged
@@ -84,7 +84,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08, y: 0.79}
+  m_Offset: {x: 0, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -95,7 +95,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 0.1}
+  m_Size: {x: 1.3, y: 0.76}
   m_EdgeRadius: 0
 --- !u!61 &61278642611728444
 BoxCollider2D:
@@ -122,7 +122,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &114992908961002442
+--- !u!114 &114811382799660688
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -130,9 +130,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1139037548320136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18c1e07d5dc2f4e3584682b8cc85ffa3, type: 3}
+  m_Script: {fileID: 11500000, guid: f0d435d68685f4c529a8f75bc0a72a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_extraRenderers: []
+  m_sortOffset: 0
 --- !u!212 &212935286052915932
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -82,8 +82,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4843697546349918}
   - component: {fileID: 212485711817473526}
-  - component: {fileID: 61481678341220668}
   - component: {fileID: 95532780452815200}
+  - component: {fileID: 114131065325715456}
   m_Layer: 10
   m_Name: Visuals
   m_TagString: Enemy
@@ -511,31 +511,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1.5}
   m_EdgeRadius: 0
---- !u!61 &61481678341220668
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1473361720038272}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 3.1875, y: 2}
-    newSize: {x: 3.1875, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2}
-  m_EdgeRadius: 0
 --- !u!95 &95532780452815200
 Animator:
   serializedVersion: 3
@@ -603,6 +578,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8132d5bb10743568e30cbf43e5a253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114131065325715456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473361720038272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d435d68685f4c529a8f75bc0a72a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_extraRenderers: []
+  m_sortOffset: 0
 --- !u!114 &114140867907695296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -645,8 +633,6 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 2304
-  viewMeshFilter: {fileID: 0}
-  meshResolution: 0
   visibleTargets: []
 --- !u!114 &114809405869688642
 MonoBehaviour:

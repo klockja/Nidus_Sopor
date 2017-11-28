@@ -150,8 +150,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4321444963137818}
   - component: {fileID: 212141443572252874}
-  - component: {fileID: 61167438956065484}
   - component: {fileID: 95531692234876328}
+  - component: {fileID: 114528706047918848}
   m_Layer: 10
   m_Name: Visuals
   m_TagString: Enemy
@@ -486,31 +486,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
---- !u!61 &61167438956065484
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1617020432244162}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2, y: 1.6875}
-    newSize: {x: 27, y: 25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2}
-  m_EdgeRadius: 0
 --- !u!61 &61507521670903372
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -603,6 +578,19 @@ MonoBehaviour:
     tagsChange: -1
     tagsSet: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &114528706047918848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617020432244162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d435d68685f4c529a8f75bc0a72a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_extraRenderers: []
+  m_sortOffset: 0
 --- !u!114 &114586503687033572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -710,8 +698,6 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 2304
-  viewMeshFilter: {fileID: 0}
-  meshResolution: 0
   visibleTargets: []
 --- !u!198 &198618692505307694
 ParticleSystem:
