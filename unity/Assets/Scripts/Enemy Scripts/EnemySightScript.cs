@@ -22,10 +22,11 @@ public class EnemySightScript : MonoBehaviour
 //	[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
-	public SpriteRenderer visuals;
+	private SpriteRenderer visuals;
 
 	void Start()
 	{
+		visuals = this.gameObject.GetComponentInChildren<SpriteRenderer>();
 		_enemyController = GetComponentInParent <EnemyController> ();
 		StartCoroutine("FindTargetWithDelay", 0.2f);
 	}
