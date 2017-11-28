@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 212073151353951370}
   - component: {fileID: 61203506963596758}
   - component: {fileID: 95832122024389060}
+  - component: {fileID: 114296905601208808}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Player
@@ -62,6 +63,7 @@ GameObject:
   - component: {fileID: 120969838353241080}
   - component: {fileID: 82605074729487440}
   - component: {fileID: 61785439602188770}
+  - component: {fileID: 114120036041302694}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -337,7 +339,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmellTrigger: {fileID: 1917786820984872, guid: d9a1f662662744f8788afe05bf269c24,
     type: 2}
-  spawnDelay: 0.05
+  spawnDelay: 0.3
+--- !u!114 &114120036041302694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1733569317698274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c308ce00b05e44e5a9d21ba0979d69b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114296905601208808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1486567209622658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d435d68685f4c529a8f75bc0a72a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_extraRenderers: []
+  m_sortOffset: 0
 --- !u!114 &114407935331436068
 MonoBehaviour:
   m_ObjectHideFlags: 1
