@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3009,8 +3009,8 @@ MonoBehaviour:
   m_Text: '
 
     The white circle represents the character''s sound that he is making. The character
-    makes sound by running, sneak, and shooting their revolver. Enemis will investigate
-    the raea of sound upon detection.'
+    makes sound by running, sneaking, and shooting their revolver. Enemies will investigate
+    the area of sound upon detection.'
 --- !u!222 &245681460
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6763,8 +6763,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '
 
-    Use the left mouse button to shoot at the enemis. There is a limited supply of
-    bullets, so use your ammo wisely.'
+    Use the left mouse button to shoot the enemies. There is a limited supply of bullets,
+    so use your ammo wisely.'
 --- !u!222 &598242536
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17168,9 +17168,9 @@ MonoBehaviour:
     Use the WASD keys to move the character.
 
 
-    Press the shift key to mae the character sneak,
+    Press the shift key to make the character sneak,
 
-    which makes it easier to creep by enemis without alerting them.'
+    which makes it easier to creep by enemies without alerting them.'
 --- !u!222 &1589893585
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18940,7 +18940,8 @@ MonoBehaviour:
   m_Text: '
 
     Use the right mouse button to throw a rock toward the direction of the mouse.
-    The rock will make a sound wave when on colision or when it travel the max distance.'
+    The rock will make a sound wave when it hits an object or when it travel the max
+    distance.'
 --- !u!222 &1806995741
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21955,12 +21956,12 @@ Prefab:
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 375
       objectReference: {fileID: 0}
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 211
       objectReference: {fileID: 0}
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}

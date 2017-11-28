@@ -22,8 +22,11 @@ public class EnemySightScript : MonoBehaviour
 //	[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
+	private SpriteRenderer visuals;
+
 	void Start()
 	{
+		visuals = this.gameObject.GetComponentInChildren<SpriteRenderer>();
 		_enemyController = GetComponentInParent <EnemyController> ();
 		StartCoroutine("FindTargetWithDelay", 0.2f);
 	}
@@ -31,16 +34,6 @@ public class EnemySightScript : MonoBehaviour
 	void Update()
 	{
 //		DrawFieldOfView ();
-	}
-
-	private void OnBecameVisible()
-	{
-		isOnScreen = true;
-	}
-
-	private void OnBecameInvisible()
-	{
-		isOnScreen = false;
 	}
 
 	IEnumerator FindTargetWithDelay(float delay) 
@@ -52,31 +45,34 @@ public class EnemySightScript : MonoBehaviour
 	//Finds targets inside field of view not blocked by walls
 	void FindVisibleTargets() 
 	{
-		Debug.Log ("FINDING VISIBLE TARGETS");
-		visibleTargets.Clear();
-		//Adds targets in view radius to an array
-		Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
-		//For every targetsInViewRadius it checks if they are inside the field of view
-		for (int i = 0; i < targetsInViewRadius.Length; i++) {
-			Transform target = targetsInViewRadius[i].transform;
-			Vector3 dirToTarget = (target.position - transform.position).normalized;
-			if (Vector3.Angle(transform.up, dirToTarget) < viewAngle / 2) {
-				float dstToTarget = Vector3.Distance(transform.position, target.position);
-				//If line draw from object to target is not interrupted by wall, add target to list of visible 
-				//targets
-				if (!Physics2D.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask))
-				{
-					Debug.Log ("FOUND VISIBLE TARGET");
-					visibleTargets.Add (target);
-					_enemyController.playerSensed = true;
-					_enemyController.detectedTransform = target;
-				}
-				else
-				{
-					if (_enemyController.playerSensed == true)
+		if(visuals.isVisible)
+		{
+			Debug.Log ("FINDING VISIBLE TARGETS");
+			visibleTargets.Clear();
+			//Adds targets in view radius to an array
+			Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
+			//For every targetsInViewRadius it checks if they are inside the field of view
+			for (int i = 0; i < targetsInViewRadius.Length; i++) {
+				Transform target = targetsInViewRadius[i].transform;
+				Vector3 dirToTarget = (target.position - transform.position).normalized;
+				if (Vector3.Angle(transform.up, dirToTarget) < viewAngle / 2) {
+					float dstToTarget = Vector3.Distance(transform.position, target.position);
+					//If line draw from object to target is not interrupted by wall, add target to list of visible 
+					//targets
+					if (!Physics2D.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask))
 					{
-						Debug.Log ("Player isn't in sight!");
-						StartCoroutine (LosePlayer (1f));
+						Debug.Log ("FOUND VISIBLE TARGET");
+						visibleTargets.Add (target);
+						_enemyController.playerSensed = true;
+						_enemyController.detectedTransform = target;
+					}
+					else
+					{
+						if (_enemyController.playerSensed == true)
+						{
+							Debug.Log ("Player isn't in sight!");
+							StartCoroutine (LosePlayer (1f));
+						}
 					}
 				}
 			}
