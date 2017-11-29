@@ -18,6 +18,7 @@ public class Dialogue : MonoBehaviour
 
 	public AudioClip TypingSound;
 	public AudioClip EndSound;
+	public AudioClip NextDialogueSound;
 	private AudioSource AudioSource;
 
 	[Header ("Timing")]
@@ -74,6 +75,10 @@ public class Dialogue : MonoBehaviour
 		if (_isEndOfDialogue && (Input.GetKeyDown(DialogueInput)))
 		{
 			Debug.Log ("Go to next scene from end of dialogue");
+			if (NextDialogueSound != null)
+			{
+				AudioSource.PlayOneShot (NextDialogueSound);
+			}
 //			_isEndOfDialogue = false;
 //			_isDialoguePlaying = false;
 			DialogBox.Hide ();
@@ -189,6 +194,10 @@ public class Dialogue : MonoBehaviour
 			//Continues text
 			if (Input.GetKeyDown (DialogueInput)) 
 			{
+				if (NextDialogueSound != null)
+				{
+					AudioSource.PlayOneShot (NextDialogueSound);
+				}
 				break;
 			}
 
