@@ -34,9 +34,14 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 	public Sprite sprite1;
 	public Sprite sprite2;
 
+	private float currentDeathNumber;
+	private float newDeathNumber;
+
 
 
 	void Start () {
+		currentDeathNumber = GameManagement.Instance.playerDeathNumber;
+
 		BlackPanel.SetActive (false);
 		AreYouSurePanel.SetActive (false);
 		LoadingPanel.SetActive (false);
@@ -53,7 +58,9 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 
 	// Update is called once per frame
 	void Update () {
-		if (SceneManager.GetActiveScene ().name != "Title Scene" && SceneManager.GetActiveScene ().name != "TItle Scene" &&SceneManager.GetActiveScene ().name != "Intro Cutscene")
+		newDeathNumber = GameManagement.Instance.playerDeathNumber;
+
+		if (SceneManager.GetActiveScene ().name != "Title Scene" && SceneManager.GetActiveScene ().name != "TItle Scene" && SceneManager.GetActiveScene ().name != "Intro Cutscene" && SceneManager.GetActiveScene ().name != "Beach")
 		{
 			//Panel1 = gameplay;
 			Panel2 = pause;
@@ -84,6 +91,19 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 			AreYouSurePanel.SetActive (false);
 			VictoryPanel.SetActive (false);
 		}
+
+//		if (SceneManager.GetActiveScene ().name == "Beach") 
+//		{
+//			Panel2 = pause;
+//			Panel1 = gameplay;
+//			gameplay.SetActive (true);
+//			title.SetActive (false);
+//			background.SetActive (false);
+//			GameManagement.Instance.isPaused = true;
+//			BlackPanel.SetActive (true);
+//			Panel2.SetActive (true);
+//			Panel3.SetActive (true);
+//		}
 
 	}
 
@@ -205,7 +225,16 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 		
 	public void AreYouSure()
 	{
-		AreYouSurePanel.SetActive (true);
+		if (currentDeathNumber == newDeathNumber) {
+			Panel2.SetActive (false);
+			AreYouSurePanel.SetActive (true);
+			GameManagement.Instance.isPaused = false;
+		}
+
+		if (currentDeathNumber != newDeathNumber) {
+			AreYouSurePanel.SetActive (true);
+			currentDeathNumber = newDeathNumber;
+		}
 	}
 
 	public void TurnOnBlackScreen()
