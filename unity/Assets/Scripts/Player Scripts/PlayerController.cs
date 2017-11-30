@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
 	public float rockNum;
 
 	public float time;
-	public Text bulletText;
 	public Text rockText;
 
 	public LineRenderer fireLine;
@@ -139,9 +138,7 @@ public class PlayerController : MonoBehaviour
 		//Debug.Log (m_stateMachine.CurrentState);
 		if (SceneManager.GetActiveScene ().name != "LoadingScreen") {
 			gamePaused = GameManagement.Instance.isPaused;
-			bulletText = GameObject.Find ("Bullet Number Text").GetComponent<Text> ();
 			rockText = GameObject.Find ("Rocknumbertext").GetComponent<Text> ();
-			bulletText.text = "x" + unusedBulletNum.ToString ();
 			rockText.text = "x" + rockNum.ToString ();
 		}
 
