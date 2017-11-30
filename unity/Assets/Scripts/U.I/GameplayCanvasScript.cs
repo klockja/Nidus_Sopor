@@ -34,13 +34,11 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 	public Sprite sprite1;
 	public Sprite sprite2;
 
-	private float currentDeathNumber;
-	private float newDeathNumber;
+
 
 
 
 	void Start () {
-		currentDeathNumber = GameManagement.Instance.playerDeathNumber;
 
 		BlackPanel.SetActive (false);
 		AreYouSurePanel.SetActive (false);
@@ -58,7 +56,6 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 
 	// Update is called once per frame
 	void Update () {
-		newDeathNumber = GameManagement.Instance.playerDeathNumber;
 
 		if (SceneManager.GetActiveScene ().name != "Title Scene" && SceneManager.GetActiveScene ().name != "TItle Scene" && SceneManager.GetActiveScene ().name != "Intro Cutscene" && SceneManager.GetActiveScene ().name != "Beach")
 		{
@@ -192,6 +189,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 	{
 		LoadSceneNow (SceneManager.GetActiveScene ().name);
 		GameManagement.Instance.playerDeathNumber += 1;
+		//GameManagement.Instance.isPlayerDead = false;
 		DefeatPanel.gameObject.SetActive(false);
 		AreYouSurePanel.SetActive (false);
 	}
@@ -225,15 +223,15 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 		
 	public void AreYouSure()
 	{
-		if (currentDeathNumber == newDeathNumber) {
+		if (GameManagement.Instance.isPlayerDead == false) {
 			Panel2.SetActive (false);
+			Panel1.SetActive (false);
 			AreYouSurePanel.SetActive (true);
 			GameManagement.Instance.isPaused = false;
 		}
 
-		if (currentDeathNumber != newDeathNumber) {
+		if (GameManagement.Instance.isPlayerDead == true) {
 			AreYouSurePanel.SetActive (true);
-			currentDeathNumber = newDeathNumber;
 		}
 	}
 

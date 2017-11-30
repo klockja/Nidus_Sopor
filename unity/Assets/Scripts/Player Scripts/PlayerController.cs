@@ -135,10 +135,15 @@ public class PlayerController : MonoBehaviour
 		mousePos = Input.mousePosition;
 		mousePos.z = 10;
 
+		if(rockText ==  null)
+		{
+			SearchForRocknumberText();
+			return;
+		}
+
 		//Debug.Log (m_stateMachine.CurrentState);
 		if (SceneManager.GetActiveScene ().name != "LoadingScreen") {
 			gamePaused = GameManagement.Instance.isPaused;
-			rockText = GameObject.Find ("Rocknumbertext").GetComponent<Text> ();
 			rockText.text = "x" + rockNum.ToString ();
 		}
 
@@ -198,6 +203,15 @@ public class PlayerController : MonoBehaviour
 					StartCoroutine(Delay(2));
 				}
 			}
+		}
+	}
+
+	private void SearchForRocknumberText()
+	{
+		GameObject gameObject = GameObject.Find ("Rocknumbertext");
+		if(gameObject != null)
+		{
+			rockText = gameObject.GetComponent<Text>();
 		}
 	}
 
