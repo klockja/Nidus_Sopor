@@ -190,7 +190,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 
 	public void ReloadScene()
 	{
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+		LoadSceneNow (SceneManager.GetActiveScene ().name);
 		GameManagement.Instance.playerDeathNumber += 1;
 		DefeatPanel.gameObject.SetActive(false);
 		AreYouSurePanel.SetActive (false);
