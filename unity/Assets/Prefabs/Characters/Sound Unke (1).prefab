@@ -174,7 +174,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1495147396711040}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.75, y: -0.06, z: 0}
+  m_LocalPosition: {x: -0.75, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4255643574421192}
@@ -202,7 +202,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1867345101876934}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.003, y: 1.001, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4117164275633292}
@@ -509,10 +509,10 @@ MonoBehaviour:
   canMove: 1
   maxHealth: 100
   currentHealth: 100
-  upHeadPosition: {x: 0, y: 0}
-  downHeadPosition: {x: 0, y: 0}
-  leftHeadPosition: {x: -0.788, y: 0.23}
-  rightHeadPosition: {x: 0.788, y: 0.23}
+  upHeadPosition: {x: 0, y: 0.59}
+  downHeadPosition: {x: 0, y: -0.59}
+  leftHeadPosition: {x: -0.788, y: -0.14}
+  rightHeadPosition: {x: 0.788, y: -0.14}
   walkSpeed: 1
   runSpeed: 4
   EnemyHead: {fileID: 4117164275633292}
