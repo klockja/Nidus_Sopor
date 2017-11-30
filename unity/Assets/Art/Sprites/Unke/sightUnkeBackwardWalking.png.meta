@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: d44f3c7464ece41d4bacdf881cb05721
-timeCreated: 1512018044
+guid: 6c75d3382929f4b7a8e733c2bd5065c8
+timeCreated: 1512017937
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SmellUnkeIdle_0
-    21300002: SmellUnkeIdle_1
-    21300004: SmellUnkeIdle_2
-    21300006: SmellUnkeIdle_3
-    21300008: SmellUnkeIdle_4
-    21300010: SmellUnkeIdle_5
-    21300012: SmellUnkeIdle_6
-    21300014: SmellUnkeIdle_7
+    21300000: sightUnkeBackwardWalking_0
+    21300002: sightUnkeBackwardWalking_1
+    21300004: sightUnkeBackwardWalking_2
+    21300006: sightUnkeBackwardWalking_3
+    21300008: sightUnkeBackwardWalking_4
+    21300010: sightUnkeBackwardWalking_5
+    21300012: sightUnkeBackwardWalking_6
+    21300014: sightUnkeBackwardWalking_7
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SmellUnkeIdle_0
+      name: sightUnkeBackwardWalking_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 67
-        height: 40
+        x: 3
+        y: 0
+        width: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,13 +118,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_1
+      name: sightUnkeBackwardWalking_1
       rect:
         serializedVersion: 2
-        x: 75
-        y: 48
-        width: 68
-        height: 39
+        x: 35
+        y: 0
+        width: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,13 +132,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_2
+      name: sightUnkeBackwardWalking_2
       rect:
         serializedVersion: 2
-        x: 150
-        y: 48
-        width: 68
-        height: 39
+        x: 67
+        y: 0
+        width: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,13 +146,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_3
+      name: sightUnkeBackwardWalking_3
       rect:
         serializedVersion: 2
-        x: 225
-        y: 48
-        width: 68
-        height: 39
+        x: 99
+        y: 0
+        width: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,13 +160,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_4
+      name: sightUnkeBackwardWalking_4
       rect:
         serializedVersion: 2
-        x: 300
-        y: 48
-        width: 67
-        height: 40
+        x: 131
+        y: 0
+        width: 29
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,13 +174,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_5
+      name: sightUnkeBackwardWalking_5
       rect:
         serializedVersion: 2
-        x: 375
-        y: 48
-        width: 68
-        height: 39
+        x: 163
+        y: 0
+        width: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,13 +188,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_6
+      name: sightUnkeBackwardWalking_6
       rect:
         serializedVersion: 2
-        x: 450
-        y: 48
-        width: 68
-        height: 39
+        x: 195
+        y: 0
+        width: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,13 +202,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_7
+      name: sightUnkeBackwardWalking_7
       rect:
         serializedVersion: 2
-        x: 525
-        y: 48
-        width: 68
-        height: 39
+        x: 227
+        y: 0
+        width: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

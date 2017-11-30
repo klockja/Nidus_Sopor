@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: d44f3c7464ece41d4bacdf881cb05721
-timeCreated: 1512018044
+guid: b4a9589e975764812b237fde39da951a
+timeCreated: 1512017859
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SmellUnkeIdle_0
-    21300002: SmellUnkeIdle_1
-    21300004: SmellUnkeIdle_2
-    21300006: SmellUnkeIdle_3
-    21300008: SmellUnkeIdle_4
-    21300010: SmellUnkeIdle_5
-    21300012: SmellUnkeIdle_6
-    21300014: SmellUnkeIdle_7
+    21300000: normalUnkeBackwardWalking_0
+    21300002: normalUnkeBackwardWalking_1
+    21300004: normalUnkeBackwardWalking_2
+    21300006: normalUnkeBackwardWalking_3
+    21300008: normalUnkeBackwardWalking_4
+    21300010: normalUnkeBackwardWalking_5
+    21300012: normalUnkeBackwardWalking_6
+    21300014: normalUnkeBackwardWalking_7
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -68,7 +68,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +77,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -86,7 +86,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,7 +95,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SmellUnkeIdle_0
+      name: normalUnkeBackwardWalking_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 67
-        height: 40
+        x: 23
+        y: 0
+        width: 40
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,13 +118,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_1
+      name: normalUnkeBackwardWalking_1
       rect:
         serializedVersion: 2
-        x: 75
-        y: 48
-        width: 68
-        height: 39
+        x: 87
+        y: 0
+        width: 40
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,13 +132,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_2
+      name: normalUnkeBackwardWalking_2
       rect:
         serializedVersion: 2
-        x: 150
-        y: 48
-        width: 68
-        height: 39
+        x: 151
+        y: 0
+        width: 41
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,13 +146,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_3
+      name: normalUnkeBackwardWalking_3
       rect:
         serializedVersion: 2
-        x: 225
-        y: 48
-        width: 68
-        height: 39
+        x: 215
+        y: 0
+        width: 40
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,13 +160,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_4
+      name: normalUnkeBackwardWalking_4
       rect:
         serializedVersion: 2
-        x: 300
-        y: 48
-        width: 67
-        height: 40
+        x: 279
+        y: 0
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,13 +174,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_5
+      name: normalUnkeBackwardWalking_5
       rect:
         serializedVersion: 2
-        x: 375
-        y: 48
-        width: 68
-        height: 39
+        x: 343
+        y: 0
+        width: 40
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,13 +188,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_6
+      name: normalUnkeBackwardWalking_6
       rect:
         serializedVersion: 2
-        x: 450
-        y: 48
-        width: 68
-        height: 39
+        x: 406
+        y: 0
+        width: 41
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,13 +202,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_7
+      name: normalUnkeBackwardWalking_7
       rect:
         serializedVersion: 2
-        x: 525
-        y: 48
-        width: 68
-        height: 39
+        x: 471
+        y: 0
+        width: 40
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

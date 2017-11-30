@@ -1,17 +1,11 @@
 fileFormatVersion: 2
-guid: d44f3c7464ece41d4bacdf881cb05721
-timeCreated: 1512018044
+guid: 139693b521b2a4a2a8559c23adb24325
+timeCreated: 1512017866
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SmellUnkeIdle_0
-    21300002: SmellUnkeIdle_1
-    21300004: SmellUnkeIdle_2
-    21300006: SmellUnkeIdle_3
-    21300008: SmellUnkeIdle_4
-    21300010: SmellUnkeIdle_5
-    21300012: SmellUnkeIdle_6
-    21300014: SmellUnkeIdle_7
+    21300000: NormalUnkeBackwardIdle_0
+    21300002: NormalUnkeBackwardIdle_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -68,7 +62,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +71,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -86,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,7 +89,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SmellUnkeIdle_0
+      name: NormalUnkeBackwardIdle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 67
-        height: 40
+        x: 24
+        y: 0
+        width: 40
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,97 +112,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_1
+      name: NormalUnkeBackwardIdle_1
       rect:
         serializedVersion: 2
-        x: 75
-        y: 48
-        width: 68
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SmellUnkeIdle_2
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 48
-        width: 68
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SmellUnkeIdle_3
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 48
-        width: 68
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SmellUnkeIdle_4
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 48
-        width: 67
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SmellUnkeIdle_5
-      rect:
-        serializedVersion: 2
-        x: 375
-        y: 48
-        width: 68
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SmellUnkeIdle_6
-      rect:
-        serializedVersion: 2
-        x: 450
-        y: 48
-        width: 68
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SmellUnkeIdle_7
-      rect:
-        serializedVersion: 2
-        x: 525
-        y: 48
-        width: 68
-        height: 39
+        x: 88
+        y: 0
+        width: 40
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,17 +1,22 @@
 fileFormatVersion: 2
-guid: d44f3c7464ece41d4bacdf881cb05721
-timeCreated: 1512018044
+guid: 175b6f4ea21d943e0bc61958b7ed9278
+timeCreated: 1512018128
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SmellUnkeIdle_0
-    21300002: SmellUnkeIdle_1
-    21300004: SmellUnkeIdle_2
-    21300006: SmellUnkeIdle_3
-    21300008: SmellUnkeIdle_4
-    21300010: SmellUnkeIdle_5
-    21300012: SmellUnkeIdle_6
-    21300014: SmellUnkeIdle_7
+    21300000: sightUnkeForwardIdle_0
+    21300002: sightUnkeForwardIdle_1
+    21300004: sightUnkeForwardIdle_2
+    21300006: sightUnkeForwardIdle_3
+    21300008: sightUnkeForwardIdle_4
+    21300010: sightUnkeForwardIdle_5
+    21300012: sightUnkeForwardIdle_6
+    21300014: sightUnkeForwardIdle_7
+    21300016: sightUnkeForwardIdle_8
+    21300018: sightUnkeForwardIdle_9
+    21300020: sightUnkeForwardIdle_10
+    21300022: sightUnkeForwardIdle_11
+    21300024: sightUnkeForwardIdle_12
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -104,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SmellUnkeIdle_0
+      name: sightUnkeForwardIdle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 67
-        height: 40
+        x: 34
+        y: 0
+        width: 30
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,13 +123,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_1
+      name: sightUnkeForwardIdle_1
       rect:
         serializedVersion: 2
-        x: 75
-        y: 48
-        width: 68
-        height: 39
+        x: 98
+        y: 0
+        width: 30
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,13 +137,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_2
+      name: sightUnkeForwardIdle_2
       rect:
         serializedVersion: 2
-        x: 150
-        y: 48
-        width: 68
-        height: 39
+        x: 162
+        y: 0
+        width: 30
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,13 +151,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_3
+      name: sightUnkeForwardIdle_3
       rect:
         serializedVersion: 2
-        x: 225
-        y: 48
-        width: 68
-        height: 39
+        x: 226
+        y: 0
+        width: 30
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,13 +165,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_4
+      name: sightUnkeForwardIdle_4
       rect:
         serializedVersion: 2
-        x: 300
-        y: 48
-        width: 67
-        height: 40
+        x: 290
+        y: 0
+        width: 30
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,13 +179,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_5
+      name: sightUnkeForwardIdle_5
       rect:
         serializedVersion: 2
-        x: 375
-        y: 48
-        width: 68
-        height: 39
+        x: 354
+        y: 0
+        width: 30
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,13 +193,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_6
+      name: sightUnkeForwardIdle_6
       rect:
         serializedVersion: 2
-        x: 450
-        y: 48
-        width: 68
-        height: 39
+        x: 418
+        y: 0
+        width: 30
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,13 +207,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SmellUnkeIdle_7
+      name: sightUnkeForwardIdle_7
       rect:
         serializedVersion: 2
-        x: 525
-        y: 48
-        width: 68
-        height: 39
+        x: 482
+        y: 0
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sightUnkeForwardIdle_8
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 0
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sightUnkeForwardIdle_9
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 0
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sightUnkeForwardIdle_10
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 0
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sightUnkeForwardIdle_11
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 0
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sightUnkeForwardIdle_12
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 0
+        width: 30
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
