@@ -2110,6 +2110,16 @@ Prefab:
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
+    - target: {fileID: 114604094149826070, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
+        type: 2}
+      propertyPath: PatrolPath
+      value: 
+      objectReference: {fileID: 518317481}
+    - target: {fileID: 114604094149826070, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
+        type: 2}
+      propertyPath: originalPosition
+      value: 
+      objectReference: {fileID: 1776674701}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
   m_IsPrefabParent: 0
