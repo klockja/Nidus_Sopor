@@ -157,11 +157,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114751631539729836, guid: d369105b49f1442529b05f62dbd94028,
         type: 2}
-      propertyPath: patrolWaitTime
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114751631539729836, guid: d369105b49f1442529b05f62dbd94028,
-        type: 2}
       propertyPath: PatrolPath
       value: 
       objectReference: {fileID: 1654869507}
@@ -2300,6 +2295,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1094651559143318, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
+      propertyPath: m_Name
+      value: Normal Unke 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
         type: 2}
       propertyPath: PatrolPath
@@ -2310,10 +2309,6 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 1782921277}
-    - target: {fileID: 1094651559143318, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
-      propertyPath: m_Name
-      value: Normal Unke 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
   m_IsPrefabParent: 0
@@ -17120,11 +17115,6 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 2106048132}
-    - target: {fileID: 114604094149826070, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
-        type: 2}
-      propertyPath: patrolWaitTime
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
   m_IsPrefabParent: 0
@@ -32812,11 +32802,6 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 812591779}
-    - target: {fileID: 114979814420720544, guid: 34cb27650c88d45d49f40b31449bced1,
-        type: 2}
-      propertyPath: patrolWaitTime
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34cb27650c88d45d49f40b31449bced1, type: 2}
   m_IsPrefabParent: 0
@@ -33507,11 +33492,6 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 1181592299}
-    - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: patrolWaitTime
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
   m_IsPrefabParent: 0
@@ -33675,11 +33655,6 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 1854374395}
-    - target: {fileID: 114751631539729836, guid: d369105b49f1442529b05f62dbd94028,
-        type: 2}
-      propertyPath: patrolWaitTime
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d369105b49f1442529b05f62dbd94028, type: 2}
   m_IsPrefabParent: 0
@@ -34566,11 +34541,6 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 1456834508}
-    - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: patrolWaitTime
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
   m_IsPrefabParent: 0
@@ -34924,10 +34894,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114604094149826070, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
-        type: 2}
-      propertyPath: patrolWaitTime
-      value: 0.5
+    - target: {fileID: 1342388625327876, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
+      propertyPath: m_Name
+      value: Sound Unke 2
       objectReference: {fileID: 0}
     - target: {fileID: 114604094149826070, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
         type: 2}
@@ -34939,10 +34908,6 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 1486561132}
-    - target: {fileID: 1342388625327876, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
-      propertyPath: m_Name
-      value: Sound Unke 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
   m_IsPrefabParent: 0
@@ -35322,11 +35287,6 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 165708585}
-    - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: patrolWaitTime
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
   m_IsPrefabParent: 0
@@ -35990,11 +35950,6 @@ Prefab:
     - target: {fileID: 1094651559143318, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
       propertyPath: m_Name
       value: Normal Unke 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: patrolWaitTime
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
         type: 2}
@@ -37163,6 +37118,10 @@ Prefab:
     - target: {fileID: 4976082575858556, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
       propertyPath: m_RootOrder
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342388625327876, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
+      propertyPath: m_Name
+      value: Sound Unke 3
       objectReference: {fileID: 0}
     - target: {fileID: 114604094149826070, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
         type: 2}
@@ -40297,6 +40256,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1094651559143318, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
+      propertyPath: m_Name
+      value: Normal Unke 7
+      objectReference: {fileID: 0}
     - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
         type: 2}
       propertyPath: PatrolPath
@@ -40307,15 +40270,6 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 1471120776}
-    - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: patrolWaitTime
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094651559143318, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
-      propertyPath: m_Name
-      value: Normal Unke 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
   m_IsPrefabParent: 0
@@ -40394,6 +40348,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 1342388625327876, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
+      propertyPath: m_Name
+      value: Sound Unke 5
+      objectReference: {fileID: 0}
     - target: {fileID: 114604094149826070, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
         type: 2}
       propertyPath: PatrolPath
@@ -40404,10 +40362,6 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 2089021910}
-    - target: {fileID: 1342388625327876, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
-      propertyPath: m_Name
-      value: Sound Unke 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
   m_IsPrefabParent: 0
