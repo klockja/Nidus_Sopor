@@ -362,21 +362,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114979814420720544, guid: 34cb27650c88d45d49f40b31449bced1,
-        type: 2}
-      propertyPath: originalPosition
-      value: 
-      objectReference: {fileID: 945327928}
-    - target: {fileID: 198558991975768052, guid: 34cb27650c88d45d49f40b31449bced1,
-        type: 2}
-      propertyPath: TriggerModule.collisionShape0
-      value: 
-      objectReference: {fileID: 199750018}
     - target: {fileID: 198830917134862744, guid: 34cb27650c88d45d49f40b31449bced1,
         type: 2}
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
+    - target: {fileID: 198558991975768052, guid: 34cb27650c88d45d49f40b31449bced1,
+        type: 2}
+      propertyPath: TriggerModule.collisionShape0
+      value: 
+      objectReference: {fileID: 199750018}
+    - target: {fileID: 114979814420720544, guid: 34cb27650c88d45d49f40b31449bced1,
+        type: 2}
+      propertyPath: originalPosition
+      value: 
+      objectReference: {fileID: 945327928}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34cb27650c88d45d49f40b31449bced1, type: 2}
   m_IsPrefabParent: 0
@@ -794,46 +794,6 @@ Prefab:
       propertyPath: m_target
       value: 
       objectReference: {fileID: 217491870}
-    - target: {fileID: 114544791433936444, guid: a86640f5b1eb925459e27e9aba4216bd,
-        type: 2}
-      propertyPath: m_maxBounds.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114544791433936444, guid: a86640f5b1eb925459e27e9aba4216bd,
-        type: 2}
-      propertyPath: m_maxBounds.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114544791433936444, guid: a86640f5b1eb925459e27e9aba4216bd,
-        type: 2}
-      propertyPath: m_minBounds.y
-      value: -15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114544791433936444, guid: a86640f5b1eb925459e27e9aba4216bd,
-        type: 2}
-      propertyPath: m_minBounds.x
-      value: -15
-      objectReference: {fileID: 0}
-    - target: {fileID: 20901768474009828, guid: a86640f5b1eb925459e27e9aba4216bd,
-        type: 2}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 20901768474009828, guid: a86640f5b1eb925459e27e9aba4216bd,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0.2205882
-      objectReference: {fileID: 0}
-    - target: {fileID: 20901768474009828, guid: a86640f5b1eb925459e27e9aba4216bd,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0.2205882
-      objectReference: {fileID: 0}
-    - target: {fileID: 20901768474009828, guid: a86640f5b1eb925459e27e9aba4216bd,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0.2205882
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a86640f5b1eb925459e27e9aba4216bd, type: 2}
   m_IsPrefabParent: 0
@@ -975,12 +935,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 198353769449471928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
+    - target: {fileID: 198207249735479650, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
         type: 2}
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
-    - target: {fileID: 198207249735479650, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
+    - target: {fileID: 198353769449471928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
         type: 2}
       propertyPath: TriggerModule.collisionShape0
       value: 
@@ -1767,22 +1727,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 114751631539729836, guid: d369105b49f1442529b05f62dbd94028,
-        type: 2}
-      propertyPath: originalPosition
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114751631539729836, guid: d369105b49f1442529b05f62dbd94028,
-        type: 2}
-      propertyPath: PatrolPath
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 198012726614471012, guid: d369105b49f1442529b05f62dbd94028,
+    - target: {fileID: 198921857502923808, guid: d369105b49f1442529b05f62dbd94028,
         type: 2}
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
-    - target: {fileID: 198921857502923808, guid: d369105b49f1442529b05f62dbd94028,
+    - target: {fileID: 198012726614471012, guid: d369105b49f1442529b05f62dbd94028,
         type: 2}
       propertyPath: TriggerModule.collisionShape0
       value: 
@@ -1876,22 +1826,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114604094149826070, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
-        type: 2}
-      propertyPath: originalPosition
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114604094149826070, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
-        type: 2}
-      propertyPath: PatrolPath
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 198642648618618210, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
+    - target: {fileID: 198618692505307694, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
         type: 2}
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
-    - target: {fileID: 198618692505307694, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
+    - target: {fileID: 198642648618618210, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
         type: 2}
       propertyPath: TriggerModule.collisionShape0
       value: 

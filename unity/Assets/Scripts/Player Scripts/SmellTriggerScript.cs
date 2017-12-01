@@ -20,7 +20,7 @@ public class SmellTriggerScript : MonoBehaviour
 	{
 		if (col.tag != "Untagged" && col.tag != "Sound" && col.tag != "Player")
 		{
-			Debug.Log ("Collided with " + col.name);
+			Debug.Log ("Smell collided with " + col.name);
 			Destroy (gameObject);
 		}
 	}

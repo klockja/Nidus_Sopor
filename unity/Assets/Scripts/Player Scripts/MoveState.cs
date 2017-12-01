@@ -90,6 +90,7 @@ public class MoveState : CharacterState {
 //		}
 
 		if (m_machine.Controller.Body.position != oldPosition) {
+			m_machine.Controller.gameObject.GetComponentInChildren<CircleCollider2D> ().enabled = true;
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (1, 1, 1);
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 2f;
 
@@ -102,6 +103,7 @@ public class MoveState : CharacterState {
 		} else {
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (0, 0, 0);
 			m_machine.Controller.gameObject.GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 0;
+			m_machine.Controller.gameObject.GetComponentInChildren<CircleCollider2D> ().enabled = false;
 		}
 
 		m_machine.Controller.fireLine.enabled = false;

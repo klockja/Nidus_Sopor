@@ -51,15 +51,18 @@ public class ShootState : CharacterState {
 			RaycastHit2D hit = Physics2D.Raycast (firePosition, (mousePosition - firePosition), 1000 , machine.Controller.shootableMask);
 
 			//GameObject.Find ("Audio Collider").GetComponent<AudioDetectionScript> ().AudioRadius = new Vector3 (100, 100, 1);
-			GameObject.Find ("Player").GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (6f, 6, 1);
+			GameObject.Find ("Player").GetComponentInChildren<AudioDetectionScript> ().AudioRadius = new Vector3 (6f, 6f, 1);
 			GameObject.Find ("Player").GetComponentInChildren<AudioDetectionScript> ().colliderRadius = 1f;
+			m_machine.Controller.gameObject.GetComponentInChildren<CircleCollider2D> ().enabled = true;
 
 			//Debug.DrawLine (firePosition, mousePosition);
 			machine.Controller.fireLine.SetPosition(0, firePosition);
 			machine.Controller.fireLine.SetPosition(1, hit.point);
 			machine.Controller.fireLine.enabled = true;
+//			m_machine.Controller.gameObject.GetComponentInChildren<CircleCollider2D> ().enabled = false;
 			//Debug.Log (hit.collider.gameObject);
-			//if (hit.collider.tag == "Player") {
+			//if (hit.collider.tag == "Player") 
+			{
 			//	Debug.Log ("Shot myself");
 			if (hit.collider.tag == "Enemy") {
 				hit.collider.GetComponentInParent <AttackableEnemy> ().Damage (100);
