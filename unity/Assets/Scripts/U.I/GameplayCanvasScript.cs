@@ -225,7 +225,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 	{
 		if (GameManagement.Instance.isPlayerDead == false) {
 			Panel2.SetActive (false);
-			Panel1.SetActive (false);
+			Panel1.SetActive (true);
 			AreYouSurePanel.SetActive (true);
 			GameManagement.Instance.isPaused = false;
 		}
