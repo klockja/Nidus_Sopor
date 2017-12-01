@@ -59,7 +59,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 
 		if (SceneManager.GetActiveScene ().name != "Title Scene" && SceneManager.GetActiveScene ().name != "TItle Scene" && SceneManager.GetActiveScene ().name != "Intro Cutscene" && SceneManager.GetActiveScene ().name != "Beach")
 		{
-			//Panel1 = gameplay;
+			Panel1 = gameplay;
 			Panel2 = pause;
 			gameplay.SetActive (true);
 			title.SetActive (false);
