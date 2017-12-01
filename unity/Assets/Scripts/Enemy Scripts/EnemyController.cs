@@ -11,7 +11,6 @@ public class EnemyController : MonoBehaviour
 	public AudioClip takeDamage;
 	public AudioClip growl;
 	public AudioClip move;
-	public AudioClip attack;
 
 	private Rigidbody2D m_Body; //The enemy's rigidbody
 	public Rigidbody2D M_Body
