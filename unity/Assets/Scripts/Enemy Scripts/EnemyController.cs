@@ -89,7 +89,6 @@ public class EnemyController : MonoBehaviour
 	Vector2[] waypoints;
 
 	public float patrolWaitTime;
-	public float hurtWaitTime;
 	public bool isWaiting;
 
 //	private EnemyStateMachine m_stateMachine;
