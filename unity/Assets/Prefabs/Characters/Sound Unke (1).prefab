@@ -161,6 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4255643574421192}
   - component: {fileID: 212564655213566198}
+  - component: {fileID: 114198614669082014}
   m_Layer: 0
   m_Name: Sight Visuals
   m_TagString: Untagged
@@ -512,6 +513,19 @@ MonoBehaviour:
   rotationSpeed: 0
   interpolatePathSwitches: 1
   switchPathInterpolationSpeed: 20
+--- !u!114 &114198614669082014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1867345101876934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d435d68685f4c529a8f75bc0a72a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_extraRenderers: []
+  m_sortOffset: 0
 --- !u!114 &114407974867190106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -580,7 +594,6 @@ MonoBehaviour:
   takeDamage: {fileID: 8300000, guid: a8e88d5c36da64d678c45623fa870c3d, type: 3}
   growl: {fileID: 8300000, guid: a387c539bdd014b8d98d0ff9c257d215, type: 3}
   move: {fileID: 8300000, guid: 72ce850be3a334957add364066200964, type: 3}
-  attack: {fileID: 0}
   anim: {fileID: 95531692234876328}
   AttackableEnemy: {fileID: 114926562778316078}
   AILerp: {fileID: 114071020022122770}

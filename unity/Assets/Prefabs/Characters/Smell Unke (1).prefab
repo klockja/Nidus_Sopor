@@ -161,6 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4287042023684940}
   - component: {fileID: 212689141093556180}
+  - component: {fileID: 114521988085292308}
   m_Layer: 0
   m_Name: Sight Visuals
   m_TagString: Untagged
@@ -189,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1836912017125618}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.4, y: 0.1, z: 0}
+  m_LocalPosition: {x: -1.112, y: 0.092, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4287042023684940}
@@ -574,6 +575,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_extraRenderers: []
   m_sortOffset: -1.24
+--- !u!114 &114521988085292308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1868995399118896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d435d68685f4c529a8f75bc0a72a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_extraRenderers: []
+  m_sortOffset: 0
 --- !u!114 &114571414510080400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -624,7 +638,6 @@ MonoBehaviour:
   takeDamage: {fileID: 8300000, guid: a8e88d5c36da64d678c45623fa870c3d, type: 3}
   growl: {fileID: 8300000, guid: a387c539bdd014b8d98d0ff9c257d215, type: 3}
   move: {fileID: 8300000, guid: b1a73919c61f54e2e81da7600a560c46, type: 3}
-  attack: {fileID: 0}
   anim: {fileID: 95418931424989648}
   AttackableEnemy: {fileID: 114571414510080400}
   AILerp: {fileID: 114269364226563412}
@@ -635,8 +648,8 @@ MonoBehaviour:
   currentHealth: 100
   upHeadPosition: {x: 0, y: 0.25}
   downHeadPosition: {x: 0, y: -0.8}
-  leftHeadPosition: {x: -1.4, y: 0.1}
-  rightHeadPosition: {x: -1.4, y: 0.1}
+  leftHeadPosition: {x: -1, y: 0.1}
+  rightHeadPosition: {x: 1, y: 0.1}
   walkSpeed: 1
   runSpeed: 5
   EnemyHead: {fileID: 4124892266203804}
