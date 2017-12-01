@@ -12,7 +12,6 @@ public class EnemyController : MonoBehaviour
 	public AudioClip growl;
 	public AudioClip move;
 	public AudioClip attack;
-	public AudioClip sleep;
 
 	private Rigidbody2D m_Body; //The enemy's rigidbody
 	public Rigidbody2D M_Body
@@ -164,7 +163,10 @@ public class EnemyController : MonoBehaviour
 		if (currentHealth <= 0 && canMove)
 		{
 //			StopAllCoroutines ();
-//			audioSource.PlayOneShot (takeDamage);
+			if (takeDamage != null)
+			{
+				audioSource.PlayOneShot (takeDamage);
+			}
 			StartCoroutine (Die ());
 		}
 
@@ -194,12 +196,18 @@ public class EnemyController : MonoBehaviour
 
 			if (playerSensed)
 			{
+				if (playerDetected == false && growl != null)
+				{
+					audioSource.PlayOneShot (growl);
+				}
 				playerDetected = true;
 //				m_stateMachine.CurrentState.OnExit ();
 				StopAllCoroutines ();
-				audioSource.PlayOneShot (growl);
 				StartCoroutine (Pursue ());
-				LastSightingSpot = detectedTransform.position;
+				if (detectedTransform != null)
+				{
+					LastSightingSpot = detectedTransform.position;
+				}
 			} //if the player can't be sensed anymore, but the player is detected, look around for a few seconds
 			else if (playerSensed == false && playerDetected == true)
 			{
@@ -362,6 +370,13 @@ public class EnemyController : MonoBehaviour
 			angleInDegrees -= transform.eulerAngles.z;
 		}
 		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);
+	}
+
+	public IEnumerator PlaySound(AudioClip clip, float delay)
+	{
+		yield return new WaitForSeconds (delay);
+		audioSource.PlayOneShot (clip);
+		yield return null;
 	}
 
 	public void StartChildCoroutine(IEnumerator coroutineMethod)

@@ -1,10 +1,23 @@
 fileFormatVersion: 2
 guid: 1b9a947b0539e42b6bf090c014a07cb4
-timeCreated: 1506825828
-licenseType: Free
+timeCreated: 1512080262
+licenseType: Pro
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - audioSource: {instanceID: 0}
+  - takeDamage: {fileID: 8300000, guid: a8e88d5c36da64d678c45623fa870c3d, type: 3}
+  - growl: {fileID: 8300000, guid: a387c539bdd014b8d98d0ff9c257d215, type: 3}
+  - move: {fileID: 8300000, guid: 733bbe0f0c72e4d80b87c1ead2c18542, type: 3}
+  - attack: {instanceID: 0}
+  - anim: {instanceID: 0}
+  - AttackableEnemy: {instanceID: 0}
+  - AILerp: {instanceID: 0}
+  - EnemyHead: {instanceID: 0}
+  - detectedTransform: {instanceID: 0}
+  - originalPosition: {instanceID: 0}
+  - PatrolPath: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

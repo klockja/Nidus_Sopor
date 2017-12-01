@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 114751631539729836}
   - component: {fileID: 114269364226563412}
   - component: {fileID: 114326946993281958}
+  - component: {fileID: 82806248523340166}
   m_Layer: 10
   m_Name: Unke
   m_TagString: Enemy
@@ -392,6 +393,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 2}
   m_EdgeRadius: 0
+--- !u!82 &82806248523340166
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287307934273286}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95418931424989648
 Animator:
   serializedVersion: 3
@@ -540,11 +621,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePaused: 0
   audioSource: {fileID: 0}
-  takeDamage: {fileID: 0}
-  growl: {fileID: 0}
-  move: {fileID: 0}
+  takeDamage: {fileID: 8300000, guid: a8e88d5c36da64d678c45623fa870c3d, type: 3}
+  growl: {fileID: 8300000, guid: a387c539bdd014b8d98d0ff9c257d215, type: 3}
+  move: {fileID: 8300000, guid: b1a73919c61f54e2e81da7600a560c46, type: 3}
   attack: {fileID: 0}
-  sleep: {fileID: 0}
   anim: {fileID: 95418931424989648}
   AttackableEnemy: {fileID: 114571414510080400}
   AILerp: {fileID: 114269364226563412}
