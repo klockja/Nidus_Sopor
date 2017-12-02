@@ -32750,6 +32750,11 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 2002077461}
+    - target: {fileID: 114979814420720544, guid: 34cb27650c88d45d49f40b31449bced1,
+        type: 2}
+      propertyPath: patrolWaitTime
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34cb27650c88d45d49f40b31449bced1, type: 2}
   m_IsPrefabParent: 0
