@@ -36,9 +36,9 @@ public class PortalScript : MonoBehaviour {
 	{
 		//Debug.Log (currentScene);
 		if (currentScene == "Beach") {
-			nextScene = "Forest";
+			nextScene = "Forest1-1";
 			return nextScene;
-		} else if (currentScene == "Forest") {
+		} else if (currentScene == "Forest1-1") {
 			nextScene = "Cave";
 			return nextScene;
 		}  else if (currentScene == "Cave" && GameManagement.Instance.hasegg == true) {

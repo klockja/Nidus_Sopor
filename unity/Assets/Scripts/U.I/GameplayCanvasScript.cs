@@ -89,19 +89,6 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 			VictoryPanel.SetActive (false);
 		}
 
-//		if (SceneManager.GetActiveScene ().name == "Beach") 
-//		{
-//			Panel2 = pause;
-//			Panel1 = gameplay;
-//			gameplay.SetActive (true);
-//			title.SetActive (false);
-//			background.SetActive (false);
-//			GameManagement.Instance.isPaused = true;
-//			BlackPanel.SetActive (true);
-//			Panel2.SetActive (true);
-//			Panel3.SetActive (true);
-//		}
-
 	}
 
 	public void switchToMenu(int menuID) {
