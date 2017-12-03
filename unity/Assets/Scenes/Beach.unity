@@ -25194,8 +25194,26 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 82605074729487440, guid: 10fd4185daae04b91a2bc841abec5206,
         type: 2}
-      propertyPath: m_PlayOnAwake
+      propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114481967052685340, guid: 10fd4185daae04b91a2bc841abec5206,
+        type: 2}
+      propertyPath: bulletText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733569317698274, guid: 10fd4185daae04b91a2bc841abec5206, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114481967052685340, guid: 10fd4185daae04b91a2bc841abec5206,
+        type: 2}
+      propertyPath: rockText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1835469914202304, guid: 10fd4185daae04b91a2bc841abec5206, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10fd4185daae04b91a2bc841abec5206, type: 2}
@@ -29579,20 +29597,12 @@ Prefab:
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: 375
-=======
-      value: 255
->>>>>>> 9af58f27d919de3d0e9c762e594e0a06a84193da
       objectReference: {fileID: 0}
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
       propertyPath: m_LocalPosition.y
-<<<<<<< HEAD
       value: 211
-=======
-      value: 143.5
->>>>>>> 9af58f27d919de3d0e9c762e594e0a06a84193da
       objectReference: {fileID: 0}
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
