@@ -14,37 +14,39 @@ public class ShootState : CharacterState
 	{
 		_previousState = previousState;
 
+//		machine.Controller.anim.SetBool ("isShooting", true);
+//		Debug.Log (machine.Controller.anim.GetBool ("isShooting"));
+
 		if (Camera.main.ScreenToWorldPoint(machine.Controller.mousePos).y > machine.Controller.transform.localPosition.y) 
 		{
 			machine.Controller.anim.SetFloat ("input_y", 1);
 			machine.Controller.anim.SetFloat ("input_x", 0);
+			machine.Controller.anim.SetBool ("isShooting", true);
 		}
 
 		if (Camera.main.ScreenToWorldPoint(machine.Controller.mousePos).y < machine.Controller.transform.localPosition.y) 
 		{
 			machine.Controller.anim.SetFloat ("input_y", -1);
 			machine.Controller.anim.SetFloat ("input_x", 0);
+			machine.Controller.anim.SetBool ("isShooting", true);
 		}
 
 		if (Camera.main.ScreenToWorldPoint(machine.Controller.mousePos).x > machine.Controller.transform.localPosition.x && Camera.main.ScreenToWorldPoint(machine.Controller.mousePos).y <= machine.Controller.transform.localPosition.y+3 && Camera.main.ScreenToWorldPoint(machine.Controller.mousePos).y >= machine.Controller.transform.localPosition.y-3)
 		{
 			machine.Controller.anim.SetFloat ("input_y", 0);
 			machine.Controller.anim.SetFloat ("input_x", 1);
+			machine.Controller.anim.SetBool ("isShooting", true);
 		}
 
 		if (Camera.main.ScreenToWorldPoint(machine.Controller.mousePos).x < machine.Controller.transform.localPosition.x && Camera.main.ScreenToWorldPoint(machine.Controller.mousePos).y <= machine.Controller.transform.localPosition.y+3 && Camera.main.ScreenToWorldPoint(machine.Controller.mousePos).y >= machine.Controller.transform.localPosition.y-3)
 		{
 			machine.Controller.anim.SetFloat ("input_y", 0);
 			machine.Controller.anim.SetFloat ("input_x", -1);
+			machine.Controller.anim.SetBool ("isShooting", true);
 		}
 
 		if (machine.Controller.bulletNum > 0)
 		{
-			if (machine.Controller.anim.GetBool ("isShooting") == false)
-			{
-				machine.Controller.anim.SetBool ("isShooting", true);
-			}
-
 			machine.Controller.audioSource.PlayOneShot (machine.Controller.shootingSound);
 			machine.Controller.bulletNum -= 1;
 			Vector2 mousePosition = new Vector2 (Camera.main.ScreenToWorldPoint (Input.mousePosition).x, Camera.main.ScreenToWorldPoint (Input.mousePosition).y);
@@ -77,10 +79,6 @@ public class ShootState : CharacterState
 				}
 			}
 
-			if (m_machine.Controller.anim.GetBool ("isShooting") == true)
-			{
-				m_machine.Controller.anim.SetBool ("isShooting", false);
-			}
 		}
 	}
 

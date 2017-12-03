@@ -7,6 +7,7 @@ public class SmellTriggerSpawnerScript : MonoBehaviour
 	public GameObject SmellTrigger;
 	public float spawnDelay;
 	private float timer;
+	public bool isCovered;
 
 	void Start()
 	{
@@ -17,7 +18,7 @@ public class SmellTriggerSpawnerScript : MonoBehaviour
 	{
 		timer = timer - Time.deltaTime;
 
-		if (timer <= 0)
+		if (timer <= 0 && isCovered == false)
 		{
 			Instantiate (SmellTrigger, transform.position, Quaternion.identity);
 			timer = spawnDelay;

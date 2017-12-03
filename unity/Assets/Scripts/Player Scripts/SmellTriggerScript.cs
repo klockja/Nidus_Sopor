@@ -16,12 +16,21 @@ public class SmellTriggerScript : MonoBehaviour
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D col)
-	{
-		if (col.tag != "Untagged" && col.tag != "Sound" && col.tag != "Player")
-		{
-			Debug.Log ("Smell collided with " + col.name);
-			Destroy (gameObject);
-		}
-	}
+//	void OnTriggerEnter2D(Collider2D col)
+//	{
+////		if (col.tag != "Untagged" && col.tag != "Sound" && col.tag != "Player" && col.tag != "Enemy")
+////		{
+//			Debug.Log ("Smell collided with " + col.name);
+//			Destroy (gameObject);
+////		}
+//	}
+//
+//	void OnTriggerStay2D(Collider2D col)
+//	{
+//		if (col.tag != "Untagged" && col.tag != "Sound" && col.tag != "Player" && col.tag != "Enemy")
+//		{
+//			Debug.Log ("Smell collided with " + col.name);
+//			Destroy (gameObject);
+////		}
+//	}
 }

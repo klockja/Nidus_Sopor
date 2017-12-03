@@ -182,7 +182,9 @@ public class PlayerController : MonoBehaviour
 				if (!EventSystem.current.IsPointerOverGameObject ()) 
 				{
 					//Debug.Log("clicking on u.i");
-					if (reloading == false) {
+					if (reloading == false) 
+					{
+						anim.SetBool ("isShooting", true);
 						m_stateMachine.CurrentState.DesireShoot ();
 					}
 				}
@@ -221,6 +223,11 @@ public class PlayerController : MonoBehaviour
 		{
 			m_speedDecay = 0.5f;
 		}
+
+		if(collider.tag == "Cover")
+		{
+			GetComponentInChildren <SmellTriggerSpawnerScript>().isCovered = true;
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D collider)
@@ -228,6 +235,11 @@ public class PlayerController : MonoBehaviour
 		if(collider.tag == "TallGrass")
 		{
 			m_speedDecay = 1.0f;
+		}
+
+		if(collider.tag == "Cover")
+		{
+			GetComponentInChildren <SmellTriggerSpawnerScript>().isCovered = false;
 		}
 	}
 
