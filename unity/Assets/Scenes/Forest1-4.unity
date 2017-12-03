@@ -3624,12 +3624,12 @@ Prefab:
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 370
+      value: 266.5
       objectReference: {fileID: 0}
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 208
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
@@ -6140,7 +6140,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4492442430147118, guid: 00127180761ca421cb64ffcb20016188, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.95
+      value: 5.95
       objectReference: {fileID: 0}
     - target: {fileID: 4492442430147118, guid: 00127180761ca421cb64ffcb20016188, type: 2}
       propertyPath: m_LocalPosition.y
@@ -18044,20 +18044,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 1310398093323060, guid: d369105b49f1442529b05f62dbd94028, type: 2}
-      propertyPath: m_Name
-      value: Smell Unke 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114751631539729836, guid: d369105b49f1442529b05f62dbd94028,
-        type: 2}
-      propertyPath: PatrolPath
-      value: 
-      objectReference: {fileID: 641641440}
     - target: {fileID: 114751631539729836, guid: d369105b49f1442529b05f62dbd94028,
         type: 2}
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 641641441}
+    - target: {fileID: 114751631539729836, guid: d369105b49f1442529b05f62dbd94028,
+        type: 2}
+      propertyPath: PatrolPath
+      value: 
+      objectReference: {fileID: 641641440}
+    - target: {fileID: 1310398093323060, guid: d369105b49f1442529b05f62dbd94028, type: 2}
+      propertyPath: m_Name
+      value: Smell Unke 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d369105b49f1442529b05f62dbd94028, type: 2}
   m_IsPrefabParent: 0
