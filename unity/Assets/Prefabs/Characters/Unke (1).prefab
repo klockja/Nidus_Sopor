@@ -87,7 +87,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4009465985563736}
-  - component: {fileID: 212726241462428892}
   - component: {fileID: 198353769449471928}
   - component: {fileID: 199203562534788360}
   m_Layer: 0
@@ -161,6 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4774592540558140}
   - component: {fileID: 212598959251027392}
+  - component: {fileID: 114816847984032134}
   m_Layer: 0
   m_Name: Sight Visuals
   m_TagString: Untagged
@@ -608,6 +608,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+--- !u!114 &114816847984032134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1982816064166892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d435d68685f4c529a8f75bc0a72a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_extraRenderers: []
+  m_sortOffset: 0
 --- !u!114 &114963809345568928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -624,7 +637,6 @@ MonoBehaviour:
   takeDamage: {fileID: 8300000, guid: a8e88d5c36da64d678c45623fa870c3d, type: 3}
   growl: {fileID: 8300000, guid: dbe2e76f961ea4455acf7cdbe66267ef, type: 3}
   move: {fileID: 8300000, guid: 733bbe0f0c72e4d80b87c1ead2c18542, type: 3}
-  attack: {fileID: 0}
   anim: {fileID: 95532780452815200}
   AttackableEnemy: {fileID: 114809405869688642}
   AILerp: {fileID: 114140867907695296}
@@ -654,7 +666,6 @@ MonoBehaviour:
   SetBehavior: 0
   PatrolPath: {fileID: 0}
   patrolWaitTime: 1
-  hurtWaitTime: 0
   isWaiting: 0
 --- !u!198 &198207249735479650
 ParticleSystem:
@@ -716,7 +727,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -981536304
+  randomSeed: -889773182
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4033,7 +4044,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1066425304
+  randomSeed: -524899921
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7482,50 +7493,6 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 14, y: 14}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
---- !u!212 &212726241462428892
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1653349870726074}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1071240779
-  m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.25}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
