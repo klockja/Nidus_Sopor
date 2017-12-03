@@ -165,6 +165,11 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 493173089}
+    - target: {fileID: 114751631539729836, guid: d369105b49f1442529b05f62dbd94028,
+        type: 2}
+      propertyPath: patrolWaitTime
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d369105b49f1442529b05f62dbd94028, type: 2}
   m_IsPrefabParent: 0
@@ -17115,6 +17120,11 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 2106048132}
+    - target: {fileID: 114604094149826070, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
+        type: 2}
+      propertyPath: patrolWaitTime
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
   m_IsPrefabParent: 0
@@ -29242,15 +29252,6 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
-  - first: {x: -4, y: 28, z: 0}
-    second:
-      m_TileIndex: 23
-      m_TileSpriteIndex: 23
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
   - first: {x: 3, y: 28, z: 0}
     second:
       m_TileIndex: 14
@@ -31522,7 +31523,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: fdd95a580e2a1074692de66b70263da9, type: 2}
   - m_RefCount: 17
     m_Data: {fileID: 11400000, guid: 59afa41ee7457db4d83b47b0ee81446f, type: 2}
-  - m_RefCount: 17
+  - m_RefCount: 16
     m_Data: {fileID: 11400000, guid: ef98bfc09458cfb4e82171fdcd0c0707, type: 2}
   - m_RefCount: 10
     m_Data: {fileID: 11400000, guid: e0190c75f03c86c46aed2d691627eaea, type: 2}
@@ -31631,7 +31632,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 17
     m_Data: {fileID: 21300014, guid: ef31c0d819685af48a9ef330cbcdae3c, type: 3}
-  - m_RefCount: 17
+  - m_RefCount: 16
     m_Data: {fileID: 21300058, guid: ef31c0d819685af48a9ef330cbcdae3c, type: 3}
   - m_RefCount: 10
     m_Data: {fileID: 21300056, guid: ef31c0d819685af48a9ef330cbcdae3c, type: 3}
@@ -31714,7 +31715,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 21300074, guid: 66906a8a35197bd47bbc8a1c315df8af, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 1231
+  - m_RefCount: 1230
     m_Data:
       e00: 1
       e01: 0
@@ -31733,7 +31734,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 1231
+  - m_RefCount: 1230
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -33492,6 +33493,16 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 1181592299}
+    - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
+        type: 2}
+      propertyPath: patrolWaitTime
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
+        type: 2}
+      propertyPath: isWaiting
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
   m_IsPrefabParent: 0
@@ -35287,6 +35298,16 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 165708585}
+    - target: {fileID: 212485711817473526, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
+        type: 2}
+      propertyPath: patrolWaitTime
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
   m_IsPrefabParent: 0
@@ -37485,12 +37506,12 @@ Prefab:
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 375
+      value: 370
       objectReference: {fileID: 0}
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 211
+      value: 208
       objectReference: {fileID: 0}
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
@@ -38077,6 +38098,11 @@ Prefab:
       propertyPath: originalPosition
       value: 
       objectReference: {fileID: 1320865732}
+    - target: {fileID: 114604094149826070, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
+        type: 2}
+      propertyPath: patrolWaitTime
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
   m_IsPrefabParent: 0
