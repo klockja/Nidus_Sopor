@@ -86,9 +86,9 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 		}
 
 		if (newScene == "Beach2") {
-			MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.epilogue;
-			MusicManagerScript.Instance.musicPlayer.Play();
-			GameplayCanvasScript.Instance.VictoryPanel.SetActive (true);
+			//MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.epilogue;
+			//MusicManagerScript.Instance.musicPlayer.Play();
+			//GameplayCanvasScript.Instance.VictoryPanel.SetActive (true);
 		}
 			
 	}

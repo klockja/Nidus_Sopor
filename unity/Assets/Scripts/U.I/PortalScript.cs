@@ -57,9 +57,9 @@ public class PortalScript : MonoBehaviour {
 			nextScene = "Beach2";
 			return nextScene;
 		} else if ((currentScene == "Beach2")) {
-			MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.epilogue;
-			MusicManagerScript.Instance.musicPlayer.Play();
-			GameplayCanvasScript.Instance.VictoryPanel.SetActive (true);
+			//MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.epilogue;
+			//MusicManagerScript.Instance.musicPlayer.Play();
+			//GameplayCanvasScript.Instance.VictoryPanel.SetActive (true);
 			nextScene = null;
 			return nextScene;
 		} else 
@@ -74,11 +74,20 @@ public class PortalScript : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "Player")  
 		{
-			currentScene = SceneManager.GetActiveScene().name;
-			DetermineNextScene ();
-			GameObject.Find ("GameManager").GetComponent<GameManagement> ().nextScene = true;
-			//Debug.Log ("TIME TO LOAD NEW SCENE");
-			GameplayCanvasScript.Instance.LoadSceneNow (nextScene);
+			if (SceneManager.GetActiveScene ().name == "Beach2") {
+
+				MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.epilogue;
+				MusicManagerScript.Instance.musicPlayer.Play ();
+				GameplayCanvasScript.Instance.VictoryPanel.SetActive (true);
+			} else {
+				currentScene = SceneManager.GetActiveScene().name;
+				DetermineNextScene ();
+				GameObject.Find ("GameManager").GetComponent<GameManagement> ().nextScene = true;
+				//Debug.Log ("TIME TO LOAD NEW SCENE");
+				GameplayCanvasScript.Instance.LoadSceneNow (nextScene);
+			}
+		
+
 		}
 	} 
 
