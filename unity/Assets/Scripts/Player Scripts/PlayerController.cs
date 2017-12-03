@@ -224,7 +224,7 @@ public class PlayerController : MonoBehaviour
 			m_speedDecay = 0.5f;
 		}
 
-		if(collider.tag == "Cover")
+		if(collider.tag == "Object")
 		{
 			GetComponentInChildren <SmellTriggerSpawnerScript>().isCovered = true;
 		}
@@ -237,7 +237,7 @@ public class PlayerController : MonoBehaviour
 			m_speedDecay = 1.0f;
 		}
 
-		if(collider.tag == "Cover")
+		if(collider.tag == "Object")
 		{
 			GetComponentInChildren <SmellTriggerSpawnerScript>().isCovered = false;
 		}
