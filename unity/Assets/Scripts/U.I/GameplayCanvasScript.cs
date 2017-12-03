@@ -57,7 +57,17 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 	// Update is called once per frame
 	void Update () {
 
-		if (SceneManager.GetActiveScene ().name != "Title Scene" && SceneManager.GetActiveScene ().name != "TItle Scene" && SceneManager.GetActiveScene ().name != "Intro Cutscene" && SceneManager.GetActiveScene ().name != "Beach")
+		if (SceneManager.GetActiveScene ().name != "Title Scene" && SceneManager.GetActiveScene ().name != "TItle Scene" && SceneManager.GetActiveScene ().name != "Intro Cutscene" && SceneManager.GetActiveScene ().name != "Beach" && GameManagement.Instance.playerDeathNumber == 0)
+		{
+			Panel1 = gameplay;
+			Panel2 = pause;
+			gameplay.SetActive (false);
+			title.SetActive (false);
+			background.SetActive (false);
+
+		}
+
+		if (SceneManager.GetActiveScene ().name == "Forest1-1" || SceneManager.GetActiveScene ().name == "Forest1-2" || SceneManager.GetActiveScene ().name == "Forest1-3" || SceneManager.GetActiveScene ().name == "Forest1-4" || SceneManager.GetActiveScene ().name == "Cave" || SceneManager.GetActiveScene ().name == "Forest2" || SceneManager.GetActiveScene ().name == "Beach2")
 		{
 			Panel1 = gameplay;
 			Panel2 = pause;
@@ -66,6 +76,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 			background.SetActive (false);
 
 		}
+
 		if (SceneManager.GetActiveScene ().name == "Title Scene" || SceneManager.GetActiveScene ().name == "TItle Scene") 
 		{
 			//Panel1 = gameplay;
@@ -88,6 +99,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 			AreYouSurePanel.SetActive (false);
 			VictoryPanel.SetActive (false);
 		}
+
 
 	}
 
