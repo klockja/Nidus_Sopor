@@ -116,9 +116,7 @@ public class EnemyController : MonoBehaviour
 		anim = GetComponentInChildren <Animator> ();
 
 		PatrolCoroutine = Patrol ();
-		PursueCoroutine = Pursue (); 
-		SearchCoroutine = Search (LastSightingSpot);
-		ReturnCoroutine = Return ();
+		PursueCoroutine = Pursue ();
 
 		AttackableEnemy = GetComponentInChildren <AttackableEnemy> (); // Gets the AttackableEnemy script
 		AttackableEnemy.SetMaxHealth (MaxHealth);
@@ -225,21 +223,21 @@ public class EnemyController : MonoBehaviour
 				if (playerDetected == false && growl != null)
 				{
 					audioSource.PlayOneShot (growl);
+					StopAllCoroutines ();
+					StartCoroutine (PursueCoroutine);
+					playerDetected = true;
 				}
-				playerDetected = true;
 //				m_stateMachine.CurrentState.OnExit ();
-				StopAllCoroutines ();
-				StartCoroutine (PursueCoroutine);
 				if (detectedTransform != null)
 				{
 					LastSightingSpot = detectedTransform.position;
 				}
 			} //if the player can't be sensed anymore, but the player is detected, look around for a few seconds
-			else if (playerSensed == false && playerDetected == true)
-			{
-				StopCoroutine (PursueCoroutine);
-				StartCoroutine (Search (LastSightingSpot)); //while player isn't sensed, search for a few seconds, then give up and return
-			}
+//			else if (playerSensed == false && playerDetected == true)
+//			{
+//				StopCoroutine (PursueCoroutine);
+//				StartCoroutine (Search (LastSightingSpot)); //while player isn't sensed, search for a few seconds, then give up and return
+//			}
 		}
 	}
 
@@ -305,59 +303,28 @@ public class EnemyController : MonoBehaviour
 	public IEnumerator Patrol()
 	{
 		transform.position = waypoints [0];
-		currentWaypoint = 0;
 
-		if (currentWaypoint != waypoints.Length)
+		int targetWaypointIndex = 1;
+		Debug.Log (targetWaypointIndex + " = targetWaypointIndex");
+		Vector3 targetWaypoint = waypoints [targetWaypointIndex];
+		Debug.Log (targetWaypoint + " = targetWaypoint");
+
+		while (true)
 		{
-			Vector3 targetWaypoint = waypoints [currentWaypoint+1];
-			Debug.Log ("Moving to next waypoint!");
-			while (transform.position != targetWaypoint)
+			Debug.Log ("IS TRUE!");
+			anim.SetBool ("isMoving", true);
+			m_Body.position = Vector2.MoveTowards (transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
+			//			m_machine.Controller.M_Body.MovePosition (targetWaypoint * (walkSpeed * Time.deltaTime));
+			//			= Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime)
+			if (transform.position == targetWaypoint)
 			{
-				anim.SetBool ("isMoving", true);
-				m_Body.position = Vector2.MoveTowards (transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
-				//			m_machine.Controller.M_Body.MovePosition (targetWaypoint * (walkSpeed * Time.deltaTime));
-				//			= Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime)
-
-				if (transform.position == targetWaypoint)
-				{
-					anim.SetBool ("isMoving", false);
-					yield return new WaitForSeconds (patrolWaitTime);
-				}
-
-				currentWaypoint++;
-
-				if (currentWaypoint == waypoints.Length)
-				{
-					currentWaypoint = 0;
-				}
-				//
-				yield return null;
+				targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
+				targetWaypoint = waypoints [targetWaypointIndex];
+				anim.SetBool ("isMoving", false);
+				yield return new WaitForSeconds (patrolWaitTime);
 			}
+			yield return null;
 		}
-			
-//		transform.position = waypoints [0];
-//
-//		int targetWaypointIndex = 1;
-//		Debug.Log (targetWaypointIndex + " = targetWaypointIndex");
-//		Vector3 targetWaypoint = waypoints [targetWaypointIndex];
-//		Debug.Log (targetWaypoint + " = targetWaypoint");
-//
-//		while (true)
-//		{
-//			Debug.Log ("IS TRUE!");
-//			anim.SetBool ("isMoving", true);
-//			m_Body.position = Vector2.MoveTowards (transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
-//			//			m_machine.Controller.M_Body.MovePosition (targetWaypoint * (walkSpeed * Time.deltaTime));
-//			//			= Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime)
-//			if (transform.position == targetWaypoint)
-//			{
-//				targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
-//				targetWaypoint = waypoints [targetWaypointIndex];
-//				anim.SetBool ("isMoving", false);
-//				yield return new WaitForSeconds (patrolWaitTime);
-//			}
-//			yield return null;
-//		}
 	}
 
 	public IEnumerator Pursue()
@@ -376,54 +343,54 @@ public class EnemyController : MonoBehaviour
 		yield return null;
 	}
 
-	public IEnumerator Search(Vector2 position)
-	{
-		Debug.Log ("Unke is searching for player");
-		AILerp.target = null;
-		if (position.x - m_Body.position.x <= 1 || position.y - m_Body.position.y <= 1)
-		{
-			AILerp.target = null;
-			Debug.Log ("Unke got near the last sighting of the player.");
-			yield return new WaitForSeconds (Random.Range (1f, 2f));
-//			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + 1, m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
+//	public IEnumerator Search(Vector2 position)
+//	{
+//		Debug.Log ("Unke is searching for player");
+//		AILerp.target = null;
+//		if (position.x - m_Body.position.x <= 1 || position.y - m_Body.position.y <= 1)
+//		{
+//			AILerp.target = null;
+//			Debug.Log ("Unke got near the last sighting of the player.");
 //			yield return new WaitForSeconds (Random.Range (1f, 2f));
-//			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
-//			yield return new WaitForSeconds (Random.Range (1f, 2f));
-//			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
-//			yield return new WaitForSeconds (Random.Range (1f, 2f));
-//			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
-//			yield return new WaitForSeconds (Random.Range (1f, 2f));
-			playerDetected = false;
-		}
-		yield return new WaitForSeconds (1f);
-		Debug.Log ("Unke lost the player");
-		playerDetected = false;
-		StartCoroutine (ReturnCoroutine);
-		yield return null;
-	}
-
-	public IEnumerator Return()
-	{
-		Debug.Log ("Unke returning to original position");
-		AILerp.target = originalPosition;
-		AILerp.speed = walkSpeed;
-		AILerp.SearchPath ();
-
-		if (originalPosition.position.x - transform.position.x < 5)
-		{
-			AILerp.target = null;
-			Debug.Log ("Unke has returned to original position");
-//			m_stateMachine.CurrentState = new EnemyPatrolState (m_stateMachine);
-//			m_stateMachine.CurrentState.OnEnter ();
-//			if (SetBehavior == Behavior.Patrols)
-//			{
-			isPatrolling = true;
-			currentWaypoint = 1;
-			StartCoroutine (Patrol());
-//			}
-			yield return null;
-		}
-	}
+////			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + 1, m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
+////			yield return new WaitForSeconds (Random.Range (1f, 2f));
+////			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
+////			yield return new WaitForSeconds (Random.Range (1f, 2f));
+////			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
+////			yield return new WaitForSeconds (Random.Range (1f, 2f));
+////			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
+////			yield return new WaitForSeconds (Random.Range (1f, 2f));
+//			playerDetected = false;
+//		}
+//		yield return new WaitForSeconds (1f);
+//		Debug.Log ("Unke lost the player");
+//		playerDetected = false;
+//		StartCoroutine (ReturnCoroutine);
+//		yield return null;
+//	}
+//
+//	public IEnumerator Return()
+//	{
+//		Debug.Log ("Unke returning to original position");
+//		AILerp.target = originalPosition;
+//		AILerp.speed = walkSpeed;
+//		AILerp.SearchPath ();
+//
+//		if (originalPosition.position.x - transform.position.x < 5)
+//		{
+//			AILerp.target = null;
+//			Debug.Log ("Unke has returned to original position");
+////			m_stateMachine.CurrentState = new EnemyPatrolState (m_stateMachine);
+////			m_stateMachine.CurrentState.OnEnter ();
+////			if (SetBehavior == Behavior.Patrols)
+////			{
+//			isPatrolling = true;
+//			currentWaypoint = 1;
+//			StartCoroutine (Patrol());
+////			}
+//			yield return null;
+//		}
+//	}
 
 	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
 	{
