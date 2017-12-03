@@ -13,12 +13,26 @@ public class SortManager : MonoBehaviour {
 			{
 				GameObject gameObject = new GameObject("SortManager");
 				s_instance = gameObject.AddComponent<SortManager>();
+				DontDestroyOnLoad(gameObject);
 			}
 			return s_instance;
 		}
 	}
 
 	private List<Sortable>m_sortables = new List<Sortable>();
+
+	private void Awake()
+	{
+		if(s_instance == null)
+		{
+			s_instance = this;
+		}
+
+		if(s_instance != null && s_instance != this)
+		{
+			GameObject.Destroy(this.gameObject);
+		}
+	}
 
 	public void AddSortable(Sortable sortable)
 	{

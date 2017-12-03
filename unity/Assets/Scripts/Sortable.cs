@@ -17,14 +17,9 @@ public class Sortable : MonoBehaviour {
 		m_sortOffset += Random.Range(0.0001f, 0.001f);
 	}
 
-	protected virtual void OnEnable()
+	protected virtual void OnDestroy()
 	{
-		
-	}
-
-	protected virtual void OnDisable()
-	{
-		
+		OnBecameInvisible();
 	}
 
 	private void OnBecameVisible()
