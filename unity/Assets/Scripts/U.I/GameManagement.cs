@@ -43,7 +43,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("Is game paused " + isPaused);
+		//Debug.Log ("Is game paused " + isPaused);
 		//Debug.Log("Is player Dead " + isPlayerDead);
 		newScene = SceneManager.GetActiveScene().name;
 
