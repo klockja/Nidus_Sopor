@@ -49,7 +49,7 @@ public class MusicManagerScript: GenericSingletonClass<MusicManagerScript> {
 				musicPlayer.clip = title;
 				musicPlayer.Play ();
 			} else if (SceneManager.GetActiveScene ().name == "Beach" && GameManagement.Instance.hasegg == false) {
-				musicPlayer.clip = forest;
+				musicPlayer.clip = beach;
 				musicPlayer.Play ();
 			} else if (SceneManager.GetActiveScene ().name == "Forest1-1" && GameManagement.Instance.hasegg == false) {
 				musicPlayer.clip = forest;
