@@ -178,9 +178,8 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 		
 	public void LoadSceneNow(string C) 
 	{
-		
 		StartCoroutine(GameObject.Find("SceneManager").GetComponent<ScreenManagerScript>().LoadScene(C));
-		
+		GameManagement.Instance.playerDeathNumber = 0;
 	}
 
 	public void ReloadScene()
