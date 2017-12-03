@@ -49,9 +49,18 @@ public class MusicManagerScript: GenericSingletonClass<MusicManagerScript> {
 				musicPlayer.clip = title;
 				musicPlayer.Play ();
 			} else if (SceneManager.GetActiveScene ().name == "Beach" && GameManagement.Instance.hasegg == false) {
-				musicPlayer.clip = beach;
+				musicPlayer.clip = forest;
 				musicPlayer.Play ();
-			} else if (SceneManager.GetActiveScene ().name == "Forest" && GameManagement.Instance.hasegg == false) {
+			} else if (SceneManager.GetActiveScene ().name == "Forest1-1" && GameManagement.Instance.hasegg == false) {
+				musicPlayer.clip = forest;
+				musicPlayer.Play ();
+			} else if (SceneManager.GetActiveScene ().name == "Forest1-2" && GameManagement.Instance.hasegg == false) {
+				musicPlayer.clip = forest;
+				musicPlayer.Play ();
+			}else if (SceneManager.GetActiveScene ().name == "Forest1-3" && GameManagement.Instance.hasegg == false) {
+				musicPlayer.clip = forest;
+				musicPlayer.Play ();
+			} else if (SceneManager.GetActiveScene ().name == "Forest1-4" && GameManagement.Instance.hasegg == false) {
 				musicPlayer.clip = forest;
 				musicPlayer.Play ();
 			} else if (SceneManager.GetActiveScene ().name == "Cave" && GameManagement.Instance.hasegg == false) {
