@@ -54,17 +54,20 @@ public class MusicManagerScript: GenericSingletonClass<MusicManagerScript> {
 			} else if (SceneManager.GetActiveScene ().name == "Forest1-1" && GameManagement.Instance.hasegg == false) {
 				musicPlayer.clip = forest;
 				musicPlayer.Play ();
-			} else if (SceneManager.GetActiveScene ().name == "Forest1-2" && GameManagement.Instance.hasegg == false) {
+			} else if (SceneManager.GetActiveScene ().name == "Forest1-2" && GameManagement.Instance.hasegg == false && GameManagement.Instance.playerDeathNumber != 0) {
 				musicPlayer.clip = forest;
 				musicPlayer.Play ();
-			}else if (SceneManager.GetActiveScene ().name == "Forest1-3" && GameManagement.Instance.hasegg == false) {
+			} else if (SceneManager.GetActiveScene ().name == "Forest1-3" && GameManagement.Instance.hasegg == false && GameManagement.Instance.playerDeathNumber != 0) {
 				musicPlayer.clip = forest;
 				musicPlayer.Play ();
-			} else if (SceneManager.GetActiveScene ().name == "Forest1-4" && GameManagement.Instance.hasegg == false) {
+			} else if (SceneManager.GetActiveScene ().name == "Forest1-4" && GameManagement.Instance.hasegg == false && GameManagement.Instance.playerDeathNumber != 0) {
 				musicPlayer.clip = forest;
 				musicPlayer.Play ();
 			} else if (SceneManager.GetActiveScene ().name == "Cave" && GameManagement.Instance.hasegg == false) {
 				musicPlayer.clip = cave;
+				musicPlayer.Play ();
+			} else if (SceneManager.GetActiveScene ().name == "Forest2" && GameManagement.Instance.hasegg == true) {
+				musicPlayer.clip = escape;
 				musicPlayer.Play ();
 			}
 		}

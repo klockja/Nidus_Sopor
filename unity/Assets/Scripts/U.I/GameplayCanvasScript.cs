@@ -29,17 +29,17 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 	public GameObject VictoryPanel;
 	public GameObject AreYouSurePanel;
 	public GameObject LoadingPanel;
-	public GameManagement GM;
 
 	public Sprite sprite1;
 	public Sprite sprite2;
 
-
-
+	private string currentScene;
+	private string newScene;
 
 
 	void Start () {
 
+		currentScene = SceneManager.GetActiveScene ().name;
 		BlackPanel.SetActive (false);
 		AreYouSurePanel.SetActive (false);
 		LoadingPanel.SetActive (false);
@@ -49,57 +49,56 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 		//background = GameObject.Find ("Background");
 
 		switchToMenu (menuID);
-
-		GameObject GameManager = GameObject.Find ("GameManager");
-		GM = GameManager.GetComponent<GameManagement>();
 	}
 
 	// Update is called once per frame
 	void Update () {
+		
+		newScene = SceneManager.GetActiveScene ().name;
 
-		if (SceneManager.GetActiveScene ().name != "Title Scene" && SceneManager.GetActiveScene ().name != "TItle Scene" && SceneManager.GetActiveScene ().name != "Intro Cutscene" && SceneManager.GetActiveScene ().name != "Beach" && GameManagement.Instance.playerDeathNumber == 0)
-		{
-			Panel1 = gameplay;
-			Panel2 = pause;
-			gameplay.SetActive (false);
-			title.SetActive (false);
-			background.SetActive (false);
+		if (newScene != currentScene) {
+			
+			if (SceneManager.GetActiveScene ().name != "Title Scene" && SceneManager.GetActiveScene ().name != "TItle Scene" && SceneManager.GetActiveScene ().name != "Intro Cutscene" && SceneManager.GetActiveScene ().name != "Beach" && GameManagement.Instance.playerDeathNumber == 0) {
+				Panel1 = gameplay;
+				Panel2 = pause;
+				gameplay.SetActive (false);
+				title.SetActive (false);
+				background.SetActive (false);
 
+			}
+
+			if (SceneManager.GetActiveScene ().name == "Forest1-1" || SceneManager.GetActiveScene ().name == "Forest1-2" || SceneManager.GetActiveScene ().name == "Forest1-3" || SceneManager.GetActiveScene ().name == "Forest1-4" || SceneManager.GetActiveScene ().name == "Cave" || SceneManager.GetActiveScene ().name == "Forest2" || SceneManager.GetActiveScene ().name == "Beach2") {
+				Panel1 = gameplay;
+				Panel2 = pause;
+				gameplay.SetActive (true);
+				title.SetActive (false);
+				background.SetActive (false);
+
+			}
+
+			if (SceneManager.GetActiveScene ().name == "Title Scene" || SceneManager.GetActiveScene ().name == "TItle Scene") {
+				//Panel1 = gameplay;
+				Panel2 = title;
+				background.SetActive (true);
+				title.SetActive (true);
+				gameplay.SetActive (false);
+				pause.SetActive (false);
+				DefeatPanel.SetActive (false);
+				AreYouSurePanel.SetActive (false);
+				VictoryPanel.SetActive (false);
+			}
+			if (SceneManager.GetActiveScene ().name == "Intro Cutscene") {
+				title.SetActive (false);
+				background.SetActive (false);
+				gameplay.SetActive (false);
+				pause.SetActive (false);
+				DefeatPanel.SetActive (false);
+				AreYouSurePanel.SetActive (false);
+				VictoryPanel.SetActive (false);
+			}
+
+			currentScene = newScene;
 		}
-
-		if (SceneManager.GetActiveScene ().name == "Forest1-1" || SceneManager.GetActiveScene ().name == "Forest1-2" || SceneManager.GetActiveScene ().name == "Forest1-3" || SceneManager.GetActiveScene ().name == "Forest1-4" || SceneManager.GetActiveScene ().name == "Cave" || SceneManager.GetActiveScene ().name == "Forest2" || SceneManager.GetActiveScene ().name == "Beach2")
-		{
-			Panel1 = gameplay;
-			Panel2 = pause;
-			gameplay.SetActive (true);
-			title.SetActive (false);
-			background.SetActive (false);
-
-		}
-
-		if (SceneManager.GetActiveScene ().name == "Title Scene" || SceneManager.GetActiveScene ().name == "TItle Scene") 
-		{
-			//Panel1 = gameplay;
-			Panel2 = title;
-			background.SetActive (true);
-			title.SetActive (true);
-			gameplay.SetActive (false);
-			pause.SetActive (false);
-			DefeatPanel.SetActive (false);
-			AreYouSurePanel.SetActive (false);
-			VictoryPanel.SetActive (false);
-		}
-		if (SceneManager.GetActiveScene ().name == "Intro Cutscene") 
-		{
-			title.SetActive (false);
-			background.SetActive (false);
-			gameplay.SetActive (false);
-			pause.SetActive (false);
-			DefeatPanel.SetActive (false);
-			AreYouSurePanel.SetActive (false);
-			VictoryPanel.SetActive (false);
-		}
-
 
 	}
 
@@ -153,12 +152,12 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 
 	public void PauseScene ()
 	{
-		if (GM.isPaused == false) {
-			GM.isPaused = true;
+		if (GameManagement.Instance.isPaused == false) {
+			GameManagement.Instance.isPaused = true;
 			Panel2.gameObject.SetActive (true);
 			Panel1.gameObject.SetActive (false);
 		} else {
-			GM.isPaused = false;
+			GameManagement.Instance.isPaused = false;
 			Panel2.gameObject.SetActive (true);
 			Panel1.gameObject.SetActive (false);
 		}
@@ -166,12 +165,12 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 
 	public void UnPauseScene ()
 	{
-		if (GM.isPaused == false) {
-			GM.isPaused = true;
+		if (GameManagement.Instance.isPaused == false) {
+			GameManagement.Instance.isPaused = true;
 			Panel1.gameObject.SetActive (true);
 			Panel2.gameObject.SetActive (false);
 		} else {
-			GM.isPaused = false;
+			GameManagement.Instance.isPaused = false;
 			Panel1.gameObject.SetActive (true);
 			Panel2.gameObject.SetActive (false);
 		}
@@ -179,9 +178,8 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 		
 	public void LoadSceneNow(string C) 
 	{
-		
 		StartCoroutine(GameObject.Find("SceneManager").GetComponent<ScreenManagerScript>().LoadScene(C));
-		
+		GameManagement.Instance.playerDeathNumber = 0;
 	}
 
 	public void ReloadScene()

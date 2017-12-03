@@ -32,7 +32,7 @@ public class ScreenManagerScript : GenericSingletonClass <ScreenManagerScript> {
 		// !!! unload old screen (automatic)
 
 		// Fade to loading screen
-		Debug.Log ("Fade out");
+		//Debug.Log ("Fade out");
 		yield return StartCoroutine(m_blackScreen.FadeOut());
 
 
