@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class HideOffCamera : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+	SpriteRenderer visuals;
+
 	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+	{
+		if (visuals.isVisible)
+		{
+
+		}
+			
 	}
 }

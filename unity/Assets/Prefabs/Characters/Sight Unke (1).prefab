@@ -274,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1485158257469004}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: -8, z: 0}
+  m_LocalPosition: {x: -16.951431, y: -17.396057, z: -0.0078125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4198540682482580}
@@ -651,7 +651,7 @@ MonoBehaviour:
   leftHeadPosition: {x: 0, y: 0}
   rightHeadPosition: {x: 0, y: 0}
   walkSpeed: 1
-  runSpeed: 6
+  runSpeed: 4
   EnemyHead: {fileID: 4151963186676914}
   targetMask:
     serializedVersion: 2
