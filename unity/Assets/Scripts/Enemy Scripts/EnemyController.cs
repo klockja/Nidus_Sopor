@@ -453,7 +453,6 @@ public class EnemyController : MonoBehaviour
 
 	public IEnumerator Die()
 	{
-		GetComponent <BoxCollider2D> ().enabled = false;
 		AILerp.canMove = false;
 		canMove = false;
 		anim.SetBool ("isDead", true);
