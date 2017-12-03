@@ -156,7 +156,7 @@ public class EnemyController : MonoBehaviour
 				waypoints [i] = PatrolPath.GetChild (i).position;
 			}
 			isPatrolling = true;
-			StartCoroutine (PatrolCoroutine);
+			StartCoroutine (Patrol());
 //			m_stateMachine.CurrentState = new EnemyPatrolState (m_stateMachine);
 		}
 
@@ -174,6 +174,7 @@ public class EnemyController : MonoBehaviour
 			AILerp.target = null;
 			detectedTransform = null;
 			isPatrolling = false;
+			currentWaypoint = 0;
 		}
 		if (Input.GetKeyDown (KeyCode.O))
 		{
@@ -303,35 +304,37 @@ public class EnemyController : MonoBehaviour
 
 	public IEnumerator Patrol()
 	{
+		transform.position = waypoints [0];
 		currentWaypoint = 0;
 
 		if (currentWaypoint != waypoints.Length)
 		{
 			Vector3 targetWaypoint = waypoints [currentWaypoint+1];
 			Debug.Log ("Moving to next waypoint!");
-			while(transform.position != targetWaypoint)
+			while (transform.position != targetWaypoint)
 			{
-						anim.SetBool ("isMoving", true);
-						m_Body.position = Vector2.MoveTowards (transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
-						//			m_machine.Controller.M_Body.MovePosition (targetWaypoint * (walkSpeed * Time.deltaTime));
-						//			= Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime)
+				anim.SetBool ("isMoving", true);
+				m_Body.position = Vector2.MoveTowards (transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
+				//			m_machine.Controller.M_Body.MovePosition (targetWaypoint * (walkSpeed * Time.deltaTime));
+				//			= Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime)
+
+				if (transform.position == targetWaypoint)
+				{
+					anim.SetBool ("isMoving", false);
+					yield return new WaitForSeconds (patrolWaitTime);
+				}
+
+				currentWaypoint++;
+
+				if (currentWaypoint == waypoints.Length)
+				{
+					currentWaypoint = 0;
+				}
+				//
+				yield return null;
 			}
-
-			if (transform.position == targetWaypoint)
-			{
-				anim.SetBool ("isMoving", false);
-				yield return new WaitForSeconds (patrolWaitTime);
-			}
-
-			currentWaypoint++;
 		}
-
-		if (currentWaypoint == waypoints.Length)
-		{
-			currentWaypoint = 0;
-		}
-//
-		yield return null;
+			
 //		transform.position = waypoints [0];
 //
 //		int targetWaypointIndex = 1;
@@ -406,7 +409,7 @@ public class EnemyController : MonoBehaviour
 		AILerp.speed = walkSpeed;
 		AILerp.SearchPath ();
 
-		if (originalPosition.position.x - transform.position.x < 1)
+		if (originalPosition.position.x - transform.position.x < 5)
 		{
 			AILerp.target = null;
 			Debug.Log ("Unke has returned to original position");
@@ -415,6 +418,8 @@ public class EnemyController : MonoBehaviour
 //			if (SetBehavior == Behavior.Patrols)
 //			{
 			isPatrolling = true;
+			currentWaypoint = 1;
+			StartCoroutine (Patrol());
 //			}
 			yield return null;
 		}
