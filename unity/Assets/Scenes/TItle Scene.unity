@@ -1924,12 +1924,12 @@ Prefab:
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 404
+      value: 514.5
       objectReference: {fileID: 0}
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 227.5
+      value: 289.5
       objectReference: {fileID: 0}
     - target: {fileID: 224504684801700084, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
@@ -2052,12 +2052,26 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1146333076810286, guid: 791b44a7fe8e74f1e9d8b274d525b7eb, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114622002918870640, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
         type: 2}
       propertyPath: m_Text
       value: Nidus Sopor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1109645449386430, guid: 791b44a7fe8e74f1e9d8b274d525b7eb, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224229775492474618, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224229775492474618, guid: 791b44a7fe8e74f1e9d8b274d525b7eb,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 791b44a7fe8e74f1e9d8b274d525b7eb, type: 2}
