@@ -76,8 +76,8 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 
 			}
 
-			if (SceneManager.GetActiveScene ().name == "Title Scene" || SceneManager.GetActiveScene ().name == "TItle Scene") {
-				//Panel1 = gameplay;
+			if (SceneManager.GetActiveScene ().name == "Title Scene" || SceneManager.GetActiveScene ().name == "TItle Scene" || SceneManager.GetActiveScene().buildIndex == 0) {
+				Panel1 = title;
 				Panel2 = title;
 				background.SetActive (true);
 				title.SetActive (true);
