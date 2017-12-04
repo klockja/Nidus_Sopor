@@ -311,17 +311,20 @@ public class EnemyController : MonoBehaviour
 
 		while (true)
 		{
-			Debug.Log ("IS TRUE!");
-			anim.SetBool ("isMoving", true);
-			m_Body.position = Vector2.MoveTowards (transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
-			//			m_machine.Controller.M_Body.MovePosition (targetWaypoint * (walkSpeed * Time.deltaTime));
-			//			= Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime)
-			if (transform.position == targetWaypoint)
+			if (waypoints.Length != 1)
 			{
-				targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
-				targetWaypoint = waypoints [targetWaypointIndex];
-				anim.SetBool ("isMoving", false);
-				yield return new WaitForSeconds (patrolWaitTime);
+				Debug.Log ("IS TRUE!");
+				anim.SetBool ("isMoving", true);
+				m_Body.position = Vector2.MoveTowards (transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
+				//			m_machine.Controller.M_Body.MovePosition (targetWaypoint * (walkSpeed * Time.deltaTime));
+				//			= Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime)
+				if (transform.position == targetWaypoint)
+				{
+					targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
+					targetWaypoint = waypoints [targetWaypointIndex];
+					anim.SetBool ("isMoving", false);
+					yield return new WaitForSeconds (patrolWaitTime);
+				}
 			}
 			yield return null;
 		}
