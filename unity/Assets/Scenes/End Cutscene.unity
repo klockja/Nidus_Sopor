@@ -125,7 +125,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4576725047558266, guid: 56a6b346c1e4b4947967a28bf641198c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7
+      value: -7.08
       objectReference: {fileID: 0}
     - target: {fileID: 4576725047558266, guid: 56a6b346c1e4b4947967a28bf641198c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -184,6 +184,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &120191999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120191997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e725145d45fd34257a46dc225e31acf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerTillDisappear: 10
+  DialogueScript: {fileID: 2016314232}
 --- !u!1 &301276523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,6 +1204,7 @@ MonoBehaviour:
   SecondsBetweenCharacters: 0.025
   CharacterRateMultiplier: 0.00005
   DialogueInput: 323
+  DialogueEnded: 0
   NextScene: TItle Scene
   NextSceneDelay: 30
   ContinueIcon: {fileID: 1457579028}
@@ -1238,6 +1252,59 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2016314229}
+--- !u!1 &2035718212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2035718214}
+  - component: {fileID: 2035718213}
+  m_Layer: 0
+  m_Name: Cloud Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2035718213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2035718212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d95bee9de61343b0851dcef4a3d5789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Clouds:
+  - {fileID: 1992964526394076, guid: 40b2dece90fc544b996fdbe53cafbb79, type: 2}
+  - {fileID: 1031029680639352, guid: 8fc946817952b4e5dbb7c92a2f1d66cd, type: 2}
+  - {fileID: 1245625267263352, guid: dc33d6de2f93f42a68b9be25a1069a12, type: 2}
+  - {fileID: 1702838308942634, guid: 8a3989bdbc746497fb329b1c1bf344bd, type: 2}
+  - {fileID: 1404128144468980, guid: d76a545b2d6ec47659baa161f7416a5a, type: 2}
+  - {fileID: 1215971187291004, guid: 61462afc15954473cbfabaec95fbbee4, type: 2}
+  - {fileID: 1471431609010788, guid: bd6faf927594446468f084565290e785, type: 2}
+  - {fileID: 1948015293557146, guid: faeca3619f7334a6c9293f4f569ef6ca, type: 2}
+  - {fileID: 1604016960863022, guid: 0216ee9c0e4e94c23b4bd3b66c764d9e, type: 2}
+  timer: 2
+  minRandomRange: 2
+  maxRandomRange: 4
+--- !u!4 &2035718214
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2035718212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.27, y: -3.01, z: -5.1611404}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2050132518
 GameObject:
   m_ObjectHideFlags: 0
