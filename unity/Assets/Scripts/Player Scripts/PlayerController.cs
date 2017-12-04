@@ -138,11 +138,10 @@ public class PlayerController : MonoBehaviour
 		if(rockText ==  null)
 		{
 			SearchForRocknumberText();
-			return;
 		}
 
 		//Debug.Log (m_stateMachine.CurrentState);
-		if (SceneManager.GetActiveScene ().name != "LoadingScreen") {
+		if (rockText != null && SceneManager.GetActiveScene ().name != "LoadingScreen") {
 			gamePaused = GameManagement.Instance.isPaused;
 			rockText.text = "x" + rockNum.ToString ();
 		}
