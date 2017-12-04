@@ -78,7 +78,7 @@ public class PortalScript : MonoBehaviour {
 
 				MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.epilogue;
 				MusicManagerScript.Instance.musicPlayer.Play ();
-				GameplayCanvasScript.Instance.VictoryPanel.SetActive (true);
+				GameplayCanvasScript.Instance.LoadSceneNow ("End Cutscene");
 			} else if (SceneManager.GetActiveScene ().name != "Cave" && SceneManager.GetActiveScene ().name != "Beach2") {
 				currentScene = SceneManager.GetActiveScene ().name;
 				DetermineNextScene ();
