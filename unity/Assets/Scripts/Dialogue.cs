@@ -32,6 +32,7 @@ public class Dialogue : MonoBehaviour
 	private bool _isStringBeingRevealed = false;
 	private bool _isDialoguePlaying = false;
 	private bool _isEndOfDialogue = false;
+	public bool DialogueEnded = false;
 
 	private bool _canEndDialogueEarly = true;
 
@@ -74,6 +75,7 @@ public class Dialogue : MonoBehaviour
 
 		if (_isEndOfDialogue && (Input.GetKeyDown(DialogueInput)))
 		{
+			DialogueEnded = true;
 			Debug.Log ("Go to next scene from end of dialogue");
 			if (NextDialogueSound != null)
 			{
@@ -82,6 +84,11 @@ public class Dialogue : MonoBehaviour
 //			_isEndOfDialogue = false;
 //			_isDialoguePlaying = false;
 			DialogBox.Hide ();
+//			if (activatesAnimation &&)
+//			{
+//
+//			}
+
 			StartCoroutine (LoadNextScene (NextScene, NextSceneDelay));
 		}
 	}
