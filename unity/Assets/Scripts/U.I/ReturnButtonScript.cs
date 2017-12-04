@@ -25,18 +25,27 @@ public class ReturnButtonScript : MonoBehaviour {
 
 	private void OnPlayButtonClicked()
 	{
-		if (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().name == "Beach") 
-		{
+		if (SceneManager.GetActiveScene ().name == "Beach") {
 			if (GameManagement.Instance.playerDeathNumber == 0) {
 				audioSource.PlayOneShot (buttonPressSound);
 				GameplayCanvasScript.Instance.switchToMenu (0);
+				GameManagement.Instance.isPaused = false;
 				if (GameplayCanvasScript.Instance.BlackPanel.activeSelf == true)
-					GameplayCanvasScript.Instance.BlackPanel.SetActive(false);
-
+					GameplayCanvasScript.Instance.BlackPanel.SetActive (false);
 				else if (GameplayCanvasScript.Instance.BlackPanel.activeSelf == false)
-					GameplayCanvasScript.Instance.BlackPanel.SetActive(true);
+					GameplayCanvasScript.Instance.BlackPanel.SetActive (true);
 
 			}
+
+		} else if (SceneManager.GetActiveScene ().buildIndex == 0) {
+			
+			audioSource.PlayOneShot (buttonPressSound);
+			GameplayCanvasScript.Instance.switchToMenu (0);
+			if (GameplayCanvasScript.Instance.BlackPanel.activeSelf == true)
+				GameplayCanvasScript.Instance.BlackPanel.SetActive (false);
+			else if (GameplayCanvasScript.Instance.BlackPanel.activeSelf == false)
+				GameplayCanvasScript.Instance.BlackPanel.SetActive (true);
+			
 
 		}
 
