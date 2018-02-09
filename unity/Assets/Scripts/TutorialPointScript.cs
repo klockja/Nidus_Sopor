@@ -19,7 +19,7 @@ public class TutorialPointScript : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "Player")  
 		{
-			num = TutorialManager.Instance.
+			if(TutorialManager.Instance.point1 = 
 
 
 		}
