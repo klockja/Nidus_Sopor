@@ -313,7 +313,7 @@ public class EnemyController : MonoBehaviour
 		{
 			if (waypoints.Length != 1)
 			{
-				Debug.Log ("IS TRUE!");
+				//Debug.Log ("IS TRUE!");
 				anim.SetBool ("isMoving", true);
 				m_Body.position = Vector2.MoveTowards (transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
 				//			m_machine.Controller.M_Body.MovePosition (targetWaypoint * (walkSpeed * Time.deltaTime));
