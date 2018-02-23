@@ -290,16 +290,7 @@ public class EnemyController : MonoBehaviour
 		}
 		lastPosition = transform.position;
 	}
-
-	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
-	{
-		if (!angleIsGlobal) 
-		{
-			angleInDegrees -= transform.eulerAngles.z;
-		}
-		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);
-	}
-
+		
 	public IEnumerator PlaySound(AudioClip clip, float delay)
 	{
 		yield return new WaitForSeconds (delay);
