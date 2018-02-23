@@ -1289,75 +1289,9 @@ Prefab:
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
-    - target: {fileID: 198830917134862744, guid: 34cb27650c88d45d49f40b31449bced1,
-        type: 2}
-      propertyPath: TriggerModule.collisionShape0
-      value: 
-      objectReference: {fileID: 199750018}
-    - target: {fileID: 212016698179303228, guid: 34cb27650c88d45d49f40b31449bced1,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1485158257469004, guid: 34cb27650c88d45d49f40b31449bced1, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 212016698179303228, guid: 34cb27650c88d45d49f40b31449bced1, type: 2}
-    - {fileID: 199900806191894424, guid: 34cb27650c88d45d49f40b31449bced1, type: 2}
-    - {fileID: 198830917134862744, guid: 34cb27650c88d45d49f40b31449bced1, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34cb27650c88d45d49f40b31449bced1, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &278014954 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1678688915792720, guid: 34cb27650c88d45d49f40b31449bced1,
-    type: 2}
-  m_PrefabInternal: {fileID: 278014953}
---- !u!212 &278014955
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 278014954}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: e940cc0b75a984d7083f27b919910266, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!1 &322978651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,145 +1883,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: originalPosition
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: PatrolPath
-      value: 
-      objectReference: {fileID: 40244511}
-    - target: {fileID: 198207249735479650, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: TriggerModule.collisionShape0
-      value: 
-      objectReference: {fileID: 199750018}
     - target: {fileID: 198353769449471928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
         type: 2}
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
-    - target: {fileID: 198207249735479650, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: -0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 198207249735479650, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: randomSeed
-      value: -889773182
-      objectReference: {fileID: 0}
-    - target: {fileID: 198207249735479650, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: -0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 212598959251027392, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212598959251027392, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212598959251027392, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114121196841970090, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: startEndModifier.addPoints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114121196841970090, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: startEndModifier.exactStartPoint
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114140867907695296, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: repathRate
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114140867907695296, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114140867907695296, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: enableRotation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114140867907695296, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-        type: 2}
-      propertyPath: rotationSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 114963809345568928, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
         type: 2}
-      propertyPath: runSpeed
-      value: 3.75
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 199672744721467318, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
-    - {fileID: 198207249735479650, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
+      propertyPath: PatrolPath
+      value: 
+      objectReference: {fileID: 40244511}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3501d69ca3ecbad4cb3310bd3a38da80, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &760283404 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1690195243266488, guid: 3501d69ca3ecbad4cb3310bd3a38da80,
-    type: 2}
-  m_PrefabInternal: {fileID: 760283403}
---- !u!212 &760283405
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 760283404}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e940cc0b75a984d7083f27b919910266, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!1 &767358827
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,99 +2984,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 19
       objectReference: {fileID: 0}
-    - target: {fileID: 1310398093323060, guid: d369105b49f1442529b05f62dbd94028, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114751631539729836, guid: d369105b49f1442529b05f62dbd94028,
         type: 2}
       propertyPath: PatrolPath
       value: 
       objectReference: {fileID: 520099557}
-    - target: {fileID: 114269364226563412, guid: d369105b49f1442529b05f62dbd94028,
-        type: 2}
-      propertyPath: repathRate
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114269364226563412, guid: d369105b49f1442529b05f62dbd94028,
-        type: 2}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114269364226563412, guid: d369105b49f1442529b05f62dbd94028,
-        type: 2}
-      propertyPath: enableRotation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114269364226563412, guid: d369105b49f1442529b05f62dbd94028,
-        type: 2}
-      propertyPath: rotationSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114326946993281958, guid: d369105b49f1442529b05f62dbd94028,
-        type: 2}
-      propertyPath: startEndModifier.addPoints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114326946993281958, guid: d369105b49f1442529b05f62dbd94028,
-        type: 2}
-      propertyPath: startEndModifier.exactStartPoint
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 199519556315889148, guid: d369105b49f1442529b05f62dbd94028, type: 2}
-    - {fileID: 198012726614471012, guid: d369105b49f1442529b05f62dbd94028, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d369105b49f1442529b05f62dbd94028, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1860129827 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1458943962915128, guid: d369105b49f1442529b05f62dbd94028,
-    type: 2}
-  m_PrefabInternal: {fileID: 1860129826}
---- !u!212 &1860129828
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1860129827}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: e940cc0b75a984d7083f27b919910266, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!1001 &1865547634
 Prefab:
   m_ObjectHideFlags: 0
@@ -3516,69 +3239,9 @@ Prefab:
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 199750018}
-    - target: {fileID: 198618692505307694, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
-        type: 2}
-      propertyPath: TriggerModule.collisionShape0
-      value: 
-      objectReference: {fileID: 199750018}
-    - target: {fileID: 1342388625327876, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 199637531608082534, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
-    - {fileID: 198618692505307694, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b5031d6d65ce49ba8aafdc5d119a28c, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2046725460 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1672984911227126, guid: 7b5031d6d65ce49ba8aafdc5d119a28c,
-    type: 2}
-  m_PrefabInternal: {fileID: 2046725459}
---- !u!212 &2046725461
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2046725460}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: e940cc0b75a984d7083f27b919910266, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!1 &2077910033
 GameObject:
   m_ObjectHideFlags: 0
