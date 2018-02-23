@@ -45,7 +45,6 @@ public class EnemyPatrolState : EnemyState
 			{
 				targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
 				targetWaypoint = waypoints [targetWaypointIndex];
-				yield return new WaitForSeconds (m_machine.Controller.patrolWaitTime);
 			}
 			yield return null;
 		}

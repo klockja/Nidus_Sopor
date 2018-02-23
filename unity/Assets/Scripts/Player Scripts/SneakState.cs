@@ -110,7 +110,6 @@ public class SneakState : MoveState {
 		time = maxtime;
 		while (time > 0) 
 		{
-			Debug.Log (time);
 			yield return new WaitForSeconds (1.0f);
 			time--;
 		}

@@ -22,8 +22,12 @@ public class EnemyHearingScript : MonoBehaviour
 		if (col.gameObject.tag == "Sound")
 		{
 			//Debug.Log ("Detected Audio Collider from: " + col.transform.parent.transform);
-			_enemyController.detectedTransform = col.transform.parent.transform;
-			_enemyController.playerSensed = true;
+			_enemyController.lastSensedPlayerPosition = col.transform.position;
+			if (_enemyController.playerSensed == false)
+			{
+				StartCoroutine(_enemyController.PlaySound (_enemyController.growl, 0f));
+				_enemyController.playerSensed = true;
+			}
 		}
 	}
 }

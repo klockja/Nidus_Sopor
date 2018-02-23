@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyController : MonoBehaviour 
 {
@@ -75,54 +76,49 @@ public class EnemyController : MonoBehaviour
 	public LayerMask obstacleMask;
 
 	[SerializeField]
-	public bool playerSensed = false;
-	public bool playerDetected = false;
-//	public bool isSearching = false;
-	public Transform detectedTransform;
-	public Vector2 LastSightingSpot;
 
 	[Header ("Enemy's Behavior")]
-	public Transform originalPosition;
+	private Vector2 originalPosition;
 	public Behavior SetBehavior;
 	public enum Behavior {Patrols, Sleeps}
+
+	public float chaseWaitTime;
+	public float patrolWaitTime;
 	public Transform PatrolPath;
 	Vector2[] waypoints;
+	private int waypointIndex;
+	public Vector2 lastSensedPlayerPosition;
 
 	private int currentWaypoint;
-	private bool isPatrolling;
-	public float patrolWaitTime;
 	public bool isWaiting;
 
-	private IEnumerator PatrolCoroutine;
-	private IEnumerator PursueCoroutine;
-	private IEnumerator SearchCoroutine;
-	private IEnumerator ReturnCoroutine;
-
-//	private EnemyStateMachine m_stateMachine;
-//	public EnemyStateMachine StateMachine
-//	{
-//		get
-//		{
-//			return m_stateMachine;
-//		}
-//	}
+	public bool playerSensed;
 
 	void Awake ()
 	{
-//		m_stateMachine = new EnemyStateMachine(this);
-		//		anim = GetComponentInChildren <Animator> (); // Gets the animator of the enemy
 		m_Body = GetComponent <Rigidbody2D> ();
 		audioSource = GetComponent <AudioSource> ();
 		anim = GetComponentInChildren <Animator> ();
-
-		PatrolCoroutine = Patrol ();
-		PursueCoroutine = Pursue ();
 
 		AttackableEnemy = GetComponentInChildren <AttackableEnemy> (); // Gets the AttackableEnemy script
 		AttackableEnemy.SetMaxHealth (MaxHealth);
 		AILerp = GetComponent <AILerp> ();
 
 		canMove = true;
+
+		waypoints = new Vector2[PatrolPath.childCount];
+		for (int i = 0; i < waypoints.Length; i++)
+		{
+			waypoints [i] = PatrolPath.GetChild (i).position;
+		}
+
+		if (waypoints.Length >= 1)
+		{
+			transform.position = waypoints [0];
+		}
+		originalPosition = transform.position;
+		AILerp.destination = originalPosition;
+
 	}
 
 	void OnDrawGizmos()
@@ -135,8 +131,8 @@ public class EnemyController : MonoBehaviour
 			{
 				Gizmos.DrawIcon (waypoint.position, "x-gizmo.png", true);
 				Gizmos.DrawLine (previousPosition, waypoint.position);
-				//			Gizmos.DrawCube (waypoint.position, new Vector2 (.5f,.5f));
-				//			Gizmos.DrawSphere (waypoint.position, .5f);
+				//            Gizmos.DrawCube (waypoint.position, new Vector2 (.5f,.5f));
+				//            Gizmos.DrawSphere (waypoint.position, .5f);
 				previousPosition = waypoint.position;
 			}
 			Gizmos.DrawLine (previousPosition, startPosition);
@@ -146,45 +142,16 @@ public class EnemyController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		if (SetBehavior == Behavior.Patrols && PatrolPath != null)
-		{
-			waypoints = new Vector2[PatrolPath.childCount];
-			for (int i = 0; i < waypoints.Length; i++)
-			{
-				waypoints [i] = PatrolPath.GetChild (i).position;
-			}
-			isPatrolling = true;
-			StartCoroutine (Patrol());
-//			m_stateMachine.CurrentState = new EnemyPatrolState (m_stateMachine);
-		}
 
-		if (SetBehavior == Behavior.Sleeps)
-		{
-
-		}
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown (KeyCode.J))
-		{
-			AILerp.target = null;
-			detectedTransform = null;
-			isPatrolling = false;
-			currentWaypoint = 0;
-		}
-		if (Input.GetKeyDown (KeyCode.O))
-		{
-			isPatrolling = true;
-		}
-
-
 		gamePaused = GameManagement.Instance.isPaused;
 		currentHealth = AttackableEnemy.GetHealth ();
 		if (currentHealth <= 0 && canMove)
 		{
-//			StopAllCoroutines ();
 			if (takeDamage != null)
 			{
 				audioSource.PlayOneShot (takeDamage);
@@ -196,57 +163,81 @@ public class EnemyController : MonoBehaviour
 		if (GameManagement.Instance.isPlayerDead)
 		{
 			canMove = false;
-			AILerp.target = null;
+			AILerp.destination = transform.position;
 			AILerp.canMove = false;
 		}
 
-//		if (GameManagement.Instance.player.
-
-//		gamePaused = GameManagement.Instance.isPaused;
-//		if (gamePaused == true || gamePaused == true)
-//		{
-//			canMove = false;
-//			AILerp.canMove = false;
-//		}
-//		if (gamePaused == false || gamePaused == false)
-//		{
-//			canMove = true;
-//			AILerp.canMove = true;
-//		}
-
-		if ((gamePaused == false && canMove) || (currentHealth > 0 && canMove))
+		if (gamePaused == true)
 		{
-			//if the player can be sensed, the player is detected, then pursue
-
-			if (playerSensed)
+			canMove = false;
+			AILerp.canMove = false;
+		}
+		if (gamePaused == false)
+		{
+			canMove = true;
+			AILerp.canMove = true;
+		}
+		//Decide what to do
+		if ((gamePaused == false && canMove && currentHealth > 0))
+		{
+			if (playerSensed && GameManagement.Instance.isPlayerDead == false)
 			{
-				if (playerDetected == false && growl != null)
+				ChasePlayer ();
+			} 
+			else if (playerSensed == false && GameManagement.Instance.isPlayerDead == false)
+			{
+				if (SetBehavior == Behavior.Patrols)
 				{
-					audioSource.PlayOneShot (growl);
-					StopAllCoroutines ();
-					StartCoroutine (PursueCoroutine);
-					playerDetected = true;
+					Patrol ();
 				}
-//				m_stateMachine.CurrentState.OnExit ();
-				if (detectedTransform != null)
+
+				if (SetBehavior == Behavior.Sleeps)
 				{
-					LastSightingSpot = detectedTransform.position;
+					
 				}
-			} //if the player can't be sensed anymore, but the player is detected, look around for a few seconds
-//			else if (playerSensed == false && playerDetected == true)
-//			{
-//				StopCoroutine (PursueCoroutine);
-//				StartCoroutine (Search (LastSightingSpot)); //while player isn't sensed, search for a few seconds, then give up and return
-//			}
+			}
+		}
+
+		if (Input.GetKeyDown (KeyCode.O))
+		{
+			AILerp.destination = new Vector3 (5, 5, transform.position.z);
 		}
 	}
 
-	void FixedUpdate ()
+	void ChasePlayer()
 	{
-		if (gamePaused == false)
+		Vector2 lastSensedDeltaPos = lastSensedPlayerPosition - new Vector2(transform.position.x, transform.position.y);
+		if (lastSensedDeltaPos.sqrMagnitude > 1f)
 		{
-			
+			AILerp.destination = lastSensedPlayerPosition;
+			AILerp.speed = runSpeed;
 		}
+		if (lastSensedDeltaPos.sqrMagnitude < .25f)
+		{
+			playerSensed = false;
+			AILerp.speed = walkSpeed;
+		}
+	}
+
+	void Patrol()
+	{
+		if ((Vector2)transform.position != waypoints [waypointIndex])
+		{
+			AILerp.destination = waypoints [waypointIndex];
+			AILerp.speed = walkSpeed;
+		} 
+		else
+		{
+			if(waypointIndex == waypoints.Length - 1)
+			{
+				waypointIndex = 0;
+			}
+			else
+			{
+				waypointIndex += 1;
+			}
+		}
+
 	}
 
 	void LateUpdate ()
@@ -299,101 +290,6 @@ public class EnemyController : MonoBehaviour
 		}
 		lastPosition = transform.position;
 	}
-
-	public IEnumerator Patrol()
-	{
-		transform.position = waypoints [0];
-
-		int targetWaypointIndex = 1;
-		Debug.Log (targetWaypointIndex + " = targetWaypointIndex");
-		Vector3 targetWaypoint = waypoints [targetWaypointIndex];
-		Debug.Log (targetWaypoint + " = targetWaypoint");
-
-		while (true)
-		{
-			if (waypoints.Length != 1)
-			{
-				Debug.Log ("IS TRUE!");
-				anim.SetBool ("isMoving", true);
-				m_Body.position = Vector2.MoveTowards (transform.position, targetWaypoint, walkSpeed * Time.deltaTime);
-				//			m_machine.Controller.M_Body.MovePosition (targetWaypoint * (walkSpeed * Time.deltaTime));
-				//			= Vector2.MoveTowards (m_machine.Controller.transform.position, targetWaypoint, walkSpeed * Time.deltaTime)
-				if (transform.position == targetWaypoint)
-				{
-					targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
-					targetWaypoint = waypoints [targetWaypointIndex];
-					anim.SetBool ("isMoving", false);
-					yield return new WaitForSeconds (patrolWaitTime);
-				}
-			}
-			yield return null;
-		}
-	}
-
-	public IEnumerator Pursue()
-	{
-		if (detectedTransform != null && canMove)
-		{
-			Debug.Log ("Unke is pursuing the player");
-			anim.SetBool ("playerDetected", true);
-	//		m_Body.position = Vector2.MoveTowards (transform.position, position, RunSpeed * Time.deltaTime);
-			AILerp.speed = runSpeed;
-			AILerp.target = detectedTransform;
-			AILerp.TrySearchPath ();
-	//		AILerp.
-	//		yield return new WaitForSeconds(.5f);
-		}
-		yield return null;
-	}
-
-//	public IEnumerator Search(Vector2 position)
-//	{
-//		Debug.Log ("Unke is searching for player");
-//		AILerp.target = null;
-//		if (position.x - m_Body.position.x <= 1 || position.y - m_Body.position.y <= 1)
-//		{
-//			AILerp.target = null;
-//			Debug.Log ("Unke got near the last sighting of the player.");
-//			yield return new WaitForSeconds (Random.Range (1f, 2f));
-////			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + 1, m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
-////			yield return new WaitForSeconds (Random.Range (1f, 2f));
-////			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
-////			yield return new WaitForSeconds (Random.Range (1f, 2f));
-////			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
-////			yield return new WaitForSeconds (Random.Range (1f, 2f));
-////			m_Body.position = Vector2.MoveTowards (transform.position, new Vector2 (m_Body.position.x + Random.Range (0, 1), m_Body.position.x + Random.Range (0, 1)), runSpeed * Time.deltaTime);
-////			yield return new WaitForSeconds (Random.Range (1f, 2f));
-//			playerDetected = false;
-//		}
-//		yield return new WaitForSeconds (1f);
-//		Debug.Log ("Unke lost the player");
-//		playerDetected = false;
-//		StartCoroutine (ReturnCoroutine);
-//		yield return null;
-//	}
-//
-//	public IEnumerator Return()
-//	{
-//		Debug.Log ("Unke returning to original position");
-//		AILerp.target = originalPosition;
-//		AILerp.speed = walkSpeed;
-//		AILerp.SearchPath ();
-//
-//		if (originalPosition.position.x - transform.position.x < 5)
-//		{
-//			AILerp.target = null;
-//			Debug.Log ("Unke has returned to original position");
-////			m_stateMachine.CurrentState = new EnemyPatrolState (m_stateMachine);
-////			m_stateMachine.CurrentState.OnEnter ();
-////			if (SetBehavior == Behavior.Patrols)
-////			{
-//			isPatrolling = true;
-//			currentWaypoint = 1;
-//			StartCoroutine (Patrol());
-////			}
-//			yield return null;
-//		}
-//	}
 
 	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
 	{

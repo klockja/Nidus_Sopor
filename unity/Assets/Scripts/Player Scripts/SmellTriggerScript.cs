@@ -20,7 +20,6 @@ public class SmellTriggerScript : MonoBehaviour
 	{
 		if (col.tag == "Object" || col.tag == "Untagged")
 		{
-			Debug.Log ("Smell collided with " + col.name);
 			Destroy (gameObject);
 		}
 	}
@@ -29,7 +28,6 @@ public class SmellTriggerScript : MonoBehaviour
 	{
 		if (col.tag == "Object" || col.tag == "Untagged")
 		{
-			Debug.Log ("Smell collided with " + col.name);
 			Destroy (gameObject);
 		}
 	}

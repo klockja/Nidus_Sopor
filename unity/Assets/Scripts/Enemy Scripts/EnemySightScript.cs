@@ -61,18 +61,19 @@ public class EnemySightScript : MonoBehaviour
 					//targets
 					if (!Physics2D.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask))
 					{
-						Debug.Log ("FOUND VISIBLE TARGET");
+						Debug.DrawRay (transform.position, dirToTarget, Color.blue);
+						Debug.Log ("SAW PLAYER");
 						visibleTargets.Add (target);
-						_enemyController.playerSensed = true;
-						_enemyController.detectedTransform = target;
+						_enemyController.lastSensedPlayerPosition = target.position;
+						if (_enemyController.playerSensed == false)
+						{
+							StartCoroutine(_enemyController.PlaySound (_enemyController.growl, 0f));
+							_enemyController.playerSensed = true;
+						}
 					}
 					else
 					{
-						if (_enemyController.playerSensed == true)
-						{
-							Debug.Log ("Player isn't in sight!");
-							StartCoroutine (LosePlayer (1f));
-						}
+						
 					}
 				}
 			}
@@ -157,7 +158,6 @@ public class EnemySightScript : MonoBehaviour
 	{
 //		yield return new WaitForSeconds (seconds);
 		visibleTargets.Clear ();
-		_enemyController.playerSensed = false;
 		yield return null;
 	}
 }

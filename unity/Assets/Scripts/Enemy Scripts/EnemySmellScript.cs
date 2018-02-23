@@ -15,8 +15,12 @@ public class EnemySmellScript : MonoBehaviour
 	{
 		if (col.gameObject.tag == "PlayerSmell")
 		{
-			_enemyController.playerSensed = true;
-			_enemyController.detectedTransform = GameManagement.Instance.player.transform;
+			_enemyController.lastSensedPlayerPosition = col.transform.position;
+			if (_enemyController.playerSensed == false)
+			{
+				StartCoroutine(_enemyController.PlaySound (_enemyController.growl, 0f));
+				_enemyController.playerSensed = true;
+			}
 		}
 	}
 }
