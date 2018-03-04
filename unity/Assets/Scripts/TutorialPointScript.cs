@@ -13,6 +13,8 @@ public class TutorialPointScript : MonoBehaviour {
 	void Start () {
 		p1 = TutorialManager.Instance.point1;
 		p2 = TutorialManager.Instance.point2;
+		p3 = TutorialManager.Instance.point3;
+		p4 = TutorialManager.Instance.point4;
 	}
 	
 	// Update is called once per frame
@@ -29,14 +31,27 @@ public class TutorialPointScript : MonoBehaviour {
 				p2.SetActive (true);
 				p1.SetActive (false);
 			}
+			else if (p3.activeSelf == true)
+			{
+				p4.SetActive (true);
+				p3.SetActive (false);
+			}
 		}
 
-		if (col.gameObject.tag == "Object")
+		if (col.gameObject.tag == "Rocks")
 		{
 			//Debug.Log ("player enter point");
 			if (p2.activeSelf == true) {
 				p3.SetActive (true);
 				p2.SetActive (false);
+			}
+		}
+
+		if (col.gameObject.tag == "Bullets")
+		{
+			//Debug.Log ("player enter point");
+			if (p4.activeSelf == true) {
+				p4.SetActive (false);
 			}
 		}
 	}
