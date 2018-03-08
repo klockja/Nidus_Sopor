@@ -8,6 +8,11 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 	public GameObject point2;
 	public GameObject point3;
 	public GameObject point4;
+
+	public GameObject text1;
+	public GameObject text2;
+	public GameObject text3;
+	public GameObject text4;
 	public float pointNumber;
 
 	// Use this for initialization
@@ -17,6 +22,11 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 		point2.SetActive (false);
 		point3.SetActive (false);
 		point4.SetActive (false);
+
+		text1.SetActive (true);
+		text2.SetActive (false);
+		text3.SetActive (false);
+		text4.SetActive (false);
 		
 	}
 	
