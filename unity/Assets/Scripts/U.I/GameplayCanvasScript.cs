@@ -58,7 +58,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 
 		if (newScene != currentScene) {
 			
-			if (SceneManager.GetActiveScene ().name != "Title Scene" && SceneManager.GetActiveScene ().name != "TItle Scene" && SceneManager.GetActiveScene ().name != "Intro Cutscene" && SceneManager.GetActiveScene ().name != "Beach" && GameManagement.Instance.playerDeathNumber == 0) {
+			if (SceneManager.GetActiveScene ().name != "Title Scene" && SceneManager.GetActiveScene ().name != "TItle Scene" && SceneManager.GetActiveScene ().name != "Intro Cutscene" && GameManagement.Instance.playerDeathNumber == 0) {
 				Panel1 = gameplay;
 				Panel2 = pause;
 				gameplay.SetActive (false);
@@ -67,7 +67,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 
 			}
 
-			if (SceneManager.GetActiveScene ().name == "Forest1-1" || SceneManager.GetActiveScene ().name == "Forest1-2" || SceneManager.GetActiveScene ().name == "Forest1-3" || SceneManager.GetActiveScene ().name == "Forest1-4" || SceneManager.GetActiveScene ().name == "Cave" || SceneManager.GetActiveScene ().name == "Forest2" || SceneManager.GetActiveScene ().name == "Beach2") {
+			if (SceneManager.GetActiveScene ().name == "Forest1-1" || SceneManager.GetActiveScene ().name == "Forest1-2" || SceneManager.GetActiveScene ().name == "Forest1-3" || SceneManager.GetActiveScene ().name == "Forest1-4" || SceneManager.GetActiveScene ().name == "Cave" || SceneManager.GetActiveScene ().name == "Forest2" || SceneManager.GetActiveScene ().name == "Beach2" || SceneManager.GetActiveScene ().name == "Beach") {
 				Panel1 = gameplay;
 				Panel2 = pause;
 				gameplay.SetActive (true);
@@ -102,7 +102,8 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 
 	}
 
-	public void switchToMenu(int menuID) {
+	public void switchToMenu(int menuID) //switching differtn menu for button press
+	{
 
 		Panel1.SetActive (false);
 		Panel2.SetActive (false);
@@ -150,7 +151,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 	}
 
 
-	public void PauseScene ()
+	public void PauseScene () //puase the game and bring up the pause menu
 	{
 		if (GameManagement.Instance.isPaused == false) {
 			GameManagement.Instance.isPaused = true;
@@ -163,7 +164,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 		}
 	}
 
-	public void UnPauseScene ()
+	public void UnPauseScene () //unpuase the game and close the pause menu
 	{
 		if (GameManagement.Instance.isPaused == false) {
 			GameManagement.Instance.isPaused = true;
@@ -205,7 +206,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 		}
 	}
 
-	public void SpriteChange()
+	public void SpriteChange() //change the spirte icon for sound
 	{
 		
 		if (GameObject.Find("Sound Button Image").GetComponent<Image>().sprite == sprite1) 
@@ -218,7 +219,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 
 	}
 		
-	public void AreYouSure()
+	public void AreYouSure() //just there to ask if the player really want to quit game
 	{
 		if (GameManagement.Instance.isPlayerDead == false) {
 			Panel2.SetActive (false);
@@ -232,7 +233,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 		}
 	}
 
-	public void TurnOnBlackScreen()
+	public void TurnOnBlackScreen() // type 1 of turn the screen in the background black
 	{
 		if (BlackPanel.activeSelf == false) {
 			BlackPanel.SetActive (true);
@@ -242,7 +243,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 		}
 	}
 
-	public void TurnOnBlackScreen2()
+	public void TurnOnBlackScreen2() // type 2 of turning the screen in the background black use for title scene only
 	{
 		if (BlackPanel.activeSelf == false && (SceneManager.GetActiveScene().name == "Title Scene" || SceneManager.GetActiveScene().name == "TItle Scene" ))
 			BlackPanel.SetActive (true);

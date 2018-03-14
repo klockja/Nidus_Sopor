@@ -4,32 +4,36 @@ using UnityEngine;
 
 public class TutorialPointScript : MonoBehaviour {
 
-	private float num;
+	private int gp;
+
 	private GameObject p1;
 	private GameObject p2;
 	private GameObject p3;
-	private GameObject p4;
 
 	private GameObject t1;
 	private GameObject t2;
 	private GameObject t3;
-	private GameObject t4;
+
 	// Use this for initialization
 	void Start () {
-		p1 = TutorialManager.Instance.point1;
-		p2 = TutorialManager.Instance.point2;
-		p3 = TutorialManager.Instance.point3;
-		p4 = TutorialManager.Instance.point4;
 
 		t1 = TutorialManager.Instance.text1;
 		t2 = TutorialManager.Instance.text2;
 		t3 = TutorialManager.Instance.text3;
-		t4 = TutorialManager.Instance.text4;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		gp = TutorialManager.Instance.getPoint;
+		if (gp >= 3) 
+		{
+			p1 = TutorialManager.Instance.point1;
+			p2 = TutorialManager.Instance.point2;
+			p3 = TutorialManager.Instance.point3;
+			TutorialManager.Instance.getPoint += 1;
+		}
+
 	}
 
 	void OnTriggerEnter2D(Collider2D col)
@@ -43,19 +47,13 @@ public class TutorialPointScript : MonoBehaviour {
 				p1.SetActive (false);
 				t1.SetActive (false);
 			}
-			else if (p3.activeSelf == true)
-			{
-				p4.SetActive (true);
-				t4.SetActive (true);
-				p3.SetActive (false);
-				t3.SetActive (false);
-			}
+	
 		}
 
-		if (col.gameObject.tag == "Rocks")
+		if (col.gameObject.tag == "Rocks" || col.gameObject.tag == "Enemy")
 		{
-			//Debug.Log ("player enter point");
-			if (p2.activeSelf == true) {
+			if (p2.activeSelf == true) 
+			{
 				p3.SetActive (true);
 				t3.SetActive (true);
 				p2.SetActive (false);
@@ -63,11 +61,5 @@ public class TutorialPointScript : MonoBehaviour {
 			}
 		}
 			
-	}
-
-	void OnTriggerExit2D(Collider2D col)
-	{
-		if(p4.activeSelf == true)
-			Destroy (gameObject);
 	}
 }
