@@ -158,9 +158,9 @@ public class EnemyController : MonoBehaviour
 				audioSource.Play ();
 				canMove = false;
 			}
-//			canMove = false;
-//			AILerp.speed = 0;
-//			AILerp.canMove = false;
+			canMove = false;
+			AILerp.speed = 0;
+			AILerp.canMove = false;
 			StartCoroutine ("Die");
 		}
 
