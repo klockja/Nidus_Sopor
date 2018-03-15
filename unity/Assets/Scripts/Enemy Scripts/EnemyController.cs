@@ -152,12 +152,16 @@ public class EnemyController : MonoBehaviour
 		currentHealth = AttackableEnemy.GetHealth ();
 		if (currentHealth <= 0 && canMove)
 		{
-			if (takeDamage != null)
+			if (takeDamage != null && canMove)
 			{
-				audioSource.PlayOneShot (takeDamage);
+				audioSource.clip = takeDamage;
+				audioSource.Play ();
+				canMove = false;
 			}
+//			canMove = false;
+//			AILerp.speed = 0;
+//			AILerp.canMove = false;
 			StartCoroutine ("Die");
-			canMove = false;
 		}
 
 		if (GameManagement.Instance.isPlayerDead)
