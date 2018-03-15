@@ -19,7 +19,7 @@ public class DistractState : CharacterState {
 		if (machine.Controller.rockNum > 0) 
 		{
 			Vector2 mousePosition = new Vector2 (Camera.main.ScreenToWorldPoint (Input.mousePosition).x, Camera.main.ScreenToWorldPoint (Input.mousePosition).y);
-			Vector2 throwPosition = new Vector2 (player.transform.position.x, player.transform.position.y);
+			Vector2 throwPosition = new Vector2 (player.transform.position.x, player.transform.position.y + 0.5f);
 			Vector2 direction = mousePosition - throwPosition;
 			direction.Normalize ();
 			_rock = GameObject.Instantiate (Rock, throwPosition, player.transform.rotation) as GameObject;
