@@ -79,7 +79,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 
 		}
 
-		if (goingBackwards == true && SceneManager.GetActiveScene ().name == "Cave") 
+		if (goingBackwards == true && SceneManager.GetActiveScene ().name == "Cave2") 
 		{
 			//GameObject.Find ("ForwardPortal").SetActive (false);
 			GameObject.Find ("BackwardPortal").SetActive (true);
