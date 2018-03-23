@@ -50,7 +50,10 @@ public class PortalScript : MonoBehaviour {
 		} else if (currentScene == "Forest1-4") {
 			nextScene = "Cave";
 			return nextScene;
-		}  else if (currentScene == "Cave" && GameManagement.Instance.hasegg == true) {
+		} else if (currentScene == "Cave") {
+			nextScene = "Cave2";
+			return nextScene;
+		} else if (currentScene == "Cave2" && GameManagement.Instance.hasegg == true) {
 			nextScene = "Forest2";
 			return nextScene;
 		}  else if (currentScene == "Forest2") {

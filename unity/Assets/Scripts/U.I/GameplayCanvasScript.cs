@@ -67,7 +67,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 
 			}
 
-			if (SceneManager.GetActiveScene ().name == "Forest1-1" || SceneManager.GetActiveScene ().name == "Forest1-2" || SceneManager.GetActiveScene ().name == "Forest1-3" || SceneManager.GetActiveScene ().name == "Forest1-4" || SceneManager.GetActiveScene ().name == "Cave" || SceneManager.GetActiveScene ().name == "Forest2" || SceneManager.GetActiveScene ().name == "Beach2" || SceneManager.GetActiveScene ().name == "Beach") {
+			if (SceneManager.GetActiveScene ().name == "Forest1-1" || SceneManager.GetActiveScene ().name == "Forest1-2" || SceneManager.GetActiveScene ().name == "Forest1-3" || SceneManager.GetActiveScene ().name == "Forest1-4" || SceneManager.GetActiveScene ().name == "Cave" || SceneManager.GetActiveScene ().name == "Cave2" || SceneManager.GetActiveScene ().name == "Forest2" || SceneManager.GetActiveScene ().name == "Beach2" || SceneManager.GetActiveScene ().name == "Beach") {
 				Panel1 = gameplay;
 				Panel2 = pause;
 				gameplay.SetActive (true);
