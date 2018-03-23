@@ -126,6 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4608260463005210}
   - component: {fileID: 212511795459713294}
+  - component: {fileID: 114964867903798648}
   m_Layer: 0
   m_Name: Smell Visuals
   m_TagString: Untagged
@@ -285,7 +286,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1342388625327876}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.66, y: 1.75, z: -1.2775731}
+  m_LocalPosition: {x: 19.5, y: -61.5, z: 8.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4538211083736408}
@@ -523,7 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_extraRenderers: []
-  m_sortOffset: 0
+  m_sortOffset: -1
 --- !u!114 &114407974867190106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -662,6 +663,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2304
   visibleTargets: []
+--- !u!114 &114964867903798648
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1672984911227126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d435d68685f4c529a8f75bc0a72a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_extraRenderers: []
+  m_sortOffset: -0.5
 --- !u!198 &198642648618618210
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -722,7 +736,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1187508101
+  randomSeed: 911712844
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4058,7 +4072,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1071240779
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

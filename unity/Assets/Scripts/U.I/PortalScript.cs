@@ -88,7 +88,7 @@ public class PortalScript : MonoBehaviour {
 				GameObject.Find ("GameManager").GetComponent<GameManagement> ().nextScene = true;
 				//Debug.Log ("TIME TO LOAD NEW SCENE");
 				GameplayCanvasScript.Instance.LoadSceneNow (nextScene);
-			} else if (SceneManager.GetActiveScene ().name == "Cave" && GameManagement.Instance.hasegg == true) {
+			} else if (SceneManager.GetActiveScene ().name == "Cave2" && GameManagement.Instance.hasegg == true) {
 				currentScene = SceneManager.GetActiveScene ().name;
 				DetermineNextScene ();
 				GameObject.Find ("GameManager").GetComponent<GameManagement> ().nextScene = true;

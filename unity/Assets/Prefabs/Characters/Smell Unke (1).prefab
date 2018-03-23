@@ -127,6 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4998926228812864}
   - component: {fileID: 212451967070127770}
+  - component: {fileID: 114153619177052264}
   m_Layer: 0
   m_Name: Smell Visuals
   m_TagString: Untagged
@@ -174,7 +175,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1310398093323060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.16, y: -7.75, z: -1.2775731}
+  m_LocalPosition: {x: 17.5, y: -78.5, z: 8.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4649178507816988}
@@ -489,6 +490,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114153619177052264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1458943962915128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d435d68685f4c529a8f75bc0a72a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_extraRenderers: []
+  m_sortOffset: -4.5
 --- !u!114 &114261756681446324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -582,7 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_extraRenderers: []
-  m_sortOffset: 0
+  m_sortOffset: -1
 --- !u!114 &114571414510080400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -646,7 +660,7 @@ MonoBehaviour:
   leftHeadPosition: {x: -1, y: 0.1}
   rightHeadPosition: {x: 1, y: 0.1}
   walkSpeed: 1
-  runSpeed: 3
+  runSpeed: 3.5
   EnemyHead: {fileID: 4124892266203804}
   targetMask:
     serializedVersion: 2
@@ -722,7 +736,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1965729515
+  randomSeed: -503034485
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4058,7 +4072,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1071240779
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
