@@ -33,6 +33,7 @@ public class TutorialPointScript : MonoBehaviour {
 			p3 = TutorialManager.Instance.point3;
 			TutorialManager.Instance.getPoint += 1;
 		}
+			
 
 	}
 

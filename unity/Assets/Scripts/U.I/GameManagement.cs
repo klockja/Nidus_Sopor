@@ -31,7 +31,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 		//ispaused = false;
 		player = GameObject.Find("Player");
 		bulletCount = 6;
-		unusedBullet = 12;
+		unusedBullet = 0;
 		rockCount = 1;
 		playerDeathNumber = 0;
 		currentScene = SceneManager.GetActiveScene().name;
@@ -79,7 +79,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 
 		}
 
-		if (goingBackwards == true && SceneManager.GetActiveScene ().name == "Cave") 
+		if (goingBackwards == true && SceneManager.GetActiveScene ().name == "Cave2") 
 		{
 			//GameObject.Find ("ForwardPortal").SetActive (false);
 			GameObject.Find ("BackwardPortal").SetActive (true);

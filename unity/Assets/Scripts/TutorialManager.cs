@@ -52,6 +52,13 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 			point3.SetActive (false);
 			getPoint += 1;
 		}
+
+		if (currentScene != "Beach") {
+			text1.SetActive (false);
+			text2.SetActive (false);
+			text3.SetActive (false);
+
+		}
 	}
 
 	private void SearchForPoint()
