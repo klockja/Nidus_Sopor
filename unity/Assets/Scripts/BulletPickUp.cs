@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rockObject : MonoBehaviour {
+public class BulletPickUp : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -18,9 +18,9 @@ public class rockObject : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "Player") 
 		{
-			GameObject.Find ("Player").GetComponent<PlayerController> ().rockNum += 1;
+			GameObject.Find ("Player").GetComponent<PlayerController> ().unusedBulletNum += 1;
 			Destroy (gameObject);
-			//Debug.Log ("playertouchrock");
+			//Debug.Log ("playertouchbullet");
 		}
 	}
 }

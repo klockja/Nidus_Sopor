@@ -31,7 +31,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 		//ispaused = false;
 		player = GameObject.Find("Player");
 		bulletCount = 6;
-		unusedBullet = 12;
+		unusedBullet = 0;
 		rockCount = 1;
 		playerDeathNumber = 0;
 		currentScene = SceneManager.GetActiveScene().name;
