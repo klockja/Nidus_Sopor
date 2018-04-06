@@ -206,12 +206,20 @@ public class EnemyController : MonoBehaviour
 	void ChasePlayer()
 	{
 		Vector2 lastSensedDeltaPos = lastSensedPlayerPosition - new Vector2(transform.position.x, transform.position.y);
-		if (lastSensedDeltaPos.sqrMagnitude > 1f)
+
+		while (lastSensedPlayerPosition - transform.position > .25f)
 		{
 			AILerp.destination = lastSensedPlayerPosition;
 			AILerp.speed = runSpeed;
 		}
-		if (lastSensedDeltaPos.sqrMagnitude < .1f)
+
+		if (lastSensedDeltaPos.sqrMagnitude > .1f)
+		{
+			AILerp.destination = lastSensedPlayerPosition;
+			AILerp.speed = runSpeed;
+		}
+
+		if (lastSensedDeltaPos.sqrMagnitude < .05f)
 		{
 			playerSensed = false;
 			AILerp.speed = walkSpeed;
