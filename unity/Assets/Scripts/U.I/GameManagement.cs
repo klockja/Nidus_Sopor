@@ -57,7 +57,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 
 		if (currentScene == "Title Scene" || currentScene == "TItle Scene") {
 			bulletCount = 6;
-			unusedBullet = 12;
+			unusedBullet = 0;
 			rockCount = 1;
 			playerDeathNumber = 0;
 		}

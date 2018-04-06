@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> {
 
+	private bool canPress = true;
+
 	public int menuID=0;
 	public GameObject Panel1;
 	public GameObject Panel2;
@@ -179,8 +181,16 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 		
 	public void LoadSceneNow(string C) 
 	{
-		StartCoroutine(GameObject.Find("SceneManager").GetComponent<ScreenManagerScript>().LoadScene(C));
-		GameManagement.Instance.playerDeathNumber = 0;
+		if (canPress == true) {
+			StartCoroutine (GameObject.Find ("SceneManager").GetComponent<ScreenManagerScript> ().LoadScene (C));
+			GameManagement.Instance.playerDeathNumber = 0;
+			Invoke("ResetCanPress",2.0f);
+			canPress = false;
+		}
+	}
+
+	void ResetCanPress(){
+		canPress = true;
 	}
 
 	public void ReloadScene()
