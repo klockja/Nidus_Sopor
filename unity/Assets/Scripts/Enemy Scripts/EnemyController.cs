@@ -201,11 +201,6 @@ public class EnemyController : MonoBehaviour
 				}
 			}
 		}
-
-		if (Input.GetKeyDown (KeyCode.O))
-		{
-			AILerp.destination = new Vector3 (5, 5, transform.position.z);
-		}
 	}
 
 	void ChasePlayer()
@@ -216,10 +211,11 @@ public class EnemyController : MonoBehaviour
 			AILerp.destination = lastSensedPlayerPosition;
 			AILerp.speed = runSpeed;
 		}
-		if (lastSensedDeltaPos.sqrMagnitude < .25f)
+		if (lastSensedDeltaPos.sqrMagnitude < .1f)
 		{
 			playerSensed = false;
 			AILerp.speed = walkSpeed;
+			StartCoroutine (Wait (3f));
 		}
 	}
 
@@ -229,7 +225,7 @@ public class EnemyController : MonoBehaviour
 		{
 			AILerp.destination = waypoints [waypointIndex];
 			AILerp.speed = walkSpeed;
-		} 
+		}
 		else
 		{
 			if(waypointIndex == waypoints.Length - 1)
@@ -287,7 +283,7 @@ public class EnemyController : MonoBehaviour
 		}
 		else if (directionFacing.x > 0f)
 		{
-			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 270f); 
+			EnemyHead.rotation = Quaternion.Euler (EnemyHead.eulerAngles.x, EnemyHead.eulerAngles.y, 270f);
 			EnemyHead.localPosition = rightHeadPosition;
 			anim.SetFloat ("input_x", 1);
 			anim.SetFloat ("input_y", 0);
@@ -299,6 +295,17 @@ public class EnemyController : MonoBehaviour
 	{
 		yield return new WaitForSeconds (delay);
 		audioSource.PlayOneShot (clip);
+		yield return null;
+	}
+
+	public IEnumerator Wait	(float timeToWait)
+	{
+		if (playerSensed == false)
+		{
+			AILerp.isStopped = true;
+			yield return new WaitForSeconds (timeToWait);
+			AILerp.isStopped = false;
+		}
 		yield return null;
 	}
 
