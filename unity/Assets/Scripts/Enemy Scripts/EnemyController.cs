@@ -27,6 +27,8 @@ public class EnemyController : MonoBehaviour
 	public AttackableEnemy AttackableEnemy;
 	public AILerp AILerp;
 
+	private Vector2 lastSensedDeltaPos;
+
 	public bool canAttack;
 	public bool canBeHurt;
 	public bool canMove = true;
@@ -186,6 +188,7 @@ public class EnemyController : MonoBehaviour
 		{
 			if (playerSensed && GameManagement.Instance.isPlayerDead == false)
 			{
+				lastSensedDeltaPos = lastSensedPlayerPosition - new Vector2(transform.position.x, transform.position.y);
 				ChasePlayer ();
 			} 
 			else if (playerSensed == false && GameManagement.Instance.isPlayerDead == false)
@@ -205,25 +208,17 @@ public class EnemyController : MonoBehaviour
 
 	void ChasePlayer()
 	{
-		Vector2 lastSensedDeltaPos = lastSensedPlayerPosition - new Vector2(transform.position.x, transform.position.y);
-
-		while (lastSensedPlayerPosition - transform.position > .25f)
+		Debug.Log ("lastSensedDeltaPos = " + lastSensedDeltaPos.sqrMagnitude);
+		if (lastSensedDeltaPos.sqrMagnitude > .5f)
 		{
 			AILerp.destination = lastSensedPlayerPosition;
 			AILerp.speed = runSpeed;
 		}
 
-		if (lastSensedDeltaPos.sqrMagnitude > .1f)
+		if (lastSensedDeltaPos.sqrMagnitude < .5f)
 		{
-			AILerp.destination = lastSensedPlayerPosition;
-			AILerp.speed = runSpeed;
-		}
-
-		if (lastSensedDeltaPos.sqrMagnitude < .05f)
-		{
-			playerSensed = false;
 			AILerp.speed = walkSpeed;
-			StartCoroutine (Wait (3f));
+			StartCoroutine (LosePlayer (3f));
 		}
 	}
 
@@ -231,8 +226,11 @@ public class EnemyController : MonoBehaviour
 	{
 		if ((Vector2)transform.position != waypoints [waypointIndex])
 		{
-			AILerp.destination = waypoints [waypointIndex];
-			AILerp.speed = walkSpeed;
+			if (playerSensed == false)
+			{
+				AILerp.destination = waypoints [waypointIndex];
+				AILerp.speed = walkSpeed;
+			}
 		}
 		else
 		{
@@ -306,13 +304,24 @@ public class EnemyController : MonoBehaviour
 		yield return null;
 	}
 
-	public IEnumerator Wait	(float timeToWait)
+	public IEnumerator LosePlayer (float timeToWait)
+	{
+		Debug.Log ("Losing Player");
+//			AILerp.isStopped = true;
+			yield return new WaitForSeconds (timeToWait);
+			playerSensed = false;
+//			AILerp.isStopped = false;
+		yield return null;
+	}
+
+	public IEnumerator Wait (float timeToWait)
 	{
 		if (playerSensed == false)
 		{
-			AILerp.isStopped = true;
+			//			AILerp.isStopped = true;
 			yield return new WaitForSeconds (timeToWait);
-			AILerp.isStopped = false;
+
+			//			AILerp.isStopped = false;
 		}
 		yield return null;
 	}
