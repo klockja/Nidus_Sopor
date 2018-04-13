@@ -36,6 +36,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 		playerDeathNumber = 0;
 		currentScene = SceneManager.GetActiveScene().name;
 		originalDeathNumber = playerDeathNumber;
+		hasegg = false;
 
 	}
 

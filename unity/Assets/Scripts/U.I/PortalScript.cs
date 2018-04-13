@@ -45,12 +45,15 @@ public class PortalScript : MonoBehaviour {
 			nextScene = "Forest1-3";
 			return nextScene;
 		} else if (currentScene == "Forest1-3") {
-			nextScene = "Forest1-4";
-			return nextScene;
-		} else if (currentScene == "Forest1-4") {
 			nextScene = "Cave";
 			return nextScene;
 		} else if (currentScene == "Cave") {
+			// Cave
+			nextScene = "Forest1-4";
+			// Forest1-4
+			return nextScene;
+		} else if (currentScene == "Forest1-4") {
+			// Forest 1-4
 			nextScene = "Cave2";
 			return nextScene;
 		} else if (currentScene == "Cave2" && GameManagement.Instance.hasegg == true) {
@@ -82,7 +85,7 @@ public class PortalScript : MonoBehaviour {
 				MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.epilogue;
 				MusicManagerScript.Instance.musicPlayer.Play ();
 				GameplayCanvasScript.Instance.LoadSceneNow ("End Cutscene");
-			} else if (SceneManager.GetActiveScene ().name != "Cave" && SceneManager.GetActiveScene ().name != "Beach2") {
+			} else if (SceneManager.GetActiveScene ().name != "Cave2" && SceneManager.GetActiveScene ().name != "Beach2") {
 				currentScene = SceneManager.GetActiveScene ().name;
 				DetermineNextScene ();
 				GameObject.Find ("GameManager").GetComponent<GameManagement> ().nextScene = true;
