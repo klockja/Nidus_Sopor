@@ -78,8 +78,10 @@ public class PortalScript : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		if (col.gameObject.tag == "Player")  
+		if (col.gameObject.tag == "Player") 
 		{
+			GameManagement.Instance.isPaused = true;
+
 			if (SceneManager.GetActiveScene ().name == "Beach2") {
 
 				MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.epilogue;
