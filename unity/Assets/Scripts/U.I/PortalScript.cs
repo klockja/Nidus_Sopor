@@ -82,7 +82,14 @@ public class PortalScript : MonoBehaviour {
 		{
 			GameManagement.Instance.isPaused = true;
 
-			if (SceneManager.GetActiveScene ().name == "Beach2") {
+			if (SceneManager.GetActiveScene ().name == "Beach") {
+				currentScene = SceneManager.GetActiveScene ().name;
+				DetermineNextScene ();
+				GameObject.Find ("GameManager").GetComponent<GameManagement> ().nextScene = true;
+				GameObject.Find ("Player").GetComponent<PlayerController> ().unusedBulletNum = 0;
+				GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum = 6;
+				GameplayCanvasScript.Instance.LoadSceneNow (nextScene);
+			} else if (SceneManager.GetActiveScene ().name == "Beach2") {
 
 				MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.epilogue;
 				MusicManagerScript.Instance.musicPlayer.Play ();

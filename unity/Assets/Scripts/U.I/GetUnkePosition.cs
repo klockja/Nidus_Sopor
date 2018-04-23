@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class GetUnkePosition : MonoBehaviour {
 
-	private GameObject Unke;
+	public GameObject Unke;
 	private float x;
 	private float y;
 
 	// Use this for initialization
 	void Start () {
 
-		Unke = GameObject.Find ("Unke");
+		//Unke = GameObject.Find ("Unke");
 	}
 	
 	// Update is called once per frame
@@ -21,7 +21,7 @@ public class GetUnkePosition : MonoBehaviour {
 		if (Unke != null) 
 		{
 			x = Unke.transform.position.x;
-			y = Unke.transform.position.y + 0.5f;
+			y = Unke.transform.position.y + 1.5f;
 			transform.position = new Vector3 (x, y, 0);
 
 		} 

@@ -197,6 +197,7 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 	{
 		LoadSceneNow (SceneManager.GetActiveScene ().name);
 		GameManagement.Instance.playerDeathNumber += 1;
+		TutorialManager.Instance.getPoint = 1;
 		//GameManagement.Instance.isPlayerDead = false;
 		DefeatPanel.gameObject.SetActive(false);
 		AreYouSurePanel.SetActive (false);

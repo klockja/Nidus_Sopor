@@ -8,10 +8,20 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 	public GameObject point1;
 	public GameObject point2;
 	public GameObject point3;
+	public GameObject point4;
+	public GameObject point5;
+	public GameObject point6;
+	public GameObject point7;
+	public GameObject point8;
 
 	public GameObject text1;
 	public GameObject text2;
 	public GameObject text3;
+	public GameObject text4;
+	public GameObject text5;
+	public GameObject text6;
+	public GameObject text7;
+	public GameObject text8;
 
 	public float pointNumber; // Currently not in used
 	public int getPoint;
@@ -36,13 +46,18 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 			currentScene = newScene;
 		}
 
-		if (currentScene == "Beach" && point1 == null && point2 == null && point3 == null) {
+		if (currentScene == "Beach" && point1 == null && point2 == null && point3 == null && point4 == null && point5 == null && point6 == null && point7 == null && point8 == null) {
 
 			SearchForPoint ();
 
 			text1.SetActive (true);
 			text2.SetActive (false);
 			text3.SetActive (false);
+			text4.SetActive (false);
+			text5.SetActive (false);
+			text6.SetActive (false);
+			text7.SetActive (false);
+			text8.SetActive (false);
 
 		}
 
@@ -50,6 +65,11 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 			point1.SetActive (true);
 			point2.SetActive (false);
 			point3.SetActive (false);
+			point4.SetActive (false);
+			point5.SetActive (false);
+			point6.SetActive (false);
+			point7.SetActive (false);
+			point8.SetActive (false);
 			getPoint += 1;
 		}
 
@@ -57,8 +77,15 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 			text1.SetActive (false);
 			text2.SetActive (false);
 			text3.SetActive (false);
+			text4.SetActive (false);
+			text5.SetActive (false);
+			text6.SetActive (false);
+			text7.SetActive (false);
+			text8.SetActive (false);
+
 
 		}
+			
 	}
 
 	private void SearchForPoint()
@@ -66,6 +93,11 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 		point1 = GameObject.Find ("Point1");
 		point2 = GameObject.Find ("Point2");
 		point3 = GameObject.Find ("Point3");
+		point4 = GameObject.Find ("Point4");
+		point5 = GameObject.Find ("Point5");
+		point6 = GameObject.Find ("Point6");
+		point7 = GameObject.Find ("Point7");
+		point8 = GameObject.Find ("Point8");
 		getPoint += 1;
 
 	}

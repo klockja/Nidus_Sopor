@@ -254,6 +254,15 @@ public class PlayerController : MonoBehaviour
 			GameManagement.Instance.isPaused = true;
 			GameplayCanvasScript.Instance.BlackPanel.SetActive (true);
 			GameplayCanvasScript.Instance.DefeatPanel.SetActive(true);
+
+			TutorialManager.Instance.text1.SetActive(false);
+			TutorialManager.Instance.text2.SetActive(false);
+			TutorialManager.Instance.text3.SetActive(false);
+			TutorialManager.Instance.text4.SetActive(false);
+			TutorialManager.Instance.text5.SetActive(false);
+			TutorialManager.Instance.text6.SetActive(false);
+			TutorialManager.Instance.text7.SetActive(false);
+			TutorialManager.Instance.text8.SetActive(false);
 		}
 	}
 
