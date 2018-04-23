@@ -9,6 +9,7 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 	public GameObject point2;
 	public GameObject point3;
 	public GameObject point4;
+	public GameObject point4a;
 	public GameObject point5;
 	public GameObject point6;
 	public GameObject point7;
@@ -46,7 +47,7 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 			currentScene = newScene;
 		}
 
-		if (currentScene == "Beach" && point1 == null && point2 == null && point3 == null && point4 == null && point5 == null && point6 == null && point7 == null && point8 == null) {
+		if (currentScene == "Beach" && point1 == null && point2 == null && point3 == null && point4 == null && point4a == null && point5 == null && point6 == null && point7 == null && point8 == null) {
 
 			SearchForPoint ();
 
@@ -66,6 +67,7 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 			point2.SetActive (false);
 			point3.SetActive (false);
 			point4.SetActive (false);
+			point4a.SetActive (false);
 			point5.SetActive (false);
 			point6.SetActive (false);
 			point7.SetActive (false);
@@ -94,6 +96,7 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 		point2 = GameObject.Find ("Point2");
 		point3 = GameObject.Find ("Point3");
 		point4 = GameObject.Find ("Point4");
+		point4a = GameObject.Find ("Point4a");
 		point5 = GameObject.Find ("Point5");
 		point6 = GameObject.Find ("Point6");
 		point7 = GameObject.Find ("Point7");

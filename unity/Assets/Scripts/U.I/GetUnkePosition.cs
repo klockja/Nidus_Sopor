@@ -21,14 +21,16 @@ public class GetUnkePosition : MonoBehaviour {
 		if (Unke != null) 
 		{
 			x = Unke.transform.position.x;
-			y = Unke.transform.position.y + 1.5f;
+			y = Unke.transform.position.y + 0.5f;
 			transform.position = new Vector3 (x, y, 0);
 
 		} 
 		else 
 		{
-			TutorialManager.Instance.point3.SetActive (false);
-			TutorialManager.Instance.text3.SetActive (false);
+			TutorialManager.Instance.point7.SetActive (false);
+			TutorialManager.Instance.text7.SetActive (false);
+			TutorialManager.Instance.point8.SetActive (true);
+			TutorialManager.Instance.text8.SetActive (true);
 		}
 	}
 }
