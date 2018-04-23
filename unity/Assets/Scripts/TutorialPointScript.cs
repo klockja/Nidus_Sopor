@@ -10,6 +10,7 @@ public class TutorialPointScript : MonoBehaviour {
 	private GameObject p2;
 	private GameObject p3;
 	private GameObject p4;
+	private GameObject p4a;
 	private GameObject p5;
 	private GameObject p6;
 	private GameObject p7;
@@ -47,6 +48,7 @@ public class TutorialPointScript : MonoBehaviour {
 			p2 = TutorialManager.Instance.point2;
 			p3 = TutorialManager.Instance.point3;
 			p4 = TutorialManager.Instance.point4;
+			p4a = TutorialManager.Instance.point4a;
 			p5 = TutorialManager.Instance.point5;
 			p6 = TutorialManager.Instance.point6;
 			p7 = TutorialManager.Instance.point7;
@@ -74,15 +76,23 @@ public class TutorialPointScript : MonoBehaviour {
 				t2.SetActive (true);
 				p1.SetActive (false);
 				t1.SetActive (false);
-			}
+
+			} 
 
 			else if (p3.activeSelf == true) {
 				p4.SetActive (true);
 				t4.SetActive (true);
 				p3.SetActive (false);
 				t3.SetActive (false);
+
+			} 
+
+			else if (p4a.activeSelf == true) {
+				p5.SetActive (true);
+				t5.SetActive (true);
+				p4a.SetActive (false);
+
 			}
-				
 
 			else if (p5.activeSelf == true) {
 				p6.SetActive (true);
@@ -104,19 +114,18 @@ public class TutorialPointScript : MonoBehaviour {
 		{
 			if (p4.activeSelf == true) 
 			{
-				p5.SetActive (true);
-				t5.SetActive (true);
+				p4a.SetActive (true);
 				p4.SetActive (false);
 				t4.SetActive (false);
 			}
 
-			else if (p7.activeSelf == true) 
-			{
-				p8.SetActive (true);
-				t8.SetActive (true);
-				p7.SetActive (false);
-				t7.SetActive (false);
-			}
+			//else if (p7.activeSelf == true) 
+			//{
+			//	p8.SetActive (true);
+			//	t8.SetActive (true);
+			//	p7.SetActive (false);
+			//	t7.SetActive (false);
+			//}
 		}
 			
 	}
