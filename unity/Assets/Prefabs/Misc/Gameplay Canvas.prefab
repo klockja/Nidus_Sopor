@@ -3125,9 +3125,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Each Unke will have an sight, scent, sound indication. Each indication is
-    color coded by color. Sight is represent by yellow, sound is by white, and scent
-    by green. Press "Space" to Continue.
+  m_Text: Each Unke will have an sight, scent, and sound indication. Each sense is
+    color coded. Sight is yellow, sound is white, and scent is green. Press "Space"
+    to Continue.
 --- !u!114 &114152249535379988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3187,7 +3187,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Shoot the Unke by pressing the "Left Mouse Key" over the unke.
+  m_Text: Shoot the Unke by aiming the cursor and clicking the "Left Mouse Button."
 --- !u!114 &114157967976139498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4237,7 +4237,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Move above the Arrow to pick up the Bullet.
+  m_Text: Move to the bullet and pick it up.
 --- !u!114 &114323315274228072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4921,8 +4921,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Move on top of the Arrow to pick up rock. Object with effect around them
-    can be pick up by walking over them.
+  m_Text: Go to the Arrow to pick up the rock. Objects that sparkle can be picked
+    up by walking over them.
 --- !u!114 &114446131198409706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5497,7 +5497,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Move to the Arrow Icon using "W,A,S,D" or "Arrow Key". '
+  m_Text: 'Move to the Arrow using "W,A,S,D" or "Arrow Keys". '
 --- !u!114 &114557980306813840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7388,7 +7388,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Move pass the Unke while pressing "Shift" to sneak
+  m_Text: Move past the Unke while pressing "Shift" to sneak
 --- !u!114 &114794405419388956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7686,7 +7686,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Move toward the Arrow to head toward the next level
+  m_Text: Move to the Arrow to go to the next level
 --- !u!114 &114857942629760254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8215,8 +8215,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Throw the rock at the direction of the arrow by press the "Right Mouse Key".
-    Then move toward the new arrow while it is distracted.
+  m_Text: Throw the rock toward the arrow with the "Right Mouse Button."
 --- !u!114 &114997135435232012
 MonoBehaviour:
   m_ObjectHideFlags: 1
