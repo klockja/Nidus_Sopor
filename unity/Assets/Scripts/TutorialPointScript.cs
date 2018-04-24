@@ -25,6 +25,15 @@ public class TutorialPointScript : MonoBehaviour {
 	private GameObject t7;
 	private GameObject t8;
 
+	private GameObject i1;
+	private GameObject i2;
+	private GameObject i3;
+	private GameObject i4;
+	private GameObject i5;
+	private GameObject i6;
+	private GameObject i7;
+
+
 	// Use this for initialization
 	void Start () {
 
@@ -36,6 +45,15 @@ public class TutorialPointScript : MonoBehaviour {
 		t6 = TutorialManager.Instance.text6;
 		t7 = TutorialManager.Instance.text7;
 		t8 = TutorialManager.Instance.text8;
+
+		i1 = TutorialManager.Instance.image1;
+		i2 = TutorialManager.Instance.image2;
+		i3 = TutorialManager.Instance.image3;
+		i4 = TutorialManager.Instance.image4;
+		i5 = TutorialManager.Instance.image5;
+		i6 = TutorialManager.Instance.image6;
+		i7 = TutorialManager.Instance.image7;
+
 
 	}
 	
@@ -56,12 +74,28 @@ public class TutorialPointScript : MonoBehaviour {
 			TutorialManager.Instance.getPoint += 1;
 		}
 
-		if (p2.activeSelf == true && Input.GetKeyDown(KeyCode.Space))
+
+		if (i2.activeSelf == true && Input.GetKeyDown(KeyCode.Space))
 		{
-				p3.SetActive (true);
-				t3.SetActive (true);
-				p2.SetActive (false);
-				t2.SetActive (false);
+				i3.SetActive (true);
+				i2.SetActive (false);
+				
+		}
+
+		else if (i3.activeSelf == true && Input.GetKeyDown(KeyCode.Space))
+		{
+			i4.SetActive (true);
+			i3.SetActive (false);
+
+		}
+
+		else if (i4.activeSelf == true && Input.GetKeyDown(KeyCode.Space))
+		{
+			p3.SetActive (true);
+			t3.SetActive (true);
+			GameManagement.Instance.isPaused = false;
+			i4.SetActive (false);
+
 		}
 
 	}
@@ -70,12 +104,15 @@ public class TutorialPointScript : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "Player") 
 		{
-			Debug.Log ("player enter point");
+			//Debug.Log ("player enter point");
 			if (p1.activeSelf == true) {
-				p2.SetActive (true);
-				t2.SetActive (true);
+				Debug.Log ("test1");
+				i2.SetActive (true);
+				GameManagement.Instance.isPaused = true;
+				Debug.Log ("after pause");
 				p1.SetActive (false);
 				t1.SetActive (false);
+				Debug.Log ("leave part 1");
 
 			} 
 

@@ -24,6 +24,14 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 	public GameObject text7;
 	public GameObject text8;
 
+	public GameObject image1;
+	public GameObject image2;
+	public GameObject image3;
+	public GameObject image4;
+	public GameObject image5;
+	public GameObject image6;
+	public GameObject image7;
+
 	public float pointNumber; // Currently not in used
 	public int getPoint;
 
@@ -60,6 +68,14 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 			text7.SetActive (false);
 			text8.SetActive (false);
 
+			image1.SetActive (false);
+			image2.SetActive (false);
+			image3.SetActive (false);
+			image4.SetActive (false);
+			image5.SetActive (false);
+			image6.SetActive (false);
+			image7.SetActive (false);
+
 		}
 
 		if (getPoint == 2) {
@@ -85,6 +101,13 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 			text7.SetActive (false);
 			text8.SetActive (false);
 
+			image1.SetActive (false);
+			image2.SetActive (false);
+			image3.SetActive (false);
+			image4.SetActive (false);
+			image5.SetActive (false);
+			image6.SetActive (false);
+			image7.SetActive (false);
 
 		}
 			
