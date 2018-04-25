@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class TutorialManager: GenericSingletonClass<TutorialManager> {
 
 	public GameObject point1;
+	public GameObject pointi2;
+	public GameObject pointi3;
+	public GameObject pointi4;
+	public GameObject pointi5;
+	public GameObject pointi6;
+	public GameObject pointi7;
 	public GameObject point2;
 	public GameObject point3;
 	public GameObject point4;
@@ -55,7 +61,7 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 			currentScene = newScene;
 		}
 
-		if (currentScene == "Beach" && point1 == null && point2 == null && point3 == null && point4 == null && point4a == null && point5 == null && point6 == null && point7 == null && point8 == null) {
+		if (currentScene == "Beach" && point1 == null && point2 == null && point3 == null && point4 == null && point4a == null && point5 == null && point6 == null && point7 == null && point8 == null && pointi2 == null && pointi3 == null && pointi4 == null && pointi5 == null && pointi6 == null && pointi7 == null) {
 
 			SearchForPoint ();
 
@@ -80,6 +86,12 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 
 		if (getPoint == 2) {
 			point1.SetActive (true);
+			pointi2.SetActive (false);
+			pointi3.SetActive (false);
+			pointi4.SetActive (false);
+			pointi5.SetActive (false);
+			pointi6.SetActive (false);
+			pointi7.SetActive (false);
 			point2.SetActive (false);
 			point3.SetActive (false);
 			point4.SetActive (false);
@@ -116,6 +128,12 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 	private void SearchForPoint()
 	{
 		point1 = GameObject.Find ("Point1");
+		pointi2 = GameObject.Find ("Pointi2");
+		pointi3 = GameObject.Find ("Pointi3");
+		pointi4 = GameObject.Find ("Pointi4");
+		pointi5 = GameObject.Find ("Pointi5");
+		pointi6 = GameObject.Find ("Pointi6");
+		pointi7 = GameObject.Find ("Pointi7");
 		point2 = GameObject.Find ("Point2");
 		point3 = GameObject.Find ("Point3");
 		point4 = GameObject.Find ("Point4");

@@ -7,6 +7,12 @@ public class TutorialPointScript : MonoBehaviour {
 	private int gp;
 
 	private GameObject p1;
+	private GameObject pi2;
+	private GameObject pi3;
+	private GameObject pi4;
+	private GameObject pi5;
+	private GameObject pi6;
+	private GameObject pi7;
 	private GameObject p2;
 	private GameObject p3;
 	private GameObject p4;
@@ -60,42 +66,68 @@ public class TutorialPointScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		gp = TutorialManager.Instance.getPoint;
-		if (gp >= 3) 
+		if (gp == 3) 
 		{
-			p1 = TutorialManager.Instance.point1;
-			p2 = TutorialManager.Instance.point2;
-			p3 = TutorialManager.Instance.point3;
-			p4 = TutorialManager.Instance.point4;
-			p4a = TutorialManager.Instance.point4a;
-			p5 = TutorialManager.Instance.point5;
-			p6 = TutorialManager.Instance.point6;
-			p7 = TutorialManager.Instance.point7;
-			p8 = TutorialManager.Instance.point8;
+			//p1 = TutorialManager.Instance.point1;
+			//pi2 = TutorialManager.Instance.pointi2;
+			//pi3 = TutorialManager.Instance.pointi3;
+			//pi4 = TutorialManager.Instance.pointi4;
+			//pi5 = TutorialManager.Instance.pointi5;
+			//pi6 = TutorialManager.Instance.pointi6;
+			//pi7 = TutorialManager.Instance.pointi7;
+			//p2 = TutorialManager.Instance.point2;
+			//p3 = TutorialManager.Instance.point3;
+			//p4 = TutorialManager.Instance.point4;
+			//p4a = TutorialManager.Instance.point4a;
+			//p5 = TutorialManager.Instance.point5;
+			//p6 = TutorialManager.Instance.point6;
+			//p7 = TutorialManager.Instance.point7;
+			//p8 = TutorialManager.Instance.point8;
 			TutorialManager.Instance.getPoint += 1;
 		}
 
-
-		if (i2.activeSelf == true && Input.GetKeyDown(KeyCode.Space))
-		{
+		if (gp == 4) {
+			if (TutorialManager.Instance.pointi2.activeSelf == true && Input.GetKeyDown (KeyCode.Space)) {
+				TutorialManager.Instance.pointi3.SetActive (true);
 				i3.SetActive (true);
+				TutorialManager.Instance.pointi2.SetActive (false);
 				i2.SetActive (false);
 				
-		}
+			} else if (TutorialManager.Instance.pointi3.activeSelf == true && Input.GetKeyDown (KeyCode.Space)) {
+				i4.SetActive (true);
+				TutorialManager.Instance.pointi4.SetActive (true);
+				i3.SetActive (false);
+				TutorialManager.Instance.pointi3.SetActive (false);
 
-		else if (i3.activeSelf == true && Input.GetKeyDown(KeyCode.Space))
-		{
-			i4.SetActive (true);
-			i3.SetActive (false);
+			} else if (TutorialManager.Instance.pointi4.activeSelf == true && Input.GetKeyDown (KeyCode.Space)) {
+				TutorialManager.Instance.point3.SetActive (true);
+				t3.SetActive (true);
+				GameManagement.Instance.isPaused = false;
+				i4.SetActive (false);
+				TutorialManager.Instance.pointi4.SetActive (false);
 
-		}
+			} else if (TutorialManager.Instance.pointi5.activeSelf == true && Input.GetKeyDown (KeyCode.Space)) {
+				TutorialManager.Instance.point4.SetActive (true);
+				t4.SetActive (true);
+				GameManagement.Instance.isPaused = false;
+				i5.SetActive (false);
+				TutorialManager.Instance.pointi5.SetActive (false);
 
-		else if (i4.activeSelf == true && Input.GetKeyDown(KeyCode.Space))
-		{
-			p3.SetActive (true);
-			t3.SetActive (true);
-			GameManagement.Instance.isPaused = false;
-			i4.SetActive (false);
+			} else if (TutorialManager.Instance.pointi6.activeSelf == true && Input.GetKeyDown (KeyCode.Space)) {
+				TutorialManager.Instance.point5.SetActive (true);
+				t5.SetActive (true);
+				GameManagement.Instance.isPaused = false;
+				i6.SetActive (false);
+				TutorialManager.Instance.pointi6.SetActive (false);
 
+			} else if (TutorialManager.Instance.pointi7.activeSelf == true && Input.GetKeyDown (KeyCode.Space)) {
+				TutorialManager.Instance.point7.SetActive (true);
+				t7.SetActive (true);
+				GameManagement.Instance.isPaused = false;
+				i7.SetActive (false);
+				TutorialManager.Instance.pointi7.SetActive (false);
+
+			}
 		}
 
 	}
@@ -105,43 +137,44 @@ public class TutorialPointScript : MonoBehaviour {
 		if (col.gameObject.tag == "Player") 
 		{
 			//Debug.Log ("player enter point");
-			if (p1.activeSelf == true) {
-				Debug.Log ("test1");
+			if (TutorialManager.Instance.point1.activeSelf == true) {
+				TutorialManager.Instance.pointi2.SetActive (true);
 				i2.SetActive (true);
 				GameManagement.Instance.isPaused = true;
-				Debug.Log ("after pause");
-				p1.SetActive (false);
+				TutorialManager.Instance.point1.SetActive (false);
 				t1.SetActive (false);
-				Debug.Log ("leave part 1");
 
 			} 
 
-			else if (p3.activeSelf == true) {
-				p4.SetActive (true);
-				t4.SetActive (true);
-				p3.SetActive (false);
+			else if (TutorialManager.Instance.point3.activeSelf == true) {
+				TutorialManager.Instance.pointi5.SetActive (true);
+				i5.SetActive (true);
+				GameManagement.Instance.isPaused = true;
+				TutorialManager.Instance.point3.SetActive (false);
 				t3.SetActive (false);
 
 			} 
 
-			else if (p4a.activeSelf == true) {
-				p5.SetActive (true);
-				t5.SetActive (true);
-				p4a.SetActive (false);
+			else if (TutorialManager.Instance.point4a.activeSelf == true) {
+				TutorialManager.Instance.pointi6.SetActive (true);
+				i6.SetActive (true);
+				GameManagement.Instance.isPaused = true;
+				TutorialManager.Instance.point4a.SetActive (false);
 
 			}
 
-			else if (p5.activeSelf == true) {
-				p6.SetActive (true);
+			else if (TutorialManager.Instance.point5.activeSelf == true) {
+				TutorialManager.Instance.point6.SetActive (true);
 				t6.SetActive (true);
-				p5.SetActive (false);
+				TutorialManager.Instance.point5.SetActive (false);
 				t5.SetActive (false);
 			}
 
-			else if (p6.activeSelf == true) {
-				p7.SetActive (true);
-				t7.SetActive (true);
-				p6.SetActive (false);
+			else if (TutorialManager.Instance.point6.activeSelf == true) {
+				TutorialManager.Instance.pointi7.SetActive (true);
+				i7.SetActive (true);
+				GameManagement.Instance.isPaused = true;
+				TutorialManager.Instance.point6.SetActive (false);
 				t6.SetActive (false);
 			}
 	
@@ -149,10 +182,10 @@ public class TutorialPointScript : MonoBehaviour {
 
 		else if (col.gameObject.tag == "Rocks" || col.gameObject.name == "Unke (3)")
 		{
-			if (p4.activeSelf == true) 
+			if (TutorialManager.Instance.point4.activeSelf == true) 
 			{
-				p4a.SetActive (true);
-				p4.SetActive (false);
+				TutorialManager.Instance.point4a.SetActive (true);
+				TutorialManager.Instance.point4.SetActive (false);
 				t4.SetActive (false);
 			}
 

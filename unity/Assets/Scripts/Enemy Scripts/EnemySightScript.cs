@@ -47,7 +47,7 @@ public class EnemySightScript : MonoBehaviour
 	{
 		if(visuals.isVisible)
 		{
-			Debug.Log ("FINDING VISIBLE TARGETS");
+			//Debug.Log ("FINDING VISIBLE TARGETS");
 			visibleTargets.Clear();
 			//Adds targets in view radius to an array
 			Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
