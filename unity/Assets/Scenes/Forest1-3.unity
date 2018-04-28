@@ -206,7 +206,7 @@ TilemapRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 16e021f9276bb4f3cb6e69e6ba1a98b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19521,52 +19521,6 @@ Transform:
   m_Father: {fileID: 1719947112}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &328876239
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -76.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_RootOrder
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 1773231620619220, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_Name
-      value: BulletPickUp (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &330439296
 Transform:
   m_ObjectHideFlags: 0
@@ -19642,52 +19596,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4378642923992832, guid: edc299edfa204457b81fa5a043ffcd07,
     type: 2}
   m_PrefabInternal: {fileID: 667585830}
---- !u!1001 &349900314
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -53
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_RootOrder
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1773231620619220, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-      propertyPath: m_Name
-      value: BulletPickUp (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &353321471
 Prefab:
   m_ObjectHideFlags: 0
@@ -22200,7 +22108,7 @@ TilemapRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 16e021f9276bb4f3cb6e69e6ba1a98b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24817,7 +24725,7 @@ TilemapRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 16e021f9276bb4f3cb6e69e6ba1a98b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28471,7 +28379,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4075956927720934, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 1773231620619220, guid: a8c6ce02d676fae45b3629552e3ecfaf, type: 2}
       propertyPath: m_Name

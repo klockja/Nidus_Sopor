@@ -66,7 +66,7 @@ public class Dialogue : MonoBehaviour
 	{
 		if (Input.GetKeyDown (DialogueInput)) 
 		{
-			if (!_isDialoguePlaying) 
+			if (!_isDialoguePlaying && DialogueEnded == false) 
 			{
 				_isDialoguePlaying = true;
 				StartCoroutine (StartDialogue ());
