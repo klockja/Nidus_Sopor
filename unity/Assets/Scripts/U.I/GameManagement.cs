@@ -61,6 +61,7 @@ public class GameManagement : GenericSingletonClass<GameManagement> {
 			unusedBullet = 0;
 			rockCount = 1;
 			playerDeathNumber = 0;
+			hasegg = false;
 		}
 
 		if (nextScene == true) {

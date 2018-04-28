@@ -155,14 +155,18 @@ public class GameplayCanvasScript : GenericSingletonClass<GameplayCanvasScript> 
 
 	public void PauseScene () //puase the game and bring up the pause menu
 	{
-		if (GameManagement.Instance.isPaused == false) {
-			GameManagement.Instance.isPaused = true;
-			Panel2.gameObject.SetActive (true);
-			Panel1.gameObject.SetActive (false);
-		} else {
-			GameManagement.Instance.isPaused = false;
-			Panel2.gameObject.SetActive (true);
-			Panel1.gameObject.SetActive (false);
+		if (DefeatPanel.activeSelf == false) {
+			if (GameManagement.Instance.isPaused == false) {
+				TurnOnBlackScreen ();
+				GameManagement.Instance.isPaused = true;
+				Panel2.gameObject.SetActive (true);
+				Panel1.gameObject.SetActive (false);
+			} else {
+				TurnOnBlackScreen ();
+				GameManagement.Instance.isPaused = false;
+				Panel2.gameObject.SetActive (true);
+				Panel1.gameObject.SetActive (false);
+			}
 		}
 	}
 
