@@ -61,6 +61,12 @@ public class TutorialManager: GenericSingletonClass<TutorialManager> {
 			currentScene = newScene;
 		}
 
+		if (currentScene == "Title Scene" || currentScene == "TItle Scene") {
+
+			getPoint = 1;
+			Debug.Log ("Reset Tutorail Manager");
+		}
+
 		if (currentScene == "Beach" && point1 == null && point2 == null && point3 == null && point4 == null && point4a == null && point5 == null && point6 == null && point7 == null && point8 == null && pointi2 == null && pointi3 == null && pointi4 == null && pointi5 == null && pointi6 == null && pointi7 == null) {
 
 			SearchForPoint ();
