@@ -89,17 +89,20 @@ public class PortalScript : MonoBehaviour {
 				GameObject.Find ("Player").GetComponent<PlayerController> ().unusedBulletNum = 0;
 				GameObject.Find ("Player").GetComponent<PlayerController> ().bulletNum = 6;
 				GameplayCanvasScript.Instance.LoadSceneNow (nextScene);
-			} else if (SceneManager.GetActiveScene ().name == "Beach2") {
 
+			} else if (SceneManager.GetActiveScene ().name == "Beach2") {
 				MusicManagerScript.Instance.musicPlayer.clip = MusicManagerScript.Instance.epilogue;
 				MusicManagerScript.Instance.musicPlayer.Play ();
+				GameManagement.Instance.hasegg = false;
 				GameplayCanvasScript.Instance.LoadSceneNow ("End Cutscene");
+
 			} else if (SceneManager.GetActiveScene ().name != "Cave2" && SceneManager.GetActiveScene ().name != "Beach2") {
 				currentScene = SceneManager.GetActiveScene ().name;
 				DetermineNextScene ();
 				GameObject.Find ("GameManager").GetComponent<GameManagement> ().nextScene = true;
 				//Debug.Log ("TIME TO LOAD NEW SCENE");
 				GameplayCanvasScript.Instance.LoadSceneNow (nextScene);
+
 			} else if (SceneManager.GetActiveScene ().name == "Cave2" && GameManagement.Instance.hasegg == true) {
 				currentScene = SceneManager.GetActiveScene ().name;
 				DetermineNextScene ();

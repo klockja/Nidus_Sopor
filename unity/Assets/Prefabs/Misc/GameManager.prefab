@@ -51,10 +51,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -136,11 +136,11 @@ MonoBehaviour:
   goingBackwards: 0
   gameover: 0
   nextScene: 0
+  hasegg: 0
   bulletCount: 0
   unusedBullet: 0
   rockCount: 0
-  musicPlayer: {fileID: 0}
-  titleMusic: {fileID: 0}
-  beachMusic: {fileID: 0}
-  forestMusic: {fileID: 0}
-  caveMusic: {fileID: 0}
+  player: {fileID: 0}
+  playerDeathNumber: 0
+  originalDeathNumber: 0
+  isPlayerDead: 0

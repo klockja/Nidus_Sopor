@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 114144989557290768}
   - component: {fileID: 114674746241925688}
   - component: {fileID: 114622640250433748}
-  - component: {fileID: 114006956895597358}
   m_Layer: 5
   m_Name: Return Button
   m_TagString: Untagged
@@ -796,7 +795,6 @@ GameObject:
   - component: {fileID: 114938464215024022}
   - component: {fileID: 114174141960677306}
   - component: {fileID: 114256851207559934}
-  - component: {fileID: 114770233940126228}
   m_Layer: 5
   m_Name: Return Button
   m_TagString: Untagged
@@ -1143,7 +1141,6 @@ GameObject:
   - component: {fileID: 114687105996361328}
   - component: {fileID: 114889538886846444}
   - component: {fileID: 114905135928384648}
-  - component: {fileID: 114370146667143798}
   m_Layer: 5
   m_Name: 'Return Button '
   m_TagString: Untagged
@@ -1437,7 +1434,6 @@ GameObject:
   - component: {fileID: 114782453327341876}
   - component: {fileID: 114461948486797802}
   - component: {fileID: 114202913203991038}
-  - component: {fileID: 114336257500804920}
   m_Layer: 5
   m_Name: Return Button
   m_TagString: Untagged
@@ -2105,7 +2101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1655070981224960
 GameObject:
   m_ObjectHideFlags: 1
@@ -2118,7 +2114,6 @@ GameObject:
   - component: {fileID: 114327446401984296}
   - component: {fileID: 114271954498719744}
   - component: {fileID: 114467663560186674}
-  - component: {fileID: 114988720825026336}
   m_Layer: 5
   m_Name: Return Button
   m_TagString: Untagged
@@ -3092,20 +3087,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114006956895597358
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1005991830459904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387accc62bd9a41d9b8f386e36165a69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _returnButton: {fileID: 114674746241925688}
-  audioSource: {fileID: 82879280865528012}
-  buttonPressSound: {fileID: 8300000, guid: be52970ae95dc48da8fd2d373dd2965f, type: 3}
 --- !u!114 &114017723415657064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5421,20 +5402,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114336257500804920
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1464706601795982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387accc62bd9a41d9b8f386e36165a69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _returnButton: {fileID: 114461948486797802}
-  audioSource: {fileID: 82879280865528012}
-  buttonPressSound: {fileID: 8300000, guid: be52970ae95dc48da8fd2d373dd2965f, type: 3}
 --- !u!114 &114348344583393710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5495,20 +5462,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Loading...
---- !u!114 &114370146667143798
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1368009668129872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387accc62bd9a41d9b8f386e36165a69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _returnButton: {fileID: 114889538886846444}
-  audioSource: {fileID: 82879280865528012}
-  buttonPressSound: {fileID: 8300000, guid: be52970ae95dc48da8fd2d373dd2965f, type: 3}
 --- !u!114 &114370689367976678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6971,17 +6924,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114585602541282938}
-        m_MethodName: TurnOnBlackScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114603212562049798
@@ -8395,20 +8337,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114770233940126228
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1262905136968352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387accc62bd9a41d9b8f386e36165a69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _returnButton: {fileID: 114174141960677306}
-  audioSource: {fileID: 82879280865528012}
-  buttonPressSound: {fileID: 8300000, guid: be52970ae95dc48da8fd2d373dd2965f, type: 3}
 --- !u!114 &114774055768288648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9665,20 +9593,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Scent
---- !u!114 &114988720825026336
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1655070981224960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387accc62bd9a41d9b8f386e36165a69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _returnButton: {fileID: 114271954498719744}
-  audioSource: {fileID: 82879280865528012}
-  buttonPressSound: {fileID: 8300000, guid: be52970ae95dc48da8fd2d373dd2965f, type: 3}
 --- !u!114 &114990191690733014
 MonoBehaviour:
   m_ObjectHideFlags: 1

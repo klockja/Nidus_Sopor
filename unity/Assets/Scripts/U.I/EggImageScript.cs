@@ -18,6 +18,9 @@ public class EggImageScript : MonoBehaviour {
 	void Update () {
 		if (GameManagement.Instance.hasegg == true) {
 			gameObject.GetComponent<Image> ().sprite = egg;
+		} 
+		else if (GameManagement.Instance.hasegg == false) {
+			gameObject.GetComponent<Image> ().sprite = noEgg;
 		}
 	}
 }
